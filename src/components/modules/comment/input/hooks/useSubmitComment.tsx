@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 
-import { COMMENT_EMPTY } from "@Library/constants/comment";
 import { useCreateCommentMutation } from "@Hooks/react-query/comment/useCommentMutation";
+import { COMMENT_EMPTY } from "@Library/constants/comment";
 
 const useSubmitComment = (postId: string, replyTo: string | null) => {
   const [content, setContent] = useState("");

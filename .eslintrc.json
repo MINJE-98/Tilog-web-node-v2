@@ -27,6 +27,7 @@
     "react/require-default-props": "off",
     "@typescript-eslint/lines-between-class-members": "off",
     "class-methods-use-this": "off",
+    "react/no-unused-prop-types": "off",
     "import/order": [
       "error",
       {

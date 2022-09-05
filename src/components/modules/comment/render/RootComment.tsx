@@ -2,13 +2,13 @@ import { useState } from "react";
 
 import CommentInput from "@Components/modules/comment/input/CommentInput";
 import CommentRender from "@Components/modules/comment/render/CommentRender";
+import useGetChildCommentQuery from "@Hooks/react-query/comment/children/useGetChildCommentQuery";
 import {
   REPLY_CLOSE,
   REPLY_INPUT,
   REPLY_OPEN,
   REPLY_PLACEHOLDER,
 } from "@Library/constants/comment";
-import useGetChildCommentQuery from "@Hooks/react-query/comment/children/useGetChildCommentQuery";
 
 import { GetCommentsItem } from "@til-log.lab/tilog-api";
 

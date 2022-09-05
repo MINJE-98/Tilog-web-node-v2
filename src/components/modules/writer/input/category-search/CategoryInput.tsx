@@ -3,9 +3,9 @@ import { useRef } from "react";
 import { useFormContext } from "react-hook-form";
 
 import Autocomplete from "@Components/modules/writer/input/category-search/autocomplete";
-import { CATEGORY_ID, CATEGORY_PLACEHOLDER } from "@Library/constants/writer";
 import useOutsideClickAndEscClickListener from "@Hooks/event-listener/useOutsideClickAndEscClickListener";
 import useSearchCategoryName from "@Hooks/react-query/category/useSearchCategoryName";
+import { CATEGORY_ID, CATEGORY_PLACEHOLDER } from "@Library/constants/writer";
 
 import WriterFormTypes from "@Components/modules/writer/interface/writerFormTypes";
 
