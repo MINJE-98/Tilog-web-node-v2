@@ -1,25 +1,27 @@
 import { useEffect } from "react";
 
-import { TILOG_AUTH } from "@Library/constants/environment";
-import useGetMeQuery from "@Hooks/react-query/user/useGetMeQuery";
+import api from "@Library/api";
 
-const useLogin = () => {
-  const { refetch } = useGetMeQuery();
+import SetUserInfoType from "@Hooks/context/auth/interface/setUserInfoType";
+
+const useLogin = (setUserInfo: SetUserInfoType) => {
   useEffect(() => {
     window.addEventListener(
       "message",
       async (event) => {
         if (event.origin !== window.location.origin) return;
         if (event.data === "login") {
-          refetch();
+          await api.authService.getAccessTokenUsingRefreshToken();
+          const userInfo = await api.usersService.getMe();
+          setUserInfo(userInfo);
         }
       },
       false
     );
-  }, [refetch]);
+  }, [setUserInfo]);
   return () => {
     return window.open(
-      TILOG_AUTH,
+      process.env.TILOG_AUTH,
       "",
       "toolbar=no, menubar=no, width=600, height=700"
     );

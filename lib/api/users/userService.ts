@@ -15,11 +15,10 @@ import GetUserProfileResponseTransFormSettingsDto from "@Library/api/users/inter
 export default class UserService {
   constructor(private readonly userRepository: UserRepository) {}
 
-  @validateToken()
   async getMe(
     options?: AxiosRequestConfig<unknown>
   ): Promise<GetMeResponseTransFormSettingsDto> {
-    const { data } = await this.userRepository.usersControllerGetMe(options);
+    const { data } = await this.userRepository.getMe(options);
     const newResponse: GetMeResponseTransFormSettingsDto = {
       id: data.userId,
       avatar: data.avatar,
@@ -35,7 +34,7 @@ export default class UserService {
     userName: number,
     options?: AxiosRequestConfig<unknown>
   ): Promise<GetUserProfileResponseTransFormSettingsDto> {
-    const { data } = await this.userRepository.usersControllerGetUserProfile(
+    const { data } = await this.userRepository.getUserProfile(
       userName,
       options
     );
@@ -58,9 +57,6 @@ export default class UserService {
       content,
       settingType,
     };
-    await this.userRepository.usersControllerSetSetting(
-      setSettingRequestBodyDto,
-      options
-    );
+    await this.userRepository.setSetting(setSettingRequestBodyDto, options);
   }
 }
