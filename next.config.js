@@ -15,11 +15,11 @@ const schema = Joi.object({
     throw Error(e);
   }
 })();
-
+console.log(process.env.NEXT_PUBLIC_TILOG_API);
+console.log(process.env.NEXT_PUBLIC_TILOG_AUTH);
 const nextConfig = {
   reactStrictMode: true,
   env: {
-
     TILOG_API: process.env.NEXT_PUBLIC_TILOG_API,
     TILOG_AUTH: process.env.NEXT_PUBLIC_TILOG_AUTH,
   },
