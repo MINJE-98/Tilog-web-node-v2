@@ -6,9 +6,18 @@ import PostLikeService from "@Library/api/post/like/postLikeService";
 import PostRepository from "@Library/api/post/postRepository";
 import PostService from "@Library/api/post/postService";
 
-const postRepository = new PostRepository({ axios: tilogApi.http });
-const postLikeRepository = new PostLikeRepository({ axios: tilogApi.http });
-const commentRepository = new CommentRepository({ axios: tilogApi.http });
+const postRepository = new PostRepository({
+  axios: tilogApi.http,
+  basePath: process.env.TILOG_API,
+});
+const postLikeRepository = new PostLikeRepository({
+  axios: tilogApi.http,
+  basePath: process.env.TILOG_API,
+});
+const commentRepository = new CommentRepository({
+  axios: tilogApi.http,
+  basePath: process.env.TILOG_API,
+});
 
 const postService = new PostService(postRepository);
 const postLikeService = new PostLikeService(postLikeRepository);
