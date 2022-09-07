@@ -5,7 +5,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: NotoSans, Poppins, sans-serif, -apple-system;
+  font-family: -apple-system, NotoSans, Poppins, sans-serif;
 
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
