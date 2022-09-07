@@ -6,9 +6,9 @@ import { AppProps } from "next/app";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import withAuth from "@Components/common/hoc/withAuth";
-import { AuthProvider } from "@Hooks/context/auth/AuthProvider";
-import useProgressBar from "@Hooks/pages/app/useProgressBar";
+import { AuthProvider } from "@Contexts/auth/AuthProvider";
+import withAuth from "@HOCS/withAuth";
+import useProgressBar from "@Hooks/useProgressBar";
 
 const queryClient = new QueryClient({});
 

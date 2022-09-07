@@ -3,18 +3,20 @@ import Head from "next/head";
 
 import { FormProvider, useForm } from "react-hook-form";
 
-import RootBox from "@Components/common/atom/box/RootBox";
-import TiptapEditor from "@Components/common/molecules/text-area/TiptapEditor";
-import PrivateSubmit from "@Components/modules/writer/button/PrivateSubmit";
-import PublicSubmit from "@Components/modules/writer/button/PublicSubmit";
-import SearchCategory from "@Components/modules/writer/input/category-search";
-import CoverImage from "@Components/modules/writer/input/cover-image";
-import SubTitleInput from "@Components/modules/writer/input/SubTitleInput";
-import TitleInput from "@Components/modules/writer/input/TitleInput";
-import useHandleSummit from "@Hooks/pages/writer/hooks/useHandleSummit";
-import { TITLE_WRITER } from "@Library/constants/writer";
+import RootBox from "@Commons/atom/box/RootBox";
+import {
+  CoverImage,
+  PrivateSubmit,
+  PublicSubmit,
+  SearchCategory,
+  SubTitleInput,
+  TiptapEditor,
+  TitleInput,
+} from "@Components/writer";
+import { TITLE_WRITER } from "@Constants/writer";
+import useHandleSummit from "@Hooks/useHandleWriterSummit";
 
-import WriterFormTypes from "@Components/modules/writer/interface/writerFormTypes";
+import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
 
 const WriterPage: NextPage = () => {
   const method = useForm<WriterFormTypes>();

@@ -2,8 +2,8 @@ import { NextPage } from "next";
 
 import { DefaultSeo } from "next-seo";
 
-import RootBox from "@Components/common/atom/box/RootBox";
-import { notFoundPostSeo } from "@Library/utility/seo";
+import RootBox from "@Commons/atom/box/RootBox";
+import { notFoundPostSeo } from "@SEO/seo";
 
 const NotFoundPage: NextPage = () => {
   return (
