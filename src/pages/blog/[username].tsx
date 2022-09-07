@@ -2,15 +2,16 @@ import { GetServerSideProps, NextPage } from "next";
 
 import { DefaultSeo } from "next-seo";
 
-import RootBox from "@Components/common/atom/box/RootBox";
-import Header from "@Components/common/organisms/header";
-import CategorySortButtonList from "@Components/common/organisms/list/CategorySortButtonList";
-import { UserInfoProfile, PostCardList } from "@Components/modules/blog";
-import useGetStringTypeToRouter from "@Hooks/router/useGetStringTypeToRouter";
-import api from "@Library/api";
-import { userBlogDetailSeo } from "@Library/utility/seo";
+import api from "@Api";
+import RootBox from "@Commons/atom/box/RootBox";
+import Header from "@Commons/organisms/header";
+import CategorySortButtonList from "@Commons/organisms/list/CategorySortButtonList";
+import PostCardList from "@Commons/organisms/list/PostCardList";
+import UserInfoProfile from "@Commons/organisms/profile/UserInfoProfile";
+import useGetStringTypeToRouter from "@Hooks/useGetStringTypeToRouter";
+import { userBlogDetailSeo } from "@SEO/seo";
 
-import GetUserProfileResponseTransFormSettingsDto from "@Library/api/users/interface/getUserProfileResponseTransFormSettingsDto";
+import GetUserProfileResponseTransFormSettingsDto from "@Api/users/interface/getUserProfileResponseTransFormSettingsDto";
 
 interface BlogPagePageProps {
   userInfo: GetUserProfileResponseTransFormSettingsDto;

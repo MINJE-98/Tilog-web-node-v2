@@ -4,18 +4,18 @@ import { useContext } from "react";
 
 import { FormProvider, useForm } from "react-hook-form";
 
-import RootBox from "@Components/common/atom/box/RootBox";
+import RootBox from "@Commons/atom/box/RootBox";
 import {
-  SettingsSubmit,
   DisplayNameInput,
   EmailInput,
   IntroductionInput,
   PositionInput,
-} from "@Components/modules/settings";
-import { AuthContext } from "@Hooks/context/auth/AuthContext";
-import useHandleSubmit from "@Hooks/pages/settings/hooks/useHandleSubmit";
+  SettingsSubmit,
+} from "@Components/settings";
+import { AuthContext } from "@Contexts/auth/AuthContext";
+import useHandleSubmit from "@Hooks/useHandleSettingsSubmit";
 
-import UserSettingTypes from "@Library/api/users/interface/userSettingTypes";
+import UserSettingTypes from "@Api/users/interface/userSettingTypes";
 
 const SettingPage: NextPage = () => {
   const onSubmit = useHandleSubmit();

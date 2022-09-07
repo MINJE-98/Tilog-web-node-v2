@@ -2,14 +2,14 @@ import { GetServerSideProps, NextPage } from "next";
 
 import { DefaultSeo } from "next-seo";
 
-import RootBox from "@Components/common/atom/box/RootBox";
-import PostThumbnail from "@Components/common/molecules/images/PostThumbnail";
-import TiptapViewer from "@Components/common/molecules/text-area/TiptapViewer";
-import Header from "@Components/common/organisms/header";
-import Comment from "@Components/modules/comment";
-import { PostHeader, PostLike, PostWriter } from "@Components/modules/post";
-import api from "@Library/api";
-import { postDetailSeo } from "@Library/utility/seo";
+import api from "@Api/index";
+import RootBox from "@Commons/atom/box/RootBox";
+import PostThumbnail from "@Commons/molecules/images/PostThumbnail";
+import TiptapViewer from "@Commons/molecules/text-area/TiptapViewer";
+import Header from "@Commons/organisms/header";
+import Comment from "@Components/comment";
+import { PostHeader, PostLike, PostWriter } from "@Components/post";
+import { postDetailSeo } from "@SEO/seo";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
