@@ -8,17 +8,18 @@ import {
 export default class ResponseError implements ExceptionInterface {
   readonly statusCode: number;
   readonly requestLocation: string;
-  readonly message?: string;
+  readonly message: string;
 
   constructor(errorObject: ServerExceptionInterface) {
     this.statusCode = errorObject.statusCode;
     this.requestLocation = errorObject.requestLocation;
 
     if (!errorObject.message.ko) {
-      this.message = errorObject.message.en;
-    }
-    if (!errorObject.message) {
-      this.message = NO_MESSAGE;
+      this.message = !errorObject.message.en
+        ? NO_MESSAGE
+        : errorObject.message.en;
+    } else {
+      this.message = errorObject.message.ko;
     }
   }
 }

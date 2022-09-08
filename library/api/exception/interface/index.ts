@@ -15,5 +15,5 @@ export interface ServerExceptionInterface {
 export interface ExceptionInterface {
   readonly statusCode: number;
   readonly requestLocation: string;
-  readonly message?: String;
+  readonly message: String;
 }

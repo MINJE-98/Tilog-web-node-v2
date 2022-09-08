@@ -8,7 +8,7 @@ import {
 } from "@til-log.lab/tilog-api";
 
 import GetCategoryListInterface from "@Api/category/interface/GetCategoryListInterface";
-import ExceptionInterface from "@Api/exception/interface";
+import { ExceptionInterface } from "@Api/exception/interface";
 
 export default class CategoryService {
   constructor(private readonly categoryRepository: CategoryRepository) {}

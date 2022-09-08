@@ -5,7 +5,7 @@ import api from "@Api";
 
 import { HasLikedResponseDto } from "@til-log.lab/tilog-api";
 
-import ExceptionInterface from "@Api/exception/interface";
+import { ExceptionInterface } from "@Api/exception/interface";
 import PostHasLikeDto from "@Api/post/like/interface/postHasLikeDto";
 
 export default function useGetHasLikeQuery(postId: PostHasLikeDto["postId"]) {

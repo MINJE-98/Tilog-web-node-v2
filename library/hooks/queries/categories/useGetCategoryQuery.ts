@@ -5,7 +5,7 @@ import api from "@Api";
 
 import { GetCategoriesResponseDto } from "@til-log.lab/tilog-api";
 
-import ExceptionInterface from "@Api/exception/interface";
+import { ExceptionInterface } from "@Api/exception/interface";
 
 const useGetCategoryQuery = () => {
   return useQuery<

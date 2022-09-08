@@ -10,7 +10,7 @@ import {
   ModifyPostRequestBodyDto,
 } from "@til-log.lab/tilog-api";
 
-import ExceptionInterface from "@Api/exception/interface";
+import { ExceptionInterface } from "@Api/exception/interface";
 import GetPostRequestDto from "@Api/post/interface/getPostRequestDto";
 
 export default class PostService {

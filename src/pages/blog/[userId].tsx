@@ -75,7 +75,8 @@ export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
     if (!userId) return { notFound: true };
     if (Array.isArray(userId)) return { notFound: true };
     try {
-      const userInfo = await api.usersService.getUserProfile(userId);
+      const numberUserId = parseInt(userId, 10);
+      const userInfo = await api.usersService.getUserProfile(numberUserId);
       return {
         props: {
           userInfo,

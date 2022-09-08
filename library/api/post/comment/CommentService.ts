@@ -10,7 +10,7 @@ import {
   UpdateCommentRequestDto,
 } from "@til-log.lab/tilog-api";
 
-import ExceptionInterface from "@Api/exception/interface";
+import { ExceptionInterface } from "@Api/exception/interface";
 
 export default class CommentService {
   constructor(private readonly commentRepository: CommentRepository) {}

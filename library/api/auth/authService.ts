@@ -3,7 +3,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import AuthRepository from "@Api/auth/authRepository";
 import validateToken from "@Api/auth/validateTokenDecorator";
 
-import ExceptionInterface from "@Api/exception/interface";
+import { ExceptionInterface } from "@Api/exception/interface";
 
 export default class AuthService {
   constructor(

@@ -5,7 +5,7 @@ import api from "@Api";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
-import ExceptionInterface from "@Api/exception/interface";
+import { ExceptionInterface } from "@Api/exception/interface";
 
 const useGetPostDetailQuery = (postId: string) => {
   return useQuery<

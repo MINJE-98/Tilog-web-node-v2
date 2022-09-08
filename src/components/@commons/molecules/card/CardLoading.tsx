@@ -5,7 +5,7 @@ import Spinner from "@Commons/atom/loading/Spinner";
 
 import { GetPostsResponseDto } from "@til-log.lab/tilog-api";
 
-import ExceptionInterface from "@Api/exception/interface";
+import { ExceptionInterface } from "@Api/exception/interface";
 
 interface CardLoadingProps {
   hasNextPage: boolean | undefined;

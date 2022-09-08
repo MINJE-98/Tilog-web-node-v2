@@ -7,7 +7,7 @@ import {
   UserApi,
 } from "@til-log.lab/tilog-api";
 
-import ExceptionInterface from "@Api/exception/interface";
+import { ExceptionInterface } from "@Api/exception/interface";
 import RepositoryConfig from "@Api/interface/RepositoryConfig";
 
 export default class UserRepository {
