@@ -3,4 +3,4 @@ export const SETTINGS_INPUT_TYPE = {
   INTRO_MSG: "INTRO_MSG",
   EMAIL: "EMAIL",
   POSITION: "POSITION",
-};
+} as const;

@@ -6,3 +6,4 @@ export * from "./publish";
 export * from "./reply";
 export * from "./save";
 export * from "./viewBlog";
+export * from "./githubLogin";

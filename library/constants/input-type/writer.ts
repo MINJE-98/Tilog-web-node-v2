@@ -5,4 +5,4 @@ export const WRITER_INPUT_TYPE = {
   CATEGORY_ID: "categoryId",
   TITLE: "title",
   IS_PRIVATE: "isPrivate",
-};
+} as const;

@@ -5,4 +5,4 @@ export const HOME_INTRO = {
     USER: "지금 바로 새로운 글을 작성해보세요.",
     GUEST: "아직 회원이 아니시군요? 🤩버튼 한번에 가입 할 수 있어요!🤩",
   },
-};
+} as const;

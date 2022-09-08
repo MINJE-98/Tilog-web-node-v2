@@ -3,4 +3,4 @@ export const USER_PROFILE_DROPBOX = {
   MY_BLOG: "내 블로그",
   SETTINGS: "설정",
   LOGOUT: "로그아웃",
-};
+} as const;
