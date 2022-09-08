@@ -4,3 +4,4 @@ export * from "./latestPost";
 export * from "./mostPopularPost";
 export * from "./placeholder";
 export * from "./viewCount";
+export * from "./Logo";

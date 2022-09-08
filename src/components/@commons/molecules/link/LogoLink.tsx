@@ -1,15 +1,10 @@
 import LinkTo from "@Commons/atom/LinkTo";
+import { LOGO } from "@Constants/text";
 
-interface LogoLinkProps {
-  className: string;
-}
-
-const LogoLink = ({ className }: LogoLinkProps) => {
+const LogoLink = () => {
   return (
-    <LinkTo href="/">
-      <div
-        className={`${className} w-20 h-10 rounded-tl-full rounded-tr-full `}
-      />
+    <LinkTo href="/" className="hover:no-underline">
+      <h2 className="font-logo-font">{LOGO}</h2>
     </LinkTo>
   );
 };
