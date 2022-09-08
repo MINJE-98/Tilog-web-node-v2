@@ -1,9 +1,7 @@
-import { useContext } from "react";
-
 import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
 import CommentUserProfile from "@Components/comment/CommentUserProfile";
 import useSubmitComment from "@Components/comment/input/hooks/useSubmitComment";
-import { AuthContext } from "@Contexts/auth/AuthContext";
+import { useAuth } from "@Contexts/auth/AuthContext";
 
 import { GetCommentsItem } from "@til-log.lab/tilog-api";
 
@@ -19,7 +17,7 @@ const CommentInput = ({
   placeholder,
   buttonText,
 }: CommentInputProps) => {
-  const { userInfo } = useContext(AuthContext);
+  const { userInfo } = useAuth();
 
   const { handleSubmit, content, errorMessage, handleComment } =
     useSubmitComment(postId, replyTo);

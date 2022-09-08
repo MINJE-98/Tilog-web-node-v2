@@ -1,14 +1,12 @@
-import { useContext } from "react";
-
 import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
 import LinkTo from "@Commons/atom/LinkTo";
 import LoginButton from "@Commons/molecules/buttons/LoginButton";
 import { WRITE } from "@Constants/button";
 import { HOME_INTRO, HOME_STATUS } from "@Constants/text";
-import { AuthContext } from "@Contexts/auth/AuthContext";
+import { useAuth } from "@Contexts/auth/AuthContext";
 
 const IntroThumbnail = () => {
-  const { userInfo } = useContext(AuthContext);
+  const { userInfo } = useAuth();
   return (
     <div className="w-full px-3 py-32 md:py-60 bg-neutral-900 dark:bg-neutral-800 ">
       <div className="m-auto max-w-[1280px]">

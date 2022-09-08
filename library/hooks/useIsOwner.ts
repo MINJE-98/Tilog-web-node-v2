@@ -1,11 +1,9 @@
-import { useContext } from "react";
-
-import { AuthContext } from "@Contexts/auth/AuthContext";
+import { useAuth } from "@Contexts/auth/AuthContext";
 
 import { PostDetailUserInfoItem } from "@til-log.lab/tilog-api";
 
 const useIsOwner = (userInfoId: PostDetailUserInfoItem["userId"]) => {
-  const { userInfo } = useContext(AuthContext);
+  const { userInfo } = useAuth();
   if (!userInfo) return false;
   if (userInfo.id === userInfoId) return true;
   return false;

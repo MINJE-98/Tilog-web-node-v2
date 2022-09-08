@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
-
 import { SiGithub } from "react-icons/si";
 
 import PrimaryButton from "@Components/@commons/atom/buttons/PrimaryButton";
 import { GITHUB_LOGIN } from "@Constants/button";
-import { AuthContext } from "@Contexts/auth/AuthContext";
+import { useAuth } from "@Contexts/auth/AuthContext";
 
 const LoginButton = () => {
-  const { handleLogin } = useContext(AuthContext);
+  const { handleLogin } = useAuth();
   return (
     <PrimaryButton
       className="flex justify-center space-x-3"

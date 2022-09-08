@@ -11,7 +11,7 @@ const PostWriter = ({ userInfo }: PostWriterProps) => {
   return (
     <div className="w-full p-5">
       <UserInfoProfile userId={userInfo.userId} />
-      <UserBlogLink userName={userInfo.username} />
+      <UserBlogLink userName={userInfo.username} userId={userInfo.userId} />
     </div>
   );
 };
