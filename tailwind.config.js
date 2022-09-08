@@ -53,10 +53,6 @@ module.exports = {
       typography: {
         DEFAULT: { css: disabledCss },
       },
-
-      fontFamily: {
-        "logo-font": ["DancingScript"],
-      },
       aspectRatio: {
         "2/1": "2 / 1",
       },
