@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import { DefaultSeoProps } from "next-seo";
 
 import { HOME_INTRO } from "@Constants/text";
@@ -13,7 +14,7 @@ export const homeSeo: DefaultSeoProps = {
     site_name: "TILog",
     images: [
       {
-        url: "../../public/asset/preThumbnail.png",
+        url: require("../../public/asset/preThumbnail.png"),
         width: 285,
         height: 167,
         alt: "TILog_thumbnailUrl",
