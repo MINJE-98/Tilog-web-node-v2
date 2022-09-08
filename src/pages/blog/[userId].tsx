@@ -7,6 +7,7 @@ import Header from "@Commons/organisms/header";
 import CategorySortButtonList from "@Commons/organisms/list/CategorySortButtonList";
 import PostCardList from "@Commons/organisms/list/PostCardList";
 import UserInfoProfile from "@Commons/organisms/profile/UserInfoProfile";
+import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useGetStringTypeToRouter from "@Hooks/useGetStringTypeToRouter";
 import RootBox from "@Layouts/box/RootBox";
 import { userBlogDetailSeo } from "@SEO/seo";
@@ -68,20 +69,22 @@ const BlogPage: NextPage<BlogPagePageProps> = ({
   );
 };
 export default BlogPage;
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { username } = context.query;
-  if (!username) return { props: {} };
-  if (Array.isArray(username)) return { props: {} };
-  try {
-    const userInfo = await api.usersService.getUserProfile(1);
-    return {
-      props: {
-        userInfo,
-      },
-    };
-  } catch (error) {
-    return {
-      notFound: true,
-    };
+export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
+  async (context) => {
+    const { userId } = context.query;
+    if (!userId) return { notFound: true };
+    if (Array.isArray(userId)) return { notFound: true };
+    try {
+      const userInfo = await api.usersService.getUserProfile(userId);
+      return {
+        props: {
+          userInfo,
+        },
+      };
+    } catch (error) {
+      return {
+        notFound: true,
+      };
+    }
   }
-};
+);

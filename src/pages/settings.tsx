@@ -1,6 +1,5 @@
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
-import { useContext } from "react";
 
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -11,7 +10,8 @@ import {
   PositionInput,
   SettingsSubmit,
 } from "@Components/settings";
-import { AuthContext } from "@Contexts/auth/AuthContext";
+import { useAuth } from "@Contexts/auth/AuthContext";
+import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useHandleSubmit from "@Hooks/useHandleSettingsSubmit";
 import RootBox from "@Layouts/box/RootBox";
 
@@ -19,7 +19,7 @@ import UserSettingTypes from "@Api/users/interface/userSettingTypes";
 
 const SettingPage: NextPage = () => {
   const onSubmit = useHandleSubmit();
-  const { userInfo } = useContext(AuthContext);
+  const { userInfo } = useAuth();
   const method = useForm<UserSettingTypes>({
     defaultValues: userInfo ? userInfo.settings : {},
   });
@@ -46,3 +46,10 @@ const SettingPage: NextPage = () => {
 };
 
 export default SettingPage;
+export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
+  null,
+  {
+    destination: "/",
+    permanent: true,
+  }
+);

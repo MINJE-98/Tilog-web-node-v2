@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -11,6 +11,7 @@ import {
   TiptapEditor,
   TitleInput,
 } from "@Components/writer";
+import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useHandleSummit from "@Hooks/useHandleWriterSummit";
 import RootBox from "@Layouts/box/RootBox";
 
@@ -41,3 +42,10 @@ const WriterPage: NextPage = () => {
 };
 
 export default WriterPage;
+export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
+  null,
+  {
+    destination: "/",
+    permanent: true,
+  }
+);

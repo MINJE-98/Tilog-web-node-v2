@@ -8,6 +8,7 @@ import TiptapViewer from "@Commons/molecules/text-area/TiptapViewer";
 import Header from "@Commons/organisms/header";
 import Comment from "@Components/comment";
 import { PostHeader, PostLike, PostWriter } from "@Components/post";
+import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
 import { postDetailSeo } from "@SEO/seo";
 
@@ -57,20 +58,22 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
 };
 export default PostDetailPage;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { postId } = context.query;
-  if (!postId) return { props: {} };
-  if (Array.isArray(postId)) return { props: {} };
-  try {
-    const { data } = await api.postService.getPostDetail(postId);
-    return {
-      props: {
-        post: data,
-      },
-    };
-  } catch (error) {
-    return {
-      notFound: true,
-    };
+export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
+  async (context) => {
+    const { postId } = context.query;
+    if (!postId) return { props: {} };
+    if (Array.isArray(postId)) return { props: {} };
+    try {
+      const { data } = await api.postService.getPostDetail(postId);
+      return {
+        props: {
+          post: data,
+        },
+      };
+    } catch (error) {
+      return {
+        notFound: true,
+      };
+    }
   }
-};
+);

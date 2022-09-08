@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 
 import CardTitle from "@Commons/atom/CardTitle";
 import DateScopeLink from "@Commons/molecules/link/DateScopeLink";
@@ -13,6 +13,7 @@ import {
   CATEGORY_LATEST_POST,
   CATEGORY_MOST_POPULAR_POST,
 } from "@Constants/text";
+import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useGetStringTypeToRouter from "@Hooks/useGetStringTypeToRouter";
 import RootBox from "@Layouts/box/RootBox";
 
@@ -70,3 +71,4 @@ const Home: NextPage = () => {
   );
 };
 export default Home;
+export const getServerSideProps: GetServerSideProps = withAuthServerSideProps();
