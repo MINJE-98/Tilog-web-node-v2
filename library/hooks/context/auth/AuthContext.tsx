@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
 import AuthContextInterface from "@Contexts/auth/interface/AuthContextInterface";
 
@@ -8,3 +8,5 @@ export const AuthContext = createContext<AuthContextInterface>({
   handleLogin: () => null,
   handleLogout: () => null,
 });
+
+export const useAuth = () => useContext(AuthContext);
