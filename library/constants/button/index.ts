@@ -7,3 +7,4 @@ export * from "./reply";
 export * from "./save";
 export * from "./viewBlog";
 export * from "./githubLogin";
+export * from "./write";
