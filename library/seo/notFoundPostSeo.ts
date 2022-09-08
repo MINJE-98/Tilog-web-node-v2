@@ -1,4 +1,6 @@
-export const notFoundPostSeo = {
+import { DefaultSeoProps } from "next-seo";
+
+export const notFoundPostSeo: DefaultSeoProps = {
   title: "페이지를 찾을 수 없습니다.",
   description: "페이지를 찾을 수 없습니다.",
   openGraph: {

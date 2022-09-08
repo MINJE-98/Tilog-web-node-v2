@@ -26,9 +26,7 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <Head>
-        <DefaultSeo {...homeSeo} />
-      </Head>
+      <DefaultSeo {...homeSeo} />
       <Header />
       <IntroThumbnail />
       <CategorySortButtonList />
