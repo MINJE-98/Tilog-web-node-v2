@@ -3,12 +3,12 @@ import { GetServerSideProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 
 import api from "@Api/index";
-import RootBox from "@Commons/atom/box/RootBox";
 import PostThumbnail from "@Commons/molecules/images/PostThumbnail";
 import TiptapViewer from "@Commons/molecules/text-area/TiptapViewer";
 import Header from "@Commons/organisms/header";
 import Comment from "@Components/comment";
 import { PostHeader, PostLike, PostWriter } from "@Components/post";
+import RootBox from "@Layouts/box/RootBox";
 import { postDetailSeo } from "@SEO/seo";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
