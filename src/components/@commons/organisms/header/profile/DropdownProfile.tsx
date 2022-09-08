@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import LinkTo from "@Commons/atom/LinkTo";
 import LogoutButton from "@Commons/molecules/buttons/LogoutButton";
-import { CREATE_POST, LOGOUT, MY_BLOG, SETTINGS } from "@Constants/dropdown";
+import { USER_PROFILE_DROPBOX } from "@Constants/dropbox";
 import { AuthContext } from "@Contexts/auth/AuthContext";
 
 const DropdownProfile = () => {
@@ -16,7 +16,7 @@ const DropdownProfile = () => {
             href={`/blog/${userInfo.name}`}
             className="block px-4 py-2 text-lg text-gray-700 font-eng-sub-font-1"
           >
-            {MY_BLOG.ko}
+            {USER_PROFILE_DROPBOX.MY_BLOG}
           </LinkTo>
         </li>
         <li className="py-1" role="none">
@@ -24,17 +24,17 @@ const DropdownProfile = () => {
             href="/writer"
             className="block px-4 py-2 text-lg text-gray-700 font-eng-sub-font-1"
           >
-            {CREATE_POST.ko}
+            {USER_PROFILE_DROPBOX.CREATE_POST}
           </LinkTo>
           <LinkTo
             href="/settings"
             className="block px-4 py-2 text-lg text-gray-700 font-eng-sub-font-1"
           >
-            {SETTINGS.ko}
+            {USER_PROFILE_DROPBOX.SETTINGS}
           </LinkTo>
         </li>
         <li className="py-1" role="none">
-          <LogoutButton>{LOGOUT.ko}</LogoutButton>
+          <LogoutButton>{USER_PROFILE_DROPBOX.LOGOUT}</LogoutButton>
         </li>
       </ol>
     </div>

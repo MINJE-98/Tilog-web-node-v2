@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import AutocompleteContents from "@Components/writer/input/category-search/autocomplete/AutocompleteContents";
 import useArrowKeySelector from "@Components/writer/input/category-search/autocomplete/hooks/useArrowKeySelector";
-import { NO_RESULT_SEARCH } from "@Constants/search/index";
+import { NO_RESULT_SEARCH } from "@Constants/messages/error";
 
 import { GetCategoriesResponseDto } from "@til-log.lab/tilog-api";
 
@@ -20,7 +20,7 @@ const Autocomplete = ({
       onMouseEnter={resetIndex}
       className="z-50 absolute p-3 my-2 mr-8 rounded shadow-sm cursor-default ring-1 max-w-[500px] max-h-[400px] overflow-auto bg-neutral-200 ring-neutral-300 dark:ring-neutral-600 dark:bg-neutral-800"
     >
-      {categoryList.length === 0 && <p>{NO_RESULT_SEARCH.ko}</p>}
+      {categoryList.length === 0 && <p>{NO_RESULT_SEARCH}</p>}
       {categoryList.map((category, idx) => (
         <li
           ref={(el) => {

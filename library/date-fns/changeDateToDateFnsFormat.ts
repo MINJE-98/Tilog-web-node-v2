@@ -1,27 +1,23 @@
 import { format, formatDistanceToNow } from "date-fns";
+import { ko } from "date-fns/locale";
 
-import { DATE_FNS_LANGUAGE, JUST_NOW } from "@Constants/date-fns";
+import { JUST_NOW, ONE_MINUTE, ONE_YEAR } from "@Constants/date-fns";
 
-// TODO: I18N 적용.
 export default function changeDateToDateFnsFormat(date: string): string {
-  const language = "ko";
   const postingDate = new Date(date).getTime();
   const currentDate = Date.now();
   const diff = (currentDate - postingDate) / 1000;
 
-  // NOTE: 1분 미만
-  if (diff < 60 * 1) {
-    return JUST_NOW[language];
+  if (diff < ONE_MINUTE) {
+    return JUST_NOW;
   }
 
-  // NOTE: 1년 미만
-  if (diff < 60 * 60 * 24 * 365) {
+  if (diff < ONE_YEAR) {
     return formatDistanceToNow(postingDate, {
       addSuffix: true,
-      locale: DATE_FNS_LANGUAGE[language],
+      locale: ko,
     });
   }
 
-  // NOTE: 1년 이상
-  return format(postingDate, "PPP", { locale: DATE_FNS_LANGUAGE[language] });
+  return format(postingDate, "PPP", { locale: ko });
 }

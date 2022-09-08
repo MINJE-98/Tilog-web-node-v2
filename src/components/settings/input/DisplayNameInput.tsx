@@ -1,12 +1,8 @@
 import { useFormContext } from "react-hook-form";
 
 import UnderLineTextInput from "@Commons/atom/input/UnderLineTextInput";
-import { displayNameRules } from "@Components/settings/input/rules";
-import {
-  DISPLAY_NAME,
-  DISPLAY_NAME_DESC,
-  DISPLAY_NAME_TITLE,
-} from "@Constants/settings";
+import { SETTINGS_INPUT_TYPE, DISPLAY_NAME_RULES } from "@Constants/input";
+import { DISPLAY_NAME_LABEL } from "@Constants/text";
 
 import UserSettingTypes from "@Api/users/interface/userSettingTypes";
 
@@ -17,12 +13,12 @@ const DisplayNameInput = () => {
   } = useFormContext<UserSettingTypes>();
   return (
     <div>
-      <h1>{DISPLAY_NAME_TITLE.ko}</h1>
-      <p>{DISPLAY_NAME_DESC.ko}</p>
+      <h1>{DISPLAY_NAME_LABEL.TITLE}</h1>
+      <p>{DISPLAY_NAME_LABEL.DESC}</p>
       <UnderLineTextInput
         register={register}
-        type={DISPLAY_NAME}
-        rules={displayNameRules("ko")}
+        inputType={SETTINGS_INPUT_TYPE.DISPLAY_NAME}
+        rules={DISPLAY_NAME_RULES}
         error={errors.DISPLAY_NAME?.message}
       />
     </div>

@@ -3,7 +3,7 @@ import { VscCircleFilled } from "react-icons/vsc";
 import LockIcon from "@Commons/atom/icons/LockIcon";
 import UserNameProfile from "@Commons/molecules/profile/UserNameProfile";
 import DateFnsFormatter from "@Commons/molecules/text/DateFnsFormatter";
-import { VIEW_COUNT } from "@Constants/post";
+import { VIEW_COUNT } from "@Constants/text/viewCount";
 import useGetUserProfileQuery from "@Queries/users/useGetUserProfileQuery";
 
 interface PostUserProfileProps {
@@ -21,7 +21,7 @@ const PostUserProfile = ({
 }: PostUserProfileProps) => {
   const userInfo = useGetUserProfileQuery(userId);
 
-  if (userInfo.isError) return <p>{userInfo.error.message.ko}</p>;
+  if (userInfo.isError) return <p>{userInfo.error.message}</p>;
   if (userInfo.isLoading) return null;
   if (!userInfo.data) return null;
   return (
@@ -35,7 +35,7 @@ const PostUserProfile = ({
         <DateFnsFormatter className="text-xs" date={createdAt} />
         <VscCircleFilled className="text-[6px] text-neutral-400" />
         <p className="text-xs">
-          {VIEW_COUNT.ko} {viewCount}
+          {VIEW_COUNT} {viewCount}
         </p>
       </div>
     </UserNameProfile>

@@ -11,14 +11,14 @@ import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   fontSize: string;
-  inputName: Path<WriterFormTypes>;
+  inputType: Path<WriterFormTypes>;
   register: UseFormRegister<WriterFormTypes>;
   errorMessage: FieldError["message"];
   rules?: RegisterOptions<WriterFormTypes>;
 }
 const TextInput = ({
   register,
-  inputName,
+  inputType,
   rules,
   fontSize = "text-xl",
   errorMessage,
@@ -28,7 +28,7 @@ const TextInput = ({
     <>
       <input
         className={`p-5 w-full bg-white dark:bg-neutral-800 text-neutral-800 dark:text-white ${fontSize}`}
-        {...register(inputName, rules)}
+        {...register(inputType, rules)}
         {...props}
       />
       {errorMessage && (

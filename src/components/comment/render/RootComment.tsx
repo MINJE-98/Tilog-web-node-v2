@@ -2,12 +2,8 @@ import { useState } from "react";
 
 import CommentInput from "@Components/comment/input/CommentInput";
 import CommentRender from "@Components/comment/render/CommentRender";
-import {
-  REPLY_CLOSE,
-  REPLY_INPUT,
-  REPLY_OPEN,
-  REPLY_PLACEHOLDER,
-} from "@Constants/comment";
+import { INPUT, REPLY_STATE } from "@Constants/button";
+import { REPLY_PLACEHOLDER } from "@Constants/text/placeholder";
 import useGetChildCommentQuery from "@Queries/comments/useGetChildCommentQuery";
 
 import { GetCommentsItem } from "@til-log.lab/tilog-api";
@@ -32,11 +28,11 @@ const RootComment = ({ comment }: RootCommentProps) => {
             <button onClick={() => setIsOpen(!isOpen)} type="button">
               {isOpen ? (
                 <p className="hover:text-neutral-500 dark:hover:text-neutral-400 text-neutral-800 dark:text-neutral-300">
-                  {REPLY_CLOSE.ko}
+                  {REPLY_STATE.CLOSE}
                 </p>
               ) : (
                 <p className="hover:text-neutral-800 dark:hover:text-neutral-300">
-                  {REPLY_OPEN.ko}
+                  {REPLY_STATE.OPEN}
                 </p>
               )}
             </button>
@@ -53,8 +49,8 @@ const RootComment = ({ comment }: RootCommentProps) => {
             <CommentInput
               postId={comment.postId}
               replyTo={comment.id}
-              placeholder={REPLY_PLACEHOLDER.ko}
-              buttonText={REPLY_INPUT.ko}
+              placeholder={REPLY_PLACEHOLDER}
+              buttonText={INPUT}
             />
           )}
         </div>

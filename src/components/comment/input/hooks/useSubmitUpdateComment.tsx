@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 
-import { COMMENT_EMPTY } from "@Constants/comment";
+import { EMPTY_COMMENT } from "@Constants/messages/error";
 import { useUpdateCommentMutation } from "@Mutations/comments/useCommentMutation";
 
 import { GetCommentsItem } from "@til-log.lab/tilog-api";
@@ -18,7 +18,7 @@ const useSubmitUpdateComment = (
     setUpdateContent(e.target.value);
   };
   const handleSubmit = () => {
-    if (updateContent.length === 0) return setErrorMessage(COMMENT_EMPTY.ko);
+    if (updateContent.length === 0) return setErrorMessage(EMPTY_COMMENT);
     const { postId, replyTo, id } = comment;
     return mutate(
       { postId, content: updateContent, replyTo, commentId: id },

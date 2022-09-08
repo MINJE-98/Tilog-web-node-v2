@@ -1,8 +1,8 @@
 import { useFormContext } from "react-hook-form";
 
 import TextInput from "@Commons/atom/input/TextInput";
-import subTitleRules from "@Components/writer/input/rules/subTitleRules";
-import { SUBTITLE_PLACEHOLDER, SUBTITLE } from "@Constants/writer";
+import { SUBTITLE_RULES, WRITER_INPUT_TYPE } from "@Constants/input";
+import { WRITER_PLACEHOLDER } from "@Constants/text";
 
 import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
 
@@ -17,11 +17,11 @@ const SubTitleInput = () => {
   return (
     <TextInput
       register={register}
-      rules={subTitleRules("ko")}
-      inputName={SUBTITLE}
+      rules={SUBTITLE_RULES}
+      inputType={WRITER_INPUT_TYPE.SUBTITLE}
       errorMessage={errorMessage}
       fontSize="text-xl md:text-2xl"
-      placeholder={SUBTITLE_PLACEHOLDER.ko}
+      placeholder={WRITER_PLACEHOLDER.SUBTITLE}
     />
   );
 };
