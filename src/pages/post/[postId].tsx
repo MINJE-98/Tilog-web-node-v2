@@ -10,7 +10,7 @@ import Comment from "@Components/comment";
 import { PostHeader, PostLike, PostWriter } from "@Components/post";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
-import { postDetailSeo } from "@SEO/seo";
+import { postDetailSeo } from "@SEO";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 

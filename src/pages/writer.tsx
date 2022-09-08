@@ -1,4 +1,5 @@
 import type { GetServerSideProps, NextPage } from "next";
+import Head from "next/head";
 
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -23,6 +24,9 @@ const WriterPage: NextPage = () => {
   const onSummit = useHandleSummit();
   return (
     <RootBox>
+      <Head>
+        <title>글쓰기</title>
+      </Head>
       <FormProvider {...method}>
         <form onSubmit={method.handleSubmit(onSummit)}>
           <CoverImage />

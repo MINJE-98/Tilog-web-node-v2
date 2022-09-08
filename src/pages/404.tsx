@@ -3,12 +3,12 @@ import { NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 
 import RootBox from "@Layouts/box/RootBox";
-import { notFoundPostSeo } from "@SEO/seo";
+import { notFoundPostSeo } from "@SEO";
 
 const NotFoundPage: NextPage = () => {
   return (
     <div>
-      <DefaultSeo {...notFoundPostSeo()} />
+      <DefaultSeo {...notFoundPostSeo} />
       <RootBox>
         <article className="text-center ">
           <header>

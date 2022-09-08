@@ -1,4 +1,7 @@
 import type { GetServerSideProps, NextPage } from "next";
+import Head from "next/head";
+
+import { DefaultSeo } from "next-seo";
 
 import CardTitle from "@Commons/atom/CardTitle";
 import DateScopeLink from "@Commons/molecules/link/DateScopeLink";
@@ -16,12 +19,16 @@ import {
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useGetStringTypeToRouter from "@Hooks/useGetStringTypeToRouter";
 import RootBox from "@Layouts/box/RootBox";
+import { postDetailSeo } from "@SEO";
 
 const Home: NextPage = () => {
   const categoryName = useGetStringTypeToRouter("category");
 
   return (
     <div>
+      <Head>
+        <DefaultSeo {...postDetailSeo} />
+      </Head>
       <Header />
       <IntroThumbnail />
       <CategorySortButtonList />

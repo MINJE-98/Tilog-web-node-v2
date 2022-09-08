@@ -10,7 +10,7 @@ import UserInfoProfile from "@Commons/organisms/profile/UserInfoProfile";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useGetStringTypeToRouter from "@Hooks/useGetStringTypeToRouter";
 import RootBox from "@Layouts/box/RootBox";
-import { userBlogDetailSeo } from "@SEO/seo";
+import { userBlogDetailSeo } from "@SEO";
 
 import GetUserProfileResponseTransFormSettingsDto from "@Api/users/interface/getUserProfileResponseTransFormSettingsDto";
 

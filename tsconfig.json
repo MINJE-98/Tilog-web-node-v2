@@ -29,7 +29,7 @@
       "@Queries/*": ["library/hooks/queries/*"],
       "@Hooks/*": ["library/hooks/*"],
 
-      "@SEO/*": ["library/seo/*"],
+      "@SEO": ["library/seo/"],
 
       "@Utility/*": ["library/utility/*"],
 
