@@ -11,7 +11,7 @@ interface CommentUserProfileProps {
 const CommentUserProfile = ({ userId, createdAt }: CommentUserProfileProps) => {
   const userInfo = useGetUserProfileQuery(userId);
 
-  if (userInfo.isError) return <p>{userInfo.error.message.ko}</p>;
+  if (userInfo.isError) return <p>{userInfo.error.message}</p>;
   if (userInfo.isLoading)
     return (
       <div className="flex items-center space-x-3">

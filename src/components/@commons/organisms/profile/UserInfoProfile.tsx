@@ -9,7 +9,7 @@ interface UserInfoProfileProps {
 
 const UserInfoProfile = ({ userId }: UserInfoProfileProps) => {
   const userInfo = useGetUserProfileQuery(userId);
-  if (userInfo.isError) return <div>{userInfo.error.message.ko}</div>;
+  if (userInfo.isError) return <div>{userInfo.error.message}</div>;
   if (!userInfo.data) return null;
   if (userInfo.isLoading) return <Spinner size="10" />;
   return (

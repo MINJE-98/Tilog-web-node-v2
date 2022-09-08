@@ -15,7 +15,7 @@ export default function useLikeMutation() {
     string
   >((postId: LikedRequestDto) => api.postLikeService.toggleLike(postId), {
     onError: (err) => {
-      toast.error(err.message.ko);
+      toast.error(err.message);
     },
     onSuccess(_data, variables) {
       queryClient.refetchQueries(["post-detail", variables]);
