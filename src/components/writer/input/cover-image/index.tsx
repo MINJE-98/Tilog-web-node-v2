@@ -2,7 +2,7 @@ import { useFormContext } from "react-hook-form";
 
 import ImageInput from "@Commons/atom/input/ImageInput";
 import ImagePreView from "@Components/writer/input/cover-image/ImagePreview";
-import { THUMBNAIL_URL } from "@Constants/writer";
+import { WRITER_INPUT_TYPE } from "@Constants/input";
 
 import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
 
@@ -11,7 +11,11 @@ const CoverImage = () => {
 
   return (
     <div>
-      <ImageInput register={register} inputName={THUMBNAIL_URL} id="image" />
+      <ImageInput
+        register={register}
+        inputName={WRITER_INPUT_TYPE.THUMBNAIL_URL}
+        id="image"
+      />
       <ImagePreView />
     </div>
   );

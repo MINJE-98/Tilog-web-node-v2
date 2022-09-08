@@ -1,8 +1,8 @@
 import { useFormContext } from "react-hook-form";
 
 import UnderLineTextInput from "@Commons/atom/input/UnderLineTextInput";
-import { positionRules } from "@Components/settings/input/rules";
-import { POSITION, POSITION_DESC, POSITION_TITLE } from "@Constants/settings";
+import { SETTINGS_INPUT_TYPE, POSITION_RULES } from "@Constants/input";
+import { POSITION_LABEL } from "@Constants/text";
 
 import UserSettingTypes from "@Api/users/interface/userSettingTypes";
 
@@ -13,12 +13,12 @@ const PositionInput = () => {
   } = useFormContext<UserSettingTypes>();
   return (
     <div>
-      <h1>{POSITION_TITLE.ko}</h1>
-      <p>{POSITION_DESC.ko}</p>
+      <h1>{POSITION_LABEL.TITLE}</h1>
+      <p>{POSITION_LABEL.DESC}</p>
       <UnderLineTextInput
         register={register}
-        type={POSITION}
-        rules={positionRules("ko")}
+        inputType={SETTINGS_INPUT_TYPE.POSITION}
+        rules={POSITION_RULES}
         error={errors.POSITION?.message}
       />
     </div>

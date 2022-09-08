@@ -1,5 +1,5 @@
 import LinkTo from "@Commons/atom/LinkTo";
-import { POST_EDIT } from "@Constants/post";
+import { EDIT } from "@Constants/button";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
@@ -16,7 +16,7 @@ const PostUpdateLink = ({ postId }: PostUpdateLinkProps) => {
       }}
       className="text-sm text-neutral-400 hover:text-neutral-500 h-fit"
     >
-      {POST_EDIT.ko}
+      {EDIT}
     </LinkTo>
   );
 };

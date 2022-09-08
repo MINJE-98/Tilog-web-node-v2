@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
 
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
-import { CATEGORY_ID } from "@Constants/writer";
+import { WRITER_INPUT_TYPE } from "@Constants/input";
 
 import { GetCategoriesItem } from "@til-log.lab/tilog-api";
 
@@ -16,7 +16,9 @@ const AutocompleteContents = ({ category }: AutocompleteContentsProps) => {
   return (
     <button
       type="button"
-      onClick={() => setValue(CATEGORY_ID, category.id.toString())}
+      onClick={() =>
+        setValue(WRITER_INPUT_TYPE.CATEGORY_ID, category.id.toString())
+      }
     >
       <div className="flex items-center content-center text-2xl font-eng-sub-font-2 gap-x-3">
         <RenderTechIcons categoryName={category.categoryName} />

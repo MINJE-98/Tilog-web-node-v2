@@ -1,11 +1,8 @@
 import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
 import SecondaryButton from "@Commons/atom/buttons/SecondaryButton";
 import useSubmitUpdateComment from "@Components/comment/input/hooks/useSubmitUpdateComment";
-import {
-  COMMENT_PLACEHOLDER,
-  UPDATE_COMMENT,
-  UPDATE_COMMENT_CANCEL,
-} from "@Constants/comment";
+import { CANCEL, EDIT } from "@Constants/button";
+import { COMMENT_PLACEHOLDER } from "@Constants/text/placeholder";
 
 import { GetCommentsItem } from "@til-log.lab/tilog-api";
 
@@ -24,7 +21,7 @@ const CommentUpdateInput = ({ comment, handleUpdate }: CommentInputProps) => {
           <textarea
             className="w-full p-5"
             value={updateContent}
-            placeholder={COMMENT_PLACEHOLDER.ko}
+            placeholder={COMMENT_PLACEHOLDER}
             onChange={handleComment}
           />
         </div>
@@ -35,14 +32,14 @@ const CommentUpdateInput = ({ comment, handleUpdate }: CommentInputProps) => {
             onClick={handleUpdate}
             className="rounded-none"
           >
-            {UPDATE_COMMENT_CANCEL.ko}
+            {CANCEL}
           </SecondaryButton>
           <PrimaryButton
             isSubmit
             onClick={handleSubmit}
             className="rounded-none"
           >
-            {UPDATE_COMMENT.ko}
+            {EDIT}
           </PrimaryButton>
         </div>
       </div>

@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { SiGithub } from "react-icons/si";
 
 import PrimaryButton from "@Components/@commons/atom/buttons/PrimaryButton";
+import { GITHUB_LOGIN } from "@Constants/button";
 import { AuthContext } from "@Contexts/auth/AuthContext";
 
 const LoginButton = () => {
@@ -14,7 +15,7 @@ const LoginButton = () => {
       onClick={handleLogin}
     >
       <SiGithub className="inline w-5 h-5 text-white" />
-      <span className="text-neutral-50">Login with Github</span>
+      <span className="text-neutral-50">{GITHUB_LOGIN}</span>
     </PrimaryButton>
   );
 };

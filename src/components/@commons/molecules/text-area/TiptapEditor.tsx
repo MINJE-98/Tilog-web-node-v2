@@ -3,7 +3,7 @@ import { EditorContent, EditorOptions } from "@tiptap/react";
 import { useFormContext } from "react-hook-form";
 
 import useTiptapEditor from "@Commons/molecules/text-area/hooks/useTiptapEditor";
-import { MARKDOWN_CONTENT } from "@Constants/writer";
+import { WRITER_INPUT_TYPE } from "@Constants/input";
 
 import { CreatePostRequestBodyDto } from "@til-log.lab/tilog-api";
 
@@ -18,7 +18,7 @@ const TiptapEditor = ({ content = null }: TiptapEditorProps) => {
 
   return (
     <EditorContent
-      {...register(MARKDOWN_CONTENT, {
+      {...register(WRITER_INPUT_TYPE.MARKDOWN_CONTENT, {
         required: true,
       })}
       className="z-0 h-[1000px] p-5 bg-white dark:bg-neutral-800"

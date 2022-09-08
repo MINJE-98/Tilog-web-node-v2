@@ -12,7 +12,7 @@ const CategorySortButtonList = ({
 }) => {
   const categoryList = useGetAllCategoryListQuery({ userId });
   if (categoryList.isLoading) return <Spinner size="10" />;
-  if (categoryList.isError) return <div>{categoryList.error.message.ko}</div>;
+  if (categoryList.isError) return <div>{categoryList.error.message}</div>;
   if (!categoryList.data) return null;
   if (isArrayEmpty(categoryList.data.data.list))
     return <h2 className="text-base">카테고리가 존재하지 않아요.</h2>;

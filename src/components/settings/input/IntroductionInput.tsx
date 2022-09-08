@@ -1,12 +1,8 @@
 import { useFormContext } from "react-hook-form";
 
 import UnderLineTextInput from "@Commons/atom/input/UnderLineTextInput";
-import { introMsgRules } from "@Components/settings/input/rules";
-import {
-  INTRO_MSG,
-  INTRO_MSG_DESC,
-  INTRO_MSG_TITLE,
-} from "@Constants/settings";
+import { SETTINGS_INPUT_TYPE, INTRO_MSG_RULES } from "@Constants/input";
+import { INTRO_MSG_LABEL } from "@Constants/text";
 
 import UserSettingTypes from "@Api/users/interface/userSettingTypes";
 
@@ -17,12 +13,12 @@ const IntroductionInput = () => {
   } = useFormContext<UserSettingTypes>();
   return (
     <div>
-      <h1>{INTRO_MSG_TITLE.ko}</h1>
-      <p>{INTRO_MSG_DESC.ko}</p>
+      <h1>{INTRO_MSG_LABEL.TITLE}</h1>
+      <p>{INTRO_MSG_LABEL.DESC}</p>
       <UnderLineTextInput
         register={register}
-        type={INTRO_MSG}
-        rules={introMsgRules("ko")}
+        inputType={SETTINGS_INPUT_TYPE.INTRO_MSG}
+        rules={INTRO_MSG_RULES}
         error={errors.INTRO_MSG?.message}
       />
     </div>

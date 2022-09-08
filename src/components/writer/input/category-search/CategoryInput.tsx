@@ -3,7 +3,8 @@ import { useRef } from "react";
 import { useFormContext } from "react-hook-form";
 
 import Autocomplete from "@Components/writer/input/category-search/autocomplete";
-import { CATEGORY_ID, CATEGORY_PLACEHOLDER } from "@Constants/writer";
+import { WRITER_INPUT_TYPE } from "@Constants/input";
+import { CATEGORY_PLACEHOLDER } from "@Constants/text";
 import useOutsideClickAndEscClickListener from "@Hooks/useOutsideClickAndEscClickListener";
 import useSearchCategoryName from "@Queries/categories/useSearchCategoryName";
 
@@ -19,14 +20,14 @@ const CategoryInput = () => {
   return (
     <div ref={ref}>
       <input
-        {...register(CATEGORY_ID, {
+        {...register(WRITER_INPUT_TYPE.CATEGORY_ID, {
           required: true,
         })}
         autoComplete="off"
         onFocus={handleOpen}
         onChange={handleChangeCategoryName}
         className="w-full p-5 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-white"
-        placeholder={CATEGORY_PLACEHOLDER.ko}
+        placeholder={CATEGORY_PLACEHOLDER}
       />
       {isOpen && <Autocomplete categoryList={categoryList} />}
     </div>

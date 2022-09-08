@@ -1,6 +1,7 @@
 import CommentInput from "@Components/comment/input/CommentInput";
 import RootComment from "@Components/comment/render/RootComment";
-import { COMMENT_INPUT, COMMENT_PLACEHOLDER } from "@Constants/comment";
+import { INPUT } from "@Constants/button";
+import { COMMENT_PLACEHOLDER } from "@Constants/text/placeholder";
 import useGetParentCommentQuery from "@Queries/comments/useGetParentCommentQuery";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
@@ -11,7 +12,7 @@ interface CommentProps {
 
 const Comment = ({ postId }: CommentProps) => {
   const commentList = useGetParentCommentQuery(postId);
-  if (commentList.isError) return <span>{commentList.error.message.ko}</span>;
+  if (commentList.isError) return <span>{commentList.error.message}</span>;
   if (commentList.isLoading) return null;
   if (!commentList.data) return null;
 
@@ -24,8 +25,8 @@ const Comment = ({ postId }: CommentProps) => {
       <CommentInput
         postId={postId}
         replyTo={null}
-        placeholder={COMMENT_PLACEHOLDER.ko}
-        buttonText={COMMENT_INPUT.ko}
+        placeholder={COMMENT_PLACEHOLDER}
+        buttonText={INPUT}
       />
     </div>
   );

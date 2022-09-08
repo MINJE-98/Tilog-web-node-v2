@@ -1,9 +1,7 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 
 import { FormProvider, useForm } from "react-hook-form";
 
-import RootBox from "@Commons/atom/box/RootBox";
 import {
   CoverImage,
   PrivateSubmit,
@@ -13,19 +11,17 @@ import {
   TiptapEditor,
   TitleInput,
 } from "@Components/writer";
-import { TITLE_WRITER } from "@Constants/writer";
 import useHandleSummit from "@Hooks/useHandleWriterSummit";
+import RootBox from "@Layouts/box/RootBox";
 
 import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
 
+// TODO: SEO
 const WriterPage: NextPage = () => {
   const method = useForm<WriterFormTypes>();
   const onSummit = useHandleSummit();
   return (
     <RootBox>
-      <Head>
-        <title>{TITLE_WRITER.ko}</title>
-      </Head>
       <FormProvider {...method}>
         <form onSubmit={method.handleSubmit(onSummit)}>
           <CoverImage />

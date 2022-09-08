@@ -3,7 +3,7 @@ import { MutableRefObject, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useEventListener } from "usehooks-ts";
 
-import { CATEGORY_ID } from "@Constants/writer";
+import { WRITER_INPUT_TYPE } from "@Constants/input";
 
 import { GetCategoriesResponseDto } from "@til-log.lab/tilog-api";
 
@@ -44,7 +44,10 @@ const useArrowKeySelector = (
 
     if (key === "Enter") {
       if (!categoryList[index]) return;
-      setValue(CATEGORY_ID, categoryList[index].id.toString());
+      setValue(
+        WRITER_INPUT_TYPE.CATEGORY_ID,
+        categoryList[index].id.toString()
+      );
     }
   };
   useEventListener("keydown", handleArrowClick);

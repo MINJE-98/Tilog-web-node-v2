@@ -4,7 +4,7 @@ import StarterKit from "@tiptap/starter-kit";
 
 import { useFormContext } from "react-hook-form";
 
-import { MARKDOWN_CONTENT } from "@Constants/writer";
+import { WRITER_INPUT_TYPE } from "@Constants/input";
 
 import { CreatePostRequestBodyDto } from "@til-log.lab/tilog-api";
 
@@ -17,7 +17,7 @@ const useTiptapEditor = (content: EditorOptions["content"]) => {
     content,
     onUpdate(props) {
       const updatedContent = JSON.stringify(props.editor.getJSON());
-      setValue(MARKDOWN_CONTENT, updatedContent);
+      setValue(WRITER_INPUT_TYPE.MARKDOWN_CONTENT, updatedContent);
     },
     editorProps: {
       attributes: {

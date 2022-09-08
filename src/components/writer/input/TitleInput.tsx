@@ -1,8 +1,8 @@
 import { useFormContext } from "react-hook-form";
 
 import TextInput from "@Commons/atom/input/TextInput";
-import titleRules from "@Components/writer/input/rules/titleRules";
-import { TITLE, TITLE_PLACEHOLDER } from "@Constants/writer";
+import { TITLE_RULES, WRITER_INPUT_TYPE } from "@Constants/input";
+import { WRITER_PLACEHOLDER } from "@Constants/text";
 
 import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
 
@@ -16,11 +16,11 @@ const TitleInput = () => {
   return (
     <TextInput
       register={register}
-      rules={titleRules("ko")}
-      inputName={TITLE}
+      rules={TITLE_RULES}
+      inputType={WRITER_INPUT_TYPE.TITLE}
       errorMessage={errorMessage}
       fontSize="text-2xl md:text-4xl"
-      placeholder={TITLE_PLACEHOLDER.ko}
+      placeholder={WRITER_PLACEHOLDER.TITLE}
     />
   );
 };

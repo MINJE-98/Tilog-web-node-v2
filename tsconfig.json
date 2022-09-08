@@ -37,6 +37,8 @@
 
       "@Commons/*": ["src/components/@commons/*"],
       "@HOCS/*": ["src/components/@hocs/*"],
+      "@Layouts/*": ["src/components/@layouts/*"],
+
       "@Components/*": ["src/components/*"],
 
       "@Styles/*": ["styles/*"]

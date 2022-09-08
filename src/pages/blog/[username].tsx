@@ -3,12 +3,12 @@ import { GetServerSideProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 
 import api from "@Api";
-import RootBox from "@Commons/atom/box/RootBox";
 import Header from "@Commons/organisms/header";
 import CategorySortButtonList from "@Commons/organisms/list/CategorySortButtonList";
 import PostCardList from "@Commons/organisms/list/PostCardList";
 import UserInfoProfile from "@Commons/organisms/profile/UserInfoProfile";
 import useGetStringTypeToRouter from "@Hooks/useGetStringTypeToRouter";
+import RootBox from "@Layouts/box/RootBox";
 import { userBlogDetailSeo } from "@SEO/seo";
 
 import GetUserProfileResponseTransFormSettingsDto from "@Api/users/interface/getUserProfileResponseTransFormSettingsDto";

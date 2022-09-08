@@ -1,5 +1,5 @@
 import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
-import { SUMMIT_SETTINGS } from "@Constants/settings";
+import { SAVE } from "@Constants/button";
 
 const SettingsSubmit = () => {
   return (
@@ -7,7 +7,7 @@ const SettingsSubmit = () => {
       isSubmit
       className="dark:bg-neutral-900 w-full max-w-[150px]"
     >
-      {SUMMIT_SETTINGS.ko}
+      {SAVE}
     </PrimaryButton>
   );
 };

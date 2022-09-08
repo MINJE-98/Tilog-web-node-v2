@@ -1,18 +1,19 @@
 import { useFormContext } from "react-hook-form";
 
 import SecondaryButton from "@Commons/atom/buttons/SecondaryButton";
-import { IS_PRIVATE, PUBLISH_PRIVATE_POST } from "@Constants/writer";
+import { PUBLISH_PRIVATE_POST } from "@Constants/button";
+import { WRITER_INPUT_TYPE } from "@Constants/input";
 
 import { CreatePostRequestBodyDto } from "@til-log.lab/tilog-api";
 
 const PrivateSubmit = () => {
   const { setValue } = useFormContext<CreatePostRequestBodyDto>();
   const handleSubmit = () => {
-    setValue(IS_PRIVATE, true);
+    setValue(WRITER_INPUT_TYPE.IS_PRIVATE, true);
   };
   return (
     <SecondaryButton isSubmit onClick={handleSubmit}>
-      {PUBLISH_PRIVATE_POST.ko}
+      {PUBLISH_PRIVATE_POST}
     </SecondaryButton>
   );
 };

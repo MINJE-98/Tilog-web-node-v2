@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 
-import { COMMENT_EMPTY } from "@Constants/comment";
+import { EMPTY_COMMENT } from "@Constants/messages/error";
 import { useCreateCommentMutation } from "@Mutations/comments/useCommentMutation";
 
 const useSubmitComment = (postId: string, replyTo: string | null) => {
@@ -11,7 +11,7 @@ const useSubmitComment = (postId: string, replyTo: string | null) => {
     setContent(e.target.value);
   };
   const handleSubmit = () => {
-    if (content.length === 0) return setErrorMessage(COMMENT_EMPTY.ko);
+    if (content.length === 0) return setErrorMessage(EMPTY_COMMENT);
     return mutate(
       { postId, content, replyTo },
       {

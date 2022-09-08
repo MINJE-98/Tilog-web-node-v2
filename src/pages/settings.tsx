@@ -4,7 +4,6 @@ import { useContext } from "react";
 
 import { FormProvider, useForm } from "react-hook-form";
 
-import RootBox from "@Commons/atom/box/RootBox";
 import {
   DisplayNameInput,
   EmailInput,
@@ -14,6 +13,7 @@ import {
 } from "@Components/settings";
 import { AuthContext } from "@Contexts/auth/AuthContext";
 import useHandleSubmit from "@Hooks/useHandleSettingsSubmit";
+import RootBox from "@Layouts/box/RootBox";
 
 import UserSettingTypes from "@Api/users/interface/userSettingTypes";
 

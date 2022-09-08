@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 
-import RootBox from "@Commons/atom/box/RootBox";
 import CardTitle from "@Commons/atom/CardTitle";
 import DateScopeLink from "@Commons/molecules/link/DateScopeLink";
 import Header from "@Commons/organisms/header";
@@ -9,12 +8,13 @@ import MostPopularPostCardList from "@Commons/organisms/list/MostPopularPostCard
 import PostCardList from "@Commons/organisms/list/PostCardList";
 import IntroThumbnail from "@Components/home/IntroThumbnail";
 import {
-  CATEGORY_MOST_POPULAR_POSTCARD,
-  LATEST_CATEGORY_POSTCARD,
-  LATEST_POSTCARD,
-  MOST_POPULAR_POSTCARD,
-} from "@Constants/post";
+  ALL_LATEST_POST,
+  ALL_MOST_POPULAR_POST,
+  CATEGORY_LATEST_POST,
+  CATEGORY_MOST_POPULAR_POST,
+} from "@Constants/text";
 import useGetStringTypeToRouter from "@Hooks/useGetStringTypeToRouter";
+import RootBox from "@Layouts/box/RootBox";
 
 const Home: NextPage = () => {
   const categoryName = useGetStringTypeToRouter("category");
@@ -29,8 +29,8 @@ const Home: NextPage = () => {
           <CardTitle
             title={
               !categoryName
-                ? MOST_POPULAR_POSTCARD.ko
-                : categoryName + CATEGORY_MOST_POPULAR_POSTCARD.ko
+                ? ALL_MOST_POPULAR_POST
+                : categoryName + CATEGORY_MOST_POPULAR_POST
             }
           >
             <div>
@@ -50,8 +50,8 @@ const Home: NextPage = () => {
           <CardTitle
             title={
               !categoryName
-                ? LATEST_POSTCARD.ko
-                : categoryName + LATEST_CATEGORY_POSTCARD.ko
+                ? ALL_LATEST_POST
+                : categoryName + CATEGORY_LATEST_POST
             }
           />
           <div className="col-span-2 ml-auto">
