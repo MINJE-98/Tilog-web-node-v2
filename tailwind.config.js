@@ -55,8 +55,7 @@ module.exports = {
       },
 
       fontFamily: {
-        "eng-sub-font-1": ["Literata", "sans-serif"],
-        "eng-sub-font-2": ["Poppins", "sans-serif"],
+        "logo-font": ["DancingScript"],
       },
       aspectRatio: {
         "2/1": "2 / 1",
