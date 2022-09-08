@@ -12,7 +12,7 @@ body {
 }
 @font-face {
   font-family: "NotoSans";
-  src: url("../public/fonts/NotoSansKR-Regular.otf");
+  src: url("../public/fonts/NotoSansKR-Medium.otf");
   font-weight: normal;
   font-style: normal;
 }
