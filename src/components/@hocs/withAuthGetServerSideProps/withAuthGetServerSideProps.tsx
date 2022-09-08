@@ -1,25 +1,13 @@
-import {
-  GetServerSidePropsContext,
-  GetServerSidePropsResult,
-  Redirect,
-} from "next";
+import { GetServerSidePropsContext, Redirect } from "next";
 
 import { tilogApi } from "@Api/http-client";
 import api from "@Api/index";
 
-import GetMeResponseTransFormSettingsDto from "@Api/users/interface/getMeResponseTransFormSettingsDto";
-
-type IncomingGSSP<P> = (
-  ctx: GetServerSidePropsContext,
-  user: GetMeResponseTransFormSettingsDto
-) => Promise<P>;
-
-type WithAuthServerSidePropsResult = GetServerSidePropsResult<{
-  [key: string]: any;
-}>;
+import IncomingGSSPInterface from "@HOCS/withAuthGetServerSideProps/interface/IncomingGSSPInterface";
+import WithAuthServerSidePropsResult from "@HOCS/withAuthGetServerSideProps/interface/WithAuthServerSidePropsResult";
 
 export default function withAuthServerSideProps(
-  incomingGSSP?: IncomingGSSP<WithAuthServerSidePropsResult> | null,
+  incomingGSSP?: IncomingGSSPInterface<WithAuthServerSidePropsResult> | null,
   redirect?: Redirect
 ) {
   return async (
@@ -29,10 +17,25 @@ export default function withAuthServerSideProps(
     if (tilogApi.http.defaults.headers.common.Authorization) {
       tilogApi.http.defaults.headers.common.Authorization = "";
     }
-
+    // Note: Guest
     if (!cookies.refreshToken) {
-      return redirect ? { redirect } : { props: {} };
+      if (incomingGSSP) {
+        const incomingGSSPResult = await incomingGSSP(ctx);
+
+        if ("props" in incomingGSSPResult) {
+          return { props: { ...incomingGSSPResult.props } };
+        }
+        if ("notFound" in incomingGSSPResult) {
+          return { notFound: incomingGSSPResult.notFound };
+        }
+      }
+      if (redirect) {
+        return { redirect };
+      }
+      return { props: {} };
     }
+
+    // Note: User
     const { headers } = ctx.req;
     const userAgent = !headers["user-agent"] ? "" : headers["user-agent"];
     const cookie = !headers.cookie ? "" : headers.cookie;
@@ -43,22 +46,18 @@ export default function withAuthServerSideProps(
           Cookie: cookie,
         },
       });
+
       const initUserInfo = await api.usersService.getMe({
         headers: {
           "User-Agent": userAgent,
           Cookie: cookie,
         },
       });
-
       if (incomingGSSP) {
         const incomingGSSPResult = await incomingGSSP(ctx, initUserInfo);
 
         if ("props" in incomingGSSPResult) {
           return { props: { ...incomingGSSPResult.props, initUserInfo } };
-        }
-
-        if ("redirect" in incomingGSSPResult) {
-          return { redirect: { ...incomingGSSPResult.redirect } };
         }
 
         if ("notFound" in incomingGSSPResult) {
