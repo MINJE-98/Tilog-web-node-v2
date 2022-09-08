@@ -19,7 +19,7 @@ import {
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useGetStringTypeToRouter from "@Hooks/useGetStringTypeToRouter";
 import RootBox from "@Layouts/box/RootBox";
-import { postDetailSeo } from "@SEO";
+import { homeSeo } from "@SEO";
 
 const Home: NextPage = () => {
   const categoryName = useGetStringTypeToRouter("category");
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <DefaultSeo {...postDetailSeo} />
+        <DefaultSeo {...homeSeo} />
       </Head>
       <Header />
       <IntroThumbnail />

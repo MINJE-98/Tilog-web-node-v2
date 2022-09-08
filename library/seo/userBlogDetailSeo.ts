@@ -15,7 +15,7 @@ export const userBlogDetailSeo = (
     openGraph: {
       type: "website",
       locale: "ko_KR",
-      url: "tilog.io",
+      url: !userInfo.avatar ? "" : userInfo.avatar,
       title: !userInfo.settings.DISPLAY_NAME
         ? userInfo.name
         : userInfo.settings.DISPLAY_NAME,
@@ -23,7 +23,7 @@ export const userBlogDetailSeo = (
 
       images: [
         {
-          url: "../../public/asset/preThumbnail.png",
+          url: !userInfo.avatar ? "" : userInfo.avatar,
           width: 285,
           height: 167,
           alt: "TILog_User_Avatar",
