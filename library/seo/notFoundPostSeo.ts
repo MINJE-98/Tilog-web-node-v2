@@ -7,7 +7,7 @@ export const notFoundPostSeo: DefaultSeoProps = {
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    url: require("../../public/asset/notFoundPage.png"),
+    url: "public/asset/notFoundPage.png",
     title: "페이지를 찾을 수 없습니다.",
     site_name: "TILog",
   },
