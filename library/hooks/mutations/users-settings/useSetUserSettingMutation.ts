@@ -1,3 +1,5 @@
+import axios from "axios";
+import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "react-query";
 
 import api from "@Api";
@@ -18,6 +20,11 @@ const useSetUserSetting = () => {
       settingType: SetSettingRequestBodyDtoSettingTypeEnum;
     }) => api.usersService.setSetting(content, settingType),
     {
+      onError: (error) => {
+        if (axios.isAxiosError(error)) {
+          toast.error(error.message);
+        }
+      },
       onSuccess: (_data, variables) => {
         queryClient.setQueriesData<
           GetMeResponseTransFormSettingsDto | undefined

@@ -1,4 +1,5 @@
-import { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
+import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "react-query";
 
 import api from "@Api";
@@ -13,8 +14,13 @@ export default function useLikeMutation() {
     ExceptionInterface,
     string
   >((postId: LikedRequestDto) => api.postLikeService.toggleLike(postId), {
+    onError: (error) => {
+      if (axios.isAxiosError(error)) {
+        toast.error(error.message);
+      }
+    },
     onSuccess(_data, variables) {
-      queryClient.refetchQueries(["post-detail", variables]);
+      queryClient.getQueriesData(["post-detail", variables]);
       queryClient.refetchQueries(["like", variables]);
     },
   });

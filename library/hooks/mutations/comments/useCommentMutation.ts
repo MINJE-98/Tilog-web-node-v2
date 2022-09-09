@@ -1,3 +1,5 @@
+import axios from "axios";
+import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "react-query";
 
 import api from "@Library/api";
@@ -15,6 +17,11 @@ export const useDeleteCommentMutation = () => {
         commentId,
       }),
     {
+      onError: (error) => {
+        if (axios.isAxiosError(error)) {
+          toast.error(error.message);
+        }
+      },
       onSuccess(_data, variables) {
         return variables.replyTo === "null"
           ? queryClient.refetchQueries(["comment", "parent", variables.postId])
