@@ -1,1 +1,4 @@
-export const NO_MESSAGE = "에러 메세지가 존재하지 않습니다.";
+export const NO_MESSAGE = {
+  ko: "알수없는 에러가 발생했습니다.",
+  en: "알수없는 에러가 발생했습니다.",
+};
