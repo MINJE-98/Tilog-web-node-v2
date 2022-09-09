@@ -1,17 +1,14 @@
 import { UNKNOWN_LOCATION } from "@Api/exception/constant/requestLocation";
 import { INTERNAL_SERVER_ERROR } from "@Api/exception/constant/statusCode";
+import { ExceptionFilter } from "@Api/exception/exceptionFilter";
 import { NETWORK_ERROR } from "@Constants/messages/error";
 
-import { ExceptionInterface } from "@Api/exception/interface";
-
-export default class UnknownError implements ExceptionInterface {
-  readonly statusCode: number;
-  readonly requestLocation: string;
-  readonly message: string;
-
+export default class UnknownError extends ExceptionFilter {
   constructor() {
-    this.statusCode = INTERNAL_SERVER_ERROR;
-    this.requestLocation = UNKNOWN_LOCATION;
-    this.message = NETWORK_ERROR;
+    super({
+      statusCode: INTERNAL_SERVER_ERROR,
+      requestLocation: UNKNOWN_LOCATION,
+      message: NETWORK_ERROR,
+    });
   }
 }
