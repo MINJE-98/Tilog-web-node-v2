@@ -27,7 +27,7 @@ export const postDetailSeo = (
             : postDetail.thumbnailUrl,
           width: 285,
           height: 167,
-          alt: "TILog_thumbnailUrl",
+          alt: "TILog",
         },
       ],
     },

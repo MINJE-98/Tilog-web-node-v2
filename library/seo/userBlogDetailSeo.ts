@@ -26,7 +26,7 @@ export const userBlogDetailSeo = (
           url: !userInfo.avatar ? "" : userInfo.avatar,
           width: 285,
           height: 167,
-          alt: "TILog_User_Avatar",
+          alt: "TILog",
         },
       ],
     },
