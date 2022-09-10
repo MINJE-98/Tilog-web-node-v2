@@ -22,7 +22,9 @@ export const postDetailSeo = (
       },
       images: [
         {
-          url: !postDetail.thumbnailUrl ? "" : postDetail.thumbnailUrl,
+          url: !postDetail.thumbnailUrl
+            ? `https://og.tilog.link/**NotFound%20Page.**.png?md=1&fontSize=100px&seed=${postDetail.id}`
+            : postDetail.thumbnailUrl,
           width: 285,
           height: 167,
           alt: "TILog_thumbnailUrl",

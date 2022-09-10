@@ -14,7 +14,7 @@ export const homeSeo: DefaultSeoProps = {
     site_name: "TILog",
     images: [
       {
-        url: "public/asset/preThumbnail.png",
+        url: "https://og.tilog.link/**Today%20I%20Learn%20Log.**.png?md=1&fontSize=100px&seed=4150",
         width: 100,
         height: 100,
         alt: "TILog_thumbnailUrl",
