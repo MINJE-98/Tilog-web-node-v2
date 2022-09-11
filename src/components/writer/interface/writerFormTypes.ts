@@ -1,8 +1,10 @@
+import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
+
 export default interface WriterFormTypes {
-  subTitle: string;
-  thumbnailUrl: string;
-  markdownContent: string;
-  categoryId: string;
-  title: string;
+  subTitle: GetPostDetailResponseDto["subTitle"];
+  thumbnailUrl: GetPostDetailResponseDto["thumbnailUrl"];
+  markdownContent: GetPostDetailResponseDto["content"];
+  categoryId: GetPostDetailResponseDto["category"]["categoryId"];
+  title: GetPostDetailResponseDto["title"];
   isPrivate: boolean;
 }
