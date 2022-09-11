@@ -21,7 +21,7 @@ const CommentRender = ({ comment }: CommentRenderProps) => {
       <div className="flex items-center gap-x-2 shrink-0">
         <CommentUserProfile
           createdAt={comment.createdAt}
-          userId={comment.user.userId}
+          userName={comment.user.username}
         />
         <div className="ml-auto">
           {isUpdate || (

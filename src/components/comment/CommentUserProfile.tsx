@@ -4,12 +4,15 @@ import DateFnsFormatter from "@Commons/molecules/text/DateFnsFormatter";
 import useGetUserProfileQuery from "@Queries/users/useGetUserProfileQuery";
 
 interface CommentUserProfileProps {
-  userId: number;
+  userName: string;
   createdAt?: string;
 }
 
-const CommentUserProfile = ({ userId, createdAt }: CommentUserProfileProps) => {
-  const userInfo = useGetUserProfileQuery(userId);
+const CommentUserProfile = ({
+  userName,
+  createdAt,
+}: CommentUserProfileProps) => {
+  const userInfo = useGetUserProfileQuery(userName);
 
   if (userInfo.isError) return <p>{userInfo.error.message}</p>;
   if (userInfo.isLoading)

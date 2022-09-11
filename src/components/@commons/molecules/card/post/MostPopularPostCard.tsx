@@ -18,7 +18,7 @@ const MostPopularPostCard = ({ index, post }: MostPopularPostCardProps) => {
         <div className="p-4">
           <PostUserProfile
             viewCount={post.view}
-            userId={post.user.userId}
+            userName={post.user.username}
             createdAt={post.createdAt}
           />
 

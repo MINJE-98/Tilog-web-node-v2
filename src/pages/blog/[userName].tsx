@@ -32,7 +32,7 @@ const BlogPage: NextPage<BlogPagePageProps> = ({
       <RootBox>
         <div className="grid justify-center grid-flow-row p-3 md:justify-between md:grid-flow-col">
           <div className="w-full max-w-[450px]">
-            <UserInfoProfile userId={1} />
+            <UserInfoProfile userName={userInfo.name} />
             <hr />
             {/* TODO GITHUB STATUS LINK */}
             <p className="text-lg text-neutral-600">Pinned Repo</p>
@@ -71,12 +71,11 @@ const BlogPage: NextPage<BlogPagePageProps> = ({
 export default BlogPage;
 export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
   async (context) => {
-    const { userId } = context.query;
-    if (!userId) return { notFound: true };
-    if (Array.isArray(userId)) return { notFound: true };
+    const { userName } = context.query;
+    if (!userName) return { notFound: true };
+    if (Array.isArray(userName)) return { notFound: true };
     try {
-      const numberUserId = parseInt(userId, 10);
-      const userInfo = await api.usersService.getUserProfile(numberUserId);
+      const userInfo = await api.usersService.getUserProfile(userName);
       return {
         props: {
           userInfo,

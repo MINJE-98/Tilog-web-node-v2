@@ -16,7 +16,7 @@ const PostHeader = ({ post }: PostHeaderProps) => {
       <div className="flex">
         <PostUserProfile
           viewCount={post.view}
-          userId={post.user.userId}
+          userName={post.user.username}
           createdAt={post.createdAt}
         />
         {isOwner && (

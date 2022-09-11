@@ -42,7 +42,7 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
               </div>
               <section>
                 <div className="w-full rounded h-fit bg-neutral-100 dark:bg-neutral-800">
-                  <PostWriter userInfo={post.user} />
+                  <PostWriter username={post.user.username} />
                 </div>
               </section>
             </div>

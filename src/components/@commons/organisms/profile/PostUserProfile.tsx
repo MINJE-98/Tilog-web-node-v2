@@ -7,19 +7,19 @@ import { VIEW_COUNT } from "@Constants/text/viewCount";
 import useGetUserProfileQuery from "@Queries/users/useGetUserProfileQuery";
 
 interface PostUserProfileProps {
-  userId: number;
+  userName: string;
   createdAt: string;
   viewCount: number;
   isPrivate?: boolean;
 }
 
 const PostUserProfile = ({
-  userId,
+  userName,
   createdAt,
   viewCount,
   isPrivate,
 }: PostUserProfileProps) => {
-  const userInfo = useGetUserProfileQuery(userId);
+  const userInfo = useGetUserProfileQuery(userName);
 
   if (userInfo.isError) return <p>{userInfo.error.message}</p>;
   if (userInfo.isLoading) return null;

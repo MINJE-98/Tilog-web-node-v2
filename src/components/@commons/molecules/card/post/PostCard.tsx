@@ -13,7 +13,7 @@ const PostCard = ({ post }: { post: GetPostsItem }) => {
         <PostUserProfile
           viewCount={post.view}
           isPrivate={post.private === 1}
-          userId={post.user.userId}
+          userName={post.user.username}
           createdAt={post.createdAt}
         />
 
