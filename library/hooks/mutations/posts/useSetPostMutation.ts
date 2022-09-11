@@ -10,7 +10,7 @@ const useSetPostMutation = () => {
   return useMutation((formData: WriterFormTypes) => {
     const postData: CreatePostRequestBodyDto = {
       ...formData,
-      categoryId: parseInt(formData.categoryId, 10),
+      categoryId: formData.categoryId,
     };
     return api.postService.createPost(postData);
   });
