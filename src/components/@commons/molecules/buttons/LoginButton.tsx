@@ -8,7 +8,7 @@ const LoginButton = () => {
   const { handleLogin } = useAuth();
   return (
     <PrimaryButton
-      className="flex justify-center space-x-3"
+      className="flex items-center justify-center py-3 space-x-3"
       type="button"
       onClick={handleLogin}
     >

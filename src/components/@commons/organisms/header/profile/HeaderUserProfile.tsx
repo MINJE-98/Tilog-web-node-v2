@@ -20,7 +20,10 @@ const HeaderUserProfile = () => {
   return (
     <div ref={dropDownRef}>
       <button type="button" onClick={handleOpen}>
-        <ProfileImage className="w-14 h-14" avatar={userInfo.avatar} />
+        <ProfileImage
+          className="w-12 h-12 md:w-14 md:h-14"
+          avatar={userInfo.avatar}
+        />
       </button>
 
       {isOpen && <DropdownProfile />}
