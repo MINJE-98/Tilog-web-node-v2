@@ -21,7 +21,7 @@ const HeaderUserProfile = () => {
     <div ref={dropDownRef}>
       <button type="button" onClick={handleOpen}>
         <ProfileImage
-          className="w-10 h-10 md:w-14 md:h-14"
+          className="w-12 h-12 md:w-14 md:h-14"
           avatar={userInfo.avatar}
         />
       </button>
