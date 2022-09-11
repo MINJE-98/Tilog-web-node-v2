@@ -11,6 +11,7 @@ import {
 } from "@til-log.lab/tilog-api";
 
 import { ExceptionInterface } from "@Api/exception/interface";
+import CreatePostResponseDto from "@Api/post/interface/createPostResponseDto";
 import GetPostRequestDto from "@Api/post/interface/getPostRequestDto";
 
 export default class PostService {
@@ -20,7 +21,7 @@ export default class PostService {
   createPost(
     createPostRequestBodyDto: CreatePostRequestBodyDto,
     options?: AxiosRequestConfig<ExceptionInterface>
-  ): Promise<AxiosResponse<void, ExceptionInterface>> {
+  ): Promise<AxiosResponse<CreatePostResponseDto, ExceptionInterface>> {
     return this.postRepository.createPost(createPostRequestBodyDto, options);
   }
 

@@ -21,10 +21,12 @@ export default class PostRepository {
       repositoryConfig.axios
     );
   }
+
   createPost(
     createPostRequestBodyDto: CreatePostRequestBodyDto,
     options?: AxiosRequestConfig
-  ): Promise<AxiosResponse<void, ExceptionInterface>> {
+  ): Promise<AxiosResponse<any, ExceptionInterface>> {
+    // NOTE: 실제 반환 타입이 CreatePostResponseDto인데 void로 되어있어서 any로 임시 지정
     return this.postApi.postsControllerCreatePost(
       createPostRequestBodyDto,
       options
