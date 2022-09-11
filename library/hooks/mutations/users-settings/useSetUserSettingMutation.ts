@@ -1,4 +1,3 @@
-import axios from "axios";
 import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "react-query";
 
@@ -21,9 +20,7 @@ const useSetUserSetting = () => {
     }) => api.usersService.setSetting(content, settingType),
     {
       onError: (error) => {
-        if (axios.isAxiosError(error)) {
-          toast.error(error.message);
-        }
+        if (error instanceof Error) toast.error(error.message);
       },
       onSuccess: (_data, variables) => {
         queryClient.setQueriesData<

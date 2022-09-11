@@ -1,4 +1,3 @@
-import axios from "axios";
 import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "react-query";
 
@@ -18,9 +17,7 @@ export const useDeleteCommentMutation = () => {
       }),
     {
       onError: (error) => {
-        if (axios.isAxiosError(error)) {
-          toast.error(error.message);
-        }
+        if (error instanceof Error) toast.error(error.message);
       },
       onSuccess(_data, variables) {
         return variables.replyTo === "null"
