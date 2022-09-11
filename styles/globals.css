@@ -12,7 +12,7 @@ body {
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("../public/fonts/Pretendard-Bold.otf");
+  src: url("../public/fonts/Pretendard-Regular.otf");
   font-weight: normal;
   font-style: normal;
 }
