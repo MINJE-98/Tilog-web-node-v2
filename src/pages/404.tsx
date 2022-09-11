@@ -1,16 +1,14 @@
 import { NextPage } from "next";
 
-import { DefaultSeo } from "next-seo";
-
+import Header from "@Commons/organisms/header";
 import RootBox from "@Layouts/box/RootBox";
-import { notFoundPostSeo } from "@SEO";
 
 const NotFoundPage: NextPage = () => {
   return (
     <div>
-      <DefaultSeo {...notFoundPostSeo} />
+      <Header />
       <RootBox>
-        <article className="text-center ">
+        <article className="text-center">
           <header>
             <h1>404</h1>
           </header>

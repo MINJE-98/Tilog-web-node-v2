@@ -3,7 +3,7 @@ import { DefaultSeoProps } from "next-seo";
 
 import { HOME_INTRO } from "@Constants/text";
 
-export const homeSeo: DefaultSeoProps = {
+export const rootSeo: DefaultSeoProps = {
   title: HOME_INTRO.TITLE,
   description: HOME_INTRO.SUBTITLE,
   openGraph: {
