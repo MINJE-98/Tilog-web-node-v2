@@ -15,7 +15,7 @@ import {
   TitleInput,
 } from "@Components/writer";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
-import useHandleSummit from "@Hooks/useHandleWriterSummit";
+import useHandleEditSummit from "@Hooks/useHandleEditSummit";
 import RootBox from "@Layouts/box/RootBox";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
@@ -28,6 +28,7 @@ interface EditorPageProps {
 const EditorPage: NextPage<EditorPageProps> = ({ post }: EditorPageProps) => {
   const method = useForm<WriterFormTypes>({
     defaultValues: {
+      postId: post.id,
       subTitle: post.subTitle,
       thumbnailUrl: post.thumbnailUrl,
       markdownContent: post.content,
@@ -35,7 +36,7 @@ const EditorPage: NextPage<EditorPageProps> = ({ post }: EditorPageProps) => {
       title: post.title,
     },
   });
-  const onSummit = useHandleSummit();
+  const onSummit = useHandleEditSummit();
   return (
     <div>
       <Head>

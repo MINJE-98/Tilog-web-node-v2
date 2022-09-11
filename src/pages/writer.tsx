@@ -14,14 +14,14 @@ import {
   TitleInput,
 } from "@Components/writer";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
-import useHandleSummit from "@Hooks/useHandleWriterSummit";
+import useHandleWriterSummit from "@Hooks/useHandleWriterSummit";
 import RootBox from "@Layouts/box/RootBox";
 
 import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
 
 const WriterPage: NextPage = () => {
   const method = useForm<WriterFormTypes>();
-  const onSummit = useHandleSummit();
+  const onSummit = useHandleWriterSummit();
   return (
     <div>
       <Head>

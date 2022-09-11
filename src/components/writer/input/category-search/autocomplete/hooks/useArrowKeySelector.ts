@@ -44,10 +44,7 @@ const useArrowKeySelector = (
 
     if (key === "Enter") {
       if (!categoryList[index]) return;
-      setValue(
-        WRITER_INPUT_TYPE.CATEGORY_ID,
-        categoryList[index].id.toString()
-      );
+      setValue(WRITER_INPUT_TYPE.CATEGORY_ID, categoryList[index].id);
     }
   };
   useEventListener("keydown", handleArrowClick);
