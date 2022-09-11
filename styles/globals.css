@@ -5,14 +5,14 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, NotoSans, Poppins, sans-serif;
+  font-family: -apple-system, Pretendard, Poppins, sans-serif;
 
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
 }
 @font-face {
-  font-family: "NotoSans";
-  src: url("../public/fonts/NotoSansKR-Medium.otf");
+  font-family: "Pretendard";
+  src: url("../public/fonts/Pretendard-Bold.otf");
   font-weight: normal;
   font-style: normal;
 }
