@@ -14,7 +14,7 @@ const PostUpdateLink = ({ postId }: PostUpdateLinkProps) => {
         pathname: "/writer",
         query: { postId },
       }}
-      className="text-sm text-neutral-400 hover:text-neutral-500 h-fit"
+      className="m-auto text-sm text-neutral-400 hover:text-neutral-500 h-fit"
     >
       {EDIT}
     </LinkTo>
