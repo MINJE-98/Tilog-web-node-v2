@@ -4,14 +4,14 @@ import UserBlogLink from "@Components/post/link/UserBlogLink";
 import { PostDetailUserInfoItem } from "@til-log.lab/tilog-api";
 
 interface PostWriterProps {
-  userInfo: PostDetailUserInfoItem;
+  username: PostDetailUserInfoItem["username"];
 }
 
-const PostWriter = ({ userInfo }: PostWriterProps) => {
+const PostWriter = ({ username }: PostWriterProps) => {
   return (
     <div className="w-full p-5">
-      <UserInfoProfile userId={userInfo.userId} />
-      <UserBlogLink userName={userInfo.username} userId={userInfo.userId} />
+      <UserInfoProfile userName={username} />
+      <UserBlogLink userName={username} />
     </div>
   );
 };

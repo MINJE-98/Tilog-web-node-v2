@@ -5,12 +5,12 @@ import api from "@Api";
 import { ExceptionInterface } from "@Api/exception/interface";
 import GetUserProfileResponseTransFormSettingsDto from "@Api/users/interface/getUserProfileResponseTransFormSettingsDto";
 
-export default function useGetUserProfileQuery(userId: number) {
+export default function useGetUserProfileQuery(userName: string) {
   return useQuery<
     GetUserProfileResponseTransFormSettingsDto,
     ExceptionInterface,
     GetUserProfileResponseTransFormSettingsDto
-  >(["userInfo", userId], () => api.usersService.getUserProfile(userId), {
+  >(["userInfo", userName], () => api.usersService.getUserProfile(userName), {
     retry: 0,
     refetchOnWindowFocus: false,
     refetchInterval: false,

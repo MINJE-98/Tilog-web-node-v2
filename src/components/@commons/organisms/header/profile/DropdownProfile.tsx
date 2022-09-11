@@ -11,7 +11,7 @@ const DropdownProfile = () => {
       <ol className="absolute right-0 w-40 mt-2 bg-white divide-y divide-gray-100 rounded-md shadow-lg ">
         <li className="py-1" role="none">
           <LinkTo
-            href={`/blog/${userInfo.id}`}
+            href={`/blog/${userInfo.name}`}
             className="block px-4 py-2 text-lg text-gray-700 font-eng-sub-font-1"
           >
             {USER_PROFILE_DROPBOX.MY_BLOG}

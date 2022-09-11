@@ -1,5 +1,6 @@
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 import PostUserProfile from "@Commons/organisms/profile/PostUserProfile";
+import PostDeleteButton from "@Components/post/button/PostDeleteButton";
 import PostUpdateLink from "@Components/post/link/PostUpdateLink";
 import useIsOwner from "@Hooks/useIsOwner";
 
@@ -16,11 +17,12 @@ const PostHeader = ({ post }: PostHeaderProps) => {
       <div className="flex">
         <PostUserProfile
           viewCount={post.view}
-          userId={post.user.userId}
+          userName={post.user.username}
           createdAt={post.createdAt}
         />
         {isOwner && (
           <div className="flex ml-auto space-x-5">
+            <PostDeleteButton postId={post.id} />
             <PostUpdateLink postId={post.id} />
           </div>
         )}

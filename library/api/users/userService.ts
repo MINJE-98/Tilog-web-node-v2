@@ -29,12 +29,14 @@ export default class UserService {
     return newResponse;
   }
 
-  // TODO: UserName을 전달 받게 변경되어야합니다. -> Backend 스팩이 변경되어야합니다!
   async getUserProfile(
-    userId: number,
+    userName: string,
     options?: AxiosRequestConfig<unknown>
   ): Promise<GetUserProfileResponseTransFormSettingsDto> {
-    const { data } = await this.userRepository.getUserProfile(userId, options);
+    const { data } = await this.userRepository.getUserProfile(
+      userName,
+      options
+    );
     const newResponse: GetUserProfileResponseTransFormSettingsDto = {
       avatar: data.avatar,
       name: data.name,

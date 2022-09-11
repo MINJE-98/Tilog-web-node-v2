@@ -27,10 +27,10 @@ export default class UserRepository {
   }
 
   getUserProfile(
-    userId: number,
+    userName: any, // backend 측의 tilog open-api 스펙이 변경된 후 타입 지정.
     options?: AxiosRequestConfig
   ): Promise<AxiosResponse<GetUserProfileResponseDto, ExceptionInterface>> {
-    return this.userApi.usersControllerGetUserProfile(userId, options);
+    return this.userApi.usersControllerGetUserProfile(userName, options);
   }
 
   setSetting(

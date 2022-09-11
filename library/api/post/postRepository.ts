@@ -13,7 +13,8 @@ import RepositoryConfig from "@Api/interface/RepositoryConfig";
 
 export default class PostRepository {
   protected postApi: PostApi;
-  constructor(repositoryConfig: RepositoryConfig) {
+
+  constructor(readonly repositoryConfig: RepositoryConfig) {
     this.postApi = new PostApi(
       repositoryConfig.configuration,
       repositoryConfig.basePath,
@@ -55,6 +56,16 @@ export default class PostRepository {
     );
   }
 
+  deletePost(postId: string) {
+    return this.repositoryConfig.axios.delete(
+      `${this.repositoryConfig.basePath}/posts`,
+      {
+        data: {
+          postId,
+        },
+      }
+    );
+  }
   modifyPost(
     modifyPostRequestBodyDto: ModifyPostRequestBodyDto,
     options?: AxiosRequestConfig

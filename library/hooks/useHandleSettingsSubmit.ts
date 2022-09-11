@@ -1,4 +1,5 @@
 import { SubmitHandler } from "react-hook-form";
+import toast from "react-hot-toast";
 
 import useSetUserSetting from "@Mutations/users-settings/useSetUserSettingMutation";
 
@@ -20,13 +21,9 @@ const useHandleSubmit = (): SubmitHandler<UserSettingTypes> => {
           settingType: userSettingKey,
         },
         {
-          // onError: (error) => {
-          //   if (httpClient.isHttpClientError(error)) {
-          //     toast.error(error.message.ko, {
-          //       id: loading,
-          //     });
-          //   }
-          // },
+          onError: (error) => {
+            if (error instanceof Error) toast.error(error.message);
+          },
           // onSuccess: () => {
           //   toast.success(SAVE_MESSAGE.ko, {
           //     id: loading,

@@ -31,6 +31,10 @@ export default class PostService {
     return this.postRepository.getPostDetail(postId, options);
   }
 
+  @validateToken()
+  deletePost(postId: string) {
+    return this.postRepository.deletePost(postId);
+  }
   getPosts(
     dateScope: GetPostRequestDto["dateScope"],
     sortScope: GetPostRequestDto["sortScope"],

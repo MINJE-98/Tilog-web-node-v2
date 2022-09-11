@@ -25,7 +25,7 @@ const CommentInput = ({
   return (
     <div>
       <div className="p-5 bg-neutral-100 dark:bg-neutral-800">
-        <CommentUserProfile userId={userInfo.id} />
+        <CommentUserProfile userName={userInfo.name} />
 
         <div className="mt-5">
           {errorMessage && <p className="text-rose-500">{errorMessage}</p>}
