@@ -3,6 +3,7 @@ import Head from "next/head";
 
 import { FormProvider, useForm } from "react-hook-form";
 
+import api from "@Api/index";
 import Header from "@Commons/organisms/header";
 import {
   CoverImage,
@@ -14,18 +15,32 @@ import {
   TitleInput,
 } from "@Components/writer";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
-import useHandleWriterSummit from "@Hooks/useHandleWriterSummit";
+import useHandleEditSummit from "@Hooks/useHandleEditSummit";
 import RootBox from "@Layouts/box/RootBox";
+
+import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
 import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
 
-const WriterPage: NextPage = () => {
-  const method = useForm<WriterFormTypes>();
-  const onSummit = useHandleWriterSummit();
+interface EditorPageProps {
+  post: GetPostDetailResponseDto;
+}
+const EditorPage: NextPage<EditorPageProps> = ({ post }: EditorPageProps) => {
+  const method = useForm<WriterFormTypes>({
+    defaultValues: {
+      postId: post.id,
+      subTitle: post.subTitle,
+      thumbnailUrl: post.thumbnailUrl,
+      markdownContent: post.content,
+      categoryId: post.category.categoryId,
+      title: post.title,
+    },
+  });
+  const onSummit = useHandleEditSummit();
   return (
     <div>
       <Head>
-        <title>글쓰기</title>
+        <title>글수정</title>
       </Head>
       <Header />
       <RootBox>
@@ -48,9 +63,25 @@ const WriterPage: NextPage = () => {
   );
 };
 
-export default WriterPage;
+export default EditorPage;
 export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
-  null,
+  async (context) => {
+    const { postId } = context.query;
+    if (!postId) return { props: {} };
+    if (Array.isArray(postId)) return { props: {} };
+    try {
+      const { data } = await api.postService.getPostDetail(postId);
+      return {
+        props: {
+          post: data,
+        },
+      };
+    } catch (error) {
+      return {
+        notFound: true,
+      };
+    }
+  },
   {
     destination: "/",
     permanent: true,

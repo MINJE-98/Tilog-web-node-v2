@@ -2,18 +2,18 @@ import { useMutation } from "react-query";
 
 import api from "@Library/api";
 
-import { CreatePostRequestBodyDto } from "@til-log.lab/tilog-api";
+import { ModifyPostRequestBodyDto } from "@til-log.lab/tilog-api";
 
 import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
 
-const useSetPostMutation = () => {
+const useUpdatePostMutation = () => {
   return useMutation((formData: WriterFormTypes) => {
-    const postData: CreatePostRequestBodyDto = {
+    const postData: ModifyPostRequestBodyDto = {
       ...formData,
       categoryId: formData.categoryId,
     };
-    return api.postService.createPost(postData);
+    return api.postService.modifyPost(postData);
   });
 };
 
-export default useSetPostMutation;
+export default useUpdatePostMutation;

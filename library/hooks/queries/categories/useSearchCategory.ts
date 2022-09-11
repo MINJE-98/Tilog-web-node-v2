@@ -10,7 +10,7 @@ const useSearchCategory = () => {
 
   return (
     categoryName?: GetUserCategoriesItem["categoryName"],
-    categoryId?: string
+    categoryId?: GetUserCategoriesItem["id"]
   ): GetCategoriesItem[] | null => {
     if (!data) return null;
     const categoryList = data.data.list;
@@ -21,7 +21,7 @@ const useSearchCategory = () => {
 
     if (categoryId) {
       return categoryList.filter((v) => {
-        return v.id === parseInt(categoryId, 10);
+        return v.id === categoryId;
       });
     }
 

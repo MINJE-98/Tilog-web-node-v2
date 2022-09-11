@@ -16,9 +16,7 @@ const AutocompleteContents = ({ category }: AutocompleteContentsProps) => {
   return (
     <button
       type="button"
-      onClick={() =>
-        setValue(WRITER_INPUT_TYPE.CATEGORY_ID, category.id.toString())
-      }
+      onClick={() => setValue(WRITER_INPUT_TYPE.CATEGORY_ID, category.id)}
     >
       <div className="flex items-center content-center text-2xl font-eng-sub-font-2 gap-x-3">
         <RenderTechIcons categoryName={category.categoryName} />

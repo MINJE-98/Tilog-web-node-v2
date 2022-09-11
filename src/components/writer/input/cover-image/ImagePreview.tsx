@@ -37,7 +37,7 @@ const ImagePreView = () => {
             </div>
           </>
         )}
-        <PostThumbnail title={title} id="1" thumbnailUrl={preview} />
+        <PostThumbnail title={title} id="3729" thumbnailUrl={preview} />
       </div>
     );
   }
@@ -56,7 +56,7 @@ const ImagePreView = () => {
           </div>
         </>
       )}
-      <PostThumbnail title={title} id="1" thumbnailUrl={preview} />
+      <PostThumbnail title={title} id="0" thumbnailUrl={preview} />
     </div>
   );
 };

@@ -21,6 +21,7 @@ const CategoryInput = () => {
     <div ref={ref}>
       <input
         {...register(WRITER_INPUT_TYPE.CATEGORY_ID, {
+          valueAsNumber: true,
           required: true,
         })}
         autoComplete="off"
