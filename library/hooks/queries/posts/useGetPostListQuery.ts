@@ -16,6 +16,7 @@ interface GetPostListQueryInterface {
   maxContent: GetPostRequestDto["maxContent"];
   userId?: GetPostRequestDto["userId"];
   categoryName?: string;
+  isViewType?: "paging" | "infinite" | "none";
 }
 
 const useGetPostListQuery = ({
@@ -25,6 +26,7 @@ const useGetPostListQuery = ({
   maxContent,
   userId,
   page,
+  isViewType,
 }: GetPostListQueryInterface) => {
   const searchCategory = useSearchCategory();
   const data = searchCategory(categoryName);
@@ -35,7 +37,7 @@ const useGetPostListQuery = ({
     ExceptionInterface,
     AxiosResponse<GetPostsResponseDto>
   >(
-    ["PostList", categoryId, userId],
+    ["PostList", categoryId, dateScope, sortScope, userId, isViewType],
     ({ pageParam = page }) => {
       return api.postService.getPosts(
         dateScope,

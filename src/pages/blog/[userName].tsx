@@ -4,11 +4,10 @@ import { DefaultSeo } from "next-seo";
 
 import api from "@Api";
 import Header from "@Commons/organisms/header";
-import CategorySortButtonList from "@Commons/organisms/list/CategorySortButtonList";
 import PostCardList from "@Commons/organisms/list/PostCardList";
 import UserInfoProfile from "@Commons/organisms/profile/UserInfoProfile";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
-import useGetStringTypeToRouter from "@Hooks/useGetStringTypeToRouter";
+import useCategoryRouter from "@Hooks/useCategoryRouter";
 import RootBox from "@Layouts/box/RootBox";
 import { userBlogDetailSeo } from "@SEO";
 
@@ -17,17 +16,16 @@ import GetUserProfileResponseTransFormSettingsDto from "@Api/users/interface/get
 interface BlogPagePageProps {
   userInfo: GetUserProfileResponseTransFormSettingsDto;
 }
-// TODO: 현재 BlogPage는 UserID 1 번을 반환하도록 하드 코딩되어 있습니다. userName로 전달받을 수 있게 변경된 후 코드를 변경해야합니다.
+
 const BlogPage: NextPage<BlogPagePageProps> = ({
   userInfo,
 }: BlogPagePageProps) => {
-  const category = useGetStringTypeToRouter("category");
+  const category = useCategoryRouter();
   const seo = userBlogDetailSeo(userInfo);
   return (
     <div>
       <DefaultSeo {...seo} />
       <Header />
-      <CategorySortButtonList userId={1} />
 
       <RootBox>
         <div className="grid justify-center grid-flow-row p-3 md:justify-between md:grid-flow-col">
@@ -62,6 +60,7 @@ const BlogPage: NextPage<BlogPagePageProps> = ({
             categoryName={category}
             maxContent={10}
             userId={1}
+            isViewType="infinite"
           />
         </div>
       </RootBox>
