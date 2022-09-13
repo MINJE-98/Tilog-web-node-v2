@@ -11,7 +11,17 @@ const DateScopeLink = ({
   dateScope: GetPostRequestDto["dateScope"];
 }) => {
   const router = useRouter();
-
+  if (dateScope === "All" && !router.query.dateScope) {
+    return (
+      <LinkTo
+        scroll={false}
+        href={queryString(router.asPath, "dateScope", dateScope)}
+        className="p-2 text-base font-semibold hover:no-underline text-neutral-800 dark:text-neutral-400"
+      >
+        {dateScope}
+      </LinkTo>
+    );
+  }
   if (router.query.dateScope !== dateScope) {
     return (
       <LinkTo

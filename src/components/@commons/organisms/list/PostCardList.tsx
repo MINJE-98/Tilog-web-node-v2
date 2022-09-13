@@ -15,6 +15,7 @@ interface PostCardListProps {
   userId?: GetPostRequestDto["userId"];
   categoryName?: string;
   row?: string;
+  isViewType?: "paging" | "infinite" | "none";
 }
 
 const PostCardList = ({
@@ -25,6 +26,7 @@ const PostCardList = ({
   userId,
   categoryName,
   row = "none",
+  isViewType = "none",
 }: PostCardListProps) => {
   const postList = useGetPostListQuery({
     dateScope,
@@ -33,6 +35,7 @@ const PostCardList = ({
     maxContent,
     userId,
     categoryName,
+    isViewType,
   });
   if (postList.isError) {
     return <div>에러발생!</div>;
@@ -48,17 +51,19 @@ const PostCardList = ({
         {postList.isSuccess &&
           postList.data.pages.map((postPage) => {
             if (isArrayEmpty(postPage.data.list))
-              return <h3>인기 게시글이 없습니다.</h3>;
+              return <h3>게시글이 존재하지 않습니다.</h3>;
             return postPage.data.list.map((post) => (
               <PostCard key={post.id} post={post} />
             ));
           })}
       </div>
-      <CardLoading
-        hasNextPage={postList.hasNextPage}
-        isFetchingNextPage={postList.isFetchingNextPage}
-        fetchNextPage={postList.fetchNextPage}
-      />
+      {isViewType === "infinite" && (
+        <CardLoading
+          hasNextPage={postList.hasNextPage}
+          isFetchingNextPage={postList.isFetchingNextPage}
+          fetchNextPage={postList.fetchNextPage}
+        />
+      )}
     </div>
   );
 };

@@ -36,7 +36,6 @@ const WriterPage: NextPage = () => {
             <SubTitleInput />
             <SearchCategory />
             <TiptapEditor />
-
             <div className="flex w-[300px] sticky bottom-0 z-10 mt-3 space-x-5 ml-auto bg-slate-100">
               <PrivateSubmit />
               <PublicSubmit />
