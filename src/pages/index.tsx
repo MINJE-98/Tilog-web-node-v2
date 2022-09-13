@@ -1,5 +1,7 @@
 import type { GetServerSideProps, NextPage } from "next";
 
+import { DefaultSeo } from "next-seo";
+
 import CardTitle from "@Commons/atom/CardTitle";
 import DateScopeLink from "@Commons/molecules/link/DateScopeLink";
 import Header from "@Commons/organisms/header";
@@ -16,12 +18,14 @@ import {
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useGetStringTypeToRouter from "@Hooks/useGetStringTypeToRouter";
 import RootBox from "@Layouts/box/RootBox";
+import { rootSeo } from "@Library/seo";
 
 const Home: NextPage = () => {
   const categoryName = useGetStringTypeToRouter("category");
 
   return (
     <div>
+      <DefaultSeo {...rootSeo} />
       <Header />
       <IntroThumbnail />
       <CategorySortButtonList />
@@ -40,12 +44,7 @@ const Home: NextPage = () => {
               <DateScopeLink dateScope="Monthly" />
             </div>
           </CardTitle>
-          <MostPopularPostCardList
-            sortScope="likes"
-            page={0}
-            maxContent={6}
-            categoryName={categoryName}
-          />
+          <MostPopularPostCardList sortScope="likes" page={0} maxContent={6} />
         </div>
         <div className="my-10">
           <CardTitle
