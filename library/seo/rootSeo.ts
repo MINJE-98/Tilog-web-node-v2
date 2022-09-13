@@ -19,7 +19,10 @@ export const rootSeo = (
       site_name: "TILog",
       images: [
         {
-          url: `https://og.tilog.link/.png?md=1&fontSize=90px&seed=3729&images=https://static.tilog.link/tilog-logo-white.svg&images=https://static.tilog.link/${category}.svg`,
+          url:
+            category === ""
+              ? `https://og.tilog.link/.png?md=1&fontSize=90px&seed=3729&images=https://static.tilog.link/tilog-logo-white.svg`
+              : `https://og.tilog.link/.png?md=1&fontSize=90px&seed=3729&images=https://static.tilog.link/tilog-logo-white.svg&images=https://static.tilog.link/${category}.svg`,
           width: 285,
           height: 167,
           alt: "TILog",
