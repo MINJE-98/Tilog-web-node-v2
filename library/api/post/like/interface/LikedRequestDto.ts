@@ -3,8 +3,6 @@ import {
   UnsetLikedRequestDto,
 } from "@til-log.lab/tilog-api";
 
-type LikedRequestDto =
-  | SetLikedRequestDto["postId"]
-  | UnsetLikedRequestDto["postId"];
+type LikedRequestDto = SetLikedRequestDto | UnsetLikedRequestDto;
 
 export default LikedRequestDto;

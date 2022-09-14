@@ -1,3 +1,5 @@
+import { PostLike } from "@Api/interface/model";
+
 export default interface PostHasLikeDto {
-  postId: string;
+  postId: PostLike["id"];
 }
