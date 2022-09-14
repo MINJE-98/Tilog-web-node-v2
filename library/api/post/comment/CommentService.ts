@@ -1,57 +1,59 @@
-import { AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosRequestConfig } from "axios";
 
 import validateToken from "@Api/auth/validateTokenDecorator";
-import CommentRepository from "@Api/post/comment/CommentRepository";
+import CommentRepository from "@Api/post/comment/commentRepository";
 
 import {
   CreateCommentsRequestBodyDto,
   DeleteCommentRequestDto,
-  GetCommentsResponseDto,
   UpdateCommentRequestDto,
 } from "@til-log.lab/tilog-api";
 
-import { ExceptionInterface } from "@Api/exception/interface";
+import GetCommentsRequest from "@Api/post/comment/interface/getCommentsRequest";
 
 export default class CommentService {
   constructor(private readonly commentRepository: CommentRepository) {}
 
   @validateToken()
   createComment(
-    createCommentsRequestBodyDto: CreateCommentsRequestBodyDto,
+    createCommentsRequestBody: CreateCommentsRequestBodyDto,
     options?: AxiosRequestConfig
-  ): Promise<AxiosResponse<void, ExceptionInterface>> {
-    return this.commentRepository.createComment(
-      createCommentsRequestBodyDto,
+  ) {
+    return this.commentRepository.commentsControllerCreateComment(
+      createCommentsRequestBody,
       options
     );
   }
 
   @validateToken()
   deleteComment(
-    deleteCommentRequestDto: DeleteCommentRequestDto,
+    deleteCommentRequest: DeleteCommentRequestDto,
     options?: AxiosRequestConfig
-  ): Promise<AxiosResponse<void, ExceptionInterface>> {
-    return this.commentRepository.deleteComment(
-      deleteCommentRequestDto,
+  ) {
+    return this.commentRepository.commentsControllerDeleteComment(
+      deleteCommentRequest,
       options
     );
   }
 
   getComments(
-    postId: string,
-    replyTo?: string,
+    { postId, replyTo }: GetCommentsRequest,
     options?: AxiosRequestConfig
-  ): Promise<AxiosResponse<GetCommentsResponseDto, ExceptionInterface>> {
-    return this.commentRepository.getComments(postId, replyTo, options);
+  ) {
+    return this.commentRepository.commentsControllerGetComments(
+      postId,
+      replyTo,
+      options
+    );
   }
 
   @validateToken()
   updateComment(
-    updateCommentRequestDto: UpdateCommentRequestDto,
+    updateCommentRequest: UpdateCommentRequestDto,
     options?: AxiosRequestConfig
-  ): Promise<AxiosResponse<void>> {
-    return this.commentRepository.updateComment(
-      updateCommentRequestDto,
+  ) {
+    return this.commentRepository.commentsControllerUpdateComment(
+      updateCommentRequest,
       options
     );
   }

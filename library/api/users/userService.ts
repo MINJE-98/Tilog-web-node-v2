@@ -2,60 +2,62 @@ import { AxiosRequestConfig } from "axios";
 
 import validateToken from "@Api/auth/validateTokenDecorator";
 import UserRepository from "@Api/users/userRepository";
-import userSettingsTransformObjectSettings from "@Api/utility/userSettingsTransformObjectSettings";
+import userArraySettingsTransformObjectSettings from "@Api/utility/userArraySettingsTransformObjectSettings";
 
-import {
-  SetSettingRequestBodyDto,
-  SetSettingRequestBodyDtoSettingTypeEnum,
-} from "@til-log.lab/tilog-api";
+import { SetSettingRequestBodyDto } from "@til-log.lab/tilog-api";
 
-import GetMeResponseTransFormSettingsDto from "@Api/users/interface/getMeResponseTransFormSettingsDto";
-import GetUserProfileResponseTransFormSettingsDto from "@Api/users/interface/getUserProfileResponseTransFormSettingsDto";
+import { Users } from "@Api/interface/model";
+import GetMeResponse from "@Api/users/interface/getMeResponse";
+import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
 export default class UserService {
   constructor(private readonly userRepository: UserRepository) {}
 
-  async getMe(
-    options?: AxiosRequestConfig<unknown>
-  ): Promise<GetMeResponseTransFormSettingsDto> {
-    const { data } = await this.userRepository.getMe(options);
-    const newResponse: GetMeResponseTransFormSettingsDto = {
-      id: data.userId,
-      avatar: data.avatar,
-      name: data.name,
-      createdAt: data.createdAt,
-      settings: userSettingsTransformObjectSettings(data.settings),
+  @validateToken()
+  async getMe(options?: AxiosRequestConfig) {
+    const {
+      data: { userId: id, avatar, name, createdAt, settings },
+    } = await this.userRepository.usersControllerGetMe(options);
+
+    const getMeResponse: GetMeResponse = {
+      id,
+      avatar,
+      name,
+      createdAt,
+      settings: userArraySettingsTransformObjectSettings(settings),
     };
-    return newResponse;
+    return getMeResponse;
   }
 
   async getUserProfile(
-    userName: string,
-    options?: AxiosRequestConfig<unknown>
-  ): Promise<GetUserProfileResponseTransFormSettingsDto> {
-    const { data } = await this.userRepository.getUserProfile(
+    userName: Users["userName"] | any,
+    options?: AxiosRequestConfig
+  ) {
+    const {
+      data: { id, avatar, name, createdAt, settings },
+    } = await this.userRepository.usersControllerGetUserProfile(
       userName,
       options
     );
-    const newResponse: GetUserProfileResponseTransFormSettingsDto = {
-      avatar: data.avatar,
-      name: data.name,
-      createdAt: data.createdAt,
-      settings: userSettingsTransformObjectSettings(data.settings),
+
+    const getUserProfileResponse: GetUserProfileResponse = {
+      id,
+      avatar,
+      name,
+      createdAt,
+      settings: userArraySettingsTransformObjectSettings(settings),
     };
-    return newResponse;
+    return getUserProfileResponse;
   }
 
   @validateToken()
-  async setSetting(
-    content: string | null,
-    settingType: SetSettingRequestBodyDtoSettingTypeEnum,
-    options?: AxiosRequestConfig<unknown>
-  ): Promise<void> {
-    const setSettingRequestBodyDto: SetSettingRequestBodyDto = {
-      content,
-      settingType,
-    };
-    await this.userRepository.setSetting(setSettingRequestBodyDto, options);
+  setSetting(
+    setSettingResponse: SetSettingRequestBodyDto,
+    options?: AxiosRequestConfig
+  ) {
+    return this.userRepository.usersControllerSetSetting(
+      setSettingResponse,
+      options
+    );
   }
 }

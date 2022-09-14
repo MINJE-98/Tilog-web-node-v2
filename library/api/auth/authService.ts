@@ -1,4 +1,4 @@
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig } from "axios";
 
 import AuthRepository from "@Api/auth/authRepository";
 import validateToken from "@Api/auth/validateTokenDecorator";
@@ -11,10 +11,8 @@ export default class AuthService {
     private readonly axios: AxiosInstance
   ) {}
   @validateToken()
-  deleteRefreshToken(
-    options?: AxiosRequestConfig<ExceptionInterface>
-  ): Promise<AxiosResponse<void, ExceptionInterface>> {
-    const result = this.authRepository.deleteRefreshToken({
+  deleteRefreshToken(options?: AxiosRequestConfig<ExceptionInterface>) {
+    const result = this.authRepository.usersAuthControllerDeleteRefreshToken({
       ...options,
       withCredentials: true,
     });
@@ -23,16 +21,16 @@ export default class AuthService {
   }
 
   async getAccessTokenUsingRefreshToken(
-    userAgent?: string,
     options?: AxiosRequestConfig<ExceptionInterface>
-  ): Promise<void> {
-    const { data } = await this.authRepository.getAccessTokenUsingRefreshToken(
-      userAgent,
-      {
-        ...options,
-        withCredentials: true,
-      }
-    );
+  ) {
+    const { data } =
+      await this.authRepository.usersAuthControllerGetAccessTokenUsingRefreshToken(
+        undefined,
+        {
+          ...options,
+          withCredentials: true,
+        }
+      );
     this.axios.defaults.headers.common.Authorization = `bearer ${data.accessToken}`;
   }
 }

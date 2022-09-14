@@ -1,42 +1,37 @@
-import { AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosRequestConfig } from "axios";
 
 import CategoryRepository from "@Api/category/categoryRepository";
 
-import {
-  GetCategoriesResponseDto,
-  GetUserCategoriesResponseDto,
-} from "@til-log.lab/tilog-api";
-
-import GetCategoryListInterface from "@Api/category/interface/GetCategoryListInterface";
-import { ExceptionInterface } from "@Api/exception/interface";
+import { Category } from "@Api/interface/model";
 
 export default class CategoryService {
   constructor(private readonly categoryRepository: CategoryRepository) {}
   getCategories(
-    categoryName?: string,
+    categoryName?: Category["categoryName"],
     options?: AxiosRequestConfig
-  ): Promise<AxiosResponse<GetCategoriesResponseDto, ExceptionInterface>> {
-    return this.categoryRepository.getCategories(categoryName, options);
-  }
-  getUsersCategories(
-    userId: number,
-    options?: AxiosRequestConfig
-  ): Promise<AxiosResponse<GetUserCategoriesResponseDto, ExceptionInterface>> {
-    return this.categoryRepository.getUsersCategories(userId, options);
+  ) {
+    return this.categoryRepository.categoriesControllerGetCategories(
+      categoryName,
+      options
+    );
   }
 
-  getCategoryList({
-    userId,
-    options,
-  }: GetCategoryListInterface): Promise<
-    AxiosResponse<
-      GetUserCategoriesResponseDto | GetCategoriesResponseDto,
-      ExceptionInterface
-    >
-  > {
-    if (userId) {
-      return this.categoryRepository.getUsersCategories(userId, options);
-    }
-    return this.categoryRepository.getCategories(undefined, options);
+  async getCategory(
+    categoryName: Category["categoryName"],
+    options?: AxiosRequestConfig
+  ) {
+    const { data } =
+      await this.categoryRepository.categoriesControllerGetCategories(
+        categoryName,
+        options
+      );
+    return data.list[0];
+  }
+
+  getUsersCategories(userId: Category["id"], options?: AxiosRequestConfig) {
+    return this.categoryRepository.categoriesControllerGetUsersCategories(
+      userId,
+      options
+    );
   }
 }
