@@ -5,14 +5,14 @@ import ResponseError from "@Api/exception/responseError";
 import UnknownError from "@Api/exception/unknownError";
 
 export default class HttpClient {
-  public http: AxiosInstance;
+  public axios: AxiosInstance;
 
   constructor(config: AxiosRequestConfig) {
-    this.http = axios.create(config);
+    this.axios = axios.create(config);
     this.interceptors();
   }
   private interceptors = () => {
-    this.http.interceptors.response.use(
+    this.axios.interceptors.response.use(
       (response) => response,
       (error) => this.interceptorError(error)
     );
