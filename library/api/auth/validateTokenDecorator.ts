@@ -14,7 +14,7 @@ export default function validateToken() {
   ) => {
     const originMethod = descriptor.value;
     descriptor.value = async function (...args: unknown[]) {
-      const accessToken = getAccessTokenToAxiosHeader(tilogApi.http);
+      const accessToken = getAccessTokenToAxiosHeader(tilogApi.axios);
 
       if (!accessToken || isTokenExpired(accessToken)) {
         await http.authService.getAccessTokenUsingRefreshToken();
