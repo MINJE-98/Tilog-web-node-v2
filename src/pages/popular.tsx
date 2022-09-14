@@ -4,6 +4,7 @@ import CardTitle from "@Commons/atom/CardTitle";
 import DateScopeLink from "@Commons/molecules/link/DateScopeLink";
 import Header from "@Commons/organisms/header";
 import PostCardList from "@Commons/organisms/list/PostCardList";
+import { ALL_MOST_POPULAR_POST } from "@Constants/text";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useDateScopeRouter from "@Hooks/useDateScopeRouter";
 import RootBox from "@Layouts/box/RootBox";
@@ -15,7 +16,7 @@ const PopularPage: NextPage = () => {
       <Header />
       <RootBox>
         <div>
-          <CardTitle title="인기 게시글">
+          <CardTitle title={ALL_MOST_POPULAR_POST}>
             <div>
               <DateScopeLink dateScope="All" />
               <DateScopeLink dateScope="Daily" />

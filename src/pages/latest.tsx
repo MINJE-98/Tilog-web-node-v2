@@ -3,6 +3,7 @@ import { GetServerSideProps, NextPage } from "next";
 import CardTitle from "@Commons/atom/CardTitle";
 import Header from "@Commons/organisms/header";
 import PostCardList from "@Commons/organisms/list/PostCardList";
+import { ALL_LATEST_POST } from "@Constants/text";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
 
@@ -12,7 +13,7 @@ const LatestPage: NextPage = () => {
       <Header />
       <RootBox>
         <div className="inline">
-          <CardTitle title="최신 게시글" />
+          <CardTitle title={ALL_LATEST_POST} />
         </div>
         <PostCardList
           dateScope="All"
