@@ -1,4 +1,4 @@
-import useGetCategoryQuery from "@Queries/categories/useGetCategoryQuery";
+import useGetAllCategories from "@Queries/categories/useGetAllCategories";
 
 import {
   GetCategoriesItem,
@@ -6,7 +6,7 @@ import {
 } from "@til-log.lab/tilog-api";
 
 const useSearchCategory = () => {
-  const { data } = useGetCategoryQuery();
+  const { data } = useGetAllCategories();
 
   return (
     categoryName?: GetUserCategoriesItem["categoryName"],

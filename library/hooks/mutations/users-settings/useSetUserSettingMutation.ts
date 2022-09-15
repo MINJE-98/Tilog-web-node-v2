@@ -1,36 +1,29 @@
-import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "react-query";
 
 import api from "@Api";
 
-import { SetSettingRequestBodyDtoSettingTypeEnum } from "@til-log.lab/tilog-api";
+import { SetSettingRequestBodyDto } from "@til-log.lab/tilog-api";
 
-import GetMeResponseTransFormSettingsDto from "@Api/users/interface/getMeResponseTransFormSettingsDto";
+import GetMeResponse from "@Api/users/interface/getMeResponse";
 
 const useSetUserSetting = () => {
   const queryClient = useQueryClient();
 
   return useMutation(
-    ({
-      content,
-      settingType,
-    }: {
-      content: string | null;
-      settingType: SetSettingRequestBodyDtoSettingTypeEnum;
-    }) => api.usersService.setSetting(content, settingType),
+    (setSettingRequestBodyDto: SetSettingRequestBodyDto) =>
+      api.usersService.setSetting(setSettingRequestBodyDto),
+
     {
-      onError: (error) => {
-        if (error instanceof Error) toast.error(error.message);
-      },
       onSuccess: (_data, variables) => {
-        queryClient.setQueriesData<
-          GetMeResponseTransFormSettingsDto | undefined
-        >(["myUserInfo"], (oldData) => {
-          if (!oldData) return oldData;
-          const newData: GetMeResponseTransFormSettingsDto = oldData;
-          newData.settings[variables.settingType] = variables.content;
-          return newData;
-        });
+        queryClient.setQueriesData<GetMeResponse | undefined>(
+          ["myUserInfo"],
+          (oldData) => {
+            if (!oldData) return oldData;
+            const newData: GetMeResponse = oldData;
+            newData.settings[variables.settingType] = variables.content;
+            return newData;
+          }
+        );
       },
     }
   );

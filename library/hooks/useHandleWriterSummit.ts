@@ -15,7 +15,8 @@ const useHandleWriterSummit = (): SubmitHandler<WriterFormTypes> => {
       onError: (error) => {
         if (error instanceof Error) toast.error(error.message);
       },
-      onSuccess(data) {
+      // NOTE: CreatePost Return 타입이 postID로 변경될때까지 any
+      onSuccess(data: any) {
         router.push(`post/${data.data.id}`);
       },
     });

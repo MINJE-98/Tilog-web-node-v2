@@ -1,9 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
-import GetMeResponseTransFormSettingsDto from "@Api/users/interface/getMeResponseTransFormSettingsDto";
+import GetMeResponse from "@Api/users/interface/getMeResponse";
 
-type SetUserInfoType = Dispatch<
-  SetStateAction<GetMeResponseTransFormSettingsDto | null>
->;
+type SetUserInfoType = Dispatch<SetStateAction<GetMeResponse | null>>;
 
 export default SetUserInfoType;

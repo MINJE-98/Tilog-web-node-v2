@@ -1,11 +1,9 @@
-import {
-  GetCommentsItem,
-  GetPostDetailResponseDto,
-  UpdateCommentRequestDto,
-} from "@til-log.lab/tilog-api";
+import { UpdateCommentRequestDto } from "@til-log.lab/tilog-api";
+
+import { Comments } from "@Api/interface/model";
 
 export default interface UpdateParentCommentMutation
   extends UpdateCommentRequestDto {
-  postId: GetPostDetailResponseDto["id"];
-  replyTo: GetCommentsItem["replyTo"];
+  postId: Comments["postsID"];
+  replyTo: Comments["replyTo"] | null;
 }

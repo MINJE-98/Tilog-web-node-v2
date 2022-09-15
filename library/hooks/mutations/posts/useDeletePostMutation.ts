@@ -5,16 +5,21 @@ import { useMutation } from "react-query";
 
 import api from "@Library/api";
 
+import { Posts } from "@Api/interface/model";
+
 const useDeletePostMutation = () => {
   const router = useRouter();
-  return useMutation((postId: string) => api.postService.deletePost(postId), {
-    onError: (error) => {
-      if (error instanceof Error) toast.error(error.message);
-    },
-    onSuccess() {
-      router.push("/");
-    },
-  });
+  return useMutation(
+    (postId: Posts["id"]) => api.postService.deletePost(postId),
+    {
+      onError: (error) => {
+        if (error instanceof Error) toast.error(error.message);
+      },
+      onSuccess() {
+        router.push("/");
+      },
+    }
+  );
 };
 
 export default useDeletePostMutation;

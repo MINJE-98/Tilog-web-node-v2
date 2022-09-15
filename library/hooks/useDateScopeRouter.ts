@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 
-import GetPostRequestDto from "@Api/post/interface/getPostRequestDto";
+import DateScope from "@Api/post/interface/dateScope";
 
-const useDateScopeRouter = (): GetPostRequestDto["dateScope"] => {
+const useDateScopeRouter = (): DateScope => {
   const { dateScope } = useRouter().query;
   switch (dateScope) {
     case "Daily":
