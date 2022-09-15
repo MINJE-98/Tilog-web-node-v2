@@ -1,9 +1,9 @@
 import { DefaultSeoProps } from "next-seo";
 
-import GetUserProfileResponseTransFormSettingsDto from "@Api/users/interface/getUserProfileResponseTransFormSettingsDto";
+import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
 export const userBlogDetailSeo = (
-  userInfo: GetUserProfileResponseTransFormSettingsDto
+  userInfo: GetUserProfileResponse
 ): DefaultSeoProps => {
   return {
     title: !userInfo.settings.DISPLAY_NAME
