@@ -6,7 +6,7 @@ import IntroThumbnail from "@Components/home/IntroThumbnail";
 import PostSection from "@Components/home/PostSection";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
-import { rootSeo } from "@Library/seo";
+import { rootSeo } from "@SEO";
 
 const Home: NextPage = () => {
   return (
