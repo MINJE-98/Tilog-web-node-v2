@@ -6,43 +6,35 @@ import PinnedRepoResponse from "@Api/github/interface/pinnedRepoResponse";
 
 const PinnedRepo = ({ repo }: { repo: PinnedRepoResponse }) => {
   return (
-    <div className="flex flex-col w-full transition duration-500 ease-in-out bg-white border border-gray-200 cursor-pointer h-44 rounded-3xl filter hover:drop-shadow-2xl dark:bg-gray-800 dark:border-gray-600">
-      <div className="px-5 py-3">
-        <div className="flex items-center">
-          <GoRepo className="w-4 h-4 mr-2 dark:text-blue-500" />
-          <p className="font-medium text-gray-700 truncate dark:text-gray-50">
-            {repo.nameWithOwner.split("/")[1]}
-          </p>
-        </div>
-        {/* Card desc */}
-        <div className="flex flex-col px-5 py-2">
-          <span className="w-full text-xs text-gray-800 truncate dark:text-gray-100">
-            {repo.description}
-          </span>
-        </div>
-      </div>
-      <div className="flex flex-row mx-5">
-        <div className="flex items-center justify-center p-2 text-gray-800 border border-gray-200 w-9 h-9 rounded-xl dark:text-blue-500 dark:border-gray-700">
+    <div className="w-full border-gray-200 bg-neutral-100 h-fit dark:bg-neutral-800 dark:border-gray-600">
+      <div className="px-5 pt-3">
+        <section>
+          <GoRepo className="inline w-4 h-4 mb-1 mr-2 text-neutral-900 dark:text-neutral-50" />
+          <h1 className="inline text-lg font-bold">{repo.name}</h1>
+          <p className="py-1 text-sm px-7">{repo.description}</p>
+        </section>
+        <div className="text-xl">
           <RenderTechIcons categoryName={repo.primaryLanguage.name} />
         </div>
       </div>
-      <div className="w-full h-1 my-3 bg-gray-200 round-full dark:bg-gray-700" />
-      <div className="flex mx-5">
-        <div className="flex items-center ml-auto">
-          <GoLink className="w-3 h-3 mr-1 dark:text-blue-500" />
-          <a
-            href={`https://www.github.com/${repo.nameWithOwner}`}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <p className="mr-2 text-xs text-gray-700 dark:text-gray-100">
-              Click to open repository
-            </p>
-          </a>
-
-          <GoStar className="w-3 h-3 mr-1 dark:text-blue-500" />
-
-          <p className="text-xs text-gray-700 dark:text-gray-100">
+      <div
+        style={{ backgroundColor: repo.primaryLanguage.color }}
+        className="w-full h-1 my-3"
+      />
+      <div className="flex items-center justify-end px-5 pb-3 space-x-2">
+        <GoLink className="text-neutral-700 dark:text-neutral-50" />
+        <a
+          href={`https://www.github.com/${repo.nameWithOwner}`}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <p className="text-xs hover:text-neutral-900 dark:hover:text-neutral-50">
+            Click to open repository
+          </p>
+        </a>
+        <div className="space-x-1">
+          <GoStar className="inline text-neutral-700 dark:text-neutral-50" />
+          <p className="inline text-xs text-gray-700 dark:text-gray-100">
             {repo.stargazers.totalCount}
           </p>
         </div>

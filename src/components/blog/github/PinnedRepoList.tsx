@@ -10,11 +10,11 @@ const PinnedRepoList = ({ userName }: { userName: Users["userName"] }) => {
   if (!repoList.data) return <p>{NO_EXIST_PINNED_REPO}</p>;
   if (isArrayEmpty(repoList.data.data)) return <p>{NO_EXIST_PINNED_REPO}</p>;
   return (
-    <>
+    <div className="flex flex-col space-y-3">
       {repoList.data.data.map((repo) => (
         <PinnedRepo key={repo.id} repo={repo} />
       ))}
-    </>
+    </div>
   );
 };
 
