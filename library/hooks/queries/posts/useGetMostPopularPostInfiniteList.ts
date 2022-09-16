@@ -4,7 +4,7 @@ import api from "@Library/api";
 
 import { GetPostRequest } from "@Api/post/interface/getPostRequest";
 
-const useGetMostPopularPostList = (getPostRequest: GetPostRequest) => {
+const useGetMostPopularPostInfiniteList = (getPostRequest: GetPostRequest) => {
   const { dateScope, sortScope, maxContent, page } = getPostRequest;
   return useInfiniteQuery(
     ["mostPopularPostList", "infinite", dateScope],
@@ -36,4 +36,4 @@ const useGetMostPopularPostList = (getPostRequest: GetPostRequest) => {
   );
 };
 
-export default useGetMostPopularPostList;
+export default useGetMostPopularPostInfiniteList;
