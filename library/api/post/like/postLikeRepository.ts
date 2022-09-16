@@ -1,9 +1,9 @@
 import { PostLikeApi } from "@til-log.lab/tilog-api";
 
-import RepositoryConfig from "@Api/interface/repositoryConfig";
+import ApiConfig from "@Api/interface/apiConfig";
 
 export default class PostLikeRepository extends PostLikeApi {
-  constructor(repositoryConfig: RepositoryConfig) {
-    super(repositoryConfig.configuration, undefined, repositoryConfig.axios);
+  constructor(apiConfig: ApiConfig) {
+    super(apiConfig.configuration, undefined, apiConfig.axios);
   }
 }

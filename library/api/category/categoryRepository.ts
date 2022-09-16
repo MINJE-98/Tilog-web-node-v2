@@ -1,9 +1,9 @@
 import { CategoryApi } from "@til-log.lab/tilog-api";
 
-import RepositoryConfig from "@Api/interface/repositoryConfig";
+import ApiConfig from "@Api/interface/apiConfig";
 
 export default class CategoryRepository extends CategoryApi {
-  constructor(repositoryConfig: RepositoryConfig) {
-    super(repositoryConfig.configuration, undefined, repositoryConfig.axios);
+  constructor(apiConfig: ApiConfig) {
+    super(apiConfig.configuration, undefined, apiConfig.axios);
   }
 }

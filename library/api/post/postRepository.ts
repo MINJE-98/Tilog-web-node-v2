@@ -2,21 +2,18 @@ import { AxiosRequestConfig } from "axios";
 
 import { PostApi } from "@til-log.lab/tilog-api";
 
-import RepositoryConfig from "@Api/interface/repositoryConfig";
+import ApiConfig from "@Api/interface/apiConfig";
 
 export default class PostRepository extends PostApi {
-  constructor(readonly repositoryConfig: RepositoryConfig) {
-    super(repositoryConfig.configuration, undefined, repositoryConfig.axios);
+  constructor(readonly apiConfig: ApiConfig) {
+    super(apiConfig.configuration, undefined, apiConfig.axios);
   }
   postsControllerDeletePost(postId: string, options?: AxiosRequestConfig) {
-    return this.repositoryConfig.axios.delete(
-      `${this.repositoryConfig.basePath}/posts`,
-      {
-        data: {
-          postId,
-        },
-        ...options,
-      }
-    );
+    return this.apiConfig.axios.delete(`${this.apiConfig.basePath}/posts`, {
+      data: {
+        postId,
+      },
+      ...options,
+    });
   }
 }
