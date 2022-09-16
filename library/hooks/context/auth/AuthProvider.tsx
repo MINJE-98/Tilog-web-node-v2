@@ -7,17 +7,16 @@ import { AuthContext } from "@Contexts/auth/AuthContext";
 import useLogin from "@Hooks/useLogin";
 import api from "@Library/api";
 
-import GetMeResponseTransFormSettingsDto from "@Api/users/interface/getMeResponseTransFormSettingsDto";
+import GetMeResponse from "@Api/users/interface/getMeResponse";
 
 export const AuthProvider = ({
   children,
   initUserInfo,
 }: {
   children: ReactNode;
-  initUserInfo: GetMeResponseTransFormSettingsDto;
+  initUserInfo: GetMeResponse;
 }) => {
-  const [userInfo, setUserInfo] =
-    useState<GetMeResponseTransFormSettingsDto | null>(initUserInfo);
+  const [userInfo, setUserInfo] = useState<GetMeResponse | null>(initUserInfo);
   const handleLogin = useLogin(setUserInfo);
   const handleLogout = async () => {
     await api.authService.deleteRefreshToken();
