@@ -60,13 +60,13 @@ const UserStatsSection = ({
       <section>
         <Suspense fallback={<>로딩중이야.</>}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
-            <CardTitle>Pinned Repo</CardTitle>
+            <CardTitle>TopLanguage Repo</CardTitle>
             <TopLanguageList userName={userInfo.name} />
           </ErrorBoundary>
         </Suspense>
       </section>
       <section>
-        <CardTitle>TopLanguage Repo</CardTitle>
+        <CardTitle>Pinned Repo</CardTitle>
         <Suspense fallback={<>로딩중이야.</>}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
             <PinnedRepoList userName={userInfo.name} />
