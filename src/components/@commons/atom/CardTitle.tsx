@@ -1,20 +1,20 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
 interface CardTitleProps extends HTMLAttributes<HTMLHeadingElement> {
-  title: string;
+  nav?: ReactNode;
 }
 
-const CardTitle = ({ title, children, ...props }: CardTitleProps) => {
+const CardTitle = ({ nav, children, ...props }: CardTitleProps) => {
   return (
-    <div>
+    <header>
       <div className="flex justify-between">
         <h4 {...props} className="text-neutral-600 dark:text-neutral-300">
-          {title}
+          {children}
         </h4>
-        {children}
+        {nav}
       </div>
       <hr />
-    </div>
+    </header>
   );
 };
 export default CardTitle;

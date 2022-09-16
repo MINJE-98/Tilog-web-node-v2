@@ -4,12 +4,12 @@ import Thumbnail from "@Commons/atom/images/thumbnail/Thumbnail";
 import EmptyThumbnail from "@Components/@commons/atom/images/thumbnail/EmptyThumbnail";
 import { seededColor } from "@Utility/color";
 
-import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
+import { GetPostsItem } from "@til-log.lab/tilog-api";
 
 interface PostImageProps {
-  id: GetPostDetailResponseDto["id"];
-  title: GetPostDetailResponseDto["title"];
-  thumbnailUrl: GetPostDetailResponseDto["thumbnailUrl"];
+  id: GetPostsItem["id"];
+  title: GetPostsItem["title"];
+  thumbnailUrl: GetPostsItem["thumbnailUrl"];
 }
 
 const PostThumbnail = ({ id, thumbnailUrl, title }: PostImageProps) => {

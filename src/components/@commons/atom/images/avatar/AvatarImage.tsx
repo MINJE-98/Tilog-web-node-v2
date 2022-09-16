@@ -1,7 +1,9 @@
 import Image from "next/image";
 
+import { Users } from "@Api/interface/model";
+
 interface AvatarImageProps {
-  avatar: string;
+  avatar: Users["proFileImageURL"];
 }
 
 const AvatarImage = ({ avatar }: AvatarImageProps) => {

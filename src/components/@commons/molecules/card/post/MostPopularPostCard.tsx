@@ -6,7 +6,7 @@ import PostUserProfile from "@Commons/organisms/profile/PostUserProfile";
 import { GetPostsItem } from "@til-log.lab/tilog-api";
 
 interface MostPopularPostCardProps {
-  index: number;
+  index?: number;
   post: GetPostsItem;
 }
 

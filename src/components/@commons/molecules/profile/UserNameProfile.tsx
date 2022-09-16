@@ -3,12 +3,12 @@ import { ReactNode } from "react";
 import LinkTo from "@Commons/atom/LinkTo";
 import ProfileImage from "@Commons/molecules/images/ProfileImage";
 
-import GetUserProfileResponseTransFormSettingsDto from "@Api/users/interface/getUserProfileResponseTransFormSettingsDto";
+import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
 interface UserNameProfileProps {
-  username: GetUserProfileResponseTransFormSettingsDto["name"];
-  displayName: GetUserProfileResponseTransFormSettingsDto["settings"]["DISPLAY_NAME"];
-  avatar: GetUserProfileResponseTransFormSettingsDto["avatar"];
+  username: GetUserProfileResponse["name"];
+  displayName: GetUserProfileResponse["settings"]["DISPLAY_NAME"];
+  avatar: GetUserProfileResponse["avatar"];
   children: ReactNode;
 }
 

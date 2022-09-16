@@ -3,13 +3,9 @@ import { useRouter } from "next/router";
 import LinkTo from "@Commons/atom/LinkTo";
 import queryString from "@Utility/queryString";
 
-import GetPostRequestDto from "@Library/api/post/interface/getPostRequestDto";
+import DateScope from "@Api/post/interface/dateScope";
 
-const DateScopeLink = ({
-  dateScope,
-}: {
-  dateScope: GetPostRequestDto["dateScope"];
-}) => {
+const DateScopeLink = ({ dateScope }: { dateScope: DateScope }) => {
   const router = useRouter();
   if (dateScope === "All" && !router.query.dateScope) {
     return (

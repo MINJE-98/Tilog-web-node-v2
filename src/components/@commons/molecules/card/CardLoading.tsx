@@ -1,27 +1,16 @@
 import { AxiosResponse } from "axios";
-import { InfiniteQueryObserverResult } from "react-query";
+import { UseInfiniteQueryResult } from "react-query";
 
 import Spinner from "@Commons/atom/loading/Spinner";
 
 import { GetPostsResponseDto } from "@til-log.lab/tilog-api";
 
-import { ExceptionInterface } from "@Api/exception/interface";
-
 interface CardLoadingProps {
-  hasNextPage: boolean | undefined;
-  isFetchingNextPage: boolean;
-  fetchNextPage: () => Promise<
-    InfiniteQueryObserverResult<
-      AxiosResponse<GetPostsResponseDto>,
-      ExceptionInterface
-    >
-  >;
+  postList: UseInfiniteQueryResult<AxiosResponse<GetPostsResponseDto>>;
 }
 
 const CardLoading = ({
-  hasNextPage,
-  isFetchingNextPage,
-  fetchNextPage,
+  postList: { hasNextPage, isFetchingNextPage, fetchNextPage },
 }: CardLoadingProps) => {
   if (!hasNextPage) return null;
   if (isFetchingNextPage) return <Spinner size="5" />;

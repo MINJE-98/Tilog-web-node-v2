@@ -1,9 +1,9 @@
 import { backgroundColor, getBrightness } from "@Utility/color";
 
-import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
+import { GetPostsItem } from "@til-log.lab/tilog-api";
 
 export interface EmptyThumbNailProps {
-  title: GetPostDetailResponseDto["title"];
+  title: GetPostsItem["title"];
   color: string;
 }
 
