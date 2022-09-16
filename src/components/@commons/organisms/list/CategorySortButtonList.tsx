@@ -1,10 +1,8 @@
 import CategorySortButton from "@Commons/molecules/buttons/CategorySortButton";
-import useGetUsersCategories from "@Queries/categories/useGetUsersCategories";
+import useGetAllCategories from "@Queries/categories/useGetAllCategories";
 
-import { Users } from "@Api/interface/model";
-
-const CategoryButtonList = ({ userId }: { userId: Users["id"] }) => {
-  const categoryList = useGetUsersCategories(userId);
+const CategoryButtonList = () => {
+  const categoryList = useGetAllCategories();
   if (!categoryList.data) return <>없어</>;
   return (
     <div className="flex flex-wrap gap-3">

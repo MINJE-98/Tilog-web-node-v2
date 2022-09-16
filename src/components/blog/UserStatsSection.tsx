@@ -55,9 +55,10 @@ const UserStatsSection = ({
       </section>
       <section>
         <Suspense fallback={<>로딩중이야.</>}>
+          1
           <ErrorBoundary fallback={<>에러 났어.</>}>
             <CardTitle>{userInfo.name}님의 관심분야</CardTitle>
-            <CategorySortButtonList userId={userInfo.id} />
+            <CategorySortButtonList />
           </ErrorBoundary>
         </Suspense>
       </section>
