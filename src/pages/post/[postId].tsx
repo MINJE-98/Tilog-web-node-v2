@@ -5,7 +5,6 @@ import { DefaultSeo } from "next-seo";
 import api from "@Api/index";
 import PostThumbnail from "@Commons/molecules/images/PostThumbnail";
 import TiptapViewer from "@Commons/molecules/text-area/TiptapViewer";
-import Header from "@Commons/organisms/header";
 import Comment from "@Components/comment";
 import { PostHeader, PostLike, PostWriter } from "@Components/post";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
@@ -24,7 +23,6 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
   return (
     <div>
       <DefaultSeo {...seo} />
-      <Header />
       <RootBox>
         <div>
           <article className="w-full">
@@ -49,7 +47,11 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
           </article>
         </div>
         <div className="mt-5">
-          <PostLike postId={post.id} count={post.like} />
+          <PostLike
+            userId={post.user.userId}
+            postId={post.id}
+            count={post.like}
+          />
           <Comment postId={post.id} />
         </div>
       </RootBox>

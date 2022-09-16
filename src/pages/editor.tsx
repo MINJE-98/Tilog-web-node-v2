@@ -4,7 +4,6 @@ import Head from "next/head";
 import { FormProvider, useForm } from "react-hook-form";
 
 import api from "@Api/index";
-import Header from "@Commons/organisms/header";
 import {
   CoverImage,
   PrivateSubmit,
@@ -42,7 +41,6 @@ const EditorPage: NextPage<EditorPageProps> = ({ post }: EditorPageProps) => {
       <Head>
         <title>글수정</title>
       </Head>
-      <Header />
       <RootBox>
         <FormProvider {...method}>
           <form onSubmit={method.handleSubmit(onSummit)}>

@@ -3,7 +3,6 @@ import Head from "next/head";
 
 import { FormProvider, useForm } from "react-hook-form";
 
-import Header from "@Commons/organisms/header";
 import {
   CoverImage,
   PrivateSubmit,
@@ -27,7 +26,7 @@ const WriterPage: NextPage = () => {
       <Head>
         <title>글쓰기</title>
       </Head>
-      <Header />
+
       <RootBox>
         <FormProvider {...method}>
           <form onSubmit={method.handleSubmit(onSummit)}>

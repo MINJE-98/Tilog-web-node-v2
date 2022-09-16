@@ -6,21 +6,38 @@ import { AppProps } from "next/app";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "react-query";
 
+import Header from "@Commons/organisms/header";
 import { AuthProvider } from "@Contexts/auth/AuthProvider";
 import useProgressBar from "@Hooks/useProgressBar";
 
-const queryClient = new QueryClient({});
+import GetMeResponse from "@Api/users/interface/getMeResponse";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      suspense: true,
+      useErrorBoundary: true,
+    },
+  },
+});
+
+type CustomAppProps = AppProps & {
+  pageProps: {
+    initUserInfo: GetMeResponse;
+  };
+};
 
 const App = ({
   Component,
   pageProps: { initUserInfo, ...pageProps },
-}: AppProps) => {
+}: CustomAppProps) => {
   useProgressBar();
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider initUserInfo={initUserInfo}>
         <Toaster />
-
+        {Component.name !== "Callback" && <Header />}
         <Component {...pageProps} />
       </AuthProvider>
     </QueryClientProvider>

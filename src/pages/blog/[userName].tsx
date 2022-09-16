@@ -3,68 +3,32 @@ import { GetServerSideProps, NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 
 import api from "@Api";
-import Header from "@Commons/organisms/header";
-import PostCardList from "@Commons/organisms/list/PostCardList";
-import UserInfoProfile from "@Commons/organisms/profile/UserInfoProfile";
+import BlogPostSection from "@Components/blog/BlogPostSection";
+import UserStatsSection from "@Components/blog/UserStatsSection";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
-import useCategoryRouter from "@Hooks/useCategoryRouter";
+import BlogBox from "@Layouts/box/BlogBox";
 import RootBox from "@Layouts/box/RootBox";
 import { userBlogDetailSeo } from "@SEO";
 
-import GetUserProfileResponseTransFormSettingsDto from "@Api/users/interface/getUserProfileResponseTransFormSettingsDto";
+import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
 interface BlogPagePageProps {
-  userInfo: GetUserProfileResponseTransFormSettingsDto;
+  userInfo: GetUserProfileResponse;
 }
 
 const BlogPage: NextPage<BlogPagePageProps> = ({
   userInfo,
 }: BlogPagePageProps) => {
-  const category = useCategoryRouter();
   const seo = userBlogDetailSeo(userInfo);
+
   return (
-    <div>
+    <RootBox>
       <DefaultSeo {...seo} />
-      <Header />
-
-      <RootBox>
-        <div className="grid justify-center grid-flow-row p-3 md:justify-between md:grid-flow-col">
-          <div className="w-full max-w-[450px]">
-            <UserInfoProfile userName={userInfo.name} />
-            <hr />
-            {/* TODO GITHUB STATUS LINK */}
-            <p className="text-lg text-neutral-600">Pinned Repo</p>
-            <div className="flex flex-col gap-y-1">
-              <div className="h-20 rounded w-30 bg-neutral-500" />
-              <div className="h-20 rounded w-30 bg-neutral-500" />
-              <div className="h-20 rounded w-30 bg-neutral-500" />
-              <div className="h-20 rounded w-30 bg-neutral-500" />
-            </div>
-            <hr />
-
-            {/* TODO GITHUB STATUS LINK */}
-            <p className="text-lg text-neutral-600">TopLanguage Repo</p>
-            <div className="flex flex-row gap-x-1">
-              <div className="w-10 h-10 rounded bg-neutral-500" />
-              <div className="w-10 h-10 rounded bg-neutral-500" />
-              <div className="w-10 h-10 rounded bg-neutral-500" />
-              <div className="w-10 h-10 rounded bg-neutral-500" />
-              <div className="w-10 h-10 rounded bg-neutral-500" />
-            </div>
-            <hr />
-          </div>
-          <PostCardList
-            dateScope="All"
-            sortScope="createdAt"
-            page={0}
-            categoryName={category}
-            maxContent={10}
-            userId={1}
-            isViewType="infinite"
-          />
-        </div>
-      </RootBox>
-    </div>
+      <BlogBox>
+        <UserStatsSection userInfo={userInfo} />
+        <BlogPostSection userId={userInfo.id} />
+      </BlogBox>
+    </RootBox>
   );
 };
 export default BlogPage;

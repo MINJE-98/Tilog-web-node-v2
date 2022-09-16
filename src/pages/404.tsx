@@ -1,12 +1,10 @@
 import { NextPage } from "next";
 
-import Header from "@Commons/organisms/header";
 import RootBox from "@Layouts/box/RootBox";
 
 const NotFoundPage: NextPage = () => {
   return (
     <div>
-      <Header />
       <RootBox>
         <article className="text-center">
           <header>

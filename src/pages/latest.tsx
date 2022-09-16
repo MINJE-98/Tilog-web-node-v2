@@ -1,27 +1,29 @@
 import { GetServerSideProps, NextPage } from "next";
 
 import CardTitle from "@Commons/atom/CardTitle";
-import Header from "@Commons/organisms/header";
-import PostCardList from "@Commons/organisms/list/PostCardList";
+import PostCard from "@Commons/molecules/card/post/PostCard";
+import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import { ALL_LATEST_POST } from "@Constants/text";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
+import useGetMostPopularPostInfiniteList from "@Queries/posts/useGetMostPopularPostInfiniteList";
 
 const LatestPage: NextPage = () => {
+  const latestPostList = useGetMostPopularPostInfiniteList({
+    dateScope: "All",
+    sortScope: "likes",
+    page: 0,
+    maxContent: 10,
+  });
   return (
     <div>
-      <Header />
       <RootBox>
         <div className="inline">
-          <CardTitle title={ALL_LATEST_POST} />
+          <CardTitle>{ALL_LATEST_POST}</CardTitle>
         </div>
-        <PostCardList
-          dateScope="All"
-          sortScope="createdAt"
-          page={0}
-          maxContent={10}
-          row="2"
-          isViewType="infinite"
+        <PostCardInfiniteList
+          CardComponent={PostCard}
+          postList={latestPostList}
         />
       </RootBox>
     </div>

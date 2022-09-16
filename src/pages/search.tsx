@@ -1,36 +1,36 @@
 import { GetServerSideProps, NextPage } from "next";
 
 import CardTitle from "@Commons/atom/CardTitle";
-import Header from "@Commons/organisms/header";
-import CategorySortButtonList from "@Commons/organisms/list/CategorySortButtonList";
-import PostCardList from "@Commons/organisms/list/PostCardList";
+import PostCard from "@Commons/molecules/card/post/PostCard";
+import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
-import useCategoryRouter from "@Hooks/useCategoryRouter";
+import useStringRouter from "@Hooks/useStringRouter";
 import RootBox from "@Layouts/box/RootBox";
+import useGetSearchPostInfiniteList from "@Queries/posts/useGetSearchPostInfiniteList";
 
-const LatestPage: NextPage = () => {
-  const category = useCategoryRouter();
+const SearchPage: NextPage = () => {
+  const category = useStringRouter("category");
+  const searchPostList = useGetSearchPostInfiniteList({
+    dateScope: "All",
+    sortScope: "createdAt",
+    page: 0,
+    categoryName: category,
+    maxContent: 10,
+  });
   return (
     <div>
-      <Header />
-      <CategorySortButtonList />
       <RootBox>
         <div className="inline">
           <CardTitle title={category} />
         </div>
-        <PostCardList
-          dateScope="All"
-          sortScope="createdAt"
-          categoryName={category}
-          page={0}
-          maxContent={10}
-          row="2"
-          isViewType="infinite"
+        <PostCardInfiniteList
+          CardComponent={PostCard}
+          postList={searchPostList}
         />
       </RootBox>
     </div>
   );
 };
 
-export default LatestPage;
+export default SearchPage;
 export const getServerSideProps: GetServerSideProps = withAuthServerSideProps();
