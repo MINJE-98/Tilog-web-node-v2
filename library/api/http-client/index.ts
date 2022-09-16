@@ -1,6 +1,6 @@
-import HttpClient from "@Api/http-client/httpClient";
-
 import { Configuration } from "@til-log.lab/tilog-api";
+
+import HttpClient from "./httpClient";
 
 const tilogApi = new HttpClient({});
 const tilogApiConfig = new Configuration({
