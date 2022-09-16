@@ -13,7 +13,6 @@ import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse"
 const PostCardInfiniteList = dynamic(
   () => import("@Commons/organisms/list/PostCardInfiniteList"),
   {
-    suspense: true,
     ssr: false,
   }
 );

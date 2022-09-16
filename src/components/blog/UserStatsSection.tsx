@@ -10,7 +10,6 @@ import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse"
 const UserInfoProfile = dynamic(
   () => import("@Commons/organisms/profile/UserInfoProfile"),
   {
-    suspense: true,
     ssr: false,
   }
 );
@@ -18,7 +17,6 @@ const UserInfoProfile = dynamic(
 const PinnedRepoList = dynamic(
   () => import("@Components/blog/github/PinnedRepoList"),
   {
-    suspense: true,
     ssr: false,
   }
 );
@@ -26,7 +24,6 @@ const PinnedRepoList = dynamic(
 const TopLanguageList = dynamic(
   () => import("@Components/blog/github/TopLanguageList"),
   {
-    suspense: true,
     ssr: false,
   }
 );
@@ -34,7 +31,6 @@ const TopLanguageList = dynamic(
 const CategorySortButtonList = dynamic(
   () => import("@Commons/organisms/list/CategorySortButtonList"),
   {
-    suspense: true,
     ssr: false,
   }
 );
