@@ -6,7 +6,6 @@ import { ErrorBoundary } from "react-error-boundary";
 const MostPopularPostCardList = dynamic(
   () => import("@Components/home/list/MostPopularPostCardList"),
   {
-    suspense: true,
     ssr: false,
   }
 );
@@ -14,7 +13,6 @@ const MostPopularPostCardList = dynamic(
 const LatestPostCardList = dynamic(
   () => import("@Components/home/list/LatestPostCardList"),
   {
-    suspense: true,
     ssr: false,
   }
 );
