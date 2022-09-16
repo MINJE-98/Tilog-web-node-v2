@@ -11,11 +11,11 @@ const TopLanguageList = ({ userName }: { userName: Users["userName"] }) => {
   if (isArrayEmpty(languageList.data.data))
     return <p>{NO_EXIST_TOP_LANGUAGE}</p>;
   return (
-    <>
+    <div className="flex space-x-2">
       {languageList.data.data.map((language) => (
         <TopLanguage key={language.name} language={language} />
       ))}
-    </>
+    </div>
   );
 };
 
