@@ -3,7 +3,7 @@ import useLikeMutation from "@Mutations/likes/useLikeMutation";
 import useGetHasLike from "@Queries/likes/useGetHasLike";
 
 import { Users } from "@Api/interface/model";
-import PostHasLikeDto from "@Library/api/post/like/interface/postHasLikeDto";
+import PostHasLikeDto from "@Api/post/like/interface/postHasLikeDto";
 
 interface PostLikeProps {
   userId: Users["id"];

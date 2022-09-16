@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 import { useMutation } from "react-query";
 
-import api from "@Library/api";
+import api from "@Api";
 
 import { Posts } from "@Api/interface/model";
 

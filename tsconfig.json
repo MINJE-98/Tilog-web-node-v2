@@ -33,8 +33,6 @@
 
       "@Utility/*": ["library/utility/*"],
 
-      "@Library/*": ["library/*"],
-
       "@Commons/*": ["src/components/@commons/*"],
       "@HOCS/*": ["src/components/@hocs/*"],
       "@Layouts/*": ["src/components/@layouts/*"],

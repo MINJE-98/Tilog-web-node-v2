@@ -3,9 +3,9 @@
 
 import { ReactNode, useState } from "react";
 
+import api from "@Api";
 import { AuthContext } from "@Contexts/auth/AuthContext";
 import useLogin from "@Hooks/useLogin";
-import api from "@Library/api";
 
 import GetMeResponse from "@Api/users/interface/getMeResponse";
 

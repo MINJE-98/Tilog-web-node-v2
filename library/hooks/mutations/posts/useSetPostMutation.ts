@@ -1,6 +1,6 @@
 import { useMutation } from "react-query";
 
-import api from "@Library/api";
+import api from "@Api";
 
 import { CreatePostRequestBodyDto } from "@til-log.lab/tilog-api";
 

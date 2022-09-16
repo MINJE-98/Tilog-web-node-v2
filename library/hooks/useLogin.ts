@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import api from "@Library/api";
+import api from "@Api";
 
 import SetUserInfoType from "@Contexts/auth/interface/setUserInfoType";
 

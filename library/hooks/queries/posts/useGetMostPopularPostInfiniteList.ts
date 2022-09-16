@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from "react-query";
 
-import api from "@Library/api";
+import api from "@Api";
 
 import { GetPostRequest } from "@Api/post/interface/getPostRequest";
 

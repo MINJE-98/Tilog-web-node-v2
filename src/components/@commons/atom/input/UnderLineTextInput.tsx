@@ -1,6 +1,6 @@
 import { RegisterOptions, UseFormRegister } from "react-hook-form";
 
-import UserSettingTypes from "@Library/api/users/interface/userSettingTypes";
+import UserSettingTypes from "@Api/users/interface/userSettingTypes";
 
 interface UnderLineTextInputProps {
   register: UseFormRegister<UserSettingTypes>;
