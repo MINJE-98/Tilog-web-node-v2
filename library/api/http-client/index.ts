@@ -1,4 +1,4 @@
-import HttpClient from "@Library/api/http-client/httpClient";
+import HttpClient from "@Api/http-client/httpClient";
 
 import { Configuration } from "@til-log.lab/tilog-api";
 
