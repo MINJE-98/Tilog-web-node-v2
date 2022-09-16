@@ -1,35 +1,20 @@
-import Spinner from "@Commons/atom/loading/Spinner";
 import CategorySortButton from "@Commons/molecules/buttons/CategorySortButton";
-import useGetAllCategoryListQuery from "@Queries/categories/useGetAllCategoryListQuery";
-import isArrayEmpty from "@Utility/isArrayEmpty";
+import useGetUsersCategories from "@Queries/categories/useGetUsersCategories";
 
-import { GetMeResponseDto } from "@til-log.lab/tilog-api";
+import { Users } from "@Api/interface/model";
 
-const CategorySortButtonList = ({
-  userId,
-}: {
-  userId?: GetMeResponseDto["userId"];
-}) => {
-  const categoryList = useGetAllCategoryListQuery({ userId });
-  if (categoryList.isLoading) return <Spinner size="10" />;
-  if (categoryList.isError) return <div>{categoryList.error.message}</div>;
-  if (!categoryList.data) return null;
-  if (isArrayEmpty(categoryList.data.data.list))
-    return <h2 className="text-base">카테고리가 존재하지 않아요.</h2>;
-
+const CategoryButtonList = ({ userId }: { userId: Users["id"] }) => {
+  const categoryList = useGetUsersCategories(userId);
+  if (!categoryList.data) return <>없어</>;
   return (
-    <div className="sticky top-0 z-10 border-b border-neutral-300 bg-neutral-50 dark:bg-neutral-900">
-      <div className="m-auto max-w-[1280px] items-center px-5">
-        <div className="py-3 overflow-y-auto scrollbar-hide">
-          {categoryList.data.data.list.map((category) => (
-            <CategorySortButton
-              key={category.id}
-              categoryName={category.categoryName}
-            />
-          ))}
-        </div>
-      </div>
+    <div className="flex flex-wrap gap-3">
+      {categoryList.data.data.list.length === 0 && (
+        <h2 className="text-base">카테고리가 존재하지 않아요.</h2>
+      )}
+      {categoryList.data.data.list.map((category) => (
+        <CategorySortButton categoryName={category.categoryName} />
+      ))}
     </div>
   );
 };
-export default CategorySortButtonList;
+export default CategoryButtonList;
