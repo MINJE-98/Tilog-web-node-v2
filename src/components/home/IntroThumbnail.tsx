@@ -20,16 +20,14 @@ const IntroThumbnail = () => {
         </div>
         <div className="mt-10">
           {!userInfo ? (
-            <div>
-              <div>
-                <p>{HOME_STATUS.GUEST}</p>
-              </div>
+            <>
+              <p>{HOME_STATUS.GUEST}</p>
               <div className="mt-5 w-fit">
                 <LoginButton />
               </div>
-            </div>
+            </>
           ) : (
-            <div>
+            <>
               <p>{HOME_STATUS.USER}</p>
               <div className="mt-2">
                 <LinkTo href="/writer">
@@ -40,7 +38,7 @@ const IntroThumbnail = () => {
                   </PrimaryButton>
                 </LinkTo>
               </div>
-            </div>
+            </>
           )}
         </div>
       </div>
