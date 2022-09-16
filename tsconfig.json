@@ -17,8 +17,8 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@Api/*": ["library/api/*"],
       "@Api": ["library/api/"],
+      "@Api/*": ["library/api/*"],
       "@Constants/*": ["library/constants/*"],
       "@DateFns/*": ["library/date-fns/*"],
 
