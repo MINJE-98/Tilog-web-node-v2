@@ -1,8 +1,8 @@
 import { useRef } from "react";
 
 import AutocompleteContents from "@Components/writer/input/category-search/autocomplete/AutocompleteContents";
-import useArrowKeySelector from "@Components/writer/input/category-search/autocomplete/hooks/useArrowKeySelector";
 import { NO_RESULT_SEARCH } from "@Constants/messages/error";
+import useArrowKeySelector from "@Hooks/useArrowKeySelector";
 
 import { GetCategoriesResponseDto } from "@til-log.lab/tilog-api";
 

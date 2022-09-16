@@ -3,10 +3,10 @@ import { useRef } from "react";
 import { useFormContext } from "react-hook-form";
 
 import Autocomplete from "@Components/writer/input/category-search/autocomplete";
+import useSearchCategoryName from "@Components/writer/input/category-search/hooks/useSearchCategoryName";
 import { WRITER_INPUT_TYPE } from "@Constants/input";
 import { CATEGORY_PLACEHOLDER } from "@Constants/text";
 import useOutsideClickAndEscClickListener from "@Hooks/useOutsideClickAndEscClickListener";
-import useSearchCategoryName from "@Queries/categories/useSearchCategoryName";
 
 import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
 

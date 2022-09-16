@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
 
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
-import useSearchCategoryId from "@Queries/categories/useSearchCategoryId";
+import useSearchCategoryId from "@Components/writer/button/hooks/useSearchCategoryId";
 
 import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
 
