@@ -2,14 +2,12 @@ import { IoMdClose } from "react-icons/io";
 
 import { useDeleteCommentMutation } from "@Mutations/comments/useCommentMutation";
 
-import { GetCommentsItem } from "@til-log.lab/tilog-api";
-
-import GetPostDetailRequestDto from "@Api/post/interface/getPostDetailRequest";
+import { Comments } from "@Api/interface/model";
 
 interface CommentDeleteProps {
-  commentId: GetCommentsItem["id"];
-  postId: GetPostDetailRequestDto["postId"];
-  replyTo: GetCommentsItem["replyTo"];
+  commentId: Comments["id"];
+  postId: Comments["postsID"];
+  replyTo: Comments["replyTo"] | null;
 }
 const CommentDelete = ({ commentId, postId, replyTo }: CommentDeleteProps) => {
   const { mutate } = useDeleteCommentMutation();

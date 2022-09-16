@@ -1,7 +1,7 @@
 import ProfileImage from "@Commons/molecules/images/ProfileImage";
 import UserNameProfile from "@Commons/molecules/profile/UserNameProfile";
 import DateFnsFormatter from "@Commons/molecules/text/DateFnsFormatter";
-import useGetUserProfileQuery from "@Queries/users/useGetUserProfileQuery";
+import useGetUserProfile from "@Queries/users/useGetUserProfile";
 
 interface CommentUserProfileProps {
   userName: string;
@@ -12,9 +12,9 @@ const CommentUserProfile = ({
   userName,
   createdAt,
 }: CommentUserProfileProps) => {
-  const userInfo = useGetUserProfileQuery(userName);
+  const userInfo = useGetUserProfile(userName);
 
-  if (userInfo.isError) return <p>{userInfo.error.message}</p>;
+  if (userInfo.isError) return <p>에러</p>;
   if (userInfo.isLoading)
     return (
       <div className="flex items-center space-x-3">

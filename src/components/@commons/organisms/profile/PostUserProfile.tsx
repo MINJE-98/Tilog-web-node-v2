@@ -4,7 +4,7 @@ import LockIcon from "@Commons/atom/icons/LockIcon";
 import UserNameProfile from "@Commons/molecules/profile/UserNameProfile";
 import DateFnsFormatter from "@Commons/molecules/text/DateFnsFormatter";
 import { VIEW_COUNT } from "@Constants/text/viewCount";
-import useGetUserProfileQuery from "@Queries/users/useGetUserProfileQuery";
+import useGetUserProfile from "@Queries/users/useGetUserProfile";
 
 interface PostUserProfileProps {
   userName: string;
@@ -19,9 +19,9 @@ const PostUserProfile = ({
   viewCount,
   isPrivate,
 }: PostUserProfileProps) => {
-  const userInfo = useGetUserProfileQuery(userName);
+  const userInfo = useGetUserProfile(userName);
 
-  if (userInfo.isError) return <p>{userInfo.error.message}</p>;
+  if (userInfo.isError) return <p>에러</p>;
   if (userInfo.isLoading) return null;
   if (!userInfo.data) return null;
   return (

@@ -1,10 +1,10 @@
 import { GetServerSidePropsContext } from "next";
 
-import GetMeResponseTransFormSettingsDto from "@Api/users/interface/getMeResponseTransFormSettingsDto";
+import GetMeResponse from "@Api/users/interface/getMeResponse";
 
 type IncomingGSSP<P> = (
   ctx: GetServerSidePropsContext,
-  user?: GetMeResponseTransFormSettingsDto
+  user?: GetMeResponse
 ) => Promise<P>;
 
 export default IncomingGSSP;

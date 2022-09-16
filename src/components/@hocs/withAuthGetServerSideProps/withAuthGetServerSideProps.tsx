@@ -14,8 +14,8 @@ export default function withAuthServerSideProps(
     ctx: GetServerSidePropsContext
   ): Promise<WithAuthServerSidePropsResult> => {
     const { cookies } = ctx.req;
-    if (tilogApi.http.defaults.headers.common.Authorization) {
-      tilogApi.http.defaults.headers.common.Authorization = "";
+    if (tilogApi.axios.defaults.headers.common.Authorization) {
+      tilogApi.axios.defaults.headers.common.Authorization = "";
     }
     // Note: Guest
     if (!cookies.refreshToken) {
@@ -40,7 +40,7 @@ export default function withAuthServerSideProps(
     const userAgent = !headers["user-agent"] ? "" : headers["user-agent"];
     const cookie = !headers.cookie ? "" : headers.cookie;
     try {
-      await api.authService.getAccessTokenUsingRefreshToken(undefined, {
+      await api.authService.getAccessTokenUsingRefreshToken({
         headers: {
           "User-Agent": userAgent,
           Cookie: cookie,

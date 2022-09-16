@@ -4,7 +4,7 @@ import CommentInput from "@Components/comment/input/CommentInput";
 import CommentRender from "@Components/comment/render/CommentRender";
 import { INPUT, REPLY_STATE } from "@Constants/button";
 import { REPLY_PLACEHOLDER } from "@Constants/text/placeholder";
-import useGetChildCommentQuery from "@Queries/comments/useGetChildCommentQuery";
+import useGetChildComment from "@Queries/comments/useGetChildComment";
 
 import { GetCommentsItem } from "@til-log.lab/tilog-api";
 
@@ -13,7 +13,7 @@ interface RootCommentProps {
 }
 const RootComment = ({ comment }: RootCommentProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const childCommentList = useGetChildCommentQuery(
+  const childCommentList = useGetChildComment(
     isOpen,
     comment.postId,
     comment.id

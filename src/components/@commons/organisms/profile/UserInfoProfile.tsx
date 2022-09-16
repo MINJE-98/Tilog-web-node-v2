@@ -1,17 +1,23 @@
-import LinkTo from "@Commons/atom/LinkTo";
-import Spinner from "@Commons/atom/loading/Spinner";
-import ProfileImage from "@Commons/molecules/images/ProfileImage";
-import useGetUserProfileQuery from "@Queries/users/useGetUserProfileQuery";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
+import { ErrorBoundary } from "react-error-boundary";
+
+import LinkTo from "@Commons/atom/LinkTo";
+import ProfileImage from "@Commons/molecules/images/ProfileImage";
+import useGetUserProfile from "@Queries/users/useGetUserProfile";
+
+const GitStats = dynamic(() => import("@Components/blog/github/GitStats"), {
+  suspense: true,
+  ssr: false,
+});
 interface UserInfoProfileProps {
   userName: string;
 }
 
 const UserInfoProfile = ({ userName }: UserInfoProfileProps) => {
-  const userInfo = useGetUserProfileQuery(userName);
-  if (userInfo.isError) return <div>{userInfo.error.message}</div>;
+  const userInfo = useGetUserProfile(userName);
   if (!userInfo.data) return null;
-  if (userInfo.isLoading) return <Spinner size="10" />;
   return (
     <div>
       <div className="flex">
@@ -34,9 +40,14 @@ const UserInfoProfile = ({ userName }: UserInfoProfileProps) => {
               ? userInfo.data.settings.DISPLAY_NAME
               : "닉네임이 없습니다!"}
           </h4>
-          <span className="text-sm line-clamp-3">
+          <p className="text-sm line-clamp-1">
             {userInfo.data.settings.POSITION}
-          </span>
+          </p>
+          <Suspense fallback={<>로딩중이야.</>}>
+            <ErrorBoundary fallback={<>에러 났어.</>}>
+              <GitStats userName={userInfo.data.name} />
+            </ErrorBoundary>
+          </Suspense>
         </div>
       </div>
       <span className="p-5 font-medium line-clamp-3">
