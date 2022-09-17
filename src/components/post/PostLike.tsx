@@ -1,9 +1,10 @@
+import { useState } from "react";
+
 import LikeCounter from "@Commons/molecules/counter/LikeCounter";
 import useLikeMutation from "@Mutations/likes/useLikeMutation";
 import useGetHasLike from "@Queries/likes/useGetHasLike";
 
 import PostHasLikeDto from "@Api/post/like/interface/postHasLikeDto";
-import { useState } from "react";
 
 interface PostLikeProps {
   postId: PostHasLikeDto["postId"];
