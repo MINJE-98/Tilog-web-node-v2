@@ -1,16 +1,7 @@
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-
-import { ErrorBoundary } from "react-error-boundary";
-
 import LinkTo from "@Commons/atom/LinkTo";
 import ProfileImage from "@Commons/molecules/images/ProfileImage";
 import useGetUserProfile from "@Queries/users/useGetUserProfile";
 
-const GitStats = dynamic(() => import("@Components/blog/github/GitStats"), {
-  suspense: true,
-  ssr: false,
-});
 interface UserInfoProfileProps {
   userName: string;
 }
@@ -43,16 +34,13 @@ const UserInfoProfile = ({ userName }: UserInfoProfileProps) => {
           <p className="text-sm line-clamp-1">
             {userInfo.data.settings.POSITION}
           </p>
-          <Suspense fallback={<>로딩중이야.</>}>
-            <ErrorBoundary fallback={<>에러 났어.</>}>
-              <GitStats userName={userInfo.data.name} />
-            </ErrorBoundary>
-          </Suspense>
         </div>
       </div>
-      <span className="p-5 font-medium line-clamp-3">
-        {userInfo.data.settings.INTRO_MSG}
-      </span>
+      <div className="p-5">
+        <span className="font-medium line-clamp-3">
+          {userInfo.data.settings.INTRO_MSG}
+        </span>
+      </div>
     </div>
   );
 };
