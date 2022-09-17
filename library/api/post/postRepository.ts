@@ -9,11 +9,14 @@ export default class PostRepository extends PostApi {
     super(apiConfig.configuration, undefined, apiConfig.axios);
   }
   postsControllerDeletePost(postId: string, options?: AxiosRequestConfig) {
-    return this.apiConfig.axios.delete(`${this.apiConfig.basePath}/posts`, {
-      data: {
-        postId,
-      },
-      ...options,
-    });
+    return this.apiConfig.axios.delete(
+      `${this.apiConfig.configuration?.basePath}/posts`,
+      {
+        data: {
+          postId,
+        },
+        ...options,
+      }
+    );
   }
 }
