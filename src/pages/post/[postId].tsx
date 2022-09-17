@@ -57,11 +57,7 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
         <div className="mt-5">
           <Suspense fallback={<Spinner size="w-1 h-1" />}>
             <ErrorBoundary fallback={<>에러 났어.</>}>
-              <PostLike
-                userId={post.user.userId}
-                postId={post.id}
-                count={post.like}
-              />
+              <PostLike postId={post.id} count={post.like} />
             </ErrorBoundary>
           </Suspense>
           <Suspense fallback={<Spinner size="w-10 h-10" />}>
