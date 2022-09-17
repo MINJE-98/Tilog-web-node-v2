@@ -14,6 +14,8 @@ const useGetAllCategories = () => {
       retryOnMount: false,
       refetchOnMount: false,
       staleTime: Infinity,
+      suspense: true,
+      useErrorBoundary: true,
     }
   );
 };

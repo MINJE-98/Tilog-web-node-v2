@@ -14,7 +14,7 @@ export default function useLikeMutation() {
         if (error instanceof Error) toast.error(error.message);
       },
       onSuccess(_data, variables) {
-        queryClient.getQueriesData(["post-detail", variables]);
+        queryClient.refetchQueries(["post-detail", variables]);
         queryClient.refetchQueries(["like", variables]);
       },
     }
