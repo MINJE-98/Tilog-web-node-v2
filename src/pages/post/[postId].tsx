@@ -19,10 +19,11 @@ interface PostDetailPageProps {
 const PostDetailPage: NextPage<PostDetailPageProps> = ({
   post,
 }: PostDetailPageProps) => {
-  const seo = postDetailSeo(post);
+  console.log(post);
+  // const seo = postDetailSeo(post);
   return (
     <div>
-      <DefaultSeo {...seo} />
+      {/* <DefaultSeo {...seo} /> */}
       <RootBox>
         <div>
           <article className="w-full">
@@ -67,6 +68,7 @@ export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
     if (Array.isArray(postId)) return { props: {} };
     try {
       const { data } = await api.postService.getPostDetail(postId);
+      console.log(data);
       return {
         props: {
           post: data,
