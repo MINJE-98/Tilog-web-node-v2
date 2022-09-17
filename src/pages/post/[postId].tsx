@@ -19,7 +19,6 @@ interface PostDetailPageProps {
 const PostDetailPage: NextPage<PostDetailPageProps> = ({
   post,
 }: PostDetailPageProps) => {
-  console.log(post);
   const seo = postDetailSeo(post);
   return (
     <div>
