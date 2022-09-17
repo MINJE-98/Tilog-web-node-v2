@@ -67,7 +67,6 @@ export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
     if (Array.isArray(postId)) return { props: {} };
     try {
       const { data } = await api.postService.getPostDetail(postId);
-      console.log(data);
       return {
         props: {
           post: data,
