@@ -3,15 +3,12 @@ import { Suspense } from "react";
 
 import { ErrorBoundary } from "react-error-boundary";
 
-import CardTitle from "@Commons/atom/CardTitle";
-import PostCard from "@Commons/molecules/card/post/PostCard";
-import useStringRouter from "@Hooks/useStringRouter";
-import useGetUserPostInfiniteList from "@Queries/posts/useGetUserPostInfiniteList";
+import Spinner from "@Commons/atom/loading/Spinner";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
-const PostCardInfiniteList = dynamic(
-  () => import("@Commons/organisms/list/PostCardInfiniteList"),
+const BlogPostList = dynamic(
+  () => import("@Components/blog/list/BlogPostList"),
   {
     ssr: false,
   }
@@ -22,27 +19,14 @@ const BlogPostSection = ({
 }: {
   userId: GetUserProfileResponse["id"];
 }) => {
-  const category = useStringRouter("category");
-  const userPostList = useGetUserPostInfiniteList({
-    dateScope: "All",
-    sortScope: "createdAt",
-    page: 0,
-    categoryName: category,
-    maxContent: 10,
-    userId,
-  });
   return (
-    <section>
-      <Suspense fallback={<>로딩중이야.</>}>
+    <div className="mt-10 md:mt-0">
+      <Suspense fallback={<Spinner size="20" />}>
         <ErrorBoundary fallback={<>에러 났어.</>}>
-          <CardTitle>{category} 게시글</CardTitle>
-          <PostCardInfiniteList
-            CardComponent={PostCard}
-            postList={userPostList}
-          />
+          <BlogPostList userId={userId} />
         </ErrorBoundary>
       </Suspense>
-    </section>
+    </div>
   );
 };
 export default BlogPostSection;

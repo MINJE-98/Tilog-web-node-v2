@@ -8,12 +8,7 @@ const TopLanguage = ({ language }: { language: TopLanguageResponse }) => {
       <div className="text-2xl">
         <RenderTechIcons categoryName={language.name} />
       </div>
-      {/* Card title */}
-      <div>
-        <span className="text-xs font-black md:text-sm">
-          {language.percent}%
-        </span>
-      </div>
+      <span className="text-xs font-black md:text-sm">{language.percent}%</span>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { GoStar, GoGitPullRequest, GoGitCommit } from "react-icons/go";
+import { VscIssues } from "react-icons/vsc";
 
 import GitStatsCard from "@Components/blog/github/GitStatsCard";
 import useGetUserStats from "@Queries/github/stats/useGetUserStats";
@@ -20,6 +21,11 @@ const GitStats = ({ userName }: { userName: Users["userName"] }) => {
         Icon={GoGitCommit}
         count={data.data.totalCommits}
         name="Commits"
+      />
+      <GitStatsCard
+        Icon={VscIssues}
+        count={data.data.totalIssues}
+        name="Issues"
       />
     </div>
   );
