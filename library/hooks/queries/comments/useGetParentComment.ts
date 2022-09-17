@@ -13,6 +13,8 @@ const useGetParentComment = (postId: string) => {
       retryOnMount: false,
       refetchOnMount: false,
       staleTime: Infinity,
+      suspense: true,
+      useErrorBoundary: true,
     }
   );
 };

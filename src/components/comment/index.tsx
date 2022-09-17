@@ -12,9 +12,7 @@ interface CommentProps {
 
 const Comment = ({ postId }: CommentProps) => {
   const commentList = useGetParentComment(postId);
-  if (commentList.isError) return <span>에러</span>;
-  if (commentList.isLoading) return null;
-  if (!commentList.data) return null;
+  if (!commentList.data) return <>댓글이 없어요..</>;
 
   return (
     <div>

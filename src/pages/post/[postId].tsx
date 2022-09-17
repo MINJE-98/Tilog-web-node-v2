@@ -1,18 +1,26 @@
 import { GetServerSideProps, NextPage } from "next";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 import { DefaultSeo } from "next-seo";
+import { ErrorBoundary } from "react-error-boundary";
 
 import api from "@Api/index";
+import Spinner from "@Commons/atom/loading/Spinner";
 import PostThumbnail from "@Commons/molecules/images/PostThumbnail";
 import TiptapViewer from "@Commons/molecules/text-area/TiptapViewer";
-import Comment from "@Components/comment";
-import { PostHeader, PostLike, PostWriter } from "@Components/post";
+import { PostHeader, PostWriter } from "@Components/post";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
 import { postDetailSeo } from "@SEO";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
+const Comment = dynamic(() => import("@Components/comment"), { ssr: false });
+
+const PostLike = dynamic(() => import("@Components/post/PostLike"), {
+  ssr: false,
+});
 interface PostDetailPageProps {
   post: GetPostDetailResponseDto;
 }
@@ -47,12 +55,20 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
           </article>
         </div>
         <div className="mt-5">
-          <PostLike
-            userId={post.user.userId}
-            postId={post.id}
-            count={post.like}
-          />
-          <Comment postId={post.id} />
+          <Suspense fallback={<Spinner size="w-1 h-1" />}>
+            <ErrorBoundary fallback={<>에러 났어.</>}>
+              <PostLike
+                userId={post.user.userId}
+                postId={post.id}
+                count={post.like}
+              />
+            </ErrorBoundary>
+          </Suspense>
+          <Suspense fallback={<Spinner size="w-10 h-10" />}>
+            <ErrorBoundary fallback={<>에러 났어.</>}>
+              <Comment postId={post.id} />
+            </ErrorBoundary>
+          </Suspense>
         </div>
       </RootBox>
     </div>

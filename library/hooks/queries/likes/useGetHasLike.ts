@@ -15,6 +15,8 @@ export default function useGetHasLike(
     {
       retry: 0,
       refetchOnWindowFocus: false,
+      suspense: true,
+      useErrorBoundary: true,
     }
   );
 }

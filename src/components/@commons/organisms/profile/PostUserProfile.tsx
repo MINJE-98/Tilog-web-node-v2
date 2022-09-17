@@ -20,9 +20,6 @@ const PostUserProfile = ({
   isPrivate,
 }: PostUserProfileProps) => {
   const userInfo = useGetUserProfile(userName);
-
-  if (userInfo.isError) return <p>에러</p>;
-  if (userInfo.isLoading) return null;
   if (!userInfo.data) return null;
   return (
     <UserNameProfile
