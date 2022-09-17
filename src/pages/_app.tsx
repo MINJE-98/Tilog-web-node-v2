@@ -7,11 +7,11 @@ import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import Header from "@Commons/organisms/header";
+import Footer from "@Components/footer";
 import { AuthProvider } from "@Contexts/auth/AuthProvider";
 import useProgressBar from "@Hooks/useProgressBar";
 
 import GetMeResponse from "@Api/users/interface/getMeResponse";
-import Footer from "@Components/footer";
 
 const queryClient = new QueryClient({});
 
