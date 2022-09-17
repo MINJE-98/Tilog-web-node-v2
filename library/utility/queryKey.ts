@@ -1,7 +1,6 @@
 import { GetCommentsItem } from "@til-log.lab/tilog-api";
 
 import { Category, Posts, Users } from "@Api/interface/model";
-import GetCommentsRequest from "@Api/post/comment/interface/getCommentsRequest";
 import { GetPostRequest } from "@Api/post/interface/getPostRequest";
 import GetCategoryPostRequest from "@Api/post/interface/getPostRequestCategoryName";
 import PostHasLikeDto from "@Api/post/like/interface/postHasLikeDto";
