@@ -43,8 +43,8 @@ export const postQueryKeys = {
 
 export const likeQueryKeys = {
   like: ["like"] as const,
-  likePostUser: (userId: Users["id"], postId: PostHasLikeDto["postId"]) =>
-    [...likeQueryKeys.like, postId, userId] as const,
+  likePost: (postId: PostHasLikeDto["postId"]) =>
+    [...likeQueryKeys.like, postId] as const,
 };
 
 export const categoryQueryKeys = {
