@@ -12,9 +12,17 @@ interface PostLikeProps {
 }
 
 const PostLike = ({ postId, count }: PostLikeProps) => {
-  const { mutate } = useLikeMutation();
+  const { isLoading, mutate } = useLikeMutation();
   const [newCount, setNewCount] = useState(count);
   const isLiked = useGetHasLike(postId);
+  if (isLoading)
+    return (
+      <LikeCounter
+        active={!!isLiked.data?.data.like}
+        iconSize="5"
+        count={newCount}
+      />
+    );
   return (
     <div>
       <button
