@@ -1,9 +1,10 @@
-import { DeleteCommentRequestDto } from "@til-log.lab/tilog-api";
-
-import { Comments } from "@Api/interface/model";
+import {
+  DeleteCommentRequestDto,
+  GetCommentsItem,
+} from "@til-log.lab/tilog-api";
 
 export default interface DeleteParentCommentMutation
   extends DeleteCommentRequestDto {
-  postId: Comments["postsID"];
-  replyTo: Comments["replyTo"] | null;
+  postId: GetCommentsItem["postId"];
+  replyTo?: GetCommentsItem["replyTo"];
 }
