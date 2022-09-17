@@ -20,11 +20,11 @@ interface PostCardListProps {
 const PostCardList = ({ CardComponent, postList }: PostCardListProps) => {
   if (!postList) return <p>{NO_EXIST_POSTS}</p>;
   return (
-    <>
+    <div className="grid gap-3 grid-row md:grid-cols-2">
       {postList.data.list.map((post, idex) => (
         <CardComponent key={post.id} index={idex + 1} post={post} />
       ))}
-    </>
+    </div>
   );
 };
 
