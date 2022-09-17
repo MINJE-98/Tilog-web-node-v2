@@ -11,6 +11,7 @@ import { AuthProvider } from "@Contexts/auth/AuthProvider";
 import useProgressBar from "@Hooks/useProgressBar";
 
 import GetMeResponse from "@Api/users/interface/getMeResponse";
+import Footer from "@Components/footer";
 
 const queryClient = new QueryClient({});
 
@@ -32,6 +33,7 @@ const App = ({
         <Toaster />
         {Component.name !== "Callback" && <Header />}
         <Component {...pageProps} />
+        <Footer />
       </AuthProvider>
     </QueryClientProvider>
   );
