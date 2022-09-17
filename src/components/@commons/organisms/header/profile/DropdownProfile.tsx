@@ -12,7 +12,7 @@ const DropdownProfile = () => {
         <li className="py-1" role="none">
           <LinkTo
             href={`/blog/${userInfo.name}`}
-            className="block px-4 py-2 text-lg text-gray-700 font-eng-sub-font-1"
+            className="block px-4 py-2 text-lg text-gray-700"
           >
             {USER_PROFILE_DROPBOX.MY_BLOG}
           </LinkTo>
@@ -20,13 +20,13 @@ const DropdownProfile = () => {
         <li className="py-1" role="none">
           <LinkTo
             href="/writer"
-            className="block px-4 py-2 text-lg text-gray-700 font-eng-sub-font-1"
+            className="block px-4 py-2 text-lg text-gray-700"
           >
             {USER_PROFILE_DROPBOX.CREATE_POST}
           </LinkTo>
           <LinkTo
             href="/settings"
-            className="block px-4 py-2 text-lg text-gray-700 font-eng-sub-font-1"
+            className="block px-4 py-2 text-lg text-gray-700"
           >
             {USER_PROFILE_DROPBOX.SETTINGS}
           </LinkTo>

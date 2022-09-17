@@ -17,7 +17,7 @@ const SelectedCategory = () => {
         onClick={() => resetField("categoryId")}
       >
         <div className="flex items-center">
-          <div className="flex items-center content-center text-2xl font-eng-sub-font-2 gap-x-3">
+          <div className="flex items-center content-center text-2xl gap-x-3">
             <RenderTechIcons categoryName={category[0].categoryName} />
             <span className="block font-medium">
               {category[0].categoryName}
