@@ -15,13 +15,8 @@ const LatestPostCardList = () => {
   return (
     <section className="my-10">
       <CardTitle nav={<More href="latest" />}>{ALL_LATEST_POST}</CardTitle>
-      <main className="col-span-2 ml-auto">
-        <div className="grid gap-3 grid-row md:grid-cols-2">
-          <PostCardList
-            CardComponent={PostCard}
-            postList={latestPostList.data}
-          />
-        </div>
+      <main>
+        <PostCardList CardComponent={PostCard} postList={latestPostList.data} />
       </main>
     </section>
   );

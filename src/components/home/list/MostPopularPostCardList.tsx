@@ -17,13 +17,11 @@ const MostPopularPostCardList = () => {
       <CardTitle nav={<More href="popular" />}>
         {ALL_MOST_POPULAR_POST}
       </CardTitle>
-      <main className="col-span-2 ml-auto">
-        <div className="grid gap-3 grid-row md:grid-cols-2 lg:grid-cols-3">
-          <PostCardList
-            CardComponent={MostPopularPostCard}
-            postList={popularPostList.data}
-          />
-        </div>
+      <main>
+        <PostCardList
+          CardComponent={MostPopularPostCard}
+          postList={popularPostList.data}
+        />
       </main>
     </section>
   );
