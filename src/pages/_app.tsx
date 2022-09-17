@@ -12,14 +12,7 @@ import useProgressBar from "@Hooks/useProgressBar";
 
 import GetMeResponse from "@Api/users/interface/getMeResponse";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      suspense: true,
-      useErrorBoundary: true,
-    },
-  },
-});
+const queryClient = new QueryClient({});
 
 type CustomAppProps = AppProps & {
   pageProps: {
