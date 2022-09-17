@@ -1,5 +1,8 @@
 import { GetServerSideProps, NextPage } from "next";
 
+import { latestSeo } from "library/seo/latestSeo";
+import { DefaultSeo } from "next-seo";
+
 import CardTitle from "@Commons/atom/CardTitle";
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
@@ -17,6 +20,7 @@ const LatestPage: NextPage = () => {
   });
   return (
     <div>
+      <DefaultSeo {...latestSeo} />
       <RootBox>
         <div className="inline">
           <CardTitle>{ALL_LATEST_POST}</CardTitle>

@@ -1,5 +1,8 @@
 import { GetServerSideProps, NextPage } from "next";
 
+import { popularSeo } from "library/seo/popularSeo";
+import { DefaultSeo } from "next-seo";
+
 import CardTitle from "@Commons/atom/CardTitle";
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import DateScopeLink from "@Commons/molecules/link/DateScopeLink";
@@ -21,6 +24,7 @@ const PopularPage: NextPage = () => {
 
   return (
     <div>
+      <DefaultSeo {...popularSeo} />
       <RootBox>
         <div>
           <CardTitle
