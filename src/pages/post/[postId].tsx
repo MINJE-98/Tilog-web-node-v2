@@ -20,10 +20,10 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
   post,
 }: PostDetailPageProps) => {
   console.log(post);
-  // const seo = postDetailSeo(post);
+  const seo = postDetailSeo(post);
   return (
     <div>
-      {/* <DefaultSeo {...seo} /> */}
+      <DefaultSeo {...seo} />
       <RootBox>
         <div>
           <article className="w-full">
