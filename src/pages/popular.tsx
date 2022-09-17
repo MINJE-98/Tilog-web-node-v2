@@ -37,6 +37,7 @@ const PopularPage: NextPage = () => {
           </CardTitle>
         </div>
         <PostCardInfiniteList
+          twoRow
           CardComponent={PostCard}
           postList={popularPostList}
         />

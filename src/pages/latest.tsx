@@ -22,6 +22,7 @@ const LatestPage: NextPage = () => {
           <CardTitle>{ALL_LATEST_POST}</CardTitle>
         </div>
         <PostCardInfiniteList
+          twoRow
           CardComponent={PostCard}
           postList={latestPostList}
         />

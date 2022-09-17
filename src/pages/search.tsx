@@ -24,6 +24,7 @@ const SearchPage: NextPage = () => {
           <CardTitle title={category} />
         </div>
         <PostCardInfiniteList
+          twoRow
           CardComponent={PostCard}
           postList={searchPostList}
         />

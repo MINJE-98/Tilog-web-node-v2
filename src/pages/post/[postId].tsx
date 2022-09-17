@@ -39,7 +39,7 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
                 <TiptapViewer content={JSON.parse(post.content)} />
               </div>
               <section>
-                <div className="w-full rounded h-fit bg-neutral-100 dark:bg-neutral-800">
+                <div className="w-full mt-20 rounded md:sticky md:top-4 md:mt-0 h-fit bg-neutral-100 dark:bg-neutral-800">
                   <PostWriter username={post.user.username} />
                 </div>
               </section>
