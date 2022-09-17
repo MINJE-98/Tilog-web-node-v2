@@ -12,8 +12,8 @@ const LikeCounter = ({ count, active = false }: LikeCounterProps) => {
     <div className="space-x-1">
       <AiFillHeart
         className={`inline w-4 h-4 
-        ${active && "text-rose-500"}
-        dark:text-neutral-500 text-neutral-400 text-xs 
+        ${active ? "text-rose-500" : "dark:text-neutral-500 text-neutral-400"}
+         text-xs 
         `}
       />
       <p className="inline text-xs">{count}</p>

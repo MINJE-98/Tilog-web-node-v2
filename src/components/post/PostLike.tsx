@@ -2,40 +2,41 @@ import LikeCounter from "@Commons/molecules/counter/LikeCounter";
 import useLikeMutation from "@Mutations/likes/useLikeMutation";
 import useGetHasLike from "@Queries/likes/useGetHasLike";
 
-import { Users } from "@Api/interface/model";
 import PostHasLikeDto from "@Api/post/like/interface/postHasLikeDto";
+import { useState } from "react";
 
 interface PostLikeProps {
-  userId: Users["id"];
   postId: PostHasLikeDto["postId"];
   count: number;
 }
 
-const PostLike = ({ userId, postId, count }: PostLikeProps) => {
+const PostLike = ({ postId, count }: PostLikeProps) => {
   const { mutate } = useLikeMutation();
-  const isLiked = useGetHasLike(userId, postId);
-  if (!isLiked.data?.data.like)
-    return (
-      <div>
-        <button
-          type="button"
-          onClick={() => {
-            mutate({ postId });
-          }}
-        >
-          <LikeCounter iconSize="5" count={count} />
-        </button>
-      </div>
-    );
+  const [newCount, setNewCount] = useState(count);
+  const isLiked = useGetHasLike(postId);
   return (
     <div>
       <button
         type="button"
         onClick={() => {
-          mutate({ postId });
+          mutate(
+            { postId },
+            {
+              onSuccess: () => {
+                setNewCount((prev) => {
+                  if (!isLiked.data) return prev;
+                  return isLiked.data.data.like ? prev - 1 : prev + 1;
+                });
+              },
+            }
+          );
         }}
       >
-        <LikeCounter active iconSize="5" count={count} />
+        <LikeCounter
+          active={!!isLiked.data?.data.like}
+          iconSize="5"
+          count={newCount}
+        />
       </button>
     </div>
   );
