@@ -1,10 +1,11 @@
 import { useQuery } from "react-query";
 
 import api from "@Api";
+import { commentQueryKeys } from "@Utility/queryKey";
 
 const useGetParentComment = (postId: string) => {
   return useQuery(
-    ["commentParent", postId],
+    commentQueryKeys.commentParent(postId),
     () => api.commentService.getComments({ postId }),
     {
       retry: 0,

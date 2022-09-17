@@ -1,13 +1,14 @@
 import { useInfiniteQuery } from "react-query";
 
 import api from "@Api";
+import { postQueryKeys } from "@Utility/queryKey";
 
 import { GetPostRequest } from "@Api/post/interface/getPostRequest";
 
 const useGetMostPopularPostInfiniteList = (getPostRequest: GetPostRequest) => {
   const { dateScope, sortScope, maxContent, page } = getPostRequest;
   return useInfiniteQuery(
-    ["mostPopularPostList", "infinite", dateScope],
+    postQueryKeys.postListInfinitePopularDateScope(dateScope),
     ({ pageParam = page }) => {
       return api.postService.getPosts({
         dateScope,

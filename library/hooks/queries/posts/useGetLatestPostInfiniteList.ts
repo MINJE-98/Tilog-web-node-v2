@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from "react-query";
 
 import api from "@Api";
+import { postQueryKeys } from "@Utility/queryKey";
 
 import { GetPostRequest } from "@Api/post/interface/getPostRequest";
 
@@ -8,7 +9,7 @@ const useGetLatestPostList = (getPostRequest: GetPostRequest) => {
   const { dateScope, sortScope, page, maxContent } = getPostRequest;
 
   return useInfiniteQuery(
-    ["latestPostList", "infinite"],
+    postQueryKeys.postListInfiniteLatest(),
     ({ pageParam = page }) => {
       return api.postService.getPosts({
         dateScope,

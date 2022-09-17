@@ -2,6 +2,7 @@ import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "react-query";
 
 import api from "@Api";
+import { commentQueryKeys } from "@Utility/queryKey";
 
 import { CreateCommentsRequestBodyDto } from "@til-log.lab/tilog-api";
 
@@ -21,8 +22,12 @@ export const useDeleteCommentMutation = () => {
       },
       onSuccess(_data, variables) {
         return variables.replyTo === "null"
-          ? queryClient.refetchQueries(["comment", "parent", variables.postId])
-          : queryClient.refetchQueries(["comment", "child", variables.replyTo]);
+          ? queryClient.refetchQueries(
+              commentQueryKeys.commentParent(variables.postId)
+            )
+          : queryClient.refetchQueries(
+              commentQueryKeys.commentChild(variables.postId, variables.replyTo)
+            );
       },
     }
   );
@@ -39,8 +44,12 @@ export const useUpdateCommentMutation = () => {
     {
       onSuccess(_data, variables) {
         return variables.replyTo === "null"
-          ? queryClient.refetchQueries(["comment", "parent", variables.postId])
-          : queryClient.refetchQueries(["comment", "child", variables.replyTo]);
+          ? queryClient.refetchQueries(
+              commentQueryKeys.commentParent(variables.postId)
+            )
+          : queryClient.refetchQueries(
+              commentQueryKeys.commentChild(variables.postId, variables.replyTo)
+            );
       },
     }
   );
@@ -54,8 +63,12 @@ export const useCreateCommentMutation = () => {
     {
       onSuccess(_data, variables) {
         return variables.replyTo === null
-          ? queryClient.refetchQueries(["comment", "parent", variables.postId])
-          : queryClient.refetchQueries(["comment", "child", variables.replyTo]);
+          ? queryClient.refetchQueries(
+              commentQueryKeys.commentParent(variables.postId)
+            )
+          : queryClient.refetchQueries(
+              commentQueryKeys.commentChild(variables.postId, variables.replyTo)
+            );
       },
     }
   );

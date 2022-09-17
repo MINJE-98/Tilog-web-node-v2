@@ -1,10 +1,13 @@
 import { useQuery } from "react-query";
 
 import api from "@Api";
+import { postQueryKeys } from "@Utility/queryKey";
 
-const useGetPostDetail = (postId: string) => {
+import { Posts } from "@Api/interface/model";
+
+const useGetPostDetail = (postId: Posts["id"]) => {
   return useQuery(
-    ["postDetail", postId],
+    postQueryKeys.detailPostId(postId),
     () => api.postService.getPostDetail(postId),
     {
       retry: 0,

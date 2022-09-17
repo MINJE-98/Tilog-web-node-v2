@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from "react-query";
 
 import api from "@Api";
+import { postQueryKeys } from "@Utility/queryKey";
 
 import GetCategoryPostRequest from "@Api/post/interface/getPostRequestCategoryName";
 
@@ -11,7 +12,7 @@ const useGetSearchPostInfiniteList = (
     getCategoryPostRequest;
 
   return useInfiniteQuery(
-    ["searchPostList", "infinite", categoryName],
+    postQueryKeys.postListInfiniteSearchCategoryName(categoryName),
     ({ pageParam = page }) => {
       return api.postService.getCategoryPosts({
         dateScope,

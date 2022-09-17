@@ -2,6 +2,7 @@ import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "react-query";
 
 import api from "@Api";
+import { postQueryKeys } from "@Utility/queryKey";
 
 import LikedRequestDto from "@Api/post/like/interface/likedRequestDto";
 
@@ -14,8 +15,9 @@ export default function useLikeMutation() {
         if (error instanceof Error) toast.error(error.message);
       },
       onSuccess(_data, variables) {
-        queryClient.refetchQueries(["post-detail", variables]);
-        queryClient.refetchQueries(["like", variables]);
+        queryClient.refetchQueries([
+          postQueryKeys.detailPostId(variables.postId),
+        ]);
       },
     }
   );

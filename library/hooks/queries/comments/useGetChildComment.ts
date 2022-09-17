@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 
 import api from "@Api";
+import { commentQueryKeys } from "@Utility/queryKey";
 
 import GetCommentsRequest from "@Api/post/comment/interface/getCommentsRequest";
 
@@ -10,7 +11,7 @@ const useGetChildComment = (
   replyTo: GetCommentsRequest["replyTo"]
 ) => {
   return useQuery(
-    ["commentChild", postId, replyTo],
+    commentQueryKeys.commentChild(postId, replyTo),
     () => api.commentService.getComments({ postId, replyTo }),
     {
       enabled: isOpen,

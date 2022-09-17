@@ -1,12 +1,13 @@
 import { useQuery } from "react-query";
 
 import api from "@Api";
+import { userQueryKeys } from "@Utility/queryKey";
 
 import { Users } from "@Api/interface/model";
 
 export default function useGetUserProfile(userName: Users["userName"]) {
   return useQuery(
-    ["userDetail", userName],
+    userQueryKeys.userDetailUserName(userName),
     () => api.usersService.getUserProfile(userName),
     {
       retry: 0,
