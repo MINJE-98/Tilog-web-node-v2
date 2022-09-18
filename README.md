@@ -6,6 +6,7 @@ Blog platform for developers, TILog
 
 •
 [Project Convention](https://github.com/TIL-Log-lab/Tilog-web-node-v2/discussions/3) •
+</div>
 
 # 프로젝트 소개
 
@@ -35,9 +36,12 @@ Blog platform for developers, TILog
 
 ### 빈 이미지 게시글
 #### 게시글 썸네일이 지정되지 않은 경우 postID를 seed로 특정 색상의 임시 썸네일이 발행됩니다.
-
-![image](https://user-images.githubusercontent.com/56459078/190891321-b6e49543-1b1c-44a4-900c-f11c9f5dca35.png)
+<div>
+  
+![image](https://user-images.githubusercontent.com/56459078/190891941-a82b65e1-cbd7-4a13-b944-891a768fc909.png)
 ![image](https://user-images.githubusercontent.com/56459078/190889961-b3526d2e-5a66-4f60-907f-2e007328ee42.png)
+  
+</div>
 
 #### Post별 각각의 OG-Image를 생성하여 반영합니다.
 자세한 내용은 아래 SEO에서 다룹니다.
@@ -78,5 +82,3 @@ Blog platform for developers, TILog
 - getInitialProps vs  getServerSideProps
 - Hydrate, Steaming이란?
 - 
-
-</div>
