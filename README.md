@@ -48,9 +48,6 @@ Blog platform for developers, TILog
 ## 모바일 대응 UI
 #### Tailwind를 사용하여 모든 페이지를 모바일에 대응하도록 컴포넌트를 구현하였습니다.
 
-## Suspense, ErrorBoundary 적용
-## 서버측에서 로그인여부 확인 후 로그인된 HTML 반환
-
 ![화면 기록 2022-09-18 오후 5 05 48 mov](https://user-images.githubusercontent.com/56459078/190892452-82486924-1fab-4ae5-b55c-2369e4a469ad.gif)
 
 ## 카테고리 기준 게시글 검색
