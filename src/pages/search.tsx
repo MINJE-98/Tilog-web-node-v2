@@ -6,7 +6,6 @@ import { DefaultSeo } from "next-seo";
 import CardTitle from "@Commons/atom/CardTitle";
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
-import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
 import useGetSearchPostInfiniteList from "@Queries/posts/useGetSearchPostInfiniteList";
 
@@ -38,15 +37,13 @@ const SearchPage: NextPage<Category> = ({ categoryName }: Category) => {
 };
 
 export default SearchPage;
-export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
-  async (context) => {
-    const { category } = context.query;
-    if (!category) return { notFound: true };
-    if (Array.isArray(category)) return { notFound: true };
-    return {
-      props: {
-        categoryName: category,
-      },
-    };
-  }
-);
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { category } = context.query;
+  if (!category) return { notFound: true };
+  if (Array.isArray(category)) return { notFound: true };
+  return {
+    props: {
+      categoryName: category,
+    },
+  };
+};
