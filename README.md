@@ -75,7 +75,7 @@ Blog platform for developers, TILog
 [![Latest](https://static.tilog.link/latest.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link%2Flatest)
 [![search](https://static.tilog.link/search.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link%2Fsearch%3Fcategory%3DTypescript)
 
-# 프로젝트를 진행하면서 막혔던 부분
+# 프로젝트를 진행하면서 고민 했던 부분
 
 ### [유저 인증](https://www.github.com/MINJE-98/login-template)
 ### SSR CSR?
