@@ -63,27 +63,29 @@ Blog platform for developers, TILog
 
 > 이미지를 누르면 TILOG 피그마로 이동합니다.
 
-[![Home](https://static.tilog.link/tilog-figma.png)](https://www.figma.com/file/JDOSQu4FYvDXD2iQS9AsKF/TILOG)
+[![Figma](https://static.tilog.link/tilog-figma.png)](https://www.figma.com/file/JDOSQu4FYvDXD2iQS9AsKF/TILOG)
 
 ## 페이지별 범위
 
-#### Home /
+### [Home](https://www.tilog.link/)
 
-#### Popular /popular
+틸로그의 메인 페이지입니다.
 
-#### Latest /latest
+### [Popular](https://www.tilog.link/popular)
 
-#### Blog /blog/:username
+### [Latest](https://www.tilog.link/latest)
 
-#### Post /post/:postId
+### [Blog](https://www.tilog.link/blog/MINJE-98)
 
-#### Search /search?categoryId=:categoryId
+### [Post](https://www.tilog.link/post/1)
 
-#### Settings /settings
+### [Search](https://www.tilog.link/search/?category=Typescript)
 
-#### Writer /writer
+### [Settings](https://www.tilog.link/settings)
 
-#### Editor /editor?postId=:postId
+### Writer
+
+### Editor
 
 # SEO
 
