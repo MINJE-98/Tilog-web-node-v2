@@ -34,7 +34,7 @@ Blog platform for developers, TILog
 
 ![image](https://user-images.githubusercontent.com/56459078/190889777-e7711379-4cba-4d03-b61b-6890b7a4ce95.png)
 
-## 빈 이미지 게시글
+## 썸네일이 지정되지 않는 게시글
 #### 게시글 썸네일이 지정되지 않은 경우 postID를 seed로 특정 색상의 임시 썸네일이 발행됩니다.
 #### Post별 각각의 OG-Image를 생성하여 반영합니다.
 자세한 내용은 아래 SEO에서 다룹니다.
