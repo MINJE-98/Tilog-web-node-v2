@@ -7,7 +7,7 @@ Blog platform for developers, TILog
 •
 [Project Convention](https://github.com/TIL-Log-lab/Tilog-web-node-v2/discussions/3) •
 
-# 프로젝트 설명
+# 프로젝트 소개
 
 자신의 깃허브 통계와 블로그글을 작성하고 플렛폼 사용자와 지식을 공유하는 서비스입니다.
 
@@ -18,82 +18,47 @@ Blog platform for developers, TILog
 <img src="https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=Tailwind%20CSS&logoColor=white"/>
 <img src="https://img.shields.io/badge/React%20Query-FF4154?style=flat-square&logo=React%20Query&logoColor=white"/>
 
-# 구조
-
-<img src="https://static.tilog.link/Web%20App%20Reference%20Architecture.png"/>
-
-# 프로젝트 시작
-
-## 레포지토리 복사
-
-```
-    git clone https://github.com/MINJE-98/Tilog-web-node-v2.git
-```
-
-## 의존 패키지 설치
-
-```
-    cd Tilog-web-node-v2
-    yarn install
-```
-
-## 환경 설정
-
-```
-    NEXT_PUBLIC_TILOG_API=
-    NEXT_PUBLIC_TILOG_GITHUB_STATS_API=
-    NEXT_PUBLIC_TILOG_AUTH=
-```
-
-## 프로젝트 시작
-
-```
-    yarn dev
-```
-
-## 프로젝트 빌드
-
-```
-    yarn build
-```
-
-# 구현
-
-## 피그마
+# 피그마
 
 > 이미지를 누르면 TILOG 피그마로 이동합니다.
 
 [![Figma](https://static.tilog.link/tilog-figma.png)](https://www.figma.com/file/JDOSQu4FYvDXD2iQS9AsKF/TILOG)
 
-## 페이지별 범위
+## 프로젝트 핵심 기능
 
-### [Home](https://www.tilog.link/)
+### 개인 페이지
+#### 깃허브 API를 사용하여 깃허브 정보를 사용자에게 표시합니다.
+#### TILog에서 작성한 글도 한눈에 볼 수 있고, 개인이 작성한 게시글을 카테고리별로 정렬할 수 있습니다.
+> 추후 다양한 GIthub 관련 기능을 추가할 예정입니다
 
-틸로그의 메인 페이지입니다.
+![image](https://user-images.githubusercontent.com/56459078/190889777-e7711379-4cba-4d03-b61b-6890b7a4ce95.png)
 
-### [Popular](https://www.tilog.link/popular)
+### 빈 이미지 게시글
+#### 게시글 썸네일이 지정되지 않은 경우 postID를 seed로 특정 색상의 임시 썸네일이 발행됩니다.
 
-### [Latest](https://www.tilog.link/latest)
+![image](https://user-images.githubusercontent.com/56459078/190891321-b6e49543-1b1c-44a4-900c-f11c9f5dca35.png)
+![image](https://user-images.githubusercontent.com/56459078/190889961-b3526d2e-5a66-4f60-907f-2e007328ee42.png)
 
-### [Blog](https://www.tilog.link/blog/MINJE-98)
+#### Post별 각각의 OG-Image를 생성하여 반영합니다.
+자세한 내용은 아래 SEO에서 다룹니다.
 
-### [Post](https://www.tilog.link/post/1)
+### 카테고리 기준 게시글 검색
+#### 게시글의 # 테그가 붙은 카테고리를 입력하면 해당 카테고리의 글을 모아서 볼 수 있습니다.
+#### 카테고리별 OG-Image를 생성하여 반영합니다.
 
-### [Search](https://www.tilog.link/search/?category=Typescript)
+### 그밖의 기본 기능
 
-### [Settings](https://www.tilog.link/settings)
+#### 최신, 인기 게시글
+#### 게시글 작성, 수정, 삭제
+#### 게시글 댓글, 답글 | 삭제, 수정
 
-### Writer
-
-### Editor
-
-# SEO
+### SEO
 
 [Open Graph Protocol](https://ogp.me/) 스펙 적용
 
-[TILog-Og-Image-Service](https://www.github.com/MINJE-98/TILog-Og-Image-Service)를 사용하여 페이지별 Open Graph Protocol Image를 적용하였습니다.
+[TILog-Og-Image-Service](https://www.github.com/MINJE-98/TILog-Og-Image-Service)를 사용하여 페이지별 TILog서비스에 알맞는 Open Graph Protocol Image를 구현, 적용하였습니다.
 
-## Preview
+#### Preview
 
 > 이미지를 누르면 facebook 공유 디버거로 이동합니다.
 
@@ -101,5 +66,17 @@ Blog platform for developers, TILog
 [![Popular](https://static.tilog.link/popular.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link%2Fpopular)
 [![Latest](https://static.tilog.link/latest.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link%2Flatest)
 [![search](https://static.tilog.link/search.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link%2Fsearch%3Fcategory%3DTypescript)
+
+## 프로젝트를 진행하면서 막혔던 부분
+
+#### 유저 인증
+#### SSR CSR?
+#### 컴포넌트 구조 바로잡기
+#### 상태관리 툴 정하기
+#### OpenAPI로 백엔드와 통신하기
+#### NextJS 레퍼런스 관련
+- getInitialProps vs  getServerSideProps
+- Hydrate, Steaming이란?
+- 
 
 </div>
