@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 
 import { popularSeo } from "library/seo/popularSeo";
 import { DefaultSeo } from "next-seo";
@@ -8,6 +8,7 @@ import PostCard from "@Commons/molecules/card/post/PostCard";
 import DateScopeLink from "@Commons/molecules/link/DateScopeLink";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import { ALL_MOST_POPULAR_POST } from "@Constants/text";
+import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useDateScopeRouter from "@Hooks/useDateScopeRouter";
 import RootBox from "@Layouts/box/RootBox";
 import useGetMostPopularPostInfiniteList from "@Queries/posts/useGetMostPopularPostInfiniteList";
@@ -50,3 +51,4 @@ const PopularPage: NextPage = () => {
 };
 
 export default PopularPage;
+export const getServerSideProps: GetServerSideProps = withAuthServerSideProps();
