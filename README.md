@@ -57,7 +57,15 @@ Blog platform for developers, TILog
     yarn build
 ```
 
-# 구현 범위
+# 구현
+
+## 피그마
+
+> 이미지를 누르면 TILOG 피그마로 이동합니다.
+
+[![Home](https://static.tilog.link/tilog-figma.png)](https://www.figma.com/file/JDOSQu4FYvDXD2iQS9AsKF/TILOG)
+
+## 페이지별 범위
 
 #### Home /
 
@@ -84,6 +92,8 @@ Blog platform for developers, TILog
 [TILog-Og-Image-Service](https://www.github.com/MINJE-98/TILog-Og-Image-Service)를 사용하여 페이지별 Open Graph Protocol Image를 적용하였습니다.
 
 ## Preview
+
+> 이미지를 누르면 facebook 공유 디버거로 이동합니다.
 
 [![Home](https://static.tilog.link/home.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link)
 [![Popular](https://static.tilog.link/popular.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link%2Fpopular)
