@@ -78,10 +78,10 @@ Blog platform for developers, TILog
 # 프로젝트를 진행하면서 고민 했던 부분
 
 ### [유저 인증](https://www.github.com/MINJE-98/login-template)
-### SSR CSR?
+<!-- ### SSR CSR? -->
 ### [컴포넌트 구조 고민](https://www.tilog.link/post/19)
-### 상태관리 툴 정하기
+<!-- ### 상태관리 툴 정하기 -->
 ### [OpenAPI로 백엔드와 통신하기](https://www.tilog.link/post/18)
-### Suspense, ErrorBoundary
+<!-- ### Suspense, ErrorBoundary -->
 ### [getInitialProps vs  getServerSideProps](https://www.tilog.link/post/16)
 <!-- ### Hydrate, Steaming이란? -->
