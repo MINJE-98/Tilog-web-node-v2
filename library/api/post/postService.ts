@@ -69,8 +69,16 @@ export default class PostService {
   ) {
     const { dateScope, sortScope, page, maxContent, userId, categoryName } =
       getPostRequest;
+    if (categoryName === "") {
+      return this.postRepository.postsControllerGetPosts(
+        dateScope,
+        sortScope,
+        page,
+        maxContent,
+        userId
+      );
+    }
     const { id } = await this.categoryService.getCategory(categoryName);
-
     return this.postRepository.postsControllerGetPosts(
       dateScope,
       sortScope,
