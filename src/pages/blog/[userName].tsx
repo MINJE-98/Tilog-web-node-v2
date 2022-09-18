@@ -5,7 +5,6 @@ import { DefaultSeo } from "next-seo";
 import api from "@Api";
 import BlogPostSection from "@Components/blog/BlogPostSection";
 import UserStatsSection from "@Components/blog/UserStatsSection";
-import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import BlogBox from "@Layouts/box/BlogBox";
 import RootBox from "@Layouts/box/RootBox";
 import { userBlogDetailSeo } from "@SEO";
@@ -32,22 +31,20 @@ const BlogPage: NextPage<BlogPagePageProps> = ({
   );
 };
 export default BlogPage;
-export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
-  async (context) => {
-    const { userName } = context.query;
-    if (!userName) return { notFound: true };
-    if (Array.isArray(userName)) return { notFound: true };
-    try {
-      const userInfo = await api.usersService.getUserProfile(userName);
-      return {
-        props: {
-          userInfo,
-        },
-      };
-    } catch (error) {
-      return {
-        notFound: true,
-      };
-    }
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { userName } = context.query;
+  if (!userName) return { notFound: true };
+  if (Array.isArray(userName)) return { notFound: true };
+  try {
+    const userInfo = await api.usersService.getUserProfile(userName);
+    return {
+      props: {
+        userInfo,
+      },
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
   }
-);
+};

@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from "next";
+import { NextPage } from "next";
 import Head from "next/head";
 
 import { FormProvider, useForm } from "react-hook-form";
@@ -11,7 +11,6 @@ import {
   SettingsSubmit,
 } from "@Components/settings";
 import { useAuth } from "@Contexts/auth/AuthContext";
-import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useHandleSubmit from "@Hooks/useHandleSettingsSubmit";
 import RootBox from "@Layouts/box/RootBox";
 
@@ -46,10 +45,3 @@ const SettingPage: NextPage = () => {
 };
 
 export default SettingPage;
-export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
-  null,
-  {
-    destination: "/",
-    permanent: true,
-  }
-);

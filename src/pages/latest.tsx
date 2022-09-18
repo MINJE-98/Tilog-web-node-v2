@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from "next";
+import { NextPage } from "next";
 
 import { latestSeo } from "library/seo/latestSeo";
 import { DefaultSeo } from "next-seo";
@@ -7,7 +7,6 @@ import CardTitle from "@Commons/atom/CardTitle";
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import { ALL_LATEST_POST } from "@Constants/text";
-import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
 import useGetMostPopularPostInfiniteList from "@Queries/posts/useGetMostPopularPostInfiniteList";
 
@@ -36,4 +35,3 @@ const LatestPage: NextPage = () => {
 };
 
 export default LatestPage;
-export const getServerSideProps: GetServerSideProps = withAuthServerSideProps();
