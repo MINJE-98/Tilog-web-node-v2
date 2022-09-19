@@ -17,9 +17,7 @@ const LatestPostCardList = () => {
       <CardNavTitle nav={<More href="latest" />}>
         {ALL_LATEST_POST}
       </CardNavTitle>
-      <main>
-        <PostCardList CardComponent={PostCard} postList={latestPostList.data} />
-      </main>
+      <PostCardList CardComponent={PostCard} postList={latestPostList.data} />
     </section>
   );
 };

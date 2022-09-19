@@ -17,12 +17,10 @@ const MostPopularPostCardList = () => {
       <CardNavTitle nav={<More href="popular" />}>
         {ALL_MOST_POPULAR_POST}
       </CardNavTitle>
-      <main>
-        <PostCardList
-          CardComponent={MostPopularPostCard}
-          postList={popularPostList.data}
-        />
-      </main>
+      <PostCardList
+        CardComponent={MostPopularPostCard}
+        postList={popularPostList.data}
+      />
     </section>
   );
 };
