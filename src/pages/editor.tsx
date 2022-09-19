@@ -19,7 +19,7 @@ import RootBox from "@Layouts/box/RootBox";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 interface EditorPageProps {
   post: GetPostDetailResponseDto;

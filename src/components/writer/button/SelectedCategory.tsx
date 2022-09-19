@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 import useSearchCategoryId from "@Components/writer/button/hooks/useSearchCategoryId";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 const SelectedCategory = () => {
   const { resetField } = useFormContext<WriterFormTypes>();

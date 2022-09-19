@@ -8,7 +8,7 @@ import { WRITER_INPUT_TYPE } from "@Constants/input";
 import { CATEGORY_PLACEHOLDER } from "@Constants/text";
 import useOutsideClickAndEscClickListener from "@Hooks/useOutsideClickAndEscClickListener";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 const CategoryInput = () => {
   const ref = useRef<HTMLDivElement>(null);

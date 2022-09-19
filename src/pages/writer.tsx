@@ -16,7 +16,7 @@ import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import useHandleWriterSummit from "@Hooks/useHandleWriterSummit";
 import RootBox from "@Layouts/box/RootBox";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 const WriterPage: NextPage = () => {
   const method = useForm<WriterFormTypes>();

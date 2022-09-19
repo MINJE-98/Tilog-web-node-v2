@@ -2,12 +2,12 @@ import toast from "react-hot-toast";
 
 import OpacityOverlay from "@Commons/atom/OpacityOverlay";
 import PostThumbnailImage from "@Commons/molecules/images/PostThumbnailImage";
+import AddImageLabel from "@Commons/molecules/label/AddImageLabel";
+import EditImageLabel from "@Commons/molecules/label/EditImageLabel";
+import RemoveImageLabel from "@Commons/molecules/label/RemoveImageLabel";
 import useFormTitleWatching from "@Components/writer/input/cover-image/hooks/useFormTitleWatching";
 import useOnPointerEnter from "@Components/writer/input/cover-image/hooks/useOnPointerEnter";
 import usePreview from "@Components/writer/input/cover-image/hooks/usePreview";
-import AddImageLabel from "@Components/writer/label/AddImageLabel";
-import EditImageLabel from "@Components/writer/label/EditImageLabel";
-import RemoveImageLabel from "@Components/writer/label/RemoveImageLabel";
 
 const ImagePreView = () => {
   const { preview, resetPreview } = usePreview();

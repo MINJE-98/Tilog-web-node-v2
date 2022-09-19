@@ -4,7 +4,7 @@ import api from "@Api";
 
 import { CreatePostRequestBodyDto } from "@til-log.lab/tilog-api";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 const useSetPostMutation = () => {
   return useMutation((formData: WriterFormTypes) => {

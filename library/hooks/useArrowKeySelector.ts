@@ -7,7 +7,7 @@ import { WRITER_INPUT_TYPE } from "@Constants/input";
 
 import { GetCategoriesResponseDto } from "@til-log.lab/tilog-api";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 const useArrowKeySelector = (
   categoryList: GetCategoriesResponseDto["list"] | null,

@@ -5,7 +5,7 @@ import { WRITER_INPUT_TYPE } from "@Constants/input";
 
 import { GetCategoriesItem } from "@til-log.lab/tilog-api";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 interface AutocompleteContentsProps {
   category: GetCategoriesItem;

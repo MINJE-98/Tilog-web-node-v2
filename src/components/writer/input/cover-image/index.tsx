@@ -4,7 +4,7 @@ import ImageInput from "@Commons/atom/input/ImageInput";
 import ImagePreView from "@Components/writer/input/cover-image/ImagePreview";
 import { WRITER_INPUT_TYPE } from "@Constants/input";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 const CoverImage = () => {
   const { register } = useFormContext<WriterFormTypes>();

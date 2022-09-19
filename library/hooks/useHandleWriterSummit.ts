@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 import useSetPostMutation from "@Mutations/posts/useSetPostMutation";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 const useHandleWriterSummit = (): SubmitHandler<WriterFormTypes> => {
   const router = useRouter();
