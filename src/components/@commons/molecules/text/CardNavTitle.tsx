@@ -4,17 +4,20 @@ interface CardTitleProps extends HTMLAttributes<HTMLHeadingElement> {
   nav?: ReactNode;
 }
 
-const CardTitle = ({ nav, children, ...props }: CardTitleProps) => {
+const CardNavTitle = ({ nav, children, ...props }: CardTitleProps) => {
   return (
     <header>
       <div className="flex justify-between">
-        <h4 {...props} className="text-neutral-600 dark:text-neutral-300">
+        <h5
+          {...props}
+          className="font-bold text-neutral-600 dark:text-neutral-300"
+        >
           {children}
-        </h4>
+        </h5>
         {nav}
       </div>
       <hr />
     </header>
   );
 };
-export default CardTitle;
+export default CardNavTitle;
