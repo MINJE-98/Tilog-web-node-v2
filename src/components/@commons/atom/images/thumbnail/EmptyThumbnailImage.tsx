@@ -1,18 +1,18 @@
 import { GetPostsItem } from "@til-log.lab/tilog-api";
 
-export interface EmptyThumbNailProps {
+export interface EmptyThumbnailImageProps {
   title: GetPostsItem["title"];
   backgroundColor: string;
   getBrightness: string;
   fontSize?: "base" | "lg" | "xl" | "2xl";
 }
 
-const EmptyThumbNail = ({
+const EmptyThumbnailImage = ({
   title,
   backgroundColor,
   getBrightness,
   fontSize = "base",
-}: EmptyThumbNailProps) => {
+}: EmptyThumbnailImageProps) => {
   return (
     <div
       style={{ backgroundColor }}
@@ -30,4 +30,4 @@ const EmptyThumbNail = ({
   );
 };
 
-export default EmptyThumbNail;
+export default EmptyThumbnailImage;

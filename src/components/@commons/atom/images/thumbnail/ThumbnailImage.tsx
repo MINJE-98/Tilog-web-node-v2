@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { Posts } from "@Api/interface/model";
 
-const ThumbNail = ({
+const ThumbnailImage = ({
   thumbnailUrl,
 }: {
   thumbnailUrl: Posts["thumbNailURL"];
@@ -11,4 +11,4 @@ const ThumbNail = ({
     <Image layout="fill" alt="thumbnail" src={thumbnailUrl} />
   </div>
 );
-export default ThumbNail;
+export default ThumbnailImage;

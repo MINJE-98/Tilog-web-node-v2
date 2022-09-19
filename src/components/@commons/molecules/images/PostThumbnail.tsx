@@ -1,7 +1,7 @@
 import React from "react";
 
-import Thumbnail from "@Commons/atom/images/thumbnail/Thumbnail";
-import EmptyThumbnail from "@Components/@commons/atom/images/thumbnail/EmptyThumbnail";
+import ThumbnailImage from "@Commons/atom/images/thumbnail/ThumbnailImage";
+import EmptyThumbnailImage from "@Components/@commons/atom/images/thumbnail/EmptyThumbnailImage";
 import { backgroundColor, getBrightness, seededColor } from "@Utility/color";
 
 import { GetPostsItem } from "@til-log.lab/tilog-api";
@@ -20,12 +20,12 @@ const PostThumbnail = ({
   fontSize = "base",
 }: PostImageProps) => {
   if (thumbnailUrl) {
-    return <Thumbnail thumbnailUrl={thumbnailUrl} />;
+    return <ThumbnailImage thumbnailUrl={thumbnailUrl} />;
   }
 
   const color = seededColor(id);
   return (
-    <EmptyThumbnail
+    <EmptyThumbnailImage
       fontSize={fontSize}
       title={title}
       backgroundColor={getBrightness(color) ? "#121212" : "#fff"}
