@@ -20,7 +20,7 @@ const SubTitleInput = () => {
       rules={SUBTITLE_RULES}
       inputType={WRITER_INPUT_TYPE.SUBTITLE}
       errorMessage={errorMessage}
-      fontSize="text-xl md:text-2xl"
+      fontSize="2xl"
       placeholder={WRITER_PLACEHOLDER.SUBTITLE}
     />
   );

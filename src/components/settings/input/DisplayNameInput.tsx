@@ -19,7 +19,7 @@ const DisplayNameInput = () => {
         register={register}
         inputType={SETTINGS_INPUT_TYPE.DISPLAY_NAME}
         rules={DISPLAY_NAME_RULES}
-        error={errors.DISPLAY_NAME?.message}
+        errorMessage={errors.DISPLAY_NAME?.message}
       />
     </div>
   );

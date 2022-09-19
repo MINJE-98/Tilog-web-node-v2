@@ -19,7 +19,7 @@ const IntroductionInput = () => {
         register={register}
         inputType={SETTINGS_INPUT_TYPE.INTRO_MSG}
         rules={INTRO_MSG_RULES}
-        error={errors.INTRO_MSG?.message}
+        errorMessage={errors.INTRO_MSG?.message}
       />
     </div>
   );

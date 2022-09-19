@@ -19,7 +19,7 @@ const TitleInput = () => {
       rules={TITLE_RULES}
       inputType={WRITER_INPUT_TYPE.TITLE}
       errorMessage={errorMessage}
-      fontSize="text-2xl md:text-4xl"
+      fontSize="4xl"
       placeholder={WRITER_PLACEHOLDER.TITLE}
     />
   );

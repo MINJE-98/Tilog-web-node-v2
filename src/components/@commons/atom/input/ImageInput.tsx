@@ -1,18 +1,17 @@
 import { InputHTMLAttributes } from "react";
 
-import { Path, UseFormRegister } from "react-hook-form";
+import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
-
-interface ImageInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  inputName: Path<WriterFormTypes>;
-  register: UseFormRegister<WriterFormTypes>;
+interface ImageInputProps<InputType extends FieldValues>
+  extends InputHTMLAttributes<HTMLInputElement> {
+  inputName: Path<InputType>;
+  register: UseFormRegister<InputType>;
 }
-const ImageInput = ({
+const ImageInput = <InputType extends FieldValues>({
   register,
   inputName,
   id = "fileInput",
-}: ImageInputProps) => {
+}: ImageInputProps<InputType>) => {
   return (
     <input
       id={id}

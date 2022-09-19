@@ -19,7 +19,7 @@ const PositionInput = () => {
         register={register}
         inputType={SETTINGS_INPUT_TYPE.POSITION}
         rules={POSITION_RULES}
-        error={errors.POSITION?.message}
+        errorMessage={errors.POSITION?.message}
       />
     </div>
   );

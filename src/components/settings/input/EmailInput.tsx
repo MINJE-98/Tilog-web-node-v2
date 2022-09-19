@@ -19,7 +19,7 @@ const EmailInput = () => {
         register={register}
         inputType={SETTINGS_INPUT_TYPE.EMAIL}
         rules={EMAIL_RULES}
-        error={errors.EMAIL?.message}
+        errorMessage={errors.EMAIL?.message}
       />
     </div>
   );

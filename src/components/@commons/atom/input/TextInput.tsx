@@ -2,32 +2,34 @@ import { InputHTMLAttributes } from "react";
 
 import {
   FieldError,
+  FieldValues,
   Path,
   RegisterOptions,
   UseFormRegister,
 } from "react-hook-form";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
+import TailwindSize from "@Components/interface/fontSize";
 
-interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  fontSize: string;
-  inputType: Path<WriterFormTypes>;
-  register: UseFormRegister<WriterFormTypes>;
+interface TextInputProps<InputType extends FieldValues>
+  extends InputHTMLAttributes<HTMLInputElement> {
+  fontSize: TailwindSize;
+  inputType: Path<InputType>;
+  register: UseFormRegister<InputType>;
   errorMessage: FieldError["message"];
-  rules?: RegisterOptions<WriterFormTypes>;
+  rules?: RegisterOptions<InputType>;
 }
-const TextInput = ({
+const TextInput = <InputType extends FieldValues>({
   register,
   inputType,
   rules,
-  fontSize = "text-xl",
+  fontSize = "base",
   errorMessage,
   ...props
-}: TextInputProps) => {
+}: TextInputProps<InputType>) => {
   return (
     <>
       <input
-        className={`p-5 w-full bg-white dark:bg-neutral-800 text-neutral-800 dark:text-white ${fontSize}`}
+        className={`p-5 w-full bg-white dark:bg-neutral-800 text-neutral-800 dark:text-white text-${fontSize}`}
         {...register(inputType, rules)}
         {...props}
       />
