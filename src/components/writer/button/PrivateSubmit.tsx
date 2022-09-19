@@ -12,7 +12,7 @@ const PrivateSubmit = () => {
     setValue(WRITER_INPUT_TYPE.IS_PRIVATE, true);
   };
   return (
-    <SecondaryButton isSubmit onClick={handleSubmit}>
+    <SecondaryButton type="submit" onClick={handleSubmit}>
       {PUBLISH_PRIVATE_POST}
     </SecondaryButton>
   );

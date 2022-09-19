@@ -31,7 +31,7 @@ const IntroThumbnail = () => {
               <p>{HOME_STATUS.USER}</p>
               <div className="mt-2">
                 <LinkTo href="/writer">
-                  <PrimaryButton className="w-48">
+                  <PrimaryButton type="submit" className="w-48">
                     <h3 className="text-lg font-semibold text-neutral-50">
                       {WRITE}
                     </h3>

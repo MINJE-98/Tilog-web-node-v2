@@ -11,7 +11,7 @@ interface UserBlogButtonProps {
 const UserBlogLink = ({ userName }: UserBlogButtonProps) => {
   return (
     <LinkTo href={`/blog/${userName}`} className="text-neutral-50">
-      <PrimaryButton>{`${userName}${VIEW_BLOG}`}</PrimaryButton>
+      <PrimaryButton type="button">{`${userName}${VIEW_BLOG}`}</PrimaryButton>
     </LinkTo>
   );
 };

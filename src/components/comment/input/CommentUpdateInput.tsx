@@ -28,14 +28,14 @@ const CommentUpdateInput = ({ comment, handleUpdate }: CommentInputProps) => {
 
         <div className="flex">
           <SecondaryButton
-            isSubmit
+            type="button"
             onClick={handleUpdate}
             className="rounded-none"
           >
             {CANCEL}
           </SecondaryButton>
           <PrimaryButton
-            isSubmit
+            type="submit"
             onClick={handleSubmit}
             className="rounded-none"
           >

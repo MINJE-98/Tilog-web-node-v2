@@ -4,7 +4,7 @@ import { SAVE } from "@Constants/button";
 const SettingsSubmit = () => {
   return (
     <PrimaryButton
-      isSubmit
+      type="submit"
       className="dark:bg-neutral-900 w-full max-w-[150px]"
     >
       {SAVE}

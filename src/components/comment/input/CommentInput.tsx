@@ -36,7 +36,11 @@ const CommentInput = ({
             value={content}
           />
         </div>
-        <PrimaryButton isSubmit onClick={handleSubmit} className="rounded-none">
+        <PrimaryButton
+          type="submit"
+          onClick={handleSubmit}
+          className="rounded-none"
+        >
           {buttonText}
         </PrimaryButton>
       </div>
