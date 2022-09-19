@@ -83,7 +83,7 @@ Blog platform for developers, TILog
 
 ### [유저 인증](https://www.github.com/MINJE-98/login-template)
 <!-- ### SSR CSR? -->
-### [컴포넌트 구조 고민](https://www.tilog.link/post/19)
+<!-- ### [컴포넌트 구조 고민](https://www.tilog.link/post/19) -->
 <!-- ### 상태관리 툴 정하기 -->
 ### [OpenAPI로 백엔드와 통신하기](https://www.tilog.link/post/18)
 <!-- ### Suspense, ErrorBoundary -->
