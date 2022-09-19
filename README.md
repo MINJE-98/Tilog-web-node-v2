@@ -12,6 +12,10 @@ Blog platform for developers, TILog
 
 자신의 깃허브 통계와 블로그글을 작성하고 플렛폼 사용자와 지식을 공유하는 서비스입니다.
 
+# 배포 구조
+![Web App Reference Architecture (1)](https://user-images.githubusercontent.com/56459078/190943694-25412902-f7c5-4baa-a92d-65e87ada442b.png)
+
+
 # 기술 스택
 
 <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/>
