@@ -8,8 +8,8 @@ import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
-const UserInfoProfile = dynamic(
-  () => import("@Commons/organisms/profile/UserInfoProfile"),
+const UserProfile = dynamic(
+  () => import("@Commons/molecules/profile/UserProfile"),
   {
     ssr: false,
   }
@@ -36,8 +36,8 @@ const TopLanguageList = dynamic(
   }
 );
 
-const CategorySortButtonList = dynamic(
-  () => import("@Commons/organisms/list/CategorySortButtonList"),
+const BlogCategorySortButtonList = dynamic(
+  () => import("@Components/blog/list/BlogCategorySortButtonList"),
   {
     ssr: false,
   }
@@ -51,18 +51,13 @@ const UserStatsSection = ({
   return (
     <div className="flex flex-col space-y-10 w-full max-w-[450px]">
       <section className="order-1">
-        <Suspense fallback={<Spinner />}>
-          <ErrorBoundary fallback={<>에러 났어.</>}>
-            <UserInfoProfile userName={userInfo.name} />
-          </ErrorBoundary>
-        </Suspense>
+        <UserProfile avatar={userInfo.avatar} userName={userInfo.name} />
       </section>
 
       <section className="order-last md:order-2">
         <Suspense fallback={<Spinner />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
-            <CardNavTitle>Categories</CardNavTitle>
-            <CategorySortButtonList />
+            <BlogCategorySortButtonList />
           </ErrorBoundary>
         </Suspense>
       </section>
