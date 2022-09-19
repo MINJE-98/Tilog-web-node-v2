@@ -1,7 +1,7 @@
 import MostPopularPostCard from "@Commons/molecules/card/post/MostPopularPostCard";
+import More from "@Commons/molecules/link/More";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import PostCardList from "@Commons/organisms/list/PostCardList";
-import More from "@Components/home/link/More";
 import { ALL_MOST_POPULAR_POST } from "@Constants/text";
 import useGetMostPopularPostList from "@Queries/posts/useGetMostPopularPostList";
 

@@ -1,7 +1,7 @@
 import PostCard from "@Commons/molecules/card/post/PostCard";
+import More from "@Commons/molecules/link/More";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import PostCardList from "@Commons/organisms/list/PostCardList";
-import More from "@Components/home/link/More";
 import { ALL_LATEST_POST } from "@Constants/text";
 import useGetLatestPostList from "@Queries/posts/useGetLatestPostList";
 
