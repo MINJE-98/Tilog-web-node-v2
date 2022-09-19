@@ -19,12 +19,7 @@ const BlogPostList = ({ userId }: { userId: GetUserProfileResponse["id"] }) => {
   return (
     <section>
       <CardNavTitle>{category} 게시글</CardNavTitle>
-      <main>
-        <PostCardInfiniteList
-          CardComponent={PostCard}
-          postList={userPostList}
-        />
-      </main>
+      <PostCardInfiniteList CardComponent={PostCard} postList={userPostList} />
     </section>
   );
 };
