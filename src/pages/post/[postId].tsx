@@ -7,7 +7,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 import api from "@Api/index";
 import Spinner from "@Commons/atom/Spinner";
-import PostThumbnail from "@Commons/molecules/images/PostThumbnail";
+import PostThumbnailImage from "@Commons/molecules/images/PostThumbnailImage";
 import TiptapViewer from "@Commons/molecules/text-area/TiptapViewer";
 import { PostHeader, PostWriter } from "@Components/post";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
@@ -36,7 +36,7 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
           <article className="w-full">
             <PostHeader post={post} />
             <figure>
-              <PostThumbnail
+              <PostThumbnailImage
                 id={post.id}
                 thumbnailUrl={post.thumbnailUrl}
                 title={post.title}

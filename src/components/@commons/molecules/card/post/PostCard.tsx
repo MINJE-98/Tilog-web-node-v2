@@ -1,6 +1,6 @@
 import LinkTo from "@Commons/atom/LinkTo";
 import LikeCounter from "@Commons/molecules/counter/LikeCounter";
-import PostThumbnail from "@Commons/molecules/images/PostThumbnail";
+import PostThumbnailImage from "@Commons/molecules/images/PostThumbnailImage";
 import CategoryLink from "@Commons/molecules/link/CategoryLink";
 import PostUserProfile from "@Commons/organisms/profile/PostUserProfile";
 
@@ -36,7 +36,7 @@ const PostCard = ({ post }: { post: GetPostsItem }) => {
       </div>
       <div className="order-first w-full lg:order-last">
         <LinkTo href={`/post/${post.id}`} className="w-full hover:no-underline">
-          <PostThumbnail
+          <PostThumbnailImage
             id={post.id}
             thumbnailUrl={post.thumbnailUrl}
             title={post.title}

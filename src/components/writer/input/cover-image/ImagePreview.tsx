@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 
 import OpacityOverlay from "@Commons/atom/OpacityOverlay";
-import PostThumbnail from "@Commons/molecules/images/PostThumbnail";
+import PostThumbnailImage from "@Commons/molecules/images/PostThumbnailImage";
 import useFormTitleWatching from "@Components/writer/input/cover-image/hooks/useFormTitleWatching";
 import useOnPointerEnter from "@Components/writer/input/cover-image/hooks/useOnPointerEnter";
 import usePreview from "@Components/writer/input/cover-image/hooks/usePreview";
@@ -37,7 +37,7 @@ const ImagePreView = () => {
             </div>
           </>
         )}
-        <PostThumbnail title={title} id="3729" thumbnailUrl={preview} />
+        <PostThumbnailImage title={title} id="3729" thumbnailUrl={preview} />
       </div>
     );
   }
@@ -56,7 +56,7 @@ const ImagePreView = () => {
           </div>
         </>
       )}
-      <PostThumbnail title={title} id="0" thumbnailUrl={preview} />
+      <PostThumbnailImage title={title} id="0" thumbnailUrl={preview} />
     </div>
   );
 };
