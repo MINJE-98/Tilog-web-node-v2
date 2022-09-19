@@ -1,6 +1,6 @@
 import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
 import LinkTo from "@Commons/atom/LinkTo";
-import LoginButton from "@Commons/molecules/buttons/LoginButton";
+import LoginButton from "@Components/auth/LoginButton";
 import { WRITE } from "@Constants/button";
 import { HOME_INTRO, HOME_STATUS } from "@Constants/text";
 import { useAuth } from "@Contexts/auth/AuthContext";

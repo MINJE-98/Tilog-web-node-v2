@@ -1,8 +1,8 @@
 import { useRef } from "react";
 
-import LoginButton from "@Commons/molecules/buttons/LoginButton";
 import ProfileImage from "@Commons/molecules/images/ProfileImage";
 import DropdownProfile from "@Commons/organisms/header/profile/DropdownProfile";
+import LoginButton from "@Components/auth/LoginButton";
 import { useAuth } from "@Contexts/auth/AuthContext";
 import useOutsideClickAndEscClickListener from "@Hooks/useOutsideClickAndEscClickListener";
 

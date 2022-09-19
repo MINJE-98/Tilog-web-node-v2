@@ -1,5 +1,5 @@
 import LinkTo from "@Commons/atom/LinkTo";
-import LogoutButton from "@Commons/molecules/buttons/LogoutButton";
+import LogoutButton from "@Components/auth/LogoutButton";
 import { USER_PROFILE_DROPBOX } from "@Constants/dropbox";
 import { useAuth } from "@Contexts/auth/AuthContext";
 
