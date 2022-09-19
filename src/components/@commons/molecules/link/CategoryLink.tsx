@@ -2,8 +2,10 @@ import React from "react";
 
 import LinkTo from "@Commons/atom/LinkTo";
 
+import { Category } from "@Api/interface/model";
+
 interface CategoryLinkProps {
-  categoryName: string;
+  categoryName: Category["categoryName"];
 }
 
 const CategoryLink = ({ categoryName }: CategoryLinkProps) => {
