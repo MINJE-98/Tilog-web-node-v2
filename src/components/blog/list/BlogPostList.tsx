@@ -1,5 +1,5 @@
-import CardTitle from "@Commons/atom/CardTitle";
 import PostCard from "@Commons/molecules/card/post/PostCard";
+import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import useStringRouter from "@Hooks/useStringRouter";
 import useGetUserPostInfiniteList from "@Queries/posts/useGetUserPostInfiniteList";
@@ -18,7 +18,7 @@ const BlogPostList = ({ userId }: { userId: GetUserProfileResponse["id"] }) => {
   });
   return (
     <section>
-      <CardTitle>{category} 게시글</CardTitle>
+      <CardNavTitle>{category} 게시글</CardNavTitle>
       <main>
         <PostCardInfiniteList
           CardComponent={PostCard}

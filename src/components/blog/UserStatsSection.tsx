@@ -3,8 +3,8 @@ import { Suspense } from "react";
 
 import { ErrorBoundary } from "react-error-boundary";
 
-import CardTitle from "@Commons/atom/CardTitle";
 import Spinner from "@Commons/atom/loading/Spinner";
+import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
@@ -61,7 +61,7 @@ const UserStatsSection = ({
       <section className="order-last md:order-2">
         <Suspense fallback={<Spinner size="w-10 h-10" />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
-            <CardTitle>Categories</CardTitle>
+            <CardNavTitle>Categories</CardNavTitle>
             <CategorySortButtonList />
           </ErrorBoundary>
         </Suspense>
@@ -70,7 +70,7 @@ const UserStatsSection = ({
       <section className="order-3">
         <Suspense fallback={<Spinner size="w-10 h-10" />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
-            <CardTitle>GithubStats</CardTitle>
+            <CardNavTitle>GithubStats</CardNavTitle>
             <GitStatsCardList userName={userInfo.name} />
           </ErrorBoundary>
         </Suspense>
@@ -79,14 +79,14 @@ const UserStatsSection = ({
       <section className="order-4">
         <Suspense fallback={<Spinner size="w-10 h-10" />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
-            <CardTitle>TopLanguage Repo</CardTitle>
+            <CardNavTitle>TopLanguage</CardNavTitle>
             <TopLanguageList userName={userInfo.name} />
           </ErrorBoundary>
         </Suspense>
       </section>
 
       <section className="order-5">
-        <CardTitle>Pinned Repo</CardTitle>
+        <CardNavTitle>Pinned Repo</CardNavTitle>
         <Suspense fallback={<Spinner size="w-10 h-10" />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
             <PinnedRepoList userName={userInfo.name} />

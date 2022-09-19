@@ -1,5 +1,5 @@
-import CardTitle from "@Commons/atom/CardTitle";
 import MostPopularPostCard from "@Commons/molecules/card/post/MostPopularPostCard";
+import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import PostCardList from "@Commons/organisms/list/PostCardList";
 import More from "@Components/home/link/More";
 import { ALL_MOST_POPULAR_POST } from "@Constants/text";
@@ -14,9 +14,9 @@ const MostPopularPostCardList = () => {
   });
   return (
     <section className="my-10">
-      <CardTitle nav={<More href="popular" />}>
+      <CardNavTitle nav={<More href="popular" />}>
         {ALL_MOST_POPULAR_POST}
-      </CardTitle>
+      </CardNavTitle>
       <main>
         <PostCardList
           CardComponent={MostPopularPostCard}

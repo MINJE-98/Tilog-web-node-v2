@@ -1,5 +1,5 @@
-import CardTitle from "@Commons/atom/CardTitle";
 import PostCard from "@Commons/molecules/card/post/PostCard";
+import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import PostCardList from "@Commons/organisms/list/PostCardList";
 import More from "@Components/home/link/More";
 import { ALL_LATEST_POST } from "@Constants/text";
@@ -14,7 +14,9 @@ const LatestPostCardList = () => {
   });
   return (
     <section className="my-10">
-      <CardTitle nav={<More href="latest" />}>{ALL_LATEST_POST}</CardTitle>
+      <CardNavTitle nav={<More href="latest" />}>
+        {ALL_LATEST_POST}
+      </CardNavTitle>
       <main>
         <PostCardList CardComponent={PostCard} postList={latestPostList.data} />
       </main>

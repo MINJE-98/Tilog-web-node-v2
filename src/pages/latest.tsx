@@ -3,8 +3,8 @@ import { GetServerSideProps, NextPage } from "next";
 import { latestSeo } from "library/seo/latestSeo";
 import { DefaultSeo } from "next-seo";
 
-import CardTitle from "@Commons/atom/CardTitle";
 import PostCard from "@Commons/molecules/card/post/PostCard";
+import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import { ALL_LATEST_POST } from "@Constants/text";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
@@ -23,7 +23,7 @@ const LatestPage: NextPage = () => {
       <DefaultSeo {...latestSeo} />
       <RootBox>
         <div className="inline">
-          <CardTitle>{ALL_LATEST_POST}</CardTitle>
+          <CardNavTitle>{ALL_LATEST_POST}</CardNavTitle>
         </div>
         <PostCardInfiniteList
           twoRow

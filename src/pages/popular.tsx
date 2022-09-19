@@ -3,9 +3,9 @@ import { GetServerSideProps, NextPage } from "next";
 import { popularSeo } from "library/seo/popularSeo";
 import { DefaultSeo } from "next-seo";
 
-import CardTitle from "@Commons/atom/CardTitle";
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import DateScopeLink from "@Commons/molecules/link/DateScopeLink";
+import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import { ALL_MOST_POPULAR_POST } from "@Constants/text";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
@@ -27,7 +27,7 @@ const PopularPage: NextPage = () => {
       <DefaultSeo {...popularSeo} />
       <RootBox>
         <div>
-          <CardTitle
+          <CardNavTitle
             nav={
               <div>
                 <DateScopeLink dateScope="All" />
@@ -38,7 +38,7 @@ const PopularPage: NextPage = () => {
             }
           >
             {ALL_MOST_POPULAR_POST}
-          </CardTitle>
+          </CardNavTitle>
         </div>
         <PostCardInfiniteList
           twoRow

@@ -3,8 +3,8 @@ import { GetServerSideProps, NextPage } from "next";
 import { searchSeo } from "library/seo/searchSeo";
 import { DefaultSeo } from "next-seo";
 
-import CardTitle from "@Commons/atom/CardTitle";
 import PostCard from "@Commons/molecules/card/post/PostCard";
+import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
@@ -25,7 +25,7 @@ const SearchPage: NextPage<Category> = ({ categoryName }: Category) => {
       <DefaultSeo {...searchSeo(categoryName)} />
       <RootBox>
         <div className="inline">
-          <CardTitle>{categoryName} 검색 결과</CardTitle>
+          <CardNavTitle>{categoryName} 검색 결과</CardNavTitle>
         </div>
         <PostCardInfiniteList
           twoRow
