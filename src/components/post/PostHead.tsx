@@ -14,10 +14,10 @@ const PostHead = ({ post }: PostHeadProps) => {
   const isOwner = useIsOwner(post.user.userId);
   return (
     <header>
-      <div className="flex">
+      <div className="flex items-center">
         <UserProfile userName={post.user.username} avatar={post.user.avatar} />
         {isOwner && (
-          <div className="flex ml-auto space-x-5">
+          <div className="flex justify-end w-full space-x-5">
             <PostDeleteButton postId={post.id} />
             <PostUpdateLink postId={post.id} />
           </div>
