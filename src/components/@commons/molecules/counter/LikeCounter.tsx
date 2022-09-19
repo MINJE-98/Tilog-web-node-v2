@@ -3,8 +3,6 @@ import { AiFillHeart } from "react-icons/ai";
 interface LikeCounterProps {
   count: number;
   active?: boolean;
-  iconSize?: string;
-  fontSize?: string;
 }
 
 const LikeCounter = ({ count, active = false }: LikeCounterProps) => {
