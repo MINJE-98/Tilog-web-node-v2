@@ -8,19 +8,19 @@ import { GetPostsItem } from "@til-log.lab/tilog-api";
 
 import TailwindSize from "@Components/interface/fontSize";
 
-interface PostImageProps {
+interface PostThumbnailImageProps {
   id: GetPostsItem["id"];
   title: GetPostsItem["title"];
   thumbnailUrl: GetPostsItem["thumbnailUrl"];
   fontSize?: TailwindSize;
 }
 
-const PostThumbnail = ({
+const PostThumbnailImage = ({
   id,
   thumbnailUrl,
   title,
   fontSize = "base",
-}: PostImageProps) => {
+}: PostThumbnailImageProps) => {
   if (thumbnailUrl) {
     return <ThumbnailImage thumbnailUrl={thumbnailUrl} />;
   }
@@ -36,4 +36,4 @@ const PostThumbnail = ({
   );
 };
 
-export default PostThumbnail;
+export default PostThumbnailImage;
