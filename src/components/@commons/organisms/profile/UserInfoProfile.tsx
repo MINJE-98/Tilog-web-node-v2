@@ -1,5 +1,5 @@
 import LinkTo from "@Commons/atom/LinkTo";
-import ProfileImage from "@Commons/molecules/images/ProfileImage";
+import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import useGetUserProfile from "@Queries/users/useGetUserProfile";
 
 interface UserInfoProfileProps {
@@ -12,7 +12,7 @@ const UserInfoProfile = ({ userName }: UserInfoProfileProps) => {
   return (
     <div>
       <div className="flex">
-        <ProfileImage
+        <UserAvatarImage
           className="w-20 h-20 md:w-28 md:h-28"
           avatar={userInfo.data.avatar}
         />

@@ -1,4 +1,4 @@
-import ProfileImage from "@Commons/molecules/images/ProfileImage";
+import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import UserNameProfile from "@Commons/molecules/profile/UserNameProfile";
 import DateFnsFormatter from "@Commons/molecules/text/DateFnsFormatter";
 import useGetUserProfile from "@Queries/users/useGetUserProfile";
@@ -18,7 +18,7 @@ const CommentUserProfile = ({
   if (userInfo.isLoading)
     return (
       <div className="flex items-center space-x-3">
-        <ProfileImage className="w-10 h-10" />
+        <UserAvatarImage className="w-10 h-10" />
         <span className="text-sm font-bold">로딩중..</span>
         {createdAt && (
           <DateFnsFormatter className="line-clamp-1" date={createdAt} />

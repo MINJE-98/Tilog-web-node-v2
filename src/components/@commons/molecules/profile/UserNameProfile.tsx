@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 import LinkTo from "@Commons/atom/LinkTo";
-import ProfileImage from "@Commons/molecules/images/ProfileImage";
+import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
@@ -21,7 +21,7 @@ const UserNameProfile = ({
   return (
     <div className="flex items-center space-x-3">
       <LinkTo href={`/blog/${username}`}>
-        <ProfileImage className="w-10 h-10" avatar={avatar} />
+        <UserAvatarImage className="w-10 h-10" avatar={avatar} />
       </LinkTo>
       <div>
         <LinkTo href={`/blog/${username}`}>

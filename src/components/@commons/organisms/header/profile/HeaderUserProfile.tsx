@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import ProfileImage from "@Commons/molecules/images/ProfileImage";
+import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import DropdownProfile from "@Commons/organisms/header/profile/DropdownProfile";
 import LoginButton from "@Components/auth/LoginButton";
 import { useAuth } from "@Contexts/auth/AuthContext";
@@ -18,7 +18,7 @@ const HeaderUserProfile = () => {
   return (
     <div ref={dropDownRef}>
       <button type="button" onClick={handleOpen}>
-        <ProfileImage
+        <UserAvatarImage
           className="w-12 h-12 md:w-14 md:h-14"
           avatar={userInfo.avatar}
         />
