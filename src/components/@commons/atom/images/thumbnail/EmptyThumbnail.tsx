@@ -1,22 +1,27 @@
-import { backgroundColor, getBrightness } from "@Utility/color";
-
 import { GetPostsItem } from "@til-log.lab/tilog-api";
 
 export interface EmptyThumbNailProps {
   title: GetPostsItem["title"];
-  color: string;
+  backgroundColor: string;
+  getBrightness: string;
+  fontSize?: "base" | "lg" | "xl" | "2xl";
 }
 
-const EmptyThumbNail = ({ title, color }: EmptyThumbNailProps) => {
+const EmptyThumbNail = ({
+  title,
+  backgroundColor,
+  getBrightness,
+  fontSize = "base",
+}: EmptyThumbNailProps) => {
   return (
     <div
-      style={{ backgroundColor: backgroundColor(color) }}
+      style={{ backgroundColor }}
       className="flex items-center justify-center w-full h-full aspect-[2/1]"
     >
       <span
-        className="px-10 font-semibold text-center"
+        className={`px-10 font-semibold text-center md:text-${fontSize}`}
         style={{
-          color: `${getBrightness(color) ? "#121212" : "#fff"}`,
+          color: getBrightness,
         }}
       >
         {title}
