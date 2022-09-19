@@ -1,8 +1,12 @@
+import { VscCircleFilled } from "react-icons/vsc";
+
 import LinkTo from "@Commons/atom/LinkTo";
 import LikeCounter from "@Commons/molecules/counter/LikeCounter";
 import PostThumbnailImage from "@Commons/molecules/images/PostThumbnailImage";
 import CategoryLink from "@Commons/molecules/link/CategoryLink";
-import PostUserProfile from "@Commons/organisms/profile/PostUserProfile";
+import UserProfile from "@Commons/molecules/profile/UserProfile";
+import DateFnsFormatter from "@Commons/molecules/text/DateFnsFormatter";
+import { VIEW_COUNT } from "@Constants/text";
 
 import { GetPostsItem } from "@til-log.lab/tilog-api";
 
@@ -10,11 +14,19 @@ const PostCard = ({ post }: { post: GetPostsItem }) => {
   return (
     <div className="flex flex-col lg:flex-row bg-neutral-100 dark:bg-neutral-800 lg:max-w-[600px] w-full">
       <div className="w-full p-4 md:py-4 md:pl-4">
-        <PostUserProfile
-          viewCount={post.view}
-          isPrivate={post.private === 1}
+        <UserProfile
           userName={post.user.username}
-          createdAt={post.createdAt}
+          avatar={post.user.avatar}
+          isPrivate={post.private === 1}
+          dateAndViewCount={
+            <div className="flex items-center space-x-1">
+              <DateFnsFormatter className="text-xs" date={post.createdAt} />
+              <VscCircleFilled className="text-[6px] dark:text-neutral-500 text-neutral-400" />
+              <p className="text-xs">
+                {VIEW_COUNT} {post.view}
+              </p>
+            </div>
+          }
         />
 
         <div className="mt-2 h-[95px]">

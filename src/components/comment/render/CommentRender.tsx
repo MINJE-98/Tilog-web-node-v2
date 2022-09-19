@@ -22,6 +22,7 @@ const CommentRender = ({ comment }: CommentRenderProps) => {
         <CommentUserProfile
           createdAt={comment.createdAt}
           userName={comment.user.username}
+          avatar={comment.user.avatar}
         />
         <div className="ml-auto">
           {isUpdate || (

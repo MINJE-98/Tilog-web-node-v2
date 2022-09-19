@@ -1,31 +1,19 @@
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-
-import { ErrorBoundary } from "react-error-boundary";
-
-import Spinner from "@Commons/atom/Spinner";
+import UserDetailProfile from "@Commons/molecules/profile/UserDetailProfile";
 import UserBlogLink from "@Components/post/link/UserBlogLink";
+import useGetUserProfile from "@Queries/users/useGetUserProfile";
 
 import { PostDetailUserInfoItem } from "@til-log.lab/tilog-api";
 
-const UserInfoProfile = dynamic(
-  () => import("@Commons/organisms/profile/UserInfoProfile"),
-  {
-    ssr: false,
-  }
-);
 interface PostWriterProps {
   username: PostDetailUserInfoItem["username"];
 }
 
 const PostWriter = ({ username }: PostWriterProps) => {
+  const userInfo = useGetUserProfile(username);
+  if (!userInfo.data) return null;
   return (
     <div className="w-full p-5">
-      <Suspense fallback={<Spinner />}>
-        <ErrorBoundary fallback={<>에러 났어.</>}>
-          <UserInfoProfile userName={username} />
-        </ErrorBoundary>
-      </Suspense>
+      <UserDetailProfile userInfo={userInfo.data} />
       <UserBlogLink userName={username} />
     </div>
   );

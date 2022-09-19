@@ -1,20 +1,15 @@
-import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
 import { ErrorBoundary } from "react-error-boundary";
 
 import Spinner from "@Commons/atom/Spinner";
+import UserProfile from "@Commons/molecules/profile/UserProfile";
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 import PostDeleteButton from "@Components/post/button/PostDeleteButton";
 import PostUpdateLink from "@Components/post/link/PostUpdateLink";
 import useIsOwner from "@Hooks/useIsOwner";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
-
-const PostUserProfile = dynamic(
-  () => import("@Commons/organisms/profile/PostUserProfile"),
-  { ssr: false }
-);
 
 interface PostHeaderProps {
   post: GetPostDetailResponseDto;
@@ -27,10 +22,9 @@ const PostHeader = ({ post }: PostHeaderProps) => {
       <div className="flex">
         <Suspense fallback={<Spinner />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
-            <PostUserProfile
-              viewCount={post.view}
+            <UserProfile
               userName={post.user.username}
-              createdAt={post.createdAt}
+              avatar={post.user.avatar}
             />
           </ErrorBoundary>
         </Suspense>

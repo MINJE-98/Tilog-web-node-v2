@@ -16,13 +16,7 @@ const PostLike = ({ postId, count }: PostLikeProps) => {
   const [newCount, setNewCount] = useState(count);
   const isLiked = useGetHasLike(postId);
   if (isLoading)
-    return (
-      <LikeCounter
-        active={!!isLiked.data?.data.like}
-        iconSize="5"
-        count={newCount}
-      />
-    );
+    return <LikeCounter active={!!isLiked.data?.data.like} count={newCount} />;
   return (
     <div>
       <button
@@ -41,11 +35,7 @@ const PostLike = ({ postId, count }: PostLikeProps) => {
           );
         }}
       >
-        <LikeCounter
-          active={!!isLiked.data?.data.like}
-          iconSize="5"
-          count={newCount}
-        />
+        <LikeCounter active={!!isLiked.data?.data.like} count={newCount} />
       </button>
     </div>
   );
