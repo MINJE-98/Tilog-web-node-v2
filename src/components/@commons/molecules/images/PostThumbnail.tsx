@@ -6,11 +6,13 @@ import { backgroundColor, getBrightness, seededColor } from "@Utility/color";
 
 import { GetPostsItem } from "@til-log.lab/tilog-api";
 
+import TailwindSize from "@Components/interface/fontSize";
+
 interface PostImageProps {
   id: GetPostsItem["id"];
   title: GetPostsItem["title"];
   thumbnailUrl: GetPostsItem["thumbnailUrl"];
-  fontSize?: "base" | "lg" | "xl" | "2xl";
+  fontSize?: TailwindSize;
 }
 
 const PostThumbnail = ({
@@ -28,8 +30,8 @@ const PostThumbnail = ({
     <EmptyThumbnailImage
       fontSize={fontSize}
       title={title}
-      backgroundColor={getBrightness(color) ? "#121212" : "#fff"}
-      getBrightness={backgroundColor(color)}
+      backgroundColor={backgroundColor(color)}
+      getBrightness={getBrightness(color) ? "#121212" : "#fff"}
     />
   );
 };

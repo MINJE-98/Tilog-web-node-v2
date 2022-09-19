@@ -1,10 +1,12 @@
 import { GetPostsItem } from "@til-log.lab/tilog-api";
 
+import TailwindSize from "@Components/interface/fontSize";
+
 export interface EmptyThumbnailImageProps {
   title: GetPostsItem["title"];
   backgroundColor: string;
   getBrightness: string;
-  fontSize?: "base" | "lg" | "xl" | "2xl";
+  fontSize?: TailwindSize;
 }
 
 const EmptyThumbnailImage = ({
