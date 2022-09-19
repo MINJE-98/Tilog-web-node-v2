@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 
-import OpacityOverlay from "@Commons/atom/overlay/OpacityOverlay";
+import OpacityOverlay from "@Commons/atom/OpacityOverlay";
 import PostThumbnail from "@Commons/molecules/images/PostThumbnail";
 import useFormTitleWatching from "@Components/writer/input/cover-image/hooks/useFormTitleWatching";
 import useOnPointerEnter from "@Components/writer/input/cover-image/hooks/useOnPointerEnter";
