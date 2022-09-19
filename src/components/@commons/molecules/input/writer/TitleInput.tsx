@@ -4,7 +4,7 @@ import TextInput from "@Commons/atom/input/TextInput";
 import { TITLE_RULES, WRITER_INPUT_TYPE } from "@Constants/input";
 import { WRITER_PLACEHOLDER } from "@Constants/text";
 
-import WriterFormTypes from "@Components/writer/interface/writerFormTypes";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 const TitleInput = () => {
   const {
