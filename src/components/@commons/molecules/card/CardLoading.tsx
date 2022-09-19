@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import { UseInfiniteQueryResult } from "react-query";
 
-import Spinner from "@Commons/atom/loading/Spinner";
+import Spinner from "@Commons/atom/Spinner";
 
 import { GetPostsResponseDto } from "@til-log.lab/tilog-api";
 
@@ -13,7 +13,7 @@ const CardLoading = ({
   postList: { hasNextPage, isFetchingNextPage, fetchNextPage },
 }: CardLoadingProps) => {
   if (!hasNextPage) return null;
-  if (isFetchingNextPage) return <Spinner size="5" />;
+  if (isFetchingNextPage) return <Spinner />;
   return (
     <button type="button" onClick={() => fetchNextPage()}>
       더보기

@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 import { ErrorBoundary } from "react-error-boundary";
 
-import Spinner from "@Commons/atom/loading/Spinner";
+import Spinner from "@Commons/atom/Spinner";
 import UserBlogLink from "@Components/post/link/UserBlogLink";
 
 import { PostDetailUserInfoItem } from "@til-log.lab/tilog-api";
@@ -21,7 +21,7 @@ interface PostWriterProps {
 const PostWriter = ({ username }: PostWriterProps) => {
   return (
     <div className="w-full p-5">
-      <Suspense fallback={<Spinner size="w-1 h-1" />}>
+      <Suspense fallback={<Spinner />}>
         <ErrorBoundary fallback={<>에러 났어.</>}>
           <UserInfoProfile userName={username} />
         </ErrorBoundary>

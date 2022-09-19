@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 import { ErrorBoundary } from "react-error-boundary";
 
-import Spinner from "@Commons/atom/loading/Spinner";
+import Spinner from "@Commons/atom/Spinner";
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 import PostDeleteButton from "@Components/post/button/PostDeleteButton";
 import PostUpdateLink from "@Components/post/link/PostUpdateLink";
@@ -25,7 +25,7 @@ const PostHeader = ({ post }: PostHeaderProps) => {
   return (
     <header>
       <div className="flex">
-        <Suspense fallback={<Spinner size="w-1 h-1" />}>
+        <Suspense fallback={<Spinner />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
             <PostUserProfile
               viewCount={post.view}

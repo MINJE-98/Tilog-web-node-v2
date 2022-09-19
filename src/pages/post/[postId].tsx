@@ -6,7 +6,7 @@ import { DefaultSeo } from "next-seo";
 import { ErrorBoundary } from "react-error-boundary";
 
 import api from "@Api/index";
-import Spinner from "@Commons/atom/loading/Spinner";
+import Spinner from "@Commons/atom/Spinner";
 import PostThumbnail from "@Commons/molecules/images/PostThumbnail";
 import TiptapViewer from "@Commons/molecules/text-area/TiptapViewer";
 import { PostHeader, PostWriter } from "@Components/post";
@@ -55,12 +55,12 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
           </article>
         </div>
         <div className="mt-5">
-          <Suspense fallback={<Spinner size="w-1 h-1" />}>
+          <Suspense fallback={<Spinner />}>
             <ErrorBoundary fallback={<>에러 났어.</>}>
               <PostLike postId={post.id} count={post.like} />
             </ErrorBoundary>
           </Suspense>
-          <Suspense fallback={<Spinner size="w-10 h-10" />}>
+          <Suspense fallback={<Spinner />}>
             <ErrorBoundary fallback={<>에러 났어.</>}>
               <Comment postId={post.id} />
             </ErrorBoundary>

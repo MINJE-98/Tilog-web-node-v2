@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 import { ErrorBoundary } from "react-error-boundary";
 
-import Spinner from "@Commons/atom/loading/Spinner";
+import Spinner from "@Commons/atom/Spinner";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
@@ -21,7 +21,7 @@ const BlogPostSection = ({
 }) => {
   return (
     <div className="mt-10 md:mt-0">
-      <Suspense fallback={<Spinner size="20" />}>
+      <Suspense fallback={<Spinner />}>
         <ErrorBoundary fallback={<>에러 났어.</>}>
           <BlogPostList userId={userId} />
         </ErrorBoundary>

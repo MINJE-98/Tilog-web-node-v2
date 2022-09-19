@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 import { ErrorBoundary } from "react-error-boundary";
 
-import Spinner from "@Commons/atom/loading/Spinner";
+import Spinner from "@Commons/atom/Spinner";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
@@ -51,7 +51,7 @@ const UserStatsSection = ({
   return (
     <div className="flex flex-col space-y-10 w-full max-w-[450px]">
       <section className="order-1">
-        <Suspense fallback={<Spinner size="w-10 h-10" />}>
+        <Suspense fallback={<Spinner />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
             <UserInfoProfile userName={userInfo.name} />
           </ErrorBoundary>
@@ -59,7 +59,7 @@ const UserStatsSection = ({
       </section>
 
       <section className="order-last md:order-2">
-        <Suspense fallback={<Spinner size="w-10 h-10" />}>
+        <Suspense fallback={<Spinner />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
             <CardNavTitle>Categories</CardNavTitle>
             <CategorySortButtonList />
@@ -68,7 +68,7 @@ const UserStatsSection = ({
       </section>
 
       <section className="order-3">
-        <Suspense fallback={<Spinner size="w-10 h-10" />}>
+        <Suspense fallback={<Spinner />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
             <CardNavTitle>GithubStats</CardNavTitle>
             <GitStatsCardList userName={userInfo.name} />
@@ -77,7 +77,7 @@ const UserStatsSection = ({
       </section>
 
       <section className="order-4">
-        <Suspense fallback={<Spinner size="w-10 h-10" />}>
+        <Suspense fallback={<Spinner />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
             <CardNavTitle>TopLanguage</CardNavTitle>
             <TopLanguageList userName={userInfo.name} />
@@ -87,7 +87,7 @@ const UserStatsSection = ({
 
       <section className="order-5">
         <CardNavTitle>Pinned Repo</CardNavTitle>
-        <Suspense fallback={<Spinner size="w-10 h-10" />}>
+        <Suspense fallback={<Spinner />}>
           <ErrorBoundary fallback={<>에러 났어.</>}>
             <PinnedRepoList userName={userInfo.name} />
           </ErrorBoundary>
