@@ -1,4 +1,4 @@
-import TopLanguage from "@Components/blog/github/TopLanguage";
+import TopLanguageCard from "@Commons/molecules/card/github/TopLanguageCard";
 import { NO_EXIST_TOP_LANGUAGE } from "@Constants/text/noExistTopLanguage";
 import useGetTopLanguages from "@Queries/github/stats/useGetTopLanguages";
 import isArrayEmpty from "@Utility/isArrayEmpty";
@@ -13,7 +13,7 @@ const TopLanguageList = ({ userName }: { userName: Users["userName"] }) => {
   return (
     <div className="flex space-x-2">
       {languageList.data.data.map((language) => (
-        <TopLanguage key={language.name} language={language} />
+        <TopLanguageCard key={language.name} language={language} />
       ))}
     </div>
   );

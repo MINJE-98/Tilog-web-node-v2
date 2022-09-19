@@ -1,4 +1,4 @@
-import PinnedRepo from "@Components/blog/github/PinnedRepo";
+import PinnedRepoCard from "@Commons/molecules/card/github/PinnedRepoCard";
 import { NO_EXIST_PINNED_REPO } from "@Constants/text/noExistPinnedRepo";
 import useGetPinnedRepo from "@Queries/github/pinned-repo/useGetPinnedRepo";
 import isArrayEmpty from "@Utility/isArrayEmpty";
@@ -12,7 +12,7 @@ const PinnedRepoList = ({ userName }: { userName: Users["userName"] }) => {
   return (
     <div className="flex flex-col space-y-3">
       {repoList.data.data.map((repo) => (
-        <PinnedRepo key={repo.id} repo={repo} />
+        <PinnedRepoCard key={repo.id} repo={repo} />
       ))}
     </div>
   );

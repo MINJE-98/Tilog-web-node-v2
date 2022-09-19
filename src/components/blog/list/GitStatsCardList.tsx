@@ -1,7 +1,7 @@
 import { GoStar, GoGitPullRequest, GoGitCommit } from "react-icons/go";
 import { VscIssues } from "react-icons/vsc";
 
-import GitStatsCard from "@Components/blog/github/GitStatsCard";
+import GitStatsCard from "@Commons/molecules/card/github/GitStatsCard";
 import useGetUserStats from "@Queries/github/stats/useGetUserStats";
 
 import { Users } from "@Api/interface/model";
