@@ -6,11 +6,11 @@ import Spinner from "@Commons/atom/Spinner";
 import { GetPostsResponseDto } from "@til-log.lab/tilog-api";
 
 interface CardLoadingProps {
-  postList: UseInfiniteQueryResult<AxiosResponse<GetPostsResponseDto>>;
+  cardList: UseInfiniteQueryResult<AxiosResponse<GetPostsResponseDto>>;
 }
 
 const CardLoading = ({
-  postList: { hasNextPage, isFetchingNextPage, fetchNextPage },
+  cardList: { hasNextPage, isFetchingNextPage, fetchNextPage },
 }: CardLoadingProps) => {
   if (!hasNextPage) return null;
   if (isFetchingNextPage) return <Spinner />;
