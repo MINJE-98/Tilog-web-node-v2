@@ -1,10 +1,11 @@
-export function backgroundColor(color: string): string {
-  return `#${color}`;
+export function backgroundColor(colorHex: string): string {
+  return `#${colorHex}`;
 }
-export function getBrightness(hex: string): boolean {
-  const r = parseInt(hex.slice(0, 2), 16);
-  const g = parseInt(hex.slice(2, 4), 16);
-  const b = parseInt(hex.slice(4, 6), 16);
+
+export function getBrightness(colorHex: string): boolean {
+  const r = parseInt(colorHex.slice(0, 2), 16);
+  const g = parseInt(colorHex.slice(2, 4), 16);
+  const b = parseInt(colorHex.slice(4, 6), 16);
   return (r * 299 + g * 587 + b * 114) / 1000 > 128;
 }
 export function seededColor(seed: string): string {
