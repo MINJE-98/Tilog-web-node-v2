@@ -3,7 +3,7 @@ import React from "react";
 import { AxiosResponse } from "axios";
 import { UseInfiniteQueryResult } from "react-query";
 
-import CardLoading from "@Commons/molecules/card/CardLoading";
+import CardLoading from "@Commons/molecules/loading/CardLoading";
 import { NO_EXIST_POSTS } from "@Constants/text/noExistPost";
 import isArrayEmpty from "@Utility/isArrayEmpty";
 
@@ -32,7 +32,7 @@ const PostCardInfiniteList = ({
           ));
         })}
       </div>
-      <CardLoading postList={postList} />
+      <CardLoading cardList={postList} />
     </>
   );
 };
