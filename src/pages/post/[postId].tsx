@@ -9,7 +9,8 @@ import api from "@Api/index";
 import Spinner from "@Commons/atom/Spinner";
 import PostThumbnailImage from "@Commons/molecules/images/PostThumbnailImage";
 import TiptapViewer from "@Commons/molecules/text-area/TiptapViewer";
-import { PostHeader, PostWriter } from "@Components/post";
+import PostAuthorDetail from "@Components/post/PostAuthorDetail";
+import PostHead from "@Components/post/PostHead";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
 import { postDetailSeo } from "@SEO";
@@ -32,29 +33,29 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
     <div>
       <DefaultSeo {...seo} />
       <RootBox>
-        <div>
-          <article className="w-full">
-            <PostHeader post={post} />
-            <figure>
-              <PostThumbnailImage
-                id={post.id}
-                thumbnailUrl={post.thumbnailUrl}
-                title={post.title}
-              />
-            </figure>
-            <div className="mt-5 lg:grid lg:grid-flow-col lg:space-x-5 lg:grid-cols-3">
-              <div className="lg:col-span-2">
-                <TiptapViewer content={JSON.parse(post.content)} />
-              </div>
-              <section>
-                <div className="w-full mt-20 rounded md:sticky md:top-4 md:mt-0 h-fit bg-neutral-100 dark:bg-neutral-800">
-                  <PostWriter username={post.user.username} />
-                </div>
-              </section>
-            </div>
-          </article>
-        </div>
-        <div className="mt-5">
+        <article className="w-full">
+          <PostHead post={post} />
+          <figure>
+            <PostThumbnailImage
+              id={post.id}
+              thumbnailUrl={post.thumbnailUrl}
+              title={post.title}
+            />
+          </figure>
+          <div className="mt-5 lg:grid lg:grid-flow-col lg:space-x-5 lg:grid-cols-3">
+            <article className="lg:col-span-2">
+              <TiptapViewer content={JSON.parse(post.content)} />
+            </article>
+            <aside>
+              <Suspense fallback={<Spinner />}>
+                <ErrorBoundary fallback={<>에러 났어.</>}>
+                  <PostAuthorDetail username={post.user.username} />
+                </ErrorBoundary>
+              </Suspense>
+            </aside>
+          </div>
+        </article>
+        <section className="mt-5">
           <Suspense fallback={<Spinner />}>
             <ErrorBoundary fallback={<>에러 났어.</>}>
               <PostLike postId={post.id} count={post.like} />
@@ -65,7 +66,7 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
               <Comment postId={post.id} />
             </ErrorBoundary>
           </Suspense>
-        </div>
+        </section>
       </RootBox>
     </div>
   );
