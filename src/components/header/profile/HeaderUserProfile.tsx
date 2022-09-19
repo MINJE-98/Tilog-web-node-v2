@@ -1,8 +1,8 @@
 import { useRef } from "react";
 
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
-import DropdownProfile from "@Commons/organisms/header/profile/DropdownProfile";
 import LoginButton from "@Components/auth/LoginButton";
+import UserDropdown from "@Components/header/profile/UserDropdown";
 import { useAuth } from "@Contexts/auth/AuthContext";
 import useOutsideClickAndEscClickListener from "@Hooks/useOutsideClickAndEscClickListener";
 
@@ -11,6 +11,7 @@ const HeaderUserProfile = () => {
   const dropDownRef = useRef<HTMLDivElement>(null);
   const { isOpen, handleOpen } =
     useOutsideClickAndEscClickListener(dropDownRef);
+
   if (!userInfo) {
     return <LoginButton />;
   }
@@ -24,7 +25,7 @@ const HeaderUserProfile = () => {
         />
       </button>
 
-      {isOpen && <DropdownProfile />}
+      {isOpen && <UserDropdown userInfo={userInfo} />}
     </div>
   );
 };

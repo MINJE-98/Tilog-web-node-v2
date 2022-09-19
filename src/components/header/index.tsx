@@ -1,5 +1,5 @@
 import LogoLink from "@Commons/molecules/link/LogoLink";
-import HeaderUserProfile from "@Commons/organisms/header/profile/HeaderUserProfile";
+import HeaderUserProfile from "@Components/header/profile/HeaderUserProfile";
 
 const Header = () => {
   return (
