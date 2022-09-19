@@ -1,20 +1,27 @@
-import CategorySortButton from "@Commons/molecules/buttons/CategorySortButton";
-import useGetAllCategories from "@Queries/categories/useGetAllCategories";
+import CategoryButton from "@Commons/molecules/buttons/category/CategoryButton";
+import SelectedCategoryButton from "@Commons/molecules/buttons/category/SelectedCategoryButton";
+import useStringRouter from "@Hooks/useStringRouter";
 
-const CategoryButtonList = () => {
-  const categoryList = useGetAllCategories();
-  if (!categoryList.data)
-    return <h2 className="text-base">카테고리가 존재하지 않아요.</h2>;
+import { GetCategoriesResponseDto } from "@til-log.lab/tilog-api";
 
+interface CategorySortButtonListProps {
+  categoryList: GetCategoriesResponseDto;
+}
+
+const CategorySortButtonList = ({
+  categoryList,
+}: CategorySortButtonListProps) => {
+  const category = useStringRouter("category");
   return (
-    <div className="flex flex-wrap gap-3 ">
-      {categoryList.data.data.list.map((category) => (
-        <CategorySortButton
-          key={category.id}
-          categoryName={category.categoryName}
-        />
-      ))}
+    <div className="flex flex-wrap gap-3">
+      {categoryList.list.map(({ id, categoryName }) =>
+        category === categoryName ? (
+          <SelectedCategoryButton key={id} categoryName={categoryName} />
+        ) : (
+          <CategoryButton key={id} categoryName={categoryName} />
+        )
+      )}
     </div>
   );
 };
-export default CategoryButtonList;
+export default CategorySortButtonList;
