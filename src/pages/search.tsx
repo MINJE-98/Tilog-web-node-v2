@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from "next";
+import { NextPage } from "next";
 
 import { searchSeo } from "library/seo/searchSeo";
 import { DefaultSeo } from "next-seo";
@@ -6,13 +6,12 @@ import { DefaultSeo } from "next-seo";
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
-import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
+import useStringRouter from "@Hooks/useStringRouter";
 import RootBox from "@Layouts/box/RootBox";
 import useGetSearchPostInfiniteList from "@Queries/posts/useGetSearchPostInfiniteList";
 
-import { Category } from "@Api/interface/model";
-
-const SearchPage: NextPage<Category> = ({ categoryName }: Category) => {
+const SearchPage: NextPage = () => {
+  const categoryName = useStringRouter("category");
   const searchPostList = useGetSearchPostInfiniteList({
     dateScope: "All",
     sortScope: "createdAt",
@@ -38,15 +37,3 @@ const SearchPage: NextPage<Category> = ({ categoryName }: Category) => {
 };
 
 export default SearchPage;
-export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
-  async (context) => {
-    const { category } = context.query;
-    if (!category) return { notFound: true };
-    if (Array.isArray(category)) return { notFound: true };
-    return {
-      props: {
-        categoryName: category,
-      },
-    };
-  }
-);
