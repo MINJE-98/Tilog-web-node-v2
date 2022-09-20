@@ -1,3 +1,4 @@
+import Spinner from "@Commons/atom/Spinner";
 import MostPopularPostCard from "@Commons/molecules/card/post/MostPopularPostCard";
 import More from "@Commons/molecules/link/More";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
@@ -17,10 +18,13 @@ const MostPopularPostCardList = () => {
       <CardNavTitle nav={<More href="popular" />}>
         {ALL_MOST_POPULAR_POST}
       </CardNavTitle>
-      <PostCardList
-        CardComponent={MostPopularPostCard}
-        postList={popularPostList.data}
-      />
+      {popularPostList.isLoading && <Spinner />}
+      {popularPostList.isSuccess && (
+        <PostCardList
+          CardComponent={MostPopularPostCard}
+          postList={popularPostList.data}
+        />
+      )}
     </section>
   );
 };

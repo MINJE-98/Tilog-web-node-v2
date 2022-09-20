@@ -12,8 +12,6 @@ export default function useGetHasLike(postId: PostHasLikeDto["postId"]) {
     {
       retry: 0,
       refetchOnWindowFocus: false,
-      suspense: true,
-      useErrorBoundary: true,
     }
   );
 }

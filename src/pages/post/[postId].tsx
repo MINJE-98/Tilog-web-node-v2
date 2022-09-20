@@ -1,27 +1,20 @@
 import { GetServerSideProps, NextPage } from "next";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
 
 import { DefaultSeo } from "next-seo";
-import { ErrorBoundary } from "react-error-boundary";
 
 import api from "@Api/index";
-import Spinner from "@Commons/atom/Spinner";
 import PostThumbnailImage from "@Commons/molecules/images/PostThumbnailImage";
 import TiptapViewer from "@Commons/molecules/text-area/TiptapViewer";
+import Comment from "@Components/comment";
 import PostAuthorDetail from "@Components/post/PostAuthorDetail";
 import PostHead from "@Components/post/PostHead";
+import PostLike from "@Components/post/PostLike";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
 import { postDetailSeo } from "@SEO";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
-const Comment = dynamic(() => import("@Components/comment"), { ssr: false });
-
-const PostLike = dynamic(() => import("@Components/post/PostLike"), {
-  ssr: false,
-});
 interface PostDetailPageProps {
   post: GetPostDetailResponseDto;
 }
@@ -47,25 +40,13 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
               <TiptapViewer content={JSON.parse(post.content)} />
             </article>
             <aside>
-              <Suspense fallback={<Spinner />}>
-                <ErrorBoundary fallback={<>에러 났어.</>}>
-                  <PostAuthorDetail username={post.user.username} />
-                </ErrorBoundary>
-              </Suspense>
+              <PostAuthorDetail username={post.user.username} />
             </aside>
           </div>
         </article>
         <section className="mt-5">
-          <Suspense fallback={<Spinner />}>
-            <ErrorBoundary fallback={<>에러 났어.</>}>
-              <PostLike postId={post.id} count={post.like} />
-            </ErrorBoundary>
-          </Suspense>
-          <Suspense fallback={<Spinner />}>
-            <ErrorBoundary fallback={<>에러 났어.</>}>
-              <Comment postId={post.id} />
-            </ErrorBoundary>
-          </Suspense>
+          <PostLike postId={post.id} count={post.like} />
+          <Comment postId={post.id} />
         </section>
       </RootBox>
     </div>

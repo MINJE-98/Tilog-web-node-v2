@@ -1,3 +1,4 @@
+import Spinner from "@Commons/atom/Spinner";
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
@@ -19,7 +20,13 @@ const BlogPostList = ({ userId }: { userId: GetUserProfileResponse["id"] }) => {
   return (
     <section>
       <CardNavTitle>{category} 게시글</CardNavTitle>
-      <PostCardInfiniteList CardComponent={PostCard} postList={userPostList} />
+      {userPostList.isLoading && <Spinner />}
+      {userPostList.isSuccess && (
+        <PostCardInfiniteList
+          CardComponent={PostCard}
+          postList={userPostList}
+        />
+      )}
     </section>
   );
 };

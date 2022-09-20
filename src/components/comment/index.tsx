@@ -1,3 +1,4 @@
+import Spinner from "@Commons/atom/Spinner";
 import CommentInput from "@Components/comment/input/CommentInput";
 import RootComment from "@Components/comment/render/RootComment";
 import { INPUT } from "@Constants/button";
@@ -17,9 +18,11 @@ const Comment = ({ postId }: CommentProps) => {
   return (
     <div>
       <hr />
-      {commentList.data.data.list.map((comment) => (
-        <RootComment key={comment.id} comment={comment} />
-      ))}
+      {commentList.isLoading && <Spinner />}
+      {commentList.isSuccess &&
+        commentList.data.data.list.map((comment) => (
+          <RootComment key={comment.id} comment={comment} />
+        ))}
       <CommentInput
         postId={postId}
         replyTo={null}

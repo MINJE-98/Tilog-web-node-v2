@@ -30,8 +30,6 @@ const useGetUserPostInfiniteList = (
       retryOnMount: false,
       refetchOnMount: false,
       staleTime: 1000 * 60,
-      suspense: true,
-      useErrorBoundary: true,
       getNextPageParam: (lastPages, pages) => {
         const nextPage = pages.length;
         const lastPagesListCount = lastPages.data.list.length;

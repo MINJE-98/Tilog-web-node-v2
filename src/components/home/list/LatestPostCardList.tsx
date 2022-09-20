@@ -1,3 +1,4 @@
+import Spinner from "@Commons/atom/Spinner";
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import More from "@Commons/molecules/link/More";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
@@ -17,7 +18,10 @@ const LatestPostCardList = () => {
       <CardNavTitle nav={<More href="latest" />}>
         {ALL_LATEST_POST}
       </CardNavTitle>
-      <PostCardList CardComponent={PostCard} postList={latestPostList.data} />
+      {latestPostList.isLoading && <Spinner />}
+      {latestPostList.isSuccess && (
+        <PostCardList CardComponent={PostCard} postList={latestPostList.data} />
+      )}
     </section>
   );
 };
