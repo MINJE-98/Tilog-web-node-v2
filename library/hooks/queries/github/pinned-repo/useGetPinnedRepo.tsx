@@ -15,6 +15,8 @@ export default function useGetPinnedRepo(userName: Users["userName"]) {
       refetchInterval: false,
       retryOnMount: false,
       refetchOnMount: false,
+      suspense: true,
+      useErrorBoundary: true,
     }
   );
 }

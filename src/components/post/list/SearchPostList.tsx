@@ -4,26 +4,28 @@ import { ErrorBoundary } from "react-error-boundary";
 import { QueryErrorResetBoundary } from "react-query";
 
 import Spinner from "@Commons/atom/Spinner";
-import MostPopularPostCard from "@Commons/molecules/card/post/MostPopularPostCard";
+import PostCard from "@Commons/molecules/card/post/PostCard";
 import ComponentLoadError from "@Commons/molecules/ComponentLoadError";
-import PostCardList from "@Commons/organisms/list/PostCardList";
-import useGetMostPopularPostList from "@Queries/posts/useGetMostPopularPostList";
+import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
+import useGetSearchPostInfiniteList from "@Queries/posts/useGetSearchPostInfiniteList";
 
-const MostPopularPostCardList = () => {
-  const popularPostList = useGetMostPopularPostList({
+const SearchPostList = ({ categoryName }: { categoryName: string }) => {
+  const searchPostList = useGetSearchPostInfiniteList({
     dateScope: "All",
-    sortScope: "likes",
+    sortScope: "createdAt",
     page: 0,
-    maxContent: 6,
+    categoryName,
+    maxContent: 10,
   });
   return (
     <QueryErrorResetBoundary>
       {({ reset }) => (
         <Suspense fallback={<Spinner />}>
           <ErrorBoundary onReset={reset} fallbackRender={ComponentLoadError}>
-            <PostCardList
-              CardComponent={MostPopularPostCard}
-              postList={popularPostList.data}
+            <PostCardInfiniteList
+              twoRow
+              CardComponent={PostCard}
+              postList={searchPostList}
             />
           </ErrorBoundary>
         </Suspense>
@@ -32,4 +34,4 @@ const MostPopularPostCardList = () => {
   );
 };
 
-export default MostPopularPostCardList;
+export default SearchPostList;

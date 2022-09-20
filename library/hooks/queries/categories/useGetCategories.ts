@@ -14,6 +14,8 @@ const useGetCategories = (categoryName?: Category["categoryName"]) => {
       refetchOnWindowFocus: false,
       refetchInterval: false,
       retryOnMount: false,
+      suspense: true,
+      useErrorBoundary: true,
     }
   );
 };

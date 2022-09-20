@@ -12,12 +12,12 @@ import { ALL_LATEST_POST, ALL_MOST_POPULAR_POST } from "@Constants/text";
 
 const LatestPostCardList = dynamic(
   () => import("@Components/home/list/LatestPostCardList"),
-  { suspense: true }
+  { ssr: false }
 );
 
 const MostPopularPostCardList = dynamic(
   () => import("@Components/home/list/MostPopularPostCardList"),
-  { suspense: true }
+  { ssr: false }
 );
 
 const PostSection = () => {

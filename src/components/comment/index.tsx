@@ -1,4 +1,4 @@
-import Spinner from "@Commons/atom/Spinner";
+import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import CommentInput from "@Components/comment/input/CommentInput";
 import RootComment from "@Components/comment/render/RootComment";
 import { INPUT } from "@Constants/button";
@@ -17,12 +17,10 @@ const Comment = ({ postId }: CommentProps) => {
 
   return (
     <div>
-      <hr />
-      {commentList.isLoading && <Spinner />}
-      {commentList.isSuccess &&
-        commentList.data.data.list.map((comment) => (
-          <RootComment key={comment.id} comment={comment} />
-        ))}
+      <CardNavTitle>Comments</CardNavTitle>
+      {commentList.data.data.list.map((comment) => (
+        <RootComment key={comment.id} comment={comment} />
+      ))}
       <CommentInput
         postId={postId}
         replyTo={null}

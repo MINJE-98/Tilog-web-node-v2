@@ -1,33 +1,24 @@
-import Spinner from "@Commons/atom/Spinner";
 import PostCard from "@Commons/molecules/card/post/PostCard";
-import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
-import useStringRouter from "@Hooks/useStringRouter";
 import useGetUserPostInfiniteList from "@Queries/posts/useGetUserPostInfiniteList";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
-const BlogPostList = ({ userId }: { userId: GetUserProfileResponse["id"] }) => {
-  const category = useStringRouter("category");
+interface BlogPostListProps {
+  categoryName: string;
+  userId: GetUserProfileResponse["id"];
+}
+const BlogPostList = ({ categoryName, userId }: BlogPostListProps) => {
   const userPostList = useGetUserPostInfiniteList({
     dateScope: "All",
     sortScope: "createdAt",
     page: 0,
-    categoryName: category,
+    categoryName,
     maxContent: 10,
     userId,
   });
   return (
-    <section>
-      <CardNavTitle>{category} 게시글</CardNavTitle>
-      {userPostList.isLoading && <Spinner />}
-      {userPostList.isSuccess && (
-        <PostCardInfiniteList
-          CardComponent={PostCard}
-          postList={userPostList}
-        />
-      )}
-    </section>
+    <PostCardInfiniteList CardComponent={PostCard} postList={userPostList} />
   );
 };
 

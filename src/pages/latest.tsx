@@ -1,34 +1,36 @@
 import { NextPage } from "next";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 import { latestSeo } from "library/seo/latestSeo";
 import { DefaultSeo } from "next-seo";
+import { ErrorBoundary } from "react-error-boundary";
+import { useQueryErrorResetBoundary } from "react-query";
 
-import PostCard from "@Commons/molecules/card/post/PostCard";
+import Spinner from "@Commons/atom/Spinner";
+import ComponentLoadError from "@Commons/molecules/ComponentLoadError";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
-import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import { ALL_LATEST_POST } from "@Constants/text";
 import RootBox from "@Layouts/box/RootBox";
-import useGetMostPopularPostInfiniteList from "@Queries/posts/useGetMostPopularPostInfiniteList";
+
+const LatestPostCardList = dynamic(
+  () => import("@Components/home/list/LatestPostCardList"),
+  { ssr: false }
+);
 
 const LatestPage: NextPage = () => {
-  const latestPostList = useGetMostPopularPostInfiniteList({
-    dateScope: "All",
-    sortScope: "createdAt",
-    page: 0,
-    maxContent: 10,
-  });
+  const { reset } = useQueryErrorResetBoundary();
   return (
     <div>
       <DefaultSeo {...latestSeo} />
       <RootBox>
-        <div className="inline">
-          <CardNavTitle>{ALL_LATEST_POST}</CardNavTitle>
-        </div>
-        <PostCardInfiniteList
-          twoRow
-          CardComponent={PostCard}
-          postList={latestPostList}
-        />
+        <CardNavTitle>{ALL_LATEST_POST}</CardNavTitle>
+
+        <Suspense fallback={<Spinner />}>
+          <ErrorBoundary onReset={reset} fallbackRender={ComponentLoadError}>
+            <LatestPostCardList />
+          </ErrorBoundary>
+        </Suspense>
       </RootBox>
     </div>
   );

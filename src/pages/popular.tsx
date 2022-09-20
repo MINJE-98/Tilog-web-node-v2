@@ -1,49 +1,47 @@
 import { NextPage } from "next";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 import { popularSeo } from "library/seo/popularSeo";
 import { DefaultSeo } from "next-seo";
+import { ErrorBoundary } from "react-error-boundary";
+import { useQueryErrorResetBoundary } from "react-query";
 
-import PostCard from "@Commons/molecules/card/post/PostCard";
+import Spinner from "@Commons/atom/Spinner";
+import ComponentLoadError from "@Commons/molecules/ComponentLoadError";
 import DateScopeLink from "@Commons/molecules/link/DateScopeLink";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
-import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import { ALL_MOST_POPULAR_POST } from "@Constants/text";
-import useDateScopeRouter from "@Hooks/useDateScopeRouter";
 import RootBox from "@Layouts/box/RootBox";
-import useGetMostPopularPostInfiniteList from "@Queries/posts/useGetMostPopularPostInfiniteList";
+
+const PopularPostList = dynamic(
+  () => import("@Components/post/list/PopularPostList"),
+  { ssr: false }
+);
 
 const PopularPage: NextPage = () => {
-  const dateScope = useDateScopeRouter();
-  const popularPostList = useGetMostPopularPostInfiniteList({
-    dateScope,
-    sortScope: "likes",
-    page: 0,
-    maxContent: 10,
-  });
-
+  const { reset } = useQueryErrorResetBoundary();
   return (
     <div>
       <DefaultSeo {...popularSeo} />
       <RootBox>
-        <div>
-          <CardNavTitle
-            nav={
-              <div>
-                <DateScopeLink dateScope="All" />
-                <DateScopeLink dateScope="Daily" />
-                <DateScopeLink dateScope="Weekly" />
-                <DateScopeLink dateScope="Monthly" />
-              </div>
-            }
-          >
-            {ALL_MOST_POPULAR_POST}
-          </CardNavTitle>
-        </div>
-        <PostCardInfiniteList
-          twoRow
-          CardComponent={PostCard}
-          postList={popularPostList}
-        />
+        <CardNavTitle
+          nav={
+            <div>
+              <DateScopeLink dateScope="All" />
+              <DateScopeLink dateScope="Daily" />
+              <DateScopeLink dateScope="Weekly" />
+              <DateScopeLink dateScope="Monthly" />
+            </div>
+          }
+        >
+          {ALL_MOST_POPULAR_POST}
+        </CardNavTitle>
+        <Suspense fallback={<Spinner />}>
+          <ErrorBoundary onReset={reset} fallbackRender={ComponentLoadError}>
+            <PopularPostList />
+          </ErrorBoundary>
+        </Suspense>
       </RootBox>
     </div>
   );

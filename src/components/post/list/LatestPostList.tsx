@@ -1,0 +1,21 @@
+import PostCard from "@Commons/molecules/card/post/PostCard";
+import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
+import useGetMostPopularPostInfiniteList from "@Queries/posts/useGetMostPopularPostInfiniteList";
+
+const PopularPostList = () => {
+  const latestPostList = useGetMostPopularPostInfiniteList({
+    dateScope: "All",
+    sortScope: "createdAt",
+    page: 0,
+    maxContent: 10,
+  });
+  return (
+    <PostCardInfiniteList
+      twoRow
+      CardComponent={PostCard}
+      postList={latestPostList}
+    />
+  );
+};
+
+export default PopularPostList;
