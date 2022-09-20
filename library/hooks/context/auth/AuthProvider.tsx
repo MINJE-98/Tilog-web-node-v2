@@ -4,13 +4,16 @@
 import { ReactNode, useEffect, useState } from "react";
 
 import api from "@Api";
+import { DEFAULT_USER_INFO } from "@Constants/user";
 import { AuthContext } from "@Contexts/auth/AuthContext";
 import useLogin from "@Hooks/useLogin";
 
 import GetMeResponse from "@Api/users/interface/getMeResponse";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [userInfo, setUserInfo] = useState<GetMeResponse | null>(null);
+  const [userInfo, setUserInfo] = useState<GetMeResponse | null>(
+    DEFAULT_USER_INFO
+  );
   useEffect(() => {
     const getMe = async () => {
       try {
