@@ -9,7 +9,7 @@ import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 const SearchCategory = () => {
   const { watch } = useFormContext<WriterFormTypes>();
 
-  if (!watch(WRITER_INPUT_TYPE.CATEGORY_ID)) return <CategoryInput />;
+  if (!watch(WRITER_INPUT_TYPE.CATEGORY)) return <CategoryInput />;
   return <SelectedCategory />;
 };
 export default SearchCategory;
