@@ -3,24 +3,21 @@ import { useRef } from "react";
 import AutocompleteContents from "@Components/writer/input/category-search/autocomplete/AutocompleteContents";
 import { NO_RESULT_SEARCH } from "@Constants/messages/error";
 import useArrowKeySelector from "@Hooks/useArrowKeySelector";
+import isArrayEmpty from "@Utility/isArrayEmpty";
 
 import { GetCategoriesResponseDto } from "@til-log.lab/tilog-api";
 
-const Autocomplete = ({
-  categoryList,
-}: {
-  categoryList: GetCategoriesResponseDto["list"] | null;
-}) => {
-  const ref = useRef<HTMLLIElement[]>([]);
-  const { index, resetIndex } = useArrowKeySelector(categoryList, ref);
+interface AutocompleteProps {
+  categoryList: GetCategoriesResponseDto["list"];
+}
 
-  if (!categoryList) return null;
+const AutocompleteList = ({ categoryList }: AutocompleteProps) => {
+  const ref = useRef<HTMLLIElement[]>([]);
+  const { index, resetIndex } = useArrowKeySelector(ref, categoryList);
+
+  if (isArrayEmpty(categoryList)) return <p>{NO_RESULT_SEARCH}</p>;
   return (
-    <ul
-      onMouseEnter={resetIndex}
-      className="z-50 absolute p-3 my-2 mr-8 rounded shadow-sm cursor-default ring-1 max-w-[500px] max-h-[400px] overflow-auto bg-neutral-200 ring-neutral-300 dark:ring-neutral-600 dark:bg-neutral-800"
-    >
-      {categoryList.length === 0 && <p>{NO_RESULT_SEARCH}</p>}
+    <div onMouseEnter={resetIndex}>
       {categoryList.map((category, idx) => (
         <li
           ref={(el) => {
@@ -34,7 +31,7 @@ const Autocomplete = ({
           <AutocompleteContents category={category} />
         </li>
       ))}
-    </ul>
+    </div>
   );
 };
-export default Autocomplete;
+export default AutocompleteList;
