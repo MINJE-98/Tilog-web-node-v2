@@ -13,7 +13,7 @@ import useGetMostPopularPostInfiniteList from "@Queries/posts/useGetMostPopularP
 const LatestPage: NextPage = () => {
   const latestPostList = useGetMostPopularPostInfiniteList({
     dateScope: "All",
-    sortScope: "likes",
+    sortScope: "createdAt",
     page: 0,
     maxContent: 10,
   });
