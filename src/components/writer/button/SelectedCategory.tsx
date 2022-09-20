@@ -2,10 +2,8 @@ import { useFormContext } from "react-hook-form";
 
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 
-import WriterFormTypes from "@Api/post/interface/writerFormTypes";
-
 const SelectedCategory = () => {
-  const { setValue, getValues } = useFormContext<WriterFormTypes>();
+  const { setValue, getValues } = useFormContext();
   return (
     <div className="w-full p-3 bg-white dark:bg-neutral-800 ">
       <button
