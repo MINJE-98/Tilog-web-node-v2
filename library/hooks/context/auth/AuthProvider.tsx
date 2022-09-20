@@ -9,14 +9,8 @@ import useLogin from "@Hooks/useLogin";
 
 import GetMeResponse from "@Api/users/interface/getMeResponse";
 
-export const AuthProvider = ({
-  children,
-  initUserInfo,
-}: {
-  children: ReactNode;
-  initUserInfo: GetMeResponse;
-}) => {
-  const [userInfo, setUserInfo] = useState<GetMeResponse | null>(initUserInfo);
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
+  const [userInfo, setUserInfo] = useState<GetMeResponse | null>(null);
   useEffect(() => {
     const getMe = async () => {
       try {
