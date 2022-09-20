@@ -14,7 +14,7 @@ const EditorForm = ({ post }: { post: GetPostDetailResponseDto }) => {
       subTitle: post.subTitle,
       thumbnailUrl: post.thumbnailUrl,
       markdownContent: post.content,
-      categoryId: post.category.categoryId,
+      category: post.category,
       title: post.title,
     },
   });

@@ -10,7 +10,7 @@ const useUpdatePostMutation = () => {
   return useMutation((formData: WriterFormTypes) => {
     const postData: ModifyPostRequestBodyDto = {
       ...formData,
-      categoryId: formData.categoryId,
+      categoryId: formData.category.categoryId,
     };
     return api.postService.modifyPost(postData);
   });
