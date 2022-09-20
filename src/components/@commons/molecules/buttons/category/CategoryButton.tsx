@@ -10,6 +10,7 @@ const CategoryButton = ({ categoryName }: CategoryButtonProps) => {
   const router = useRouter();
   return (
     <LinkTo
+      scroll={false}
       href={{
         pathname: router.pathname,
         query: { ...router.query, category: categoryName },
