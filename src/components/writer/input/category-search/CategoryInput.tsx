@@ -1,36 +1,45 @@
 import { useRef } from "react";
 
-import { useFormContext } from "react-hook-form";
+import { Controller } from "react-hook-form";
 
-import Autocomplete from "@Components/writer/input/category-search/autocomplete";
+import AutocompleteList from "@Components/writer/input/category-search/autocomplete/AutocompleteList";
 import useSearchCategoryName from "@Components/writer/input/category-search/hooks/useSearchCategoryName";
-import { WRITER_INPUT_TYPE } from "@Constants/input";
+import { NO_RESULT_SEARCH } from "@Constants/messages/error";
 import { CATEGORY_PLACEHOLDER } from "@Constants/text";
 import useOutsideClickAndEscClickListener from "@Hooks/useOutsideClickAndEscClickListener";
-
-import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 const CategoryInput = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { isOpen, handleOpen } =
     useOutsideClickAndEscClickListener<HTMLDivElement>(ref);
-  const { categoryList, handleChangeCategoryName } = useSearchCategoryName();
-  const { register } = useFormContext<WriterFormTypes>();
+  const { searchCategory, handleChangeCategoryName } = useSearchCategoryName();
 
   return (
     <div ref={ref}>
-      <input
-        {...register(WRITER_INPUT_TYPE.CATEGORY_ID, {
-          valueAsNumber: true,
+      <Controller
+        name="category"
+        rules={{
           required: true,
-        })}
-        autoComplete="off"
-        onFocus={handleOpen}
-        onChange={handleChangeCategoryName}
-        className="w-full p-5 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-white"
-        placeholder={CATEGORY_PLACEHOLDER}
+        }}
+        render={({ field }) => (
+          <input
+            ref={field.ref}
+            onFocus={handleOpen}
+            onChange={handleChangeCategoryName}
+            className="w-full p-5 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-white"
+            placeholder={CATEGORY_PLACEHOLDER}
+          />
+        )}
       />
-      {isOpen && <Autocomplete categoryList={categoryList} />}
+      {isOpen && (
+        <ul className="z-50 absolute p-3 my-2 mr-8 rounded shadow-sm cursor-default ring-1 max-w-[500px] max-h-[400px] overflow-auto bg-neutral-200 ring-neutral-300 dark:ring-neutral-600 dark:bg-neutral-800">
+          {!searchCategory.data?.data ? (
+            <p>{NO_RESULT_SEARCH}</p>
+          ) : (
+            <AutocompleteList categoryList={searchCategory.data.data.list} />
+          )}
+        </ul>
+      )}
     </div>
   );
 };
