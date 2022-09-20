@@ -10,7 +10,7 @@ const GitStats = ({ userName }: { userName: Users["userName"] }) => {
   const { data } = useGetUserStats(userName);
   if (!data) return <>없어</>;
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center justify-center space-x-2">
       <GitStatsCard Icon={GoStar} count={data.data.totalStars} name="Stars" />
       <GitStatsCard
         Icon={GoGitPullRequest}
