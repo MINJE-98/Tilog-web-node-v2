@@ -51,7 +51,7 @@ export const categoryQueryKeys = {
   all: ["category"] as const,
   categoryUser: (userId: Category["id"]) =>
     [...categoryQueryKeys.all, userId] as const,
-  categoryName: (categoryName: Category["categoryName"]) =>
+  categoryName: (categoryName?: Category["categoryName"]) =>
     [...categoryQueryKeys.all, categoryName] as const,
 };
 

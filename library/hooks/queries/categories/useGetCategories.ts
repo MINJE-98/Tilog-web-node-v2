@@ -5,7 +5,7 @@ import { categoryQueryKeys } from "@Utility/queryKey";
 
 import { Category } from "@Api/interface/model";
 
-const useGetCategories = (categoryName: Category["categoryName"]) => {
+const useGetCategories = (categoryName?: Category["categoryName"]) => {
   return useQuery(
     categoryQueryKeys.categoryName(categoryName),
     () => api.categoryService.getCategories(categoryName),
