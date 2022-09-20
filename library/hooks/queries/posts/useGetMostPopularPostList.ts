@@ -25,6 +25,7 @@ const useGetMostPopularPostList = (getPostRequest: GetPostRequest) => {
       refetchOnMount: false,
       staleTime: 1000 * 60,
       useErrorBoundary: true,
+      suspense: true,
     }
   );
 };
