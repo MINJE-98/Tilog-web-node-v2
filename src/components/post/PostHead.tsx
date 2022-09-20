@@ -1,7 +1,11 @@
+import { VscCircleFilled } from "react-icons/vsc";
+
 import PostUpdateLink from "@Commons/molecules/link/PostUpdateLink";
 import UserProfile from "@Commons/molecules/profile/UserProfile";
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
+import DateFnsFormatter from "@Commons/molecules/text/DateFnsFormatter";
 import PostDeleteButton from "@Components/post/button/PostDeleteButton";
+import { VIEW_COUNT } from "@Constants/text";
 import useIsOwner from "@Hooks/useIsOwner";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
@@ -15,7 +19,19 @@ const PostHead = ({ post }: PostHeadProps) => {
   return (
     <header>
       <div className="flex items-center">
-        <UserProfile userName={post.user.username} avatar={post.user.avatar} />
+        <UserProfile
+          userName={post.user.username}
+          avatar={post.user.avatar}
+          dateAndViewCount={
+            <div className="flex items-center space-x-1">
+              <DateFnsFormatter className="text-xs" date={post.createdAt} />
+              <VscCircleFilled className="text-[6px] dark:text-neutral-500 text-neutral-400" />
+              <p className="text-xs">
+                {VIEW_COUNT} {post.view}
+              </p>
+            </div>
+          }
+        />
         {isOwner && (
           <div className="flex justify-end w-full space-x-5">
             <PostDeleteButton postId={post.id} />
