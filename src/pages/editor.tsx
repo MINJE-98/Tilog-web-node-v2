@@ -1,33 +1,50 @@
-import type { NextPage } from "next";
-import dynamic from "next/dynamic";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
-import { Suspense } from "react";
 
-import Spinner from "@Commons/atom/Spinner";
-import useStringRouter from "@Hooks/useStringRouter";
+import api from "@Api/index";
+import EditorForm from "@Components/writer/EditorForm";
+import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
-import useGetPostDetail from "@Queries/posts/useGetPostDetail";
 
-const EditorForm = dynamic(() => import("@Components/writer/EditorForm"), {
-  ssr: false,
-});
+import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
-const EditorPage: NextPage = () => {
-  const postId = useStringRouter("postId");
-  const postDetail = useGetPostDetail(postId);
-
+interface EditorPageProps {
+  post: GetPostDetailResponseDto;
+}
+const EditorPage: NextPage<EditorPageProps> = ({ post }: EditorPageProps) => {
   return (
     <div>
       <Head>
         <title>글 수정</title>
       </Head>
       <RootBox>
-        <Suspense fallback={<Spinner />}>
-          {postDetail.isSuccess && <EditorForm post={postDetail.data.data} />}
-        </Suspense>
+        <EditorForm post={post} />
       </RootBox>
     </div>
   );
 };
 
 export default EditorPage;
+export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
+  async (context) => {
+    const { postId } = context.query;
+    if (!postId) return { props: {} };
+    if (Array.isArray(postId)) return { props: {} };
+    try {
+      const { data } = await api.postService.getPostDetail(postId);
+      return {
+        props: {
+          post: data,
+        },
+      };
+    } catch (error) {
+      return {
+        notFound: true,
+      };
+    }
+  },
+  {
+    destination: "/",
+    permanent: true,
+  }
+);

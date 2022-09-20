@@ -21,15 +21,12 @@ type CustomAppProps = AppProps & {
   };
 };
 
-const App = ({
-  Component,
-  pageProps: { initUserInfo, ...pageProps },
-}: CustomAppProps) => {
+const App = ({ Component, pageProps }: CustomAppProps) => {
   useProgressBar();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider initUserInfo={initUserInfo}>
+      <AuthProvider>
         <Toaster />
         {Component.name !== "Callback" && <Header />}
         <Component {...pageProps} />
