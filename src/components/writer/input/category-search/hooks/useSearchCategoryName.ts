@@ -1,10 +1,10 @@
 import { ChangeEvent, useState } from "react";
 
-import useSearchCategory from "@Queries/categories/useSearchCategory";
+import useGetCategories from "@Queries/categories/useGetCategories";
 
 const useSearchCategoryName = () => {
   const [categoryName, setCategoryName] = useState("");
-  const searchCategory = useSearchCategory();
+  const searchCategory = useGetCategories(categoryName);
 
   const handleChangeCategoryName = ({
     target: { value },
@@ -13,7 +13,7 @@ const useSearchCategoryName = () => {
   };
 
   return {
-    categoryList: searchCategory(categoryName),
+    searchCategory,
     handleChangeCategoryName,
   };
 };
