@@ -10,8 +10,8 @@ import { GetCategoriesResponseDto } from "@til-log.lab/tilog-api";
 import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 const useArrowKeySelector = (
-  categoryList: GetCategoriesResponseDto["list"] | null,
-  ref: MutableRefObject<HTMLLIElement[]>
+  ref: MutableRefObject<HTMLLIElement[]>,
+  categoryList?: GetCategoriesResponseDto["list"]
 ) => {
   const [index, setIndex] = useState(-1);
   const { setValue } = useFormContext<WriterFormTypes>();
@@ -44,7 +44,10 @@ const useArrowKeySelector = (
 
     if (key === "Enter") {
       if (!categoryList[index]) return;
-      setValue(WRITER_INPUT_TYPE.CATEGORY_ID, categoryList[index].id);
+      setValue(WRITER_INPUT_TYPE.CATEGORY, {
+        name: categoryList[index].categoryName,
+        categoryId: categoryList[index].id,
+      });
     }
   };
   useEventListener("keydown", handleArrowClick);
