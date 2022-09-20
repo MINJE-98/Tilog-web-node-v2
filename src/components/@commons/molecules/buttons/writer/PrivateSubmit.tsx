@@ -4,10 +4,10 @@ import SecondaryButton from "@Commons/atom/buttons/SecondaryButton";
 import { PUBLISH_PRIVATE_POST } from "@Constants/button";
 import { WRITER_INPUT_TYPE } from "@Constants/input";
 
-import { CreatePostRequestBodyDto } from "@til-log.lab/tilog-api";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 interface PrivateSubmitProps {
-  setValue: UseFormSetValue<CreatePostRequestBodyDto>;
+  setValue: UseFormSetValue<WriterFormTypes>;
 }
 
 const PrivateSubmit = ({ setValue }: PrivateSubmitProps) => {

@@ -4,10 +4,10 @@ import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
 import { PUBLISH_POST } from "@Constants/button";
 import { WRITER_INPUT_TYPE } from "@Constants/input";
 
-import { CreatePostRequestBodyDto } from "@til-log.lab/tilog-api";
+import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 interface PublicSubmitProps {
-  setValue: UseFormSetValue<CreatePostRequestBodyDto>;
+  setValue: UseFormSetValue<WriterFormTypes>;
 }
 
 const PublicSubmit = ({ setValue }: PublicSubmitProps) => {
