@@ -1,87 +1,33 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type { NextPage } from "next";
+import dynamic from "next/dynamic";
 import Head from "next/head";
+import { Suspense } from "react";
 
-import { FormProvider, useForm } from "react-hook-form";
-
-import api from "@Api/index";
-import {
-  CoverImage,
-  PrivateSubmit,
-  PublicSubmit,
-  SearchCategory,
-  SubTitleInput,
-  TiptapEditor,
-  TitleInput,
-} from "@Components/writer";
-import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
-import useHandleEditSummit from "@Hooks/useHandleEditSummit";
+import Spinner from "@Commons/atom/Spinner";
+import useStringRouter from "@Hooks/useStringRouter";
 import RootBox from "@Layouts/box/RootBox";
+import useGetPostDetail from "@Queries/posts/useGetPostDetail";
 
-import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
+const EditorForm = dynamic(() => import("@Components/writer/EditorForm"), {
+  ssr: false,
+});
 
-import WriterFormTypes from "@Api/post/interface/writerFormTypes";
+const EditorPage: NextPage = () => {
+  const postId = useStringRouter("postId");
+  const postDetail = useGetPostDetail(postId);
 
-interface EditorPageProps {
-  post: GetPostDetailResponseDto;
-}
-const EditorPage: NextPage<EditorPageProps> = ({ post }: EditorPageProps) => {
-  const method = useForm<WriterFormTypes>({
-    defaultValues: {
-      postId: post.id,
-      subTitle: post.subTitle,
-      thumbnailUrl: post.thumbnailUrl,
-      markdownContent: post.content,
-      categoryId: post.category.categoryId,
-      title: post.title,
-    },
-  });
-  const onSummit = useHandleEditSummit();
   return (
     <div>
       <Head>
-        <title>글수정</title>
+        <title>글 수정</title>
       </Head>
       <RootBox>
-        <FormProvider {...method}>
-          <form onSubmit={method.handleSubmit(onSummit)}>
-            <CoverImage />
-            <TitleInput />
-            <SubTitleInput />
-            <SearchCategory />
-            <TiptapEditor />
-
-            <div className="flex w-[300px] mt-3 space-x-5 ml-auto bg-slate-100">
-              <PrivateSubmit />
-              <PublicSubmit />
-            </div>
-          </form>
-        </FormProvider>
+        <Suspense fallback={<Spinner />}>
+          {postDetail.isSuccess && <EditorForm post={postDetail.data.data} />}
+        </Suspense>
       </RootBox>
     </div>
   );
 };
 
 export default EditorPage;
-export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
-  async (context) => {
-    const { postId } = context.query;
-    if (!postId) return { props: {} };
-    if (Array.isArray(postId)) return { props: {} };
-    try {
-      const { data } = await api.postService.getPostDetail(postId);
-      return {
-        props: {
-          post: data,
-        },
-      };
-    } catch (error) {
-      return {
-        notFound: true,
-      };
-    }
-  },
-  {
-    destination: "/",
-    permanent: true,
-  }
-);
