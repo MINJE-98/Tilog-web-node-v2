@@ -3,7 +3,7 @@ import useGetCategories from "@Queries/categories/useGetCategories";
 import isArrayEmpty from "@Utility/isArrayEmpty";
 
 const BlogCategorySortButtonList = () => {
-  const { data } = useGetCategories();
+  const { data } = useGetCategories({});
   if (!data) return null;
   if (isArrayEmpty(data.data.list)) return null;
   return <CategorySortButtonList categoryList={data.data} />;

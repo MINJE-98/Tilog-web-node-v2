@@ -4,7 +4,7 @@ import useGetCategories from "@Queries/categories/useGetCategories";
 
 const useSearchCategoryName = () => {
   const [categoryName, setCategoryName] = useState("");
-  const searchCategory = useGetCategories(categoryName);
+  const searchCategory = useGetCategories({ categoryName });
 
   const handleChangeCategoryName = ({
     target: { value },
