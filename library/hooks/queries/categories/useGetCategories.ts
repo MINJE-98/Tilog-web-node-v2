@@ -5,7 +5,16 @@ import { categoryQueryKeys } from "@Utility/queryKey";
 
 import { Category } from "@Api/interface/model";
 
-const useGetCategories = (categoryName?: Category["categoryName"]) => {
+interface UserGetCategoriesProps {
+  categoryName?: Category["categoryName"];
+  suspense?: boolean;
+  useErrorBoundary?: boolean;
+}
+const useGetCategories = ({
+  categoryName,
+  suspense = false,
+  useErrorBoundary = false,
+}: UserGetCategoriesProps) => {
   return useQuery(
     categoryQueryKeys.categoryName(categoryName),
     () => api.categoryService.getCategories(categoryName),
@@ -14,8 +23,8 @@ const useGetCategories = (categoryName?: Category["categoryName"]) => {
       refetchOnWindowFocus: false,
       refetchInterval: false,
       retryOnMount: false,
-      suspense: true,
-      useErrorBoundary: true,
+      suspense,
+      useErrorBoundary,
     }
   );
 };
