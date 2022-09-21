@@ -26,8 +26,8 @@ const PostSection = () => {
       {({ reset }) => (
         <>
           <section className="my-10">
-            <CardNavTitle nav={<More href="latest" />}>
-              {ALL_LATEST_POST}
+            <CardNavTitle nav={<More href="popular" />}>
+              {ALL_MOST_POPULAR_POST}
             </CardNavTitle>
             <Suspense fallback={<Spinner />}>
               <ErrorBoundary
@@ -39,8 +39,8 @@ const PostSection = () => {
             </Suspense>
           </section>
           <section className="my-10">
-            <CardNavTitle nav={<More href="popular" />}>
-              {ALL_MOST_POPULAR_POST}
+            <CardNavTitle nav={<More href="latest" />}>
+              {ALL_LATEST_POST}
             </CardNavTitle>
             <Suspense fallback={<Spinner />}>
               <ErrorBoundary
