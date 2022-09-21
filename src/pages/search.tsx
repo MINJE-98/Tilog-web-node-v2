@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
@@ -10,7 +10,6 @@ import { useQueryErrorResetBoundary } from "react-query";
 import Spinner from "@Commons/atom/Spinner";
 import ComponentLoadError from "@Commons/molecules/ComponentLoadError";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
-import useStringRouter from "@Hooks/useStringRouter";
 import RootBox from "@Layouts/box/RootBox";
 
 const SearchPostList = dynamic(
@@ -18,8 +17,11 @@ const SearchPostList = dynamic(
   { ssr: false }
 );
 
-const SearchPage: NextPage = () => {
-  const categoryName = useStringRouter("category");
+const SearchPage: NextPage<{ categoryName: string }> = ({
+  categoryName,
+}: {
+  categoryName: string;
+}) => {
   const { reset } = useQueryErrorResetBoundary();
 
   return (
@@ -35,6 +37,16 @@ const SearchPage: NextPage = () => {
       </RootBox>
     </div>
   );
+};
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { categoryName } = context.query;
+  if (!categoryName) return { props: {} };
+  if (Array.isArray(categoryName)) return { props: {} };
+  return {
+    props: {
+      categoryName,
+    },
+  };
 };
 
 export default SearchPage;

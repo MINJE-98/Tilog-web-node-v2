@@ -12,7 +12,7 @@ export const searchSeo = (category: Category["categoryName"]) => {
       site_name: "TILog",
       images: [
         {
-          url: `https://og.tilog.link/${category}의 대한 검색결과입니다..png?md=1&fontSize=50px&seed=3105&images=https://static.tilog.link/${category}.svg`,
+          url: `https://og.tilog.link/${category}에 대한 검색결과입니다..png?md=1&fontSize=50px&seed=3105&images=https://static.tilog.link/${category}.svg`,
           width: 285,
           height: 167,
           alt: "TILog",
