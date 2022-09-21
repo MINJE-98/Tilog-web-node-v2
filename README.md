@@ -32,15 +32,15 @@ Blog platform for developers, TILog
 # 프로젝트 핵심 기능
 
 ## 개인 페이지
-#### 깃허브 API를 사용하여 깃허브 정보를 사용자에게 표시합니다.
-#### TILog에서 작성한 글도 한눈에 볼 수 있고, 개인이 작성한 게시글을 카테고리별로 정렬할 수 있습니다.
+깃허브 API를 사용하여 깃허브 정보를 사용자에게 표시합니다.
+TILog에서 작성한 글도 한눈에 볼 수 있고, 개인이 작성한 게시글을 카테고리별로 정렬할 수 있습니다.
 > 추후 다양한 GIthub 관련 기능을 추가할 예정입니다
 
 ![image](https://user-images.githubusercontent.com/56459078/190889777-e7711379-4cba-4d03-b61b-6890b7a4ce95.png)
 
 ## 썸네일이 지정되지 않는 게시글
-#### 게시글 썸네일이 지정되지 않은 경우 postID를 seed로 특정 색상의 임시 썸네일이 발행됩니다.
-#### Post별 각각의 OG-Image를 생성하여 반영합니다.
+게시글 썸네일이 지정되지 않은 경우 postID를 seed로 특정 색상의 임시 썸네일이 발행됩니다.
+Post별 각각의 OG-Image를 생성하여 반영합니다.
 자세한 내용은 아래 SEO에서 다룹니다.
 <div>
   
@@ -50,19 +50,21 @@ Blog platform for developers, TILog
 </div>
 
 ## 모바일 대응 UI
-#### Tailwind를 사용하여 모든 페이지를 모바일에 대응하도록 컴포넌트를 구현하였습니다.
+Tailwind를 사용하여 모든 페이지를 모바일에 대응하도록 컴포넌트를 구현하였습니다.
 
 ![화면 기록 2022-09-18 오후 5 05 48 mov](https://user-images.githubusercontent.com/56459078/190892452-82486924-1fab-4ae5-b55c-2369e4a469ad.gif)
 
 ## 카테고리 기준 게시글 검색
-#### 게시글의 # 테그가 붙은 카테고리를 입력하면 해당 카테고리의 글을 모아서 볼 수 있습니다.
-#### 카테고리별 OG-Image를 생성하여 반영합니다.
+게시글의 # 테그가 붙은 카테고리를 입력하면 해당 카테고리의 글을 모아서 볼 수 있습니다.
+카테고리별 OG-Image를 생성하여 반영합니다.
+![image](https://user-images.githubusercontent.com/56459078/191526516-568dd8bd-6b53-43a8-8b5e-adadd6069f62.png)
+
 
 ### 그밖의 기본 기능
 
-#### 최신, 인기 게시글
-#### 게시글 작성, 수정, 삭제
-#### 게시글 댓글, 답글 | 삭제, 수정
+최신, 인기 게시글
+게시글 작성, 수정, 삭제
+게시글 댓글, 답글 | 삭제, 수정
 
 ## SEO
 
@@ -83,7 +85,7 @@ Blog platform for developers, TILog
 
 ### [유저 인증](https://www.github.com/MINJE-98/login-template)
 <!-- ### SSR CSR? -->
-<!-- ### [컴포넌트 구조 고민](https://www.tilog.link/post/19) -->
+### [컴포넌트 구조 고민](https://www.tilog.link/post/19)
 <!-- ### 상태관리 툴 정하기 -->
 ### [OpenAPI로 백엔드와 통신하기](https://www.tilog.link/post/18)
 <!-- ### Suspense, ErrorBoundary -->
