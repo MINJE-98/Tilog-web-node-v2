@@ -14,7 +14,7 @@ import { ALL_LATEST_POST } from "@Constants/text";
 import RootBox from "@Layouts/box/RootBox";
 
 const LatestPostCardList = dynamic(
-  () => import("@Components/home/list/LatestPostCardList"),
+  () => import("@Components/post/list/LatestPostList"),
   { ssr: false }
 );
 
