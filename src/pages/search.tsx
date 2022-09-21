@@ -39,12 +39,12 @@ const SearchPage: NextPage<{ categoryName: string }> = ({
   );
 };
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { categoryName } = context.query;
-  if (!categoryName) return { props: {} };
-  if (Array.isArray(categoryName)) return { props: {} };
+  const { category } = context.query;
+  if (!category) return { props: {} };
+  if (Array.isArray(category)) return { props: {} };
   return {
     props: {
-      categoryName,
+      categoryName: category,
     },
   };
 };
