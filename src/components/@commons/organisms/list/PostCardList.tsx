@@ -1,7 +1,5 @@
 import React from "react";
 
-import { AxiosResponse } from "axios";
-
 import { NO_EXIST_POSTS } from "@Constants/text/noExistPost";
 
 import { GetPostsItem, GetPostsResponseDto } from "@til-log.lab/tilog-api";
@@ -14,14 +12,14 @@ interface PostCardListProps {
     post: GetPostsItem;
     index?: number;
   }) => JSX.Element;
-  postList: AxiosResponse<GetPostsResponseDto, any> | undefined;
+  postList?: GetPostsResponseDto;
 }
 
 const PostCardList = ({ CardComponent, postList }: PostCardListProps) => {
   if (!postList) return <p>{NO_EXIST_POSTS}</p>;
   return (
     <div className="grid gap-3 grid-row md:grid-cols-2">
-      {postList.data.list.map((post, idex) => (
+      {postList.list.map((post, idex) => (
         <CardComponent key={post.id} index={idex + 1} post={post} />
       ))}
     </div>

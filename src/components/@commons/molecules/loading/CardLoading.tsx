@@ -1,4 +1,3 @@
-import { AxiosResponse } from "axios";
 import { UseInfiniteQueryResult } from "react-query";
 
 import Spinner from "@Commons/atom/Spinner";
@@ -6,7 +5,7 @@ import Spinner from "@Commons/atom/Spinner";
 import { GetPostsResponseDto } from "@til-log.lab/tilog-api";
 
 interface CardLoadingProps {
-  cardList: UseInfiniteQueryResult<AxiosResponse<GetPostsResponseDto>>;
+  cardList: UseInfiniteQueryResult<GetPostsResponseDto>;
 }
 
 const CardLoading = ({
