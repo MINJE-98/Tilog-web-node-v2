@@ -2,36 +2,46 @@ import "../../styles/globals.css";
 import "../../styles/nprogress.css";
 
 import { AppProps } from "next/app";
+import { useState } from "react";
 
 import { Toaster } from "react-hot-toast";
-import { QueryClient, QueryClientProvider } from "react-query";
+import {
+  DehydratedState,
+  Hydrate,
+  QueryClient,
+  QueryClientProvider,
+} from "react-query";
 
 import Footer from "@Components/footer";
 import Header from "@Components/header";
 import { AuthProvider } from "@Contexts/auth/AuthProvider";
 import useProgressBar from "@Hooks/useProgressBar";
 
-import GetMeResponse from "@Api/users/interface/getMeResponse";
-
-const queryClient = new QueryClient({});
+// const queryClient = new QueryClient({});
 
 type CustomAppProps = AppProps & {
   pageProps: {
-    initUserInfo: GetMeResponse;
+    dehydratedState: DehydratedState;
   };
 };
 
-const App = ({ Component, pageProps }: CustomAppProps) => {
+const App = ({
+  Component,
+  pageProps: { dehydratedState, ...pageProps },
+}: CustomAppProps) => {
   useProgressBar();
+  const [queryClient] = useState(() => new QueryClient());
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <Toaster />
-        {Component.name !== "Callback" && <Header />}
-        <Component {...pageProps} />
-        <Footer />
-      </AuthProvider>
+      <Hydrate state={dehydratedState}>
+        <AuthProvider>
+          <Toaster />
+          {Component.name !== "Callback" && <Header />}
+          <Component {...pageProps} />
+          <Footer />
+        </AuthProvider>
+      </Hydrate>
     </QueryClientProvider>
   );
 };
