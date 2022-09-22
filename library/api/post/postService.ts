@@ -46,13 +46,13 @@ export default class PostService {
     return this.postRepository.postsControllerDeletePost(postId, options);
   }
 
-  getPosts(
+  async getPosts(
     getPostRequest: GetPostRequest,
     options?: AxiosRequestConfig<ExceptionInterface>
   ) {
     const { dateScope, sortScope, page, maxContent, userId, categoryId } =
       getPostRequest;
-    return this.postRepository.postsControllerGetPosts(
+    const { data } = await this.postRepository.postsControllerGetPosts(
       dateScope,
       sortScope,
       page,
@@ -61,6 +61,7 @@ export default class PostService {
       categoryId,
       options
     );
+    return data;
   }
 
   async getCategoryPosts(
@@ -70,16 +71,17 @@ export default class PostService {
     const { dateScope, sortScope, page, maxContent, userId, categoryName } =
       getPostRequest;
     if (categoryName === "") {
-      return this.postRepository.postsControllerGetPosts(
+      const { data } = await this.postRepository.postsControllerGetPosts(
         dateScope,
         sortScope,
         page,
         maxContent,
         userId
       );
+      return data;
     }
     const { id } = await this.categoryService.getCategory(categoryName);
-    return this.postRepository.postsControllerGetPosts(
+    const { data } = await this.postRepository.postsControllerGetPosts(
       dateScope,
       sortScope,
       page,
@@ -88,6 +90,7 @@ export default class PostService {
       id,
       options
     );
+    return data;
   }
 
   @validateToken()
