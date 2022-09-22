@@ -1,7 +1,9 @@
 import { ReactElement } from "react";
 
-import * as BS from "react-icons/bs";
+import { BsQuestionCircleFill } from "react-icons/bs";
+import { GrServerCluster } from "react-icons/gr";
 import * as SI from "react-icons/si";
+import { TbBrandNextjs } from "react-icons/tb";
 
 interface TechIconsInterface {
   [techName: string]: ReactElement;
@@ -15,7 +17,7 @@ const TechIcons: TechIconsInterface = {
   REACT: <SI.SiReact className="inline text-React" />,
   CSS: <SI.SiCss3 className="inline text-CSS" />,
   INFRA: (
-    <BS.BsFillHddNetworkFill className="inline text-neutral-800 dark:text-neutral-50" />
+    <GrServerCluster className="inline text-neutral-800 dark:text-neutral-50" />
   ),
   PYTHON: <SI.SiPython className="inline text-Python" />,
   JAVA: <SI.SiJava className="inline text-Java" />,
@@ -30,6 +32,7 @@ const TechIcons: TechIconsInterface = {
   PHP: <SI.SiPhp className="inline text-PHP" />,
   SCALA: <SI.SiScala className="inline text-Scala" />,
   SOLIDITY: <SI.SiSolidity className="inline text-Ruby" />,
-  UNKNOWN: <BS.BsFillPatchQuestionFill className="inline" />,
+  NEXTJS: <TbBrandNextjs text-neutral-800 dark:text-neutral-50 />,
+  UNKNOWN: <BsQuestionCircleFill className="inline" />,
 };
 export default TechIcons;
