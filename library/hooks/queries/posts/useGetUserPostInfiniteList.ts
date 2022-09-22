@@ -34,7 +34,7 @@ const useGetUserPostInfiniteList = (
       useErrorBoundary: true,
       getNextPageParam: (lastPages, pages) => {
         const nextPage = pages.length;
-        const lastPagesListCount = lastPages.data.list.length;
+        const lastPagesListCount = lastPages.list.length;
 
         if (lastPagesListCount !== 0 && lastPagesListCount % maxContent === 0) {
           return nextPage;
