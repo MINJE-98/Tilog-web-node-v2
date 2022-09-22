@@ -32,7 +32,11 @@ const TechIcons: TechIconsInterface = {
   PHP: <SI.SiPhp className="inline text-PHP" />,
   SCALA: <SI.SiScala className="inline text-Scala" />,
   SOLIDITY: <SI.SiSolidity className="inline text-Ruby" />,
-  NEXTJS: <TbBrandNextjs className="text-neutral-800 dark:text-neutral-50" />,
-  UNKNOWN: <BsQuestionCircleFill className="inline" />,
+  NEXTJS: (
+    <TbBrandNextjs className="inline text-neutral-800 dark:text-neutral-50" />
+  ),
+  UNKNOWN: (
+    <BsQuestionCircleFill className="inline text-neutral-800 dark:text-neutral-50" />
+  ),
 };
 export default TechIcons;
