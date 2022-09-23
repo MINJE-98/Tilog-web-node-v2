@@ -11,7 +11,11 @@ import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import BlogBox from "@Layouts/box/BlogBox";
 import RootBox from "@Layouts/box/RootBox";
 import { userBlogDetailSeo } from "@SEO";
-import { categoryQueryKeys, postQueryKeys } from "@Utility/queryKey";
+import {
+  categoryQueryKeys,
+  postQueryKeys,
+  userQueryKeys,
+} from "@Utility/queryKey";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
@@ -49,7 +53,6 @@ export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
     if (Array.isArray(userName) || Array.isArray(categoryName))
       return { notFound: true };
 
-    const queryClient = new QueryClient();
     let userInfo: GetUserProfileResponse;
     try {
       userInfo = await api.usersService.getUserProfile(userName);
@@ -59,6 +62,12 @@ export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
       };
     }
 
+    const queryClient = new QueryClient();
+
+    await queryClient.setQueryData(
+      userQueryKeys.userDetailUserName(userInfo.name),
+      userInfo
+    );
     await queryClient.prefetchInfiniteQuery(
       postQueryKeys.postListInfiniteUserCategoryName(userInfo.id, ""),
       () =>
