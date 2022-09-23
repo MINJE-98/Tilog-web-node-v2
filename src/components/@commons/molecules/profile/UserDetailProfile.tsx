@@ -1,48 +1,49 @@
 import LinkTo from "@Commons/atom/LinkTo";
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
+import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
+import useGetUserProfile from "@Queries/users/useGetUserProfile";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
 interface UserDetailProfileProps {
-  userInfo: GetUserProfileResponse;
+  userName: GetUserProfileResponse["name"];
 }
 
-const UserDetailProfile = ({ userInfo }: UserDetailProfileProps) => {
+const UserDetailProfile = ({ userName }: UserDetailProfileProps) => {
+  const { data } = useGetUserProfile(userName);
+  if (!data) return null;
   return (
     <>
       <div className="flex">
         <UserAvatarImage
           className="w-20 h-20 xl:w-32 xl:h-32"
-          avatar={userInfo.avatar}
+          avatar={data.avatar}
         />
 
         <div className="ml-5">
-          <LinkTo
-            href={`https://www.github.com/${userInfo.name}`}
-            target="_blank"
-          >
-            <p className="text-xs font-normal">@{userInfo.name}</p>
+          <LinkTo href={`https://www.github.com/${data.name}`} target="_blank">
+            <p className="text-xs font-normal">@{data.name}</p>
           </LinkTo>
 
-          <LinkTo href={`mailto:${userInfo.settings.EMAIL}`}>
-            <p className="text-xs">{userInfo.settings.EMAIL}</p>
+          <LinkTo href={`mailto:${data.settings.EMAIL}`}>
+            <p className="text-xs">{data.settings.EMAIL}</p>
           </LinkTo>
 
           <h4 className="line-clamp-1">
-            {userInfo.settings.DISPLAY_NAME
-              ? userInfo.settings.DISPLAY_NAME
-              : userInfo.name}
+            {data.settings.DISPLAY_NAME
+              ? data.settings.DISPLAY_NAME
+              : data.name}
           </h4>
 
-          <p className="text-sm line-clamp-1">{userInfo.settings.POSITION}</p>
+          <p className="text-sm line-clamp-1">{data.settings.POSITION}</p>
         </div>
       </div>
       <div className="p-5">
         <span className="font-medium line-clamp-3">
-          {userInfo.settings.INTRO_MSG}
+          {data.settings.INTRO_MSG}
         </span>
       </div>
     </>
   );
 };
-export default UserDetailProfile;
+export default withSuspenseAndErrorBoundary(UserDetailProfile);
