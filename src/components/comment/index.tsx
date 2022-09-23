@@ -3,6 +3,7 @@ import CommentInput from "@Components/comment/input/CommentInput";
 import RootComment from "@Components/comment/render/RootComment";
 import { INPUT } from "@Constants/button";
 import { COMMENT_PLACEHOLDER } from "@Constants/text/placeholder";
+import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import useGetParentComment from "@Queries/comments/useGetParentComment";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
@@ -16,9 +17,9 @@ const Comment = ({ postId }: CommentProps) => {
   if (!commentList.data) return <>댓글이 없어요..</>;
 
   return (
-    <div>
+    <section className="mt-5">
       <CardNavTitle>Comments</CardNavTitle>
-      {commentList.data.data.list.map((comment) => (
+      {commentList.data.list.map((comment) => (
         <RootComment key={comment.id} comment={comment} />
       ))}
       <CommentInput
@@ -27,7 +28,7 @@ const Comment = ({ postId }: CommentProps) => {
         placeholder={COMMENT_PLACEHOLDER}
         buttonText={INPUT}
       />
-    </div>
+    </section>
   );
 };
-export default Comment;
+export default withSuspenseAndErrorBoundary(Comment);

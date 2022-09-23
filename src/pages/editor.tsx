@@ -31,10 +31,10 @@ export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
     if (!postId) return { props: {} };
     if (Array.isArray(postId)) return { props: {} };
     try {
-      const { data } = await api.postService.getPostDetail(postId);
+      const post = await api.postService.getPostDetail(postId);
       return {
         props: {
-          post: data,
+          post,
         },
       };
     } catch (error) {
