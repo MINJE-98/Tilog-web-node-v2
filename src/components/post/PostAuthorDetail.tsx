@@ -16,7 +16,9 @@ const PostAuthorDetail = ({ username }: PostAuthorDetailProps) => {
     <div className="mt-20 rounded md:sticky md:top-4 md:mt-0 bg-neutral-100 dark:bg-neutral-800">
       <div className="w-full p-5">
         {userInfo.isLoading && <Spinner />}
-        {userInfo.isSuccess && <UserDetailProfile userInfo={userInfo.data} />}
+        {userInfo.isSuccess && (
+          <UserDetailProfile userName={userInfo.data.name} />
+        )}
         <UserBlogLink userName={username} />
       </div>
     </div>

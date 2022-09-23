@@ -35,7 +35,7 @@ const UserStatsSection = ({
   return (
     <div className="flex flex-col space-y-10 w-full max-w-[450px]">
       <section className="order-1">
-        <UserDetailProfile userInfo={userInfo} />
+        <UserDetailProfile userName={userInfo.name} />
       </section>
 
       <section className="order-last md:order-2">
