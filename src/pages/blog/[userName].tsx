@@ -31,7 +31,7 @@ const BlogPage: NextPage<BlogPagePageProps> = ({
       <DefaultSeo {...seo} />
       <BlogBox>
         <UserStatsSection userInfo={userInfo} />
-        <div className="min-w-[600px] w-full mt-10 md:mt-0">
+        <div className="w-full mt-10 md:mt-0">
           <CardNavTitle>{categoryName} Posts</CardNavTitle>
           <BlogPostList categoryName={categoryName} userId={userInfo.id} />
         </div>
