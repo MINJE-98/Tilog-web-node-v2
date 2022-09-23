@@ -1,5 +1,6 @@
 import MostPopularPostCard from "@Commons/molecules/card/post/MostPopularPostCard";
 import PostCardList from "@Commons/organisms/list/PostCardList";
+import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import useGetMostPopularPostList from "@Queries/posts/useGetMostPopularPostList";
 
 const MostPopularPostCardList = () => {
@@ -17,4 +18,4 @@ const MostPopularPostCardList = () => {
   );
 };
 
-export default MostPopularPostCardList;
+export default withSuspenseAndErrorBoundary(MostPopularPostCardList);
