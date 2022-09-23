@@ -31,11 +31,15 @@ export default class PostService {
     );
   }
 
-  getPostDetail(
+  async getPostDetail(
     postId: Posts["id"],
     options?: AxiosRequestConfig<ExceptionInterface>
   ) {
-    return this.postRepository.postsControllerGetPostDetail(postId, options);
+    const { data } = await this.postRepository.postsControllerGetPostDetail(
+      postId,
+      options
+    );
+    return data;
   }
 
   @validateToken()

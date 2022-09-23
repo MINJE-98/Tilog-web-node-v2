@@ -36,15 +36,16 @@ export default class CommentService {
     );
   }
 
-  getComments(
+  async getComments(
     { postId, replyTo }: GetCommentsRequest,
     options?: AxiosRequestConfig
   ) {
-    return this.commentRepository.commentsControllerGetComments(
+    const { data } = await this.commentRepository.commentsControllerGetComments(
       postId,
       replyTo,
       options
     );
+    return data;
   }
 
   @validateToken()
