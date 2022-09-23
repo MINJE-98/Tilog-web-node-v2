@@ -6,14 +6,16 @@ import { Category } from "@Api/interface/model";
 
 export default class CategoryService {
   constructor(private readonly categoryRepository: CategoryRepository) {}
-  getCategories(
+  async getCategories(
     categoryName?: Category["categoryName"],
     options?: AxiosRequestConfig
   ) {
-    return this.categoryRepository.categoriesControllerGetCategories(
-      categoryName,
-      options
-    );
+    const { data } =
+      await this.categoryRepository.categoriesControllerGetCategories(
+        categoryName,
+        options
+      );
+    return data;
   }
 
   async getCategory(

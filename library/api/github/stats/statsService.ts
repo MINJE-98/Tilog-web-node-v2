@@ -7,10 +7,11 @@ import UserStatsResponse from "@Api/github/interface/userStatsResponse";
 
 export default class StatsService {
   constructor(private readonly axios: AxiosInstance) {}
-  getUserStats(
-    userName: GithubRequest["userName"]
-  ): Promise<AxiosResponse<UserStatsResponse, ExceptionInterface>> {
-    return this.axios.get(`/stats/${userName}`);
+  async getUserStats(userName: GithubRequest["userName"]) {
+    const { data } = await this.axios.get<UserStatsResponse>(
+      `/stats/${userName}`
+    );
+    return data;
   }
   async getTopLanguage(
     userName: GithubRequest["userName"]
