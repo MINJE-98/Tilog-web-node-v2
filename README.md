@@ -10,7 +10,7 @@ Blog platform for developers, TILog
 
 # 프로젝트 소개
 
-자신의 깃허브 통계와 블로그글을 작성하고 플렛폼 사용자와 지식을 공유하는 서비스입니다.
+TILog Service는 자신의 깃허브 정보를 바탕으로 자신이 사용하는 기술에 대해 블로그 글로 작성하고,  유저와 공유하는 블로그 플렛폼입니다.
 
 # 배포 구조
 ![Web App Reference Architecture (1)](https://user-images.githubusercontent.com/56459078/190943694-25412902-f7c5-4baa-a92d-65e87ada442b.png)
