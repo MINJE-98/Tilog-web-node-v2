@@ -44,7 +44,7 @@ const PostHead = ({ post }: PostHeadProps) => {
           <RenderTechIcons categoryName={post.category.name} />
         </div>
         <h1>{post.title}</h1>
-        <h4>{post.subTitle}</h4>
+        <h6>{post.subTitle}</h6>
       </div>
     </header>
   );
