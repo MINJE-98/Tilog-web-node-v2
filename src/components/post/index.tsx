@@ -15,6 +15,7 @@ const PostDetail = ({ post }: { post: GetPostDetailResponseDto }) => {
     <article className="w-full">
       <PostHead post={data} />
       <PostThumbnailImage
+        fontSize="2xl"
         id={data.id}
         thumbnailUrl={data.thumbnailUrl}
         title={data.title}
