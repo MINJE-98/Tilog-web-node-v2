@@ -8,8 +8,14 @@ interface AvatarImageProps {
 
 const AvatarImage = ({ avatar }: AvatarImageProps) => {
   return (
-    <div className="relative w-full h-full">
-      <Image className="rounded-full" layout="fill" alt="avatar" src={avatar} />
+    <div className="relative w-full h-full overflow-hidden rounded-full">
+      <Image
+        placeholder="blur"
+        layout="fill"
+        alt="avatar"
+        src={avatar}
+        blurDataURL={avatar}
+      />
     </div>
   );
 };

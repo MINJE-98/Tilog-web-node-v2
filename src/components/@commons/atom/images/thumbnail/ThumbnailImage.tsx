@@ -8,7 +8,12 @@ const ThumbnailImage = ({
   thumbnailUrl: Posts["thumbNailURL"];
 }) => (
   <div className="relative aspect-[2/1] w-full h-full">
-    <Image layout="fill" alt="thumbnail" src={thumbnailUrl} />
+    <Image
+      placeholder="blur"
+      layout="fill"
+      alt="thumbnail"
+      src={thumbnailUrl}
+    />
   </div>
 );
 export default ThumbnailImage;
