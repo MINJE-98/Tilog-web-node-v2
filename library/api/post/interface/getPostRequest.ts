@@ -1,5 +1,5 @@
 import { Category, Users } from "@Api/interface/model";
-import DateScope from "@Api/post/interface/dateScope";
+import { DateScope } from "@Api/post/interface/dateScope";
 import SortScope from "@Api/post/interface/sortScope";
 
 export interface GetPostRequest {

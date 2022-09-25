@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import LinkTo from "@Commons/atom/LinkTo";
 import queryString from "@Utility/queryString";
 
-import DateScope from "@Api/post/interface/dateScope";
+import { DateScope } from "@Api/post/interface/dateScope";
 
 const DateScopeLink = ({ dateScope }: { dateScope: DateScope }) => {
   const router = useRouter();

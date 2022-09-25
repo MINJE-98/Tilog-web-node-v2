@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import DateScope from "@Api/post/interface/dateScope";
+import { DateScope } from "@Api/post/interface/dateScope";
 
 const useDateScopeRouter = (): DateScope => {
   const { dateScope } = useRouter().query;
