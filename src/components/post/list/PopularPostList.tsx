@@ -1,5 +1,6 @@
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
+import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import useDateScopeRouter from "@Hooks/useDateScopeRouter";
 import useGetMostPopularPostInfiniteList from "@Queries/posts/useGetMostPopularPostInfiniteList";
 
@@ -20,4 +21,4 @@ const PopularPostList = () => {
   );
 };
 
-export default PopularPostList;
+export default withSuspenseAndErrorBoundary(PopularPostList);

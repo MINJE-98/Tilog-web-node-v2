@@ -1,12 +1,6 @@
-import { Suspense } from "react";
-
-import { ErrorBoundary } from "react-error-boundary";
-import { QueryErrorResetBoundary } from "react-query";
-
-import Spinner from "@Commons/atom/Spinner";
 import PostCard from "@Commons/molecules/card/post/PostCard";
-import ComponentLoadError from "@Commons/molecules/ComponentLoadError";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
+import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import useGetSearchPostInfiniteList from "@Queries/posts/useGetSearchPostInfiniteList";
 
 const SearchPostList = ({ categoryName }: { categoryName: string }) => {
@@ -18,20 +12,12 @@ const SearchPostList = ({ categoryName }: { categoryName: string }) => {
     maxContent: 10,
   });
   return (
-    <QueryErrorResetBoundary>
-      {({ reset }) => (
-        <Suspense fallback={<Spinner />}>
-          <ErrorBoundary onReset={reset} fallbackRender={ComponentLoadError}>
-            <PostCardInfiniteList
-              twoRow
-              CardComponent={PostCard}
-              postList={searchPostList}
-            />
-          </ErrorBoundary>
-        </Suspense>
-      )}
-    </QueryErrorResetBoundary>
+    <PostCardInfiniteList
+      twoRow
+      CardComponent={PostCard}
+      postList={searchPostList}
+    />
   );
 };
 
-export default SearchPostList;
+export default withSuspenseAndErrorBoundary(SearchPostList);
