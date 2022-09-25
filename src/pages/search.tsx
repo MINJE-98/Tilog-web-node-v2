@@ -2,7 +2,7 @@ import { GetServerSideProps, NextPage } from "next";
 
 import { searchSeo } from "library/seo/searchSeo";
 import { DefaultSeo } from "next-seo";
-import { QueryClient } from "react-query";
+import { dehydrate, QueryClient } from "react-query";
 
 import api from "@Api/index";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   if (!category) return { props: {} };
   if (Array.isArray(category)) return { props: {} };
   const queryClient = new QueryClient();
-  queryClient.prefetchInfiniteQuery(
+  await queryClient.prefetchInfiniteQuery(
     postQueryKeys.postListInfiniteSearchCategoryName(category),
     () =>
       api.postService.getCategoryPosts({
@@ -43,6 +43,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   );
   return {
     props: {
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
       categoryName: category,
     },
   };

@@ -8,7 +8,6 @@ import api from "@Api/index";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
 import LatestPostList from "@Components/post/list/LatestPostList";
 import { ALL_LATEST_POST } from "@Constants/text";
-import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
 import { postQueryKeys } from "@Utility/queryKey";
 
@@ -25,23 +24,21 @@ const LatestPage: NextPage = () => {
 };
 
 export default LatestPage;
-export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
-  async () => {
-    const queryClient = new QueryClient();
-    await queryClient.prefetchInfiniteQuery(
-      postQueryKeys.postListLatest(),
-      () =>
-        api.postService.getPosts({
-          dateScope: "All",
-          sortScope: "createdAt",
-          page: 0,
-          maxContent: 6,
-        })
-    );
-    return {
-      props: {
-        dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
-      },
-    };
-  }
-);
+export const getServerSideProps: GetServerSideProps = async () => {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchInfiniteQuery(
+    postQueryKeys.postListInfinitePopularDateScope("All"),
+    () =>
+      api.postService.getPosts({
+        dateScope: "All",
+        sortScope: "createdAt",
+        page: 0,
+        maxContent: 6,
+      })
+  );
+  return {
+    props: {
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+    },
+  };
+};
