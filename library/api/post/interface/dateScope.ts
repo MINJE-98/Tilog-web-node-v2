@@ -1,3 +1,8 @@
-type DateScope = "All" | "Daily" | "Weekly" | "Monthly";
+export const dateScopeUnion = {
+  All: "All",
+  Daily: "Daily",
+  Weekly: "Weekly",
+  Monthly: "Monthly",
+} as const;
 
-export default DateScope;
+export type DateScope = keyof typeof dateScopeUnion;
