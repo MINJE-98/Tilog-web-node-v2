@@ -1,39 +1,26 @@
 import { GetServerSideProps, NextPage } from "next";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
 
 import { searchSeo } from "library/seo/searchSeo";
 import { DefaultSeo } from "next-seo";
-import { ErrorBoundary } from "react-error-boundary";
-import { useQueryErrorResetBoundary } from "react-query";
+import { QueryClient } from "react-query";
 
-import Spinner from "@Commons/atom/Spinner";
-import ComponentLoadError from "@Commons/molecules/ComponentLoadError";
+import api from "@Api/index";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
+import SearchPostList from "@Components/post/list/SearchPostList";
 import RootBox from "@Layouts/box/RootBox";
-
-const SearchPostList = dynamic(
-  () => import("@Components/post/list/SearchPostList"),
-  { ssr: false }
-);
+import { postQueryKeys } from "@Utility/queryKey";
 
 const SearchPage: NextPage<{ categoryName: string }> = ({
   categoryName,
 }: {
   categoryName: string;
 }) => {
-  const { reset } = useQueryErrorResetBoundary();
-
   return (
     <div>
       <DefaultSeo {...searchSeo(categoryName)} />
       <RootBox>
         <CardNavTitle>{categoryName} Search Result</CardNavTitle>
-        <Suspense fallback={<Spinner />}>
-          <ErrorBoundary onReset={reset} fallbackRender={ComponentLoadError}>
-            <SearchPostList categoryName={categoryName} />
-          </ErrorBoundary>
-        </Suspense>
+        <SearchPostList categoryName={categoryName} />
       </RootBox>
     </div>
   );
@@ -42,6 +29,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { category } = context.query;
   if (!category) return { props: {} };
   if (Array.isArray(category)) return { props: {} };
+  const queryClient = new QueryClient();
+  queryClient.prefetchInfiniteQuery(
+    postQueryKeys.postListInfiniteSearchCategoryName(category),
+    () =>
+      api.postService.getCategoryPosts({
+        dateScope: "All",
+        sortScope: "createdAt",
+        page: 0,
+        categoryName: category,
+        maxContent: 10,
+      })
+  );
   return {
     props: {
       categoryName: category,

@@ -1,39 +1,47 @@
-import { NextPage } from "next";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
+import { GetServerSideProps, NextPage } from "next";
 
 import { latestSeo } from "library/seo/latestSeo";
 import { DefaultSeo } from "next-seo";
-import { ErrorBoundary } from "react-error-boundary";
-import { useQueryErrorResetBoundary } from "react-query";
+import { dehydrate, QueryClient } from "react-query";
 
-import Spinner from "@Commons/atom/Spinner";
-import ComponentLoadError from "@Commons/molecules/ComponentLoadError";
+import api from "@Api/index";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
+import LatestPostList from "@Components/post/list/LatestPostList";
 import { ALL_LATEST_POST } from "@Constants/text";
+import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
-
-const LatestPostCardList = dynamic(
-  () => import("@Components/post/list/LatestPostList"),
-  { ssr: false }
-);
+import { postQueryKeys } from "@Utility/queryKey";
 
 const LatestPage: NextPage = () => {
-  const { reset } = useQueryErrorResetBoundary();
   return (
     <div>
       <DefaultSeo {...latestSeo} />
       <RootBox>
         <CardNavTitle>{ALL_LATEST_POST}</CardNavTitle>
-
-        <Suspense fallback={<Spinner />}>
-          <ErrorBoundary onReset={reset} fallbackRender={ComponentLoadError}>
-            <LatestPostCardList />
-          </ErrorBoundary>
-        </Suspense>
+        <LatestPostList />
       </RootBox>
     </div>
   );
 };
 
 export default LatestPage;
+export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
+  async () => {
+    const queryClient = new QueryClient();
+    await queryClient.prefetchInfiniteQuery(
+      postQueryKeys.postListLatest(),
+      () =>
+        api.postService.getPosts({
+          dateScope: "All",
+          sortScope: "createdAt",
+          page: 0,
+          maxContent: 6,
+        })
+    );
+    return {
+      props: {
+        dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+      },
+    };
+  }
+);

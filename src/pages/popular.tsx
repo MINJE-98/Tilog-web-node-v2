@@ -1,26 +1,21 @@
-import { NextPage } from "next";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
+import { GetServerSideProps, NextPage } from "next";
 
 import { popularSeo } from "library/seo/popularSeo";
 import { DefaultSeo } from "next-seo";
-import { ErrorBoundary } from "react-error-boundary";
-import { useQueryErrorResetBoundary } from "react-query";
+import { dehydrate, QueryClient } from "react-query";
 
-import Spinner from "@Commons/atom/Spinner";
-import ComponentLoadError from "@Commons/molecules/ComponentLoadError";
+import api from "@Api/index";
 import DateScopeLink from "@Commons/molecules/link/DateScopeLink";
 import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
+import PopularPostList from "@Components/post/list/PopularPostList";
 import { ALL_MOST_POPULAR_POST } from "@Constants/text";
+import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
+import { postQueryKeys } from "@Utility/queryKey";
 
-const PopularPostList = dynamic(
-  () => import("@Components/post/list/PopularPostList"),
-  { ssr: false }
-);
+import DateScope from "@Api/post/interface/dateScope";
 
 const PopularPage: NextPage = () => {
-  const { reset } = useQueryErrorResetBoundary();
   return (
     <div>
       <DefaultSeo {...popularSeo} />
@@ -37,14 +32,34 @@ const PopularPage: NextPage = () => {
         >
           {ALL_MOST_POPULAR_POST}
         </CardNavTitle>
-        <Suspense fallback={<Spinner />}>
-          <ErrorBoundary onReset={reset} fallbackRender={ComponentLoadError}>
-            <PopularPostList />
-          </ErrorBoundary>
-        </Suspense>
+        <PopularPostList />
       </RootBox>
     </div>
   );
 };
 
 export default PopularPage;
+export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
+  async (context) => {
+    const { dateScope } = context.query;
+    if (!dateScope) return { props: {} };
+    if (Array.isArray(dateScope)) return { props: {} };
+
+    const queryClient = new QueryClient();
+    await queryClient.prefetchInfiniteQuery(
+      postQueryKeys.postListInfinitePopularDateScope(dateScope as DateScope),
+      () =>
+        api.postService.getPosts({
+          dateScope: dateScope as DateScope,
+          sortScope: "likes",
+          page: 0,
+          maxContent: 10,
+        })
+    );
+    return {
+      props: {
+        dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+      },
+    };
+  }
+);
