@@ -4,6 +4,7 @@ import { UseInfiniteQueryResult } from "react-query";
 
 import CardInfiniteLoading from "@Commons/molecules/loading/CardInfiniteLoading";
 import { NO_EXIST_POSTS } from "@Constants/text/noExistPost";
+import isArrayEmpty from "@Utility/isArrayEmpty";
 
 import { GetPostsItem, GetPostsResponseDto } from "@til-log.lab/tilog-api";
 
@@ -22,7 +23,9 @@ const PostCardInfiniteList = ({
   return (
     <>
       <div className={`grid gap-3 grid-row ${twoRow ? "md:grid-cols-2" : ""}`}>
-        {postList.data.pages.map((postPage) => {
+        {postList.data.pages.map((postPage, idx) => {
+          if (idx === 0 && isArrayEmpty(postPage.list))
+            return <h3 key="0">{NO_EXIST_POSTS}</h3>;
           return postPage.list.map((post) => (
             <CardComponent key={post.id} post={post} />
           ));
