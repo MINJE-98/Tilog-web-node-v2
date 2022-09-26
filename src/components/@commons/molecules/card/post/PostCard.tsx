@@ -46,7 +46,7 @@ const PostCard = ({ post }: { post: GetPostsItem }) => {
           <LikeCounter count={post.like} />
         </div>
       </div>
-      <div className="order-first w-full lg:order-last">
+      <div className="order-first lg:order-last lg:w-[600px]">
         <LinkTo href={`/post/${post.id}`} className="w-full hover:no-underline">
           <PostThumbnailImage
             id={post.id}
