@@ -1,7 +1,9 @@
+import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import Link from "@tiptap/extension-link";
 import { useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
+import { lowlight } from "lowlight/lib/core";
 import { useFormContext } from "react-hook-form";
 
 import { WRITER_INPUT_TYPE } from "@Constants/input";
@@ -12,7 +14,13 @@ import { CreatePostRequestBodyDto } from "@til-log.lab/tilog-api";
 const useTiptapEditor = () => {
   const { setValue, getValues } = useFormContext<CreatePostRequestBodyDto>();
   return useEditor({
-    extensions: [StarterKit, Link],
+    extensions: [
+      StarterKit,
+      Link,
+      CodeBlockLowlight.configure({
+        lowlight,
+      }),
+    ],
 
     editable: true,
     content: safeJsonParser(getValues("markdownContent")),
