@@ -1,10 +1,19 @@
+import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import Link from "@tiptap/extension-link";
 import { EditorOptions, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
+import { lowlight } from "lowlight";
+
 const useTiptapViewer = (content: EditorOptions["content"]) => {
   return useEditor({
-    extensions: [StarterKit, Link],
+    extensions: [
+      StarterKit,
+      Link,
+      CodeBlockLowlight.configure({
+        lowlight,
+      }),
+    ],
 
     editable: false,
     content,
