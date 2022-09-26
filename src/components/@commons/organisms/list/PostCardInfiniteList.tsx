@@ -2,7 +2,7 @@ import React from "react";
 
 import { UseInfiniteQueryResult } from "react-query";
 
-import CardLoading from "@Commons/molecules/loading/CardLoading";
+import CardInfiniteLoading from "@Commons/molecules/loading/CardInfiniteLoading";
 import { NO_EXIST_POSTS } from "@Constants/text/noExistPost";
 import isArrayEmpty from "@Utility/isArrayEmpty";
 
@@ -31,7 +31,7 @@ const PostCardInfiniteList = ({
           ));
         })}
       </div>
-      <CardLoading cardList={postList} />
+      <CardInfiniteLoading cardList={postList} />
     </>
   );
 };
