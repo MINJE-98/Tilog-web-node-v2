@@ -5,7 +5,7 @@ interface RootBoxProps extends HTMLAttributes<HTMLDivElement> {}
 const RootBox = ({ children, ...props }: RootBoxProps) => (
   <main
     {...props}
-    className="m-auto max-w-[1280px] items-center mt-20 px-5 md:px-0 overflow-x-hidden"
+    className="m-auto max-w-[1280px] items-center mt-20 px-5 2xl:px-0 overflow-x-hidden"
   >
     {children}
   </main>
