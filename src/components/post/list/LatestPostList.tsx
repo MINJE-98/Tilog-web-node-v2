@@ -8,7 +8,7 @@ const LatestPostList = () => {
     dateScope: "All",
     sortScope: "createdAt",
     page: 0,
-    maxContent: 10,
+    maxContent: 6,
   });
   return (
     <PostCardInfiniteList
