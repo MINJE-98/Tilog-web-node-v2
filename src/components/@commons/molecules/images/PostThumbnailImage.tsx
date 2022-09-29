@@ -2,7 +2,7 @@ import React from "react";
 
 import ThumbnailImage from "@Commons/atom/images/thumbnail/ThumbnailImage";
 import EmptyThumbnailImage from "@Components/@commons/atom/images/thumbnail/EmptyThumbnailImage";
-import { backgroundColor, getBrightness, seededColor } from "@Utility/color";
+import { backgroundColor, getBrightness } from "@Utility/color";
 
 import { GetPostsItem } from "@til-log.lab/tilog-api";
 
@@ -25,13 +25,12 @@ const PostThumbnailImage = ({
     return <ThumbnailImage thumbnailUrl={thumbnailUrl} />;
   }
 
-  const color = seededColor(id);
   return (
     <EmptyThumbnailImage
       fontSize={fontSize}
       title={title}
-      backgroundColor={backgroundColor(color)}
-      getBrightness={getBrightness(color) ? "#121212" : "#fff"}
+      backgroundColor={backgroundColor(id)}
+      getBrightness={getBrightness(id) ? "#121212" : "#fff"}
     />
   );
 };
