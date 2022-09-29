@@ -1,4 +1,4 @@
-import CategorySticker from "@Commons/molecules/card/swipe/CategoryIconName";
+import CategorySticker from "@Commons/molecules/CategorySticker";
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import { backgroundColor } from "@Utility/color";
 
@@ -19,7 +19,7 @@ const SwipeMobileCard = ({
           !isActive && "opacity-50 "
         } `}
       >
-        <div className="absolute mx-5 -bottom-4">
+        <div className="absolute mx-5 -bottom-3">
           <CategorySticker categoryName={post.category.name} />
         </div>
       </div>
