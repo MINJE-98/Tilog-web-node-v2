@@ -1,4 +1,3 @@
-import LinkTo from "@Commons/atom/LinkTo";
 import CategorySticker from "@Commons/molecules/CategorySticker";
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import { backgroundColor } from "@Utility/color";
@@ -35,10 +34,8 @@ const SwipeCard = ({
               {post.subTitle}
             </p>
           </div>
-          <hr className="mb-3" />
-          <div className="flex items-center justify-between mx-5">
+          <div className="flex items-center justify-between mx-5 mt-5">
             <UserAvatarImage avatar={post.user.avatar} className="w-7 h-7" />
-            <LinkTo href={`/post/${post.id}`}>바로가기</LinkTo>
           </div>
         </div>
       </div>
