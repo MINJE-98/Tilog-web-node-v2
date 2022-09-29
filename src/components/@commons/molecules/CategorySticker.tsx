@@ -10,7 +10,7 @@ const CategorySticker = ({
   categoryName: GetPostsCategoryItem["name"];
 }) => {
   return (
-    <div className="flex items-center pt-[2px] pb-[3px] px-4 space-x-2 bg-neutral-800 rounded-2xl w-fit">
+    <div className="flex items-center pt-[2px] pb-[4px] px-4 space-x-2 bg-neutral-800 rounded-2xl w-fit">
       <div className="text-xl">
         <RenderTechIcons categoryName={categoryName} />
       </div>
