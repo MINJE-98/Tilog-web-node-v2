@@ -1,8 +1,8 @@
 import { VscCircleFilled } from "react-icons/vsc";
 
+import CategorySticker from "@Commons/molecules/CategorySticker";
 import PostUpdateLink from "@Commons/molecules/link/PostUpdateLink";
 import UserProfile from "@Commons/molecules/profile/UserProfile";
-import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 import DateFnsFormatter from "@Commons/molecules/text/DateFnsFormatter";
 import PostDeleteButton from "@Components/post/button/PostDeleteButton";
 import { VIEW_COUNT } from "@Constants/text";
@@ -41,7 +41,7 @@ const PostHead = ({ post }: PostHeadProps) => {
       </div>
       <div className="my-3 text-center">
         <div className="text-2xl">
-          <RenderTechIcons categoryName={post.category.name} />
+          <CategorySticker categoryName={post.category.name} />
         </div>
         <h1>{post.title}</h1>
         <h6>{post.subTitle}</h6>

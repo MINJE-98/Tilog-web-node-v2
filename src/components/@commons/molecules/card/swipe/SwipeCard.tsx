@@ -1,5 +1,4 @@
-import LinkTo from "@Commons/atom/LinkTo";
-import CategorySticker from "@Commons/molecules/card/swipe/CategoryIconName";
+import CategorySticker from "@Commons/molecules/CategorySticker";
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import { backgroundColor } from "@Utility/color";
 
@@ -24,7 +23,7 @@ const SwipeCard = ({
       <div className="md:absolute md:bottom-6 bg-neutral-50 dark:bg-neutral-800 w-full md:w-[400px]">
         {/** 자식과 자식 div */}
         <div className="relative py-5">
-          <div className="absolute -top-11 ">
+          <div className="absolute -top-10 ">
             <CategorySticker categoryName={post.category.name} />
           </div>
           <div className="mx-5">
@@ -35,10 +34,8 @@ const SwipeCard = ({
               {post.subTitle}
             </p>
           </div>
-          <hr className="mb-3" />
-          <div className="flex items-center justify-between mx-5">
+          <div className="flex items-center justify-between mx-5 mt-5">
             <UserAvatarImage avatar={post.user.avatar} className="w-7 h-7" />
-            <LinkTo href={`/post/${post.id}`}>바로가기</LinkTo>
           </div>
         </div>
       </div>
