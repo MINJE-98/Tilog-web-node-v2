@@ -1,7 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import "swiper/css/autoplay";
+@import "swiper/css/parallax";
 body {
   padding: 0;
   margin: 0;
@@ -9,6 +12,32 @@ body {
 
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
+}
+.tilog-pagination {
+  position: relative;
+  z-index: 100;
+  left: 310px;
+  bottom: 10px;
+  width: 45px;
+  height: 24px;
+  margin: 0 auto;
+  padding: 0 12px;
+  line-height: 24px;
+  letter-spacing: -1px;
+  font-size: 11px;
+  color: #fff;
+  border-radius: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 767px) {
+  .tilog-pagination {
+    left: auto;
+  }
+}
+
+.tilog-pagination > span {
+  font-size: 11px;
+  color: #fff;
 }
 
 @layer base {

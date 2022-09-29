@@ -1,20 +1,31 @@
-export function backgroundColor(colorHex: string): string {
+import { Posts } from "@Api/interface/model";
+
+const DECIMAL_COLOR_RANGE = 16777215;
+
+function getDecimalColor(value: number) {
+  return Math.floor(Math.abs(Math.sin(value) * DECIMAL_COLOR_RANGE));
+}
+
+export function getColorHex(postId: Posts["id"]) {
+  const decimalColor = getDecimalColor(parseInt(postId, 10));
+  const colorHex = decimalColor.toString(16).padEnd(6, "0");
+  return colorHex;
+}
+
+export function getColorRGB(postId: Posts["id"]) {
+  const decimalColor = getDecimalColor(parseInt(postId, 10));
+  const r = Math.floor(decimalColor / (256 * 256));
+  const g = Math.floor(decimalColor / 256) % 256;
+  const b = decimalColor % 256;
+  return { r, g, b };
+}
+
+export function backgroundColor(postId: Posts["id"]) {
+  const colorHex = getColorHex(postId);
   return `#${colorHex}`;
 }
 
-export function getBrightness(colorHex: string): boolean {
-  const r = parseInt(colorHex.slice(0, 2), 16);
-  const g = parseInt(colorHex.slice(2, 4), 16);
-  const b = parseInt(colorHex.slice(4, 6), 16);
+export function getBrightness(postId: Posts["id"]) {
+  const { r, g, b } = getColorRGB(postId);
   return (r * 299 + g * 587 + b * 114) / 1000 > 128;
-}
-export function seededColor(seed: string): string {
-  const result = Math.floor(
-    Math.abs(Math.sin(parseInt(seed, 10)) * 16777215)
-  ).toString(16);
-  if (result.length < 6) {
-    const repeatCount = 6 - result.length;
-    return result + "0".repeat(repeatCount);
-  }
-  return result;
 }
