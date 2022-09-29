@@ -18,7 +18,7 @@ const CardLinkTitle = ({
   return (
     <section className="py-3">
       <div className="flex items-center space-x-3">
-        {Icon}
+        <div className="mb-[2px]">{Icon}</div>
         <LinkTo scroll={false} href={href}>
           <h5 {...props} className={className}>
             {title}
