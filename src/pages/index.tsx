@@ -5,13 +5,11 @@ import { dehydrate, QueryClient } from "react-query";
 
 import api from "@Api/index";
 import FlameIcon from "@Commons/atom/icons/FlameIcon";
-import More from "@Commons/molecules/link/More";
-import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
+import NewIcon from "@Commons/atom/icons/NewIcon";
 import CardLinkTitle from "@Commons/molecules/title/CardLinkTitle";
 import IntroThumbnail from "@Components/home/IntroThumbnail";
-import LatestPostCardList from "@Components/home/list/LatestPostCardList";
 import MostPopularSwiper from "@Components/home/list/MostPopularSwiper";
-import { ALL_LATEST_POST } from "@Constants/text";
+import LatestPostList from "@Components/post/list/LatestPostList";
 import RootBox from "@Layouts/box/RootBox";
 import { rootSeo } from "@SEO";
 import { postQueryKeys } from "@Utility/queryKey";
@@ -33,10 +31,12 @@ const Home: NextPage = () => {
           </div>
         </section>
         <section className="my-10">
-          <CardNavTitle nav={<More href="latest" />}>
-            {ALL_LATEST_POST}
-          </CardNavTitle>
-          <LatestPostCardList />
+          <CardLinkTitle
+            Icon={<NewIcon />}
+            href="#"
+            title="TILog의 최신 포스트 >"
+          />
+          <LatestPostList />
         </section>
       </RootBox>
     </div>
@@ -57,17 +57,19 @@ export const getServerSideProps: GetServerSideProps = async () => {
         maxContent: 6,
       })
   );
-  await queryClient.prefetchQuery(postQueryKeys.postListLatest(), () =>
-    api.postService.getPosts({
-      dateScope: "All",
-      sortScope: "createdAt",
-      page: 0,
-      maxContent: 6,
-    })
+  await queryClient.prefetchInfiniteQuery(
+    postQueryKeys.postListInfinitePopularDateScope("All"),
+    () =>
+      api.postService.getPosts({
+        dateScope: "All",
+        sortScope: "createdAt",
+        page: 0,
+        maxContent: 6,
+      })
   );
   return {
     props: {
-      dehydratedState: dehydrate(queryClient),
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
     },
   };
 };
