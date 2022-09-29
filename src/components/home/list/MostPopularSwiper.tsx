@@ -2,6 +2,7 @@ import { useMediaQuery } from "react-responsive";
 import { A11y, Autoplay, Pagination, Parallax } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import LinkTo from "@Commons/atom/LinkTo";
 import SwipeCard from "@Commons/molecules/card/swipe/SwipeCard";
 import SwipeMobileCard from "@Commons/molecules/card/swipe/SwipeMobileCard";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
@@ -46,13 +47,15 @@ const MostPopularSwiper = () => {
       >
         {popularPostList.data?.list.map((post) => (
           <SwiperSlide key={post.id}>
-            {({ isActive }) =>
-              isTabletOrMobile ? (
-                <SwipeMobileCard isActive={isActive} post={post} />
-              ) : (
-                <SwipeCard isActive={isActive} post={post} />
-              )
-            }
+            {({ isActive }) => (
+              <LinkTo href={`post/${post.id}`} className="hover:no-underline">
+                {isTabletOrMobile ? (
+                  <SwipeMobileCard isActive={isActive} post={post} />
+                ) : (
+                  <SwipeCard isActive={isActive} post={post} />
+                )}
+              </LinkTo>
+            )}
           </SwiperSlide>
         ))}
       </Swiper>
