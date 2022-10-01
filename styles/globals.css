@@ -73,9 +73,9 @@ body {
     @apply w-full my-5 border-neutral-300 dark:border-neutral-700;
   }
   input {
-    @apply font-normal bg-white rounded-none appearance-none text-neutral-800 dark:text-neutral-50 dark:bg-neutral-800 focus:outline-none;
+    @apply text-xs font-normal bg-white rounded-none appearance-none md:text-base text-neutral-800 dark:text-neutral-50 dark:bg-neutral-800 focus:outline-none;
   }
   textarea {
-    @apply font-normal bg-white text-neutral-800 scrollbar-hide dark:text-neutral-50 dark:bg-neutral-900 focus:outline-none;
+    @apply text-xs font-normal bg-white md:text-base text-neutral-800 scrollbar-hide dark:text-neutral-50 dark:bg-neutral-900 focus:outline-none;
   }
 }
