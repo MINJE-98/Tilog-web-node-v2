@@ -33,7 +33,14 @@ const PostCardInfiniteList = ({
           if (idx === 0 && isArrayEmpty(postPage.list))
             return (
               <EmptyContentsCard
-                Icon={<Image src={image} width={100} height={100} />}
+                Icon={
+                  <Image
+                    alt="emptyContents"
+                    src={image}
+                    width={100}
+                    height={100}
+                  />
+                }
                 title="작성된 포스트가 없어요."
                 subTitle={<p>다른 카테고리로 검색해보세요!</p>}
               />

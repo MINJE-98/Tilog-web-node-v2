@@ -39,7 +39,9 @@ const Comment = ({ postId }: CommentProps) => {
       })}
       {commentList.data.list.length === 0 && (
         <EmptyContentsCard
-          Icon={<Image src={image} width={100} height={100} />}
+          Icon={
+            <Image alt="emptyContents" src={image} width={100} height={100} />
+          }
           title="작성된 댓글이 없어요."
           subTitle={
             !userInfo ? (
