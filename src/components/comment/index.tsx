@@ -43,7 +43,7 @@ const Comment = ({ postId }: CommentProps) => {
             <h4>작성된 댓글이 없어요.</h4>
             {!userInfo ? (
               <div className="mt-5 w-fit">
-                <p>👇로그인해서 댓글을 작성해보세요!👇</p>
+                <p>로그인해서 댓글을 작성해보세요!</p>
                 <LoginButton />
               </div>
             ) : (
