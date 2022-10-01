@@ -4,7 +4,7 @@ import { DefaultSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 
 import api from "@Api";
-import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
+import BlogCategorySortButtonList from "@Components/blog/list/BlogCategorySortButtonList";
 import BlogPostList from "@Components/blog/list/BlogPostList";
 import UserStatsSection from "@Components/blog/UserStatsSection";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
@@ -29,14 +29,15 @@ const BlogPage: NextPage<BlogPagePageProps> = ({
   categoryName,
 }: BlogPagePageProps) => {
   const seo = userBlogDetailSeo(userInfo);
-
   return (
     <RootBox>
       <DefaultSeo {...seo} />
       <BlogBox>
         <UserStatsSection userInfo={userInfo} />
         <div className="w-full mt-10 md:mt-0">
-          <CardNavTitle>{categoryName} Posts</CardNavTitle>
+          <section className="my-5">
+            <BlogCategorySortButtonList />
+          </section>
           <BlogPostList categoryName={categoryName} userId={userInfo.id} />
         </div>
       </BlogBox>

@@ -6,7 +6,8 @@ import { dehydrate, QueryClient } from "react-query";
 import api from "@Api/index";
 import FlameIcon from "@Commons/atom/icons/FlameIcon";
 import NewIcon from "@Commons/atom/icons/NewIcon";
-import CardLinkTitle from "@Commons/molecules/title/CardLinkTitle";
+import LinkTo from "@Commons/atom/LinkTo";
+import CardTitle from "@Commons/molecules/title/CardTitle";
 import IntroThumbnail from "@Components/home/IntroThumbnail";
 import MostPopularSwiper from "@Components/home/list/MostPopularSwiper";
 import LatestPostList from "@Components/post/list/LatestPostList";
@@ -21,20 +22,22 @@ const Home: NextPage = () => {
       <IntroThumbnail />
       <RootBox>
         <section>
-          <CardLinkTitle
-            href="/popular"
+          <CardTitle
+            cardTitle={
+              <LinkTo scroll={false} href="/popular">
+                <h6>TILog에서 가장 인기있는 포스트 {">"}</h6>
+              </LinkTo>
+            }
             Icon={<FlameIcon className="w-7 h-7" />}
-            title="TILog에서 가장 인기있는 포스트 >"
           />
           <div className="flex justify-center">
             <MostPopularSwiper />
           </div>
         </section>
         <section className="my-10">
-          <CardLinkTitle
+          <CardTitle
             Icon={<NewIcon />}
-            href="#"
-            title="TILog의 최신 포스트 >"
+            cardTitle={<h6>TILog의 최신 포스트</h6>}
           />
           <LatestPostList />
         </section>

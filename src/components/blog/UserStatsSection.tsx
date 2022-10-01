@@ -1,8 +1,10 @@
 import dynamic from "next/dynamic";
 
+import { AiFillPushpin } from "react-icons/ai";
+import { VscJson } from "react-icons/vsc";
+
 import UserDetailProfile from "@Commons/molecules/profile/UserDetailProfile";
-import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
-import BlogCategorySortButtonList from "@Components/blog/list/BlogCategorySortButtonList";
+import CardTitle from "@Commons/molecules/title/CardTitle";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
@@ -38,23 +40,36 @@ const UserStatsSection = ({
         <UserDetailProfile userName={userInfo.name} />
       </section>
 
-      <section className="order-last md:order-2">
-        <CardNavTitle>Categories</CardNavTitle>
-        <BlogCategorySortButtonList />
-      </section>
-
-      <section className="order-3">
-        <CardNavTitle>GithubStats</CardNavTitle>
+      {/* <section className="order-3">
+        <CardTitle
+          Icon={<MdOutlineDataSaverOff />}
+          cardTitle={<h6>카테고리</h6>}
+        />
+        <hr />
         <GitStatsCardList userName={userInfo.name} />
-      </section>
+      </section> */}
 
       <section className="order-4">
-        <CardNavTitle>TopLanguage</CardNavTitle>
+        <CardTitle
+          Icon={
+            <p>
+              <VscJson />
+            </p>
+          }
+          cardTitle={<p>Top Languages</p>}
+        />
         <TopLanguageList userName={userInfo.name} />
       </section>
 
       <section className="order-5">
-        <CardNavTitle>Pinned Repo</CardNavTitle>
+        <CardTitle
+          Icon={
+            <p>
+              <AiFillPushpin />
+            </p>
+          }
+          cardTitle={<p>Pinned Repositories</p>}
+        />
         <PinnedRepoList userName={userInfo.name} />
       </section>
     </div>
