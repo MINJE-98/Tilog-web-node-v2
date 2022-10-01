@@ -33,12 +33,16 @@ const BlogPage: NextPage<BlogPagePageProps> = ({
     <RootBox>
       <DefaultSeo {...seo} />
       <BlogBox>
-        <UserStatsSection userInfo={userInfo} />
-        <div className="lg:max-w-[600px] w-full mt-10 md:mt-0">
+        <div className="flex-auto">
+          <UserStatsSection userInfo={userInfo} />
+        </div>
+        <div className="flex-auto mt-10 xl:mt-0">
           <section className="my-5">
             <BlogCategorySortButtonList />
           </section>
-          <BlogPostList categoryName={categoryName} userId={userInfo.id} />
+          <section>
+            <BlogPostList categoryName={categoryName} userId={userInfo.id} />
+          </section>
         </div>
       </BlogBox>
     </RootBox>

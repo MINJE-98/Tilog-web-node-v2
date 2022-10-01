@@ -12,7 +12,7 @@ const PostDetail = ({ post }: { post: GetPostDetailResponseDto }) => {
   const { data } = useGetPostDetail(post.id);
   if (!data) return null;
   return (
-    <article className="w-full">
+    <article className="relative w-full">
       <PostHead post={data} />
       <PostThumbnailImage
         fontSize="2xl"
@@ -21,11 +21,11 @@ const PostDetail = ({ post }: { post: GetPostDetailResponseDto }) => {
         title={data.title}
       />
 
-      <div className="mt-5 lg:grid lg:grid-flow-col lg:space-x-5 lg:grid-cols-3">
+      <div className="mt-10 lg:grid lg:grid-flow-col lg:space-x-5 lg:grid-cols-3">
         <article className="lg:col-span-2">
           <TiptapViewer content={JSON.parse(data.content)} />
         </article>
-        <aside>
+        <aside className="sticky md:top-10">
           <PostAuthorDetail username={data.user.username} />
         </aside>
       </div>

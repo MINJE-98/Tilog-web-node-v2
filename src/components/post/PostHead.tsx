@@ -21,7 +21,7 @@ const PostHead = ({ post }: PostHeadProps) => {
         </div>
       )}
       <div className="flex flex-col items-center">
-        <DateFnsFormatter className="text-base" date={post.createdAt} />
+        <DateFnsFormatter date={post.createdAt} />
         <h1>{post.title}</h1>
         <h6>{post.subTitle}</h6>
         <div className="my-5 text-2xl">
