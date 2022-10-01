@@ -9,9 +9,9 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="stylesheet"
-            href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/atom-one-dark.min.css"
+            href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/tokyo-night-dark.min.css"
           />
-          <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" />
+          <script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js" />
         </Head>
 
         <body className="bg-neutral-50 dark:bg-neutral-900">
