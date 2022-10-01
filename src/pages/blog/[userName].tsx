@@ -34,7 +34,7 @@ const BlogPage: NextPage<BlogPagePageProps> = ({
       <DefaultSeo {...seo} />
       <BlogBox>
         <UserStatsSection userInfo={userInfo} />
-        <div className="w-full mt-10 md:mt-0">
+        <div className="lg:max-w-[600px] w-full mt-10 md:mt-0">
           <section className="my-5">
             <BlogCategorySortButtonList />
           </section>
