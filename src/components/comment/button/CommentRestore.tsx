@@ -9,7 +9,11 @@ const CommentRestore = () => {
   };
   return (
     <button type="button" onClick={handleLoading}>
-      <BsArrowClockwise className={`${isLoading ? "animate-spin" : ""}`} />
+      <BsArrowClockwise
+        className={`text-neutral-400 hover:text-neutral-500 ${
+          isLoading ? "animate-spin" : ""
+        }`}
+      />
     </button>
   );
 };

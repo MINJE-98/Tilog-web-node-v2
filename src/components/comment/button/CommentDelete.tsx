@@ -20,7 +20,7 @@ const CommentDelete = ({ commentId, postId, replyTo }: CommentDeleteProps) => {
   };
   return (
     <button type="button" onClick={handleDeleteComment}>
-      <IoMdClose className="text-neutral-700 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300" />
+      <IoMdClose className="text-neutral-400 hover:text-neutral-500" />
     </button>
   );
 };

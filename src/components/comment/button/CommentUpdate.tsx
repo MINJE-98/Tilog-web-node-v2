@@ -6,7 +6,7 @@ interface CommentUpdateProps {
 const CommentUpdate = ({ handleUpdate }: CommentUpdateProps) => {
   return (
     <button
-      className="text-neutral-700 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+      className="text-neutral-400 hover:text-neutral-500"
       type="button"
       onClick={handleUpdate}
     >
