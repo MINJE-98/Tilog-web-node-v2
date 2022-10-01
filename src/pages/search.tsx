@@ -5,7 +5,8 @@ import { DefaultSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 
 import api from "@Api/index";
-import CardNavTitle from "@Commons/molecules/text/CardNavTitle";
+import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
+import CardTitle from "@Commons/molecules/title/CardTitle";
 import SearchPostList from "@Components/post/list/SearchPostList";
 import RootBox from "@Layouts/box/RootBox";
 import { postQueryKeys } from "@Utility/queryKey";
@@ -19,7 +20,14 @@ const SearchPage: NextPage<{ categoryName: string }> = ({
     <div>
       <DefaultSeo {...searchSeo(categoryName)} />
       <RootBox>
-        <CardNavTitle>{categoryName} Search Result</CardNavTitle>
+        <CardTitle
+          Icon={
+            <div className="text-2xl">
+              <RenderTechIcons categoryName={categoryName} />
+            </div>
+          }
+          cardTitle={<h6>의 검색 결과</h6>}
+        />
         <SearchPostList categoryName={categoryName} />
       </RootBox>
     </div>

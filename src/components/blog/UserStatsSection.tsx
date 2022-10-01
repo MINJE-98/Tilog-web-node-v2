@@ -8,12 +8,12 @@ import CardTitle from "@Commons/molecules/title/CardTitle";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
-const GitStatsCardList = dynamic(
-  () => import("@Components/blog/list/GitStatsCardList"),
-  {
-    ssr: false,
-  }
-);
+// const GitStatsCardList = dynamic(
+//   () => import("@Components/blog/list/GitStatsCardList"),
+//   {
+//     ssr: false,
+//   }
+// );
 
 const PinnedRepoList = dynamic(
   () => import("@Components/blog/list/PinnedRepoList"),
