@@ -35,7 +35,7 @@ const UserStatsSection = ({
   userInfo: GetUserProfileResponse;
 }) => {
   return (
-    <div className="flex flex-col space-y-10 w-full max-w-[450px]">
+    <div className="flex flex-col w-full space-y-10">
       <section className="order-1">
         <UserDetailProfile userName={userInfo.name} />
       </section>
