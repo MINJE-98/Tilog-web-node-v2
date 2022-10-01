@@ -1,11 +1,13 @@
+import Image from "next/image";
 import React from "react";
 
 import { UseInfiniteQueryResult } from "react-query";
 
+import EmptyContentsCard from "@Commons/molecules/card/EmptyContentsCard";
 import CardInfiniteLoading from "@Commons/molecules/loading/CardInfiniteLoading";
-import { NO_EXIST_POSTS } from "@Constants/text/noExistPost";
 import isArrayEmpty from "@Utility/isArrayEmpty";
 
+import image from "../../../../../public/asset/open-box.png";
 import { GetPostsItem, GetPostsResponseDto } from "@til-log.lab/tilog-api";
 
 interface PostCardInfiniteListProps {
@@ -19,13 +21,23 @@ const PostCardInfiniteList = ({
   postList,
   twoRow = false,
 }: PostCardInfiniteListProps) => {
-  if (!postList?.data) return <p>{NO_EXIST_POSTS}</p>;
+  if (!postList?.data) return null;
   return (
     <>
-      <div className={`grid gap-3 grid-row ${twoRow ? "md:grid-cols-2" : ""}`}>
+      <div
+        className={`grid gap-3 grid-row justify-center ${
+          twoRow ? "md:grid-cols-2" : ""
+        }`}
+      >
         {postList.data.pages.map((postPage, idx) => {
           if (idx === 0 && isArrayEmpty(postPage.list))
-            return <h3 key="0">{NO_EXIST_POSTS}</h3>;
+            return (
+              <EmptyContentsCard
+                Icon={<Image src={image} width={100} height={100} />}
+                title="작성된 포스트가 없어요."
+                subTitle={<p>다른 카테고리로 검색해보세요!</p>}
+              />
+            );
           return postPage.list.map((post) => (
             <CardComponent key={post.id} post={post} />
           ));
