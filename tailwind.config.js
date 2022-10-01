@@ -4,24 +4,12 @@ const disabledCss = {
   "blockquote p:first-of-type::before": false,
   "blockquote p:last-of-type::after": false,
   "pre > code": false,
-  h1: {
-    "font-size": "2.5rem",
-  },
-  h2: {
-    "font-size": "2rem",
-  },
-  h3: {
-    "font-size": "1.88rem",
-  },
-  h4: {
-    "font-size": "1.55rem",
-  },
-  h5: {
-    "font-size": "1.44rem",
-  },
-  h6: {
-    "font-size": "1.22rem",
-  },
+  h1: false,
+  h2: false,
+  h3: false,
+  h4: false,
+  h5: false,
+  h6: false,
   code: {
     "font-size": "85%",
     padding: ".2em .4em",
