@@ -3,10 +3,16 @@ import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import useGetCategories from "@Queries/categories/useGetCategories";
 import isArrayEmpty from "@Utility/isArrayEmpty";
 
-const BlogCategorySortButtonList = () => {
+import { Category } from "@Api/interface/model";
+
+const BlogCategorySortButtonList = ({
+  category,
+}: {
+  category: Category["categoryName"];
+}) => {
   const { data } = useGetCategories({});
   if (!data) return null;
   if (isArrayEmpty(data.list)) return null;
-  return <CategorySortButtonList categoryList={data} />;
+  return <CategorySortButtonList category={category} categoryList={data} />;
 };
 export default withSuspenseAndErrorBoundary(BlogCategorySortButtonList);

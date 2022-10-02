@@ -36,13 +36,9 @@ const BlogPage: NextPage<BlogPagePageProps> = ({
         <div className="flex-auto">
           <UserStatsSection userInfo={userInfo} />
         </div>
-        <div className="flex-auto mt-10 xl:mt-0">
-          <section className="my-5">
-            <BlogCategorySortButtonList />
-          </section>
-          <section>
-            <BlogPostList categoryName={categoryName} userId={userInfo.id} />
-          </section>
+        <div className="flex-none max-w-[1280px] xl:max-w-[650px] mt-10 xl:mt-0 space-y-4">
+          <BlogCategorySortButtonList category={categoryName} />
+          <BlogPostList categoryName={categoryName} userId={userInfo.id} />
         </div>
       </BlogBox>
     </RootBox>
