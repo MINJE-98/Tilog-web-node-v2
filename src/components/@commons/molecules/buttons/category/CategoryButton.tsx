@@ -2,12 +2,30 @@ import { useRouter } from "next/router";
 import React from "react";
 
 import LinkTo from "@Commons/atom/LinkTo";
+import CategorySticker from "@Commons/molecules/CategorySticker";
 
 interface CategoryButtonProps {
   categoryName: string;
+  isSelected?: boolean;
 }
-const CategoryButton = ({ categoryName }: CategoryButtonProps) => {
+const CategoryButton = ({
+  categoryName,
+  isSelected = false,
+}: CategoryButtonProps) => {
   const router = useRouter();
+
+  if (isSelected) {
+    return (
+      <LinkTo
+        scroll={false}
+        href={`${router.asPath.split("?")[0]}`}
+        className="hover:no-underline"
+      >
+        <CategorySticker isSelected categoryName={categoryName} />
+      </LinkTo>
+    );
+  }
+
   return (
     <LinkTo
       scroll={false}
@@ -15,12 +33,9 @@ const CategoryButton = ({ categoryName }: CategoryButtonProps) => {
         pathname: router.pathname,
         query: { ...router.query, category: categoryName },
       }}
-      className="p-2 text-sm font-semibold rounded-sm hover:no-underline bg-neutral-50 dark:bg-neutral-800 ring-1 ring-neutral-200 dark:ring-neutral-700 hover:bg-neutral-100 hover:dark:bg-neutral-700"
+      className="hover:no-underline"
     >
-      <span className={`text-${categoryName}`}># </span>
-      <span className="text-neutral-900 dark:text-neutral-50">
-        {categoryName}
-      </span>
+      <CategorySticker categoryName={categoryName} />
     </LinkTo>
   );
 };
