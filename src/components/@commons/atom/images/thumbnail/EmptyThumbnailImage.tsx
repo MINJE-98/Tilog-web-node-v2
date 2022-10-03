@@ -1,6 +1,6 @@
 import { GetPostsItem } from "@til-log.lab/tilog-api";
 
-import TailwindSize from "@Components/interface/fontSize";
+import TailwindSize from "@Models/interface/fontSize";
 
 export interface EmptyThumbnailImageProps {
   title: GetPostsItem["title"];

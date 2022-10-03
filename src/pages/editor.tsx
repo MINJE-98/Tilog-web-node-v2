@@ -2,9 +2,9 @@ import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 
 import api from "@Api/index";
-import EditorForm from "@Components/writer/EditorForm";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
+import EditorForm from "@Models/writer/EditorForm";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 

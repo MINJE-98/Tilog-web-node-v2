@@ -8,10 +8,10 @@ import FlameIcon from "@Commons/atom/icons/FlameIcon";
 import NewIcon from "@Commons/atom/icons/NewIcon";
 import LinkTo from "@Commons/atom/LinkTo";
 import CardTitle from "@Commons/molecules/title/CardTitle";
-import IntroThumbnail from "@Components/home/IntroThumbnail";
-import MostPopularSwiper from "@Components/home/list/MostPopularSwiper";
-import LatestPostList from "@Components/post/list/LatestPostList";
 import RootBox from "@Layouts/box/RootBox";
+import IntroThumbnail from "@Models/home/IntroThumbnail";
+import MostPopularSwiper from "@Models/home/list/MostPopularSwiper";
+import LatestPostList from "@Models/post/list/LatestPostList";
 import { rootSeo } from "@SEO";
 import { postQueryKeys } from "@Utility/queryKey";
 

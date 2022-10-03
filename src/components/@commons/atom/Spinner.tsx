@@ -1,6 +1,6 @@
 import { ImSpinner3 } from "react-icons/im";
 
-import TailwindSize from "@Components/interface/fontSize";
+import TailwindSize from "@Models/interface/fontSize";
 
 interface SpinnerProps {
   size?: TailwindSize;

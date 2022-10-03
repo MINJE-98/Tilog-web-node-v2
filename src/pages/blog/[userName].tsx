@@ -4,12 +4,12 @@ import { DefaultSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 
 import api from "@Api";
-import BlogCategorySortButtonList from "@Components/blog/list/BlogCategorySortButtonList";
-import BlogPostList from "@Components/blog/list/BlogPostList";
-import UserStatsSection from "@Components/blog/UserStatsSection";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import BlogBox from "@Layouts/box/BlogBox";
 import RootBox from "@Layouts/box/RootBox";
+import BlogCategorySortButtonList from "@Models/blog/list/BlogCategorySortButtonList";
+import BlogPostList from "@Models/blog/list/BlogPostList";
+import UserStatsSection from "@Models/blog/UserStatsSection";
 import { userBlogDetailSeo } from "@SEO";
 import {
   categoryQueryKeys,

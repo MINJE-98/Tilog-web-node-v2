@@ -7,8 +7,8 @@ import { dehydrate, QueryClient } from "react-query";
 import api from "@Api/index";
 import FlameIcon from "@Commons/atom/icons/FlameIcon";
 import CardTitle from "@Commons/molecules/title/CardTitle";
-import PopularPostList from "@Components/post/list/PopularPostList";
 import RootBox from "@Layouts/box/RootBox";
+import PopularPostList from "@Models/post/list/PopularPostList";
 import { postQueryKeys } from "@Utility/queryKey";
 
 import { DateScope, dateScopeUnion } from "@Api/post/interface/dateScope";

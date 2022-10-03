@@ -12,10 +12,10 @@ import {
   QueryClientProvider,
 } from "react-query";
 
-import Footer from "@Components/footer";
-import Header from "@Components/header";
 import { AuthProvider } from "@Contexts/auth/AuthProvider";
 import useProgressBar from "@Hooks/useProgressBar";
+import Footer from "@Models/footer";
+import Header from "@Models/header";
 
 // const queryClient = new QueryClient({});
 

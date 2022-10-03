@@ -7,8 +7,8 @@ import { dehydrate, QueryClient } from "react-query";
 import api from "@Api/index";
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 import CardTitle from "@Commons/molecules/title/CardTitle";
-import SearchPostList from "@Components/post/list/SearchPostList";
 import RootBox from "@Layouts/box/RootBox";
+import SearchPostList from "@Models/post/list/SearchPostList";
 import { postQueryKeys } from "@Utility/queryKey";
 
 const SearchPage: NextPage<{ categoryName: string }> = ({

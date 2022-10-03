@@ -1,9 +1,9 @@
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 
-import WriterForm from "@Components/writer/WriterForm";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
+import WriterForm from "@Models/writer/WriterForm";
 
 const WriterPage: NextPage = () => {
   return (
