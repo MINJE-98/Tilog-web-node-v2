@@ -7,8 +7,7 @@ import api from "@Api";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import BlogBox from "@Layouts/box/BlogBox";
 import RootBox from "@Layouts/box/RootBox";
-import BlogCategorySortButtonList from "@Models/blog/list/BlogCategorySortButtonList";
-import BlogPostList from "@Models/blog/list/BlogPostList";
+import UserPostSection from "@Models/blog/UserPostSection";
 import UserStatsSection from "@Models/blog/UserStatsSection";
 import { userBlogDetailSeo } from "@SEO";
 import {
@@ -37,8 +36,7 @@ const BlogPage: NextPage<BlogPagePageProps> = ({
           <UserStatsSection userInfo={userInfo} />
         </div>
         <div className="flex-none max-w-[1280px] xl:max-w-[650px] mt-10 xl:mt-0 space-y-4">
-          <BlogCategorySortButtonList category={categoryName} />
-          <BlogPostList categoryName={categoryName} userId={userInfo.id} />
+          <UserPostSection category={categoryName} userId={userInfo.id} />
         </div>
       </BlogBox>
     </RootBox>
