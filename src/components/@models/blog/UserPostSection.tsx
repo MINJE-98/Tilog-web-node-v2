@@ -10,10 +10,10 @@ interface UserPostSectionProps {
 
 const UserPostSection = ({ category, userId }: UserPostSectionProps) => {
   return (
-    <>
+    <section>
       <BlogCategorySortButtonList category={category} />
       <BlogPostList categoryName={category} userId={userId} />
-    </>
+    </section>
   );
 };
 export default UserPostSection;
