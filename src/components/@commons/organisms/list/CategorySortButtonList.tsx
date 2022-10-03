@@ -7,6 +7,7 @@ import useHorizontalScroll from "@Commons/organisms/list/hooks/useHorizontalScro
 import { GetCategoriesResponseDto } from "@til-log.lab/tilog-api";
 
 import { Category } from "@Api/interface/model";
+import { useMediaQuery } from "react-responsive";
 
 interface CategorySortButtonListProps {
   categoryList: GetCategoriesResponseDto;
@@ -24,20 +25,25 @@ const CategorySortButtonList = ({
       firstRef,
       lastRef,
     });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 767px)" });
   return (
     <div className="relative">
-      <ArrowButton
-        className="top-[2px]"
-        isIntersecting={firstEntry?.isIntersecting}
-        scroll={() => leftScroll(300)}
-        arrow="left"
-      />
-      <ArrowButton
-        className="right-0 top-[2px]"
-        isIntersecting={lastEntry?.isIntersecting}
-        scroll={() => rightScroll(300)}
-        arrow="right"
-      />
+      {!isTabletOrMobile && (
+        <>
+          <ArrowButton
+            className="top-[2px]"
+            isIntersecting={firstEntry?.isIntersecting}
+            scroll={() => leftScroll(300)}
+            arrow="left"
+          />
+          <ArrowButton
+            className="right-0 top-[2px]"
+            isIntersecting={lastEntry?.isIntersecting}
+            scroll={() => rightScroll(300)}
+            arrow="right"
+          />
+        </>
+      )}
       <div
         ref={scrollRef}
         className="flex snap-x p-2 max-w-[1280px] scroll-px-4 mx-5 space-x-3 overflow-y-hidden scrollbar-hide scroll-smooth snap-center"
