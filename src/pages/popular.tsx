@@ -5,10 +5,8 @@ import { DefaultSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
 
 import api from "@Api/index";
-import FlameIcon from "@Commons/atom/icons/FlameIcon";
-import CardTitle from "@Commons/molecules/title/CardTitle";
 import RootBox from "@Layouts/box/RootBox";
-import PopularPostList from "@Models/post/list/PopularPostList";
+import PopularPostSection from "@Models/popular/PopularPostSection";
 import { postQueryKeys } from "@Utility/queryKey";
 
 import { DateScope, dateScopeUnion } from "@Api/post/interface/dateScope";
@@ -18,11 +16,7 @@ const PopularPage: NextPage = () => {
     <div>
       <DefaultSeo {...popularSeo} />
       <RootBox>
-        <CardTitle
-          cardTitle={<h6>TILog에서 가장 인기있는 포스트</h6>}
-          Icon={<FlameIcon className="w-7 h-7" />}
-        />
-        <PopularPostList />
+        <PopularPostSection />
       </RootBox>
     </div>
   );
