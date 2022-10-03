@@ -1,12 +1,12 @@
+import LoginButton from "@Commons/atom/buttons/LoginButton";
 import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
 import LinkTo from "@Commons/atom/LinkTo";
 import { WRITE } from "@Constants/button";
 import { HOME_INTRO, HOME_STATUS } from "@Constants/text";
 import { useAuth } from "@Contexts/auth/AuthContext";
-import LoginButton from "@Models/auth/LoginButton";
 
 const IntroThumbnail = () => {
-  const { userInfo } = useAuth();
+  const { userInfo, handleLogin } = useAuth();
   return (
     <div className="w-full px-3 py-32 md:py-60 bg-neutral-900 dark:bg-neutral-800 ">
       <div className="m-auto max-w-[1280px]">
@@ -23,7 +23,7 @@ const IntroThumbnail = () => {
             <>
               <p>{HOME_STATUS.GUEST}</p>
               <div className="mt-5 w-fit">
-                <LoginButton />
+                <LoginButton onClick={handleLogin} />
               </div>
             </>
           ) : (

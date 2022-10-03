@@ -1,6 +1,7 @@
+import LogoutButton from "@Commons/atom/buttons/LogoutButton";
 import LinkTo from "@Commons/atom/LinkTo";
 import { USER_PROFILE_DROPDOWN } from "@Constants/dropdown";
-import LogoutButton from "@Models/auth/LogoutButton";
+import { useAuth } from "@Contexts/auth/AuthContext";
 
 import GetMeResponse from "@Api/users/interface/getMeResponse";
 
@@ -9,6 +10,7 @@ interface UserDropdownProps {
 }
 
 const UserDropdown = ({ userInfo }: UserDropdownProps) => {
+  const { handleLogout } = useAuth();
   return (
     <div className="relative z-50 inline-block text-left">
       <ol className="absolute right-0 w-40 mt-2 bg-white divide-y divide-gray-100 rounded-md shadow-lg ">
@@ -35,7 +37,9 @@ const UserDropdown = ({ userInfo }: UserDropdownProps) => {
           </LinkTo>
         </li>
         <li className="py-1" role="none">
-          <LogoutButton>{USER_PROFILE_DROPDOWN.LOGOUT}</LogoutButton>
+          <LogoutButton onClick={handleLogout}>
+            {USER_PROFILE_DROPDOWN.LOGOUT}
+          </LogoutButton>
         </li>
       </ol>
     </div>

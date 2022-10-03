@@ -1,19 +1,19 @@
 import { useRef } from "react";
 
+import LoginButton from "@Commons/atom/buttons/LoginButton";
 import EmptyAvatarImage from "@Commons/atom/images/avatar/EmptyAvatarImage";
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import { useAuth } from "@Contexts/auth/AuthContext";
 import useOutsideClickAndEscClickListener from "@Hooks/useOutsideClickAndEscClickListener";
-import LoginButton from "@Models/auth/LoginButton";
 import UserDropdown from "@Models/header/profile/UserDropdown";
 
 const HeaderUserProfile = () => {
-  const { userInfo } = useAuth();
+  const { userInfo, handleLogin } = useAuth();
   const dropDownRef = useRef<HTMLDivElement>(null);
   const { isOpen, handleOpen } =
     useOutsideClickAndEscClickListener(dropDownRef);
   if (!userInfo) {
-    return <LoginButton />;
+    return <LoginButton onClick={handleLogin} />;
   }
   if (userInfo.id === 0) {
     return (

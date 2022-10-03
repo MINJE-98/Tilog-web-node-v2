@@ -2,13 +2,13 @@ import Image from "next/image";
 
 import { AiOutlineComment } from "react-icons/ai";
 
+import LoginButton from "@Commons/atom/buttons/LoginButton";
 import EmptyContentsCard from "@Commons/molecules/card/EmptyContentsCard";
 import CardTitle from "@Commons/molecules/title/CardTitle";
 import { INPUT } from "@Constants/button";
 import { COMMENT_PLACEHOLDER } from "@Constants/text/placeholder";
 import { useAuth } from "@Contexts/auth/AuthContext";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
-import LoginButton from "@Models/auth/LoginButton";
 import CommentInput from "@Models/comment/input/CommentInput";
 import RootComment from "@Models/comment/render/RootComment";
 import image from "@Public/asset/sleeping.png";
@@ -22,7 +22,7 @@ interface CommentProps {
 
 const Comment = ({ postId }: CommentProps) => {
   const commentList = useGetParentComment(postId);
-  const { userInfo } = useAuth();
+  const { userInfo, handleLogin } = useAuth();
   if (!commentList.data) return null;
   return (
     <section className="mt-5">
@@ -47,7 +47,7 @@ const Comment = ({ postId }: CommentProps) => {
             !userInfo ? (
               <div className="mt-5 w-fit">
                 <p>로그인해서 댓글을 작성해보세요!</p>
-                <LoginButton />
+                <LoginButton onClick={handleLogin} />
               </div>
             ) : (
               <p>게시글에 댓글을 작성해보세요!</p>
