@@ -1,0 +1,13 @@
+import NewIcon from "@Commons/atom/icons/NewIcon";
+import CardTitle from "@Commons/molecules/title/CardTitle";
+import LatestPostList from "@Models/home/list/LatestPostList";
+
+const LatestPostSection = () => {
+  return (
+    <section className="my-10">
+      <CardTitle Icon={<NewIcon />} cardTitle={<h6>TILog의 최신 포스트</h6>} />
+      <LatestPostList />
+    </section>
+  );
+};
+export default LatestPostSection;
