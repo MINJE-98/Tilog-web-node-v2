@@ -1,12 +1,12 @@
 import React from "react";
 
+import EmptyThumbnailImage from "@Commons/atom/images/thumbnail/EmptyThumbnailImage";
 import ThumbnailImage from "@Commons/atom/images/thumbnail/ThumbnailImage";
-import EmptyThumbnailImage from "@Components/@commons/atom/images/thumbnail/EmptyThumbnailImage";
 import { backgroundColor, getBrightness } from "@Utility/color";
 
 import { GetPostsItem } from "@til-log.lab/tilog-api";
 
-import TailwindSize from "@Components/interface/fontSize";
+import TailwindSize from "@Models/interface/fontSize";
 
 interface PostThumbnailImageProps {
   id: GetPostsItem["id"];

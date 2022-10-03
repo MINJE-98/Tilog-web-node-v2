@@ -36,10 +36,11 @@
       "@Commons/*": ["src/components/@commons/*"],
       "@HOCS/*": ["src/components/@hocs/*"],
       "@Layouts/*": ["src/components/@layouts/*"],
+      "@Models/*": ["src/components/@models/*"],
 
-      "@Components/*": ["src/components/*"],
+      "@Styles/*": ["styles/*"],
 
-      "@Styles/*": ["styles/*"]
+      "@Public/*": ["public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

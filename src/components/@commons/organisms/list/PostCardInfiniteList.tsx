@@ -5,9 +5,9 @@ import { UseInfiniteQueryResult } from "react-query";
 
 import EmptyContentsCard from "@Commons/molecules/card/EmptyContentsCard";
 import CardInfiniteLoading from "@Commons/molecules/loading/CardInfiniteLoading";
+import image from "@Public/asset/open-box.png";
 import isArrayEmpty from "@Utility/isArrayEmpty";
 
-import image from "../../../../../public/asset/open-box.png";
 import { GetPostsItem, GetPostsResponseDto } from "@til-log.lab/tilog-api";
 
 interface PostCardInfiniteListProps {

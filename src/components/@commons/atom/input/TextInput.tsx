@@ -8,7 +8,7 @@ import {
   UseFormRegister,
 } from "react-hook-form";
 
-import TailwindSize from "@Components/interface/fontSize";
+import TailwindSize from "@Models/interface/fontSize";
 
 interface TextInputProps<InputType extends FieldValues>
   extends InputHTMLAttributes<HTMLInputElement> {
