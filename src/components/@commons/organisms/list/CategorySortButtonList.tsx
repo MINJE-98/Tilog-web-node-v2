@@ -1,5 +1,7 @@
 import { useRef } from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 import ArrowButton from "@Commons/atom/buttons/ArrowButton";
 import CategoryButton from "@Commons/molecules/buttons/category/CategoryButton";
 import useHorizontalScroll from "@Commons/organisms/list/hooks/useHorizontalScroll";
@@ -24,20 +26,25 @@ const CategorySortButtonList = ({
       firstRef,
       lastRef,
     });
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 767px)" });
   return (
     <div className="relative">
-      <ArrowButton
-        className="top-[2px]"
-        isIntersecting={firstEntry?.isIntersecting}
-        scroll={() => leftScroll(300)}
-        arrow="left"
-      />
-      <ArrowButton
-        className="right-0 top-[2px]"
-        isIntersecting={lastEntry?.isIntersecting}
-        scroll={() => rightScroll(300)}
-        arrow="right"
-      />
+      {!isTabletOrMobile && (
+        <>
+          <ArrowButton
+            className="top-[2px]"
+            isIntersecting={firstEntry?.isIntersecting}
+            scroll={() => leftScroll(300)}
+            arrow="left"
+          />
+          <ArrowButton
+            className="right-0 top-[2px]"
+            isIntersecting={lastEntry?.isIntersecting}
+            scroll={() => rightScroll(300)}
+            arrow="right"
+          />
+        </>
+      )}
       <div
         ref={scrollRef}
         className="flex snap-x p-2 max-w-[1280px] scroll-px-4 mx-5 space-x-3 overflow-y-hidden scrollbar-hide scroll-smooth snap-center"
