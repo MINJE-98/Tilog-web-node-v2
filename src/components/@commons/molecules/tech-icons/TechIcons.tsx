@@ -1,7 +1,6 @@
 import { ReactElement } from "react";
 
 import { BsQuestionCircleFill } from "react-icons/bs";
-import { GiBookCover } from "react-icons/gi";
 import { GrServerCluster } from "react-icons/gr";
 import {
   SiC,
@@ -52,7 +51,7 @@ const TechIcons: TechIconsInterface = {
   SCALA: <SiScala className="inline text-Scala" />,
   SOLIDITY: <SiSolidity className="inline text-Ruby" />,
   NEXTJS: <TbBrandNextjs className="inline text-neutral-50" />,
-  BOOKSTUDY: <GiBookCover className="inline text-neutral-50" />,
+  BOOKSTUDY: <>📚</>,
   TIL: <>✍🏼</>,
   UNKNOWN: <BsQuestionCircleFill className="inline text-neutral-50" />,
 };
