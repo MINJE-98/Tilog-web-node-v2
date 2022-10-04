@@ -1,5 +1,7 @@
 import { useRef } from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 import ArrowButton from "@Commons/atom/buttons/ArrowButton";
 import CategoryButton from "@Commons/molecules/buttons/category/CategoryButton";
 import useHorizontalScroll from "@Commons/organisms/list/hooks/useHorizontalScroll";
@@ -7,7 +9,6 @@ import useHorizontalScroll from "@Commons/organisms/list/hooks/useHorizontalScro
 import { GetCategoriesResponseDto } from "@til-log.lab/tilog-api";
 
 import { Category } from "@Api/interface/model";
-import { useMediaQuery } from "react-responsive";
 
 interface CategorySortButtonListProps {
   categoryList: GetCategoriesResponseDto;
