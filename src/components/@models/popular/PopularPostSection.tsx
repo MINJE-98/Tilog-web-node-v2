@@ -1,6 +1,11 @@
+import dynamic from "next/dynamic";
+
 import FlameIcon from "@Commons/atom/icons/FlameIcon";
 import CardTitle from "@Commons/molecules/title/CardTitle";
-import PopularPostList from "@Models/popular/list/PopularPostList";
+
+const PopularPostList = dynamic(
+  () => import("@Models/popular/list/PopularPostList")
+);
 
 const PopularPostSection = () => {
   return (

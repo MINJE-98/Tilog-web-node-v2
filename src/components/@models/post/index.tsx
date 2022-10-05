@@ -1,5 +1,3 @@
-import dynamic from "next/dynamic";
-
 import PostThumbnailImage from "@Commons/molecules/images/PostThumbnailImage";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import PostAuthorDetail from "@Models/post/PostAuthorDetail";
@@ -8,10 +6,6 @@ import PostLike from "@Models/post/PostLike";
 import useGetPostDetail from "@Queries/posts/useGetPostDetail";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
-
-const TiptapViewer = dynamic(
-  () => import("@Commons/molecules/text-area/TiptapViewer")
-);
 
 const PostDetail = ({ post }: { post: GetPostDetailResponseDto }) => {
   const { data } = useGetPostDetail(post.id);

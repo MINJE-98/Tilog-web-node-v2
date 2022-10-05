@@ -7,11 +7,12 @@ import { dehydrate, QueryClient } from "react-query";
 import api from "@Api/index";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
-import PostDetail from "@Models/post";
 import { postDetailSeo } from "@SEO";
 import { postQueryKeys, userQueryKeys } from "@Utility/queryKey";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
+
+const PostDetail = dynamic(() => import("@Models/post"));
 
 const Comment = dynamic(() => import("@Models/comment"), {
   ssr: false,
