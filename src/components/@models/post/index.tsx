@@ -1,4 +1,5 @@
 import PostThumbnailImage from "@Commons/molecules/images/PostThumbnailImage";
+import TiptapViewer from "@Commons/molecules/text-area/TiptapViewer";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import PostAuthorDetail from "@Models/post/PostAuthorDetail";
 import PostHead from "@Models/post/PostHead";
