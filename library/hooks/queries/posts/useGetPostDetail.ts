@@ -17,7 +17,6 @@ const useGetPostDetail = (postId: Posts["id"]) => {
       retry: 0,
       refetchOnWindowFocus: false,
       refetchInterval: false,
-      suspense: true,
       useErrorBoundary: true,
       onError: () => {
         router.push("/404");

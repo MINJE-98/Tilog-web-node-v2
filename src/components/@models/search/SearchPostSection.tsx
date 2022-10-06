@@ -1,13 +1,8 @@
-import dynamic from "next/dynamic";
-
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 import CardTitle from "@Commons/molecules/title/CardTitle";
+import SearchPostList from "@Models/search/list/SearchPostList";
 
 import { Category } from "@Api/interface/model";
-
-const SearchPostList = dynamic(
-  () => import("@Models/search/list/SearchPostList")
-);
 
 const SearchPostSection = ({
   category,
