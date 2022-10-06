@@ -1,7 +1,10 @@
+import dynamic from "next/dynamic";
+
 import BlogCategorySortButtonList from "@Models/blog/list/BlogCategorySortButtonList";
-import BlogPostList from "@Models/blog/list/BlogPostList";
 
 import { Category, Users } from "@Api/interface/model";
+
+const BlogPostList = dynamic(() => import("@Models/blog/list/BlogPostList"));
 
 interface UserPostSectionProps {
   category: Category["categoryName"];
