@@ -8,7 +8,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=optional"
             rel="stylesheet"
           />
           {/* <link
