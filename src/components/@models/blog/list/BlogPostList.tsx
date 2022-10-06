@@ -1,5 +1,6 @@
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
+import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import useGetUserPostInfiniteList from "@Queries/posts/useGetUserPostInfiniteList";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
@@ -22,4 +23,4 @@ const BlogPostList = ({ categoryName, userId }: BlogPostListProps) => {
   );
 };
 
-export default BlogPostList;
+export default withSuspenseAndErrorBoundary(BlogPostList);
