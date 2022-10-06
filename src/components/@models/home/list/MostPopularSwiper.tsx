@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import LinkTo from "@Commons/atom/LinkTo";
 import SwipeCard from "@Commons/molecules/card/swipe/SwipeCard";
 import SwipeMobileCard from "@Commons/molecules/card/swipe/SwipeMobileCard";
+import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import useGetMostPopularPostList from "@Queries/posts/useGetMostPopularPostList";
 
 import "swiper/css";
@@ -69,4 +70,4 @@ const MostPopularSwiper = () => {
   );
 };
 
-export default MostPopularSwiper;
+export default withSuspenseAndErrorBoundary(MostPopularSwiper);
