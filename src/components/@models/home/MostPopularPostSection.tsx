@@ -7,7 +7,7 @@ import CardTitle from "@Commons/molecules/title/CardTitle";
 const MostPopularSwiper = dynamic(
   () => import("@Models/home/list/MostPopularSwiper"),
   {
-    suspense: true,
+    ssr: false,
   }
 );
 

@@ -6,7 +6,7 @@ import CardTitle from "@Commons/molecules/title/CardTitle";
 const LatestPostList = dynamic(
   () => import("@Models/home/list/LatestPostList"),
   {
-    suspense: true,
+    ssr: false,
   }
 );
 
