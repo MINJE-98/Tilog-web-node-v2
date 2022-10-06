@@ -1,11 +1,16 @@
+import dynamic from "next/dynamic";
+
 import { useForm } from "react-hook-form";
 
 import useHandleEditSummit from "@Hooks/useHandleEditSummit";
-import WriteFormProvider from "@Models/writer/WriteFormProvider";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
 import WriterFormTypes from "@Api/post/interface/writerFormTypes";
+
+const WriteFormProvider = dynamic(
+  () => import("@Models/writer/WriteFormProvider")
+);
 
 const EditorForm = ({ post }: { post: GetPostDetailResponseDto }) => {
   const method = useForm<WriterFormTypes>({
