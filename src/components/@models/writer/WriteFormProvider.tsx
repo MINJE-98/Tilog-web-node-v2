@@ -1,14 +1,22 @@
+import dynamic from "next/dynamic";
+
 import { FormProvider, SubmitHandler, UseFormReturn } from "react-hook-form";
 
 import PrivateSubmit from "@Commons/molecules/buttons/writer/PrivateSubmit";
 import PublicSubmit from "@Commons/molecules/buttons/writer/PublicSubmit";
 import SubTitleInput from "@Commons/molecules/input/writer/SubTitleInput";
 import TitleInput from "@Commons/molecules/input/writer/TitleInput";
-import TiptapEditor from "@Commons/molecules/text-area/TiptapEditor";
 import SearchCategory from "@Models/writer/input/category-search";
 import CoverImage from "@Models/writer/input/cover-image";
 
 import WriterFormTypes from "@Api/post/interface/writerFormTypes";
+
+const TiptapEditor = dynamic(
+  () => import("@Commons/molecules/text-area/TiptapEditor"),
+  {
+    ssr: false,
+  }
+);
 
 interface WriterFormProps {
   method: UseFormReturn<WriterFormTypes>;
