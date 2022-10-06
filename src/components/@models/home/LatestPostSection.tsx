@@ -1,11 +1,6 @@
-import dynamic from "next/dynamic";
-
 import NewIcon from "@Commons/atom/icons/NewIcon";
 import CardTitle from "@Commons/molecules/title/CardTitle";
-
-const LatestPostList = dynamic(
-  () => import("@Models/home/list/LatestPostList")
-);
+import LatestPostList from "@Models/home/list/LatestPostList";
 
 const LatestPostSection = () => {
   return (

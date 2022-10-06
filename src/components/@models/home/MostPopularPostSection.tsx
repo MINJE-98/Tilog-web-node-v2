@@ -1,12 +1,7 @@
-import dynamic from "next/dynamic";
-
 import FlameIcon from "@Commons/atom/icons/FlameIcon";
 import LinkTo from "@Commons/atom/LinkTo";
 import CardTitle from "@Commons/molecules/title/CardTitle";
-
-const MostPopularSwiper = dynamic(
-  () => import("@Models/home/list/MostPopularSwiper")
-);
+import MostPopularSwiper from "@Models/home/list/MostPopularSwiper";
 
 const MostPopularPostSection = () => {
   return (
