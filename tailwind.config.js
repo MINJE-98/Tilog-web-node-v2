@@ -37,6 +37,9 @@ module.exports = {
       xl: { min: "1280px", max: "1535px" },
       "2xl": { min: "1536px" },
     },
+    fontFamily: {
+      noto: ["Noto Sans KR", "sans-serif"],
+    },
     extend: {
       typography: {
         DEFAULT: { css: disabledCss },

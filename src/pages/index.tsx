@@ -15,6 +15,7 @@ const Home: NextPage = () => {
   return (
     <>
       <DefaultSeo {...rootSeo} />
+
       <IntroThumbnail />
       <RootBox>
         <MostPopularPostSection />
