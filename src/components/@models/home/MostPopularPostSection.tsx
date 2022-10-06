@@ -5,10 +5,7 @@ import LinkTo from "@Commons/atom/LinkTo";
 import CardTitle from "@Commons/molecules/title/CardTitle";
 
 const MostPopularSwiper = dynamic(
-  () => import("@Models/home/list/MostPopularSwiper"),
-  {
-    ssr: false,
-  }
+  () => import("@Models/home/list/MostPopularSwiper")
 );
 
 const MostPopularPostSection = () => {
