@@ -4,7 +4,10 @@ import NewIcon from "@Commons/atom/icons/NewIcon";
 import CardTitle from "@Commons/molecules/title/CardTitle";
 
 const LatestPostList = dynamic(
-  () => import("@Models/home/list/LatestPostList")
+  () => import("@Models/home/list/LatestPostList"),
+  {
+    suspense: true,
+  }
 );
 
 const LatestPostSection = () => {
