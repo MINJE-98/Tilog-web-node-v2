@@ -1,5 +1,6 @@
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
+import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import useGetMostPopularPostInfiniteList from "@Queries/posts/useGetMostPopularPostInfiniteList";
 
 const LatestPostList = () => {
@@ -18,4 +19,4 @@ const LatestPostList = () => {
   );
 };
 
-export default LatestPostList;
+export default withSuspenseAndErrorBoundary(LatestPostList);
