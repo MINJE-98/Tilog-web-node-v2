@@ -8,6 +8,11 @@ import SwipeMobileCard from "@Commons/molecules/card/swipe/SwipeMobileCard";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import useGetMostPopularPostList from "@Queries/posts/useGetMostPopularPostList";
 
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css/parallax";
+
 const MostPopularSwiper = () => {
   const popularPostList = useGetMostPopularPostList({
     dateScope: "All",
