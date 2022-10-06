@@ -8,18 +8,22 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=optional"
             rel="stylesheet"
-            href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/tokyo-night-dark.min.css"
           />
-          <link
+          {/* <link
             href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
             rel="stylesheet"
             type="text/css"
+          /> */}
+          {/* <link
+            rel="stylesheet"
+            href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/tokyo-night-dark.min.css"
           />
           <script
             defer
             src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"
-          />
+          /> */}
         </Head>
 
         <body className="bg-neutral-50 dark:bg-neutral-900">
