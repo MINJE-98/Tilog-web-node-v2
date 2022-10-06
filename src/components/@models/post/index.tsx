@@ -19,7 +19,7 @@ const PostDetail = ({ post }: { post: GetPostDetailResponseDto }) => {
   const { data } = useGetPostDetail(post.id);
   if (!data) return null;
   return (
-    <article className="relative w-full">
+    <article className="relative w-full overflow-hidden">
       <PostHead post={data} />
       <PostThumbnailImage
         fontSize="2xl"
