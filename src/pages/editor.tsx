@@ -16,6 +16,14 @@ const EditorPage: NextPage<EditorPageProps> = ({ post }: EditorPageProps) => {
     <div>
       <Head>
         <title>글 수정</title>
+        <link
+          rel="stylesheet"
+          href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/tokyo-night-dark.min.css"
+        />
+        <script
+          async
+          src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"
+        />
       </Head>
       <RootBox>
         <EditorForm post={post} />

@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from "next";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 
 import { DefaultSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
@@ -28,7 +29,17 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
 
   return (
     <div>
-      <DefaultSeo {...seo} />
+      <Head>
+        <DefaultSeo {...seo} />
+        <link
+          rel="stylesheet"
+          href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/tokyo-night-dark.min.css"
+        />
+        <script
+          async
+          src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"
+        />
+      </Head>
       <RootBox>
         <PostDetail post={post} />
         <Comment postId={post.id} />
