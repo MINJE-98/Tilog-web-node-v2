@@ -12,10 +12,4 @@ const nextConfig = {
   },
 };
 
-module.exports = {
-  experimental: {
-    reactMode: "concurrent",
-  },
-};
-
 module.exports = nextConfig;
