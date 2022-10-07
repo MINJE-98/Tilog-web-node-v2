@@ -12,10 +12,7 @@ import CoverImage from "@Models/writer/input/cover-image";
 import WriterFormTypes from "@Api/post/interface/writerFormTypes";
 
 const TiptapEditor = dynamic(
-  () => import("@Commons/molecules/text-area/TiptapEditor"),
-  {
-    ssr: false,
-  }
+  () => import("@Commons/molecules/text-area/TiptapEditor")
 );
 
 interface WriterFormProps {

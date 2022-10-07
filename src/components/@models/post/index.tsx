@@ -9,10 +9,7 @@ import useGetPostDetail from "@Queries/posts/useGetPostDetail";
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
 const TiptapViewer = dynamic(
-  () => import("@Commons/molecules/text-area/TiptapViewer"),
-  {
-    ssr: false,
-  }
+  () => import("@Commons/molecules/text-area/TiptapViewer")
 );
 
 const PostDetail = ({ post }: { post: GetPostDetailResponseDto }) => {
