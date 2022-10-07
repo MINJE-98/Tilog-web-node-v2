@@ -1,7 +1,6 @@
-import { SiGithub } from "react-icons/si";
-import { TbWorld } from "react-icons/tb";
-
+import GithubIcon from "@Commons/atom/icons/GithubIcon";
 import LogoIcon from "@Commons/atom/icons/LogoIcon";
+import WorldIcon from "@Commons/atom/icons/WorldIcon";
 
 const Footer = () => {
   return (
@@ -16,14 +15,14 @@ const Footer = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <TbWorld className="text-xl" />
+            <WorldIcon />
           </a>
           <a
             href="https://github.com/TIL-Log-lab"
             rel="noreferrer"
             target="_blank"
           >
-            <SiGithub className="text-xl" />
+            <GithubIcon />
           </a>
         </nav>
       </div>

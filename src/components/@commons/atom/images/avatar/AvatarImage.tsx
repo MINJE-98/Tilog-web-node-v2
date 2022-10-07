@@ -15,6 +15,7 @@ const AvatarImage = ({ avatar }: AvatarImageProps) => {
         alt="avatar"
         src={avatar}
         blurDataURL={avatar}
+        quality={5}
       />
     </div>
   );

@@ -1,6 +1,5 @@
-import { SiGithub } from "react-icons/si";
-
 import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
+import GithubIcon from "@Commons/atom/icons/GithubIcon";
 import { GITHUB_LOGIN } from "@Constants/button";
 
 const LoginButton = ({ onClick }: { onClick: () => void }) => {
@@ -10,7 +9,7 @@ const LoginButton = ({ onClick }: { onClick: () => void }) => {
       type="button"
       onClick={onClick}
     >
-      <SiGithub className="inline w-5 h-5 text-white" />
+      <GithubIcon className="inline fill-white" />
       <span className="text-neutral-50">{GITHUB_LOGIN}</span>
     </PrimaryButton>
   );
