@@ -4,12 +4,17 @@ const disabledCss = {
   "blockquote p:first-of-type::before": false,
   "blockquote p:last-of-type::after": false,
   "pre > code": false,
+  "code > span": {
+    color: "#b6b6b6",
+  },
   h1: false,
-  h2: false,
-  h3: false,
-  h4: false,
+  h2: { "line-height": "0.4" },
+  h3: { "line-height": "0.6" },
+  h4: { "line-height": "0.6" },
   h5: false,
   h6: false,
+  hr: false,
+  span: false,
   code: {
     "font-size": "85%",
     padding: ".2em .4em",
@@ -19,7 +24,7 @@ const disabledCss = {
     margin: "1px",
   },
   p: {
-    "line-height": "1.8",
+    "line-height": "0.4",
   },
 };
 
