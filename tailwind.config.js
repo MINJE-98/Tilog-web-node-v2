@@ -24,7 +24,7 @@ const disabledCss = {
     margin: "1px",
   },
   p: {
-    "line-height": "0.4",
+    "line-height": "1.8",
   },
 };
 
