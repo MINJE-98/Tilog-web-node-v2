@@ -7,6 +7,8 @@ import { WRITER_INPUT_TYPE } from "@Constants/input";
 
 import { CreatePostRequestBodyDto } from "@til-log.lab/tilog-api";
 
+import "highlight.js/styles/atom-one-dark.css";
+
 const TiptapEditor = () => {
   const { register } = useFormContext<CreatePostRequestBodyDto>();
   const tiptapEditor = useTiptapEditor();

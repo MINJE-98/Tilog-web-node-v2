@@ -1,5 +1,7 @@
 import { EditorContent, EditorOptions } from "@tiptap/react";
 
+import "highlight.js/styles/atom-one-dark.css";
+
 import useTiptapViewer from "@Commons/molecules/text-area/hooks/useTiptapViewer";
 
 interface TiptapViewerProps {
