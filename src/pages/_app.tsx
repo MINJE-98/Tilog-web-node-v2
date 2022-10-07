@@ -1,5 +1,6 @@
 import "../../styles/globals.css";
 import "../../styles/nprogress.css";
+import "../../styles/swiper.css";
 
 import { AppProps } from "next/app";
 import { useState } from "react";
