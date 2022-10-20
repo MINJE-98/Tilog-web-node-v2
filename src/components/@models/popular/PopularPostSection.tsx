@@ -5,7 +5,10 @@ import CardTitle from "@Commons/molecules/title/CardTitle";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 
 const PopularPostList = dynamic(
-  () => import("@Models/popular/list/PopularPostList")
+  () => import("@Models/popular/list/PopularPostList"),
+  {
+    suspense: true,
+  }
 );
 
 const PopularPostSection = () => {

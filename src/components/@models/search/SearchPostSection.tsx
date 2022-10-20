@@ -7,7 +7,10 @@ import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import { Category } from "@Api/interface/model";
 
 const SearchPostList = dynamic(
-  () => import("@Models/search/list/SearchPostList")
+  () => import("@Models/search/list/SearchPostList"),
+  {
+    suspense: true,
+  }
 );
 
 const SearchPostSection = ({
