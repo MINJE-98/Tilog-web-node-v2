@@ -1,10 +1,10 @@
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
-import useGetMostPopularPostInfiniteList from "@Queries/posts/useGetMostPopularPostInfiniteList";
+import useGetLatestPostInfiniteList from "@Queries/posts/useGetLatestPostInfiniteList";
 
 const LatestPostList = () => {
-  const latestPostList = useGetMostPopularPostInfiniteList({
+  const latestPostList = useGetLatestPostInfiniteList({
     dateScope: "All",
     sortScope: "createdAt",
     page: 0,

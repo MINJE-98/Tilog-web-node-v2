@@ -36,9 +36,6 @@ export const postQueryKeys = {
 
   postListInfinitePopular: () =>
     [...postQueryKeys.postListInfinity(), "popular"] as const,
-
-  postListInfinitePopularDateScope: (dateScope: GetPostRequest["dateScope"]) =>
-    [...postQueryKeys.postListInfinitePopular(), dateScope] as const,
 };
 
 export const likeQueryKeys = {

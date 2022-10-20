@@ -32,7 +32,6 @@ const App = ({
 }: CustomAppProps) => {
   useProgressBar();
   const [queryClient] = useState(() => new QueryClient());
-
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={dehydratedState}>

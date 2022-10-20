@@ -8,7 +8,7 @@ import { GetPostRequest } from "@Api/post/interface/getPostRequest";
 const useGetMostPopularPostInfiniteList = (getPostRequest: GetPostRequest) => {
   const { dateScope, sortScope, maxContent, page } = getPostRequest;
   return useInfiniteQuery(
-    postQueryKeys.postListInfinitePopularDateScope(dateScope),
+    postQueryKeys.postListInfinitePopular(),
     ({ pageParam = page }) => {
       return api.postService.getPosts({
         dateScope,
