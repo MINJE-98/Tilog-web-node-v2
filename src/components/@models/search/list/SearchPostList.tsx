@@ -1,5 +1,6 @@
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
+import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import useGetSearchPostInfiniteList from "@Queries/posts/useGetSearchPostInfiniteList";
 
 const SearchPostList = ({ categoryName }: { categoryName: string }) => {
@@ -19,4 +20,4 @@ const SearchPostList = ({ categoryName }: { categoryName: string }) => {
   );
 };
 
-export default SearchPostList;
+export default withSuspenseAndErrorBoundary(SearchPostList);

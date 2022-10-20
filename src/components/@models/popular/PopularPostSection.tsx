@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 
 import FlameIcon from "@Commons/atom/icons/FlameIcon";
 import CardTitle from "@Commons/molecules/title/CardTitle";
-import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 
 const PopularPostList = dynamic(
   () => import("@Models/popular/list/PopularPostList"),
@@ -22,4 +21,4 @@ const PopularPostSection = () => {
     </section>
   );
 };
-export default withSuspenseAndErrorBoundary(PopularPostSection);
+export default PopularPostSection;

@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 import CardTitle from "@Commons/molecules/title/CardTitle";
-import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 
 import { Category } from "@Api/interface/model";
 
@@ -32,4 +31,4 @@ const SearchPostSection = ({
     </section>
   );
 };
-export default withSuspenseAndErrorBoundary(SearchPostSection);
+export default SearchPostSection;
