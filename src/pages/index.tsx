@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 
 import { DefaultSeo } from "next-seo";
 import { dehydrate, QueryClient } from "react-query";
@@ -25,32 +25,35 @@ const Home: NextPage = () => {
 };
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
+  Promise.all([
+    await queryClient.prefetchQuery(
+      postQueryKeys.postListPopularDateScope("All"),
+      () =>
+        api.postService.getPosts({
+          dateScope: "All",
+          sortScope: "likes",
+          page: 0,
+          maxContent: 6,
+        })
+    ),
+    await queryClient.prefetchInfiniteQuery(
+      postQueryKeys.postListInfinitePopularDateScope("All"),
+      () =>
+        api.postService.getPosts({
+          dateScope: "All",
+          sortScope: "createdAt",
+          page: 0,
+          maxContent: 6,
+        })
+    ),
+  ]);
 
-  await queryClient.prefetchQuery(
-    postQueryKeys.postListPopularDateScope("All"),
-    () =>
-      api.postService.getPosts({
-        dateScope: "All",
-        sortScope: "likes",
-        page: 0,
-        maxContent: 6,
-      })
-  );
-  await queryClient.prefetchInfiniteQuery(
-    postQueryKeys.postListInfinitePopularDateScope("All"),
-    () =>
-      api.postService.getPosts({
-        dateScope: "All",
-        sortScope: "createdAt",
-        page: 0,
-        maxContent: 6,
-      })
-  );
   return {
     props: {
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
     },
+    revalidate: 30,
   };
 };
