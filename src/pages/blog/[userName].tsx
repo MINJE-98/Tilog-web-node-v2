@@ -62,26 +62,27 @@ export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
     }
 
     const queryClient = new QueryClient();
-
-    await queryClient.setQueryData(
-      userQueryKeys.userDetailUserName(userInfo.name),
-      userInfo
-    );
-    await queryClient.prefetchInfiniteQuery(
-      postQueryKeys.postListInfiniteUserCategoryName(userInfo.id, ""),
-      () =>
-        api.postService.getCategoryPosts({
-          dateScope: "All",
-          sortScope: "createdAt",
-          page: 0,
-          categoryName,
-          maxContent: 10,
-          userId: userInfo.id,
-        })
-    );
-    await queryClient.prefetchQuery(categoryQueryKeys.categoryName(), () =>
-      api.categoryService.getCategories()
-    );
+    Promise.all([
+      await queryClient.setQueryData(
+        userQueryKeys.userDetailUserName(userInfo.name),
+        userInfo
+      ),
+      await queryClient.prefetchInfiniteQuery(
+        postQueryKeys.postListInfiniteUserCategoryName(userInfo.id, ""),
+        () =>
+          api.postService.getCategoryPosts({
+            dateScope: "All",
+            sortScope: "createdAt",
+            page: 0,
+            categoryName,
+            maxContent: 10,
+            userId: userInfo.id,
+          })
+      ),
+      await queryClient.prefetchQuery(categoryQueryKeys.categoryName(), () =>
+        api.categoryService.getCategories()
+      ),
+    ]);
 
     return {
       props: {
