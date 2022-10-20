@@ -1,14 +1,16 @@
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 
 import { searchSeo } from "library/seo/searchSeo";
 import { DefaultSeo } from "next-seo";
 
-import useStringRouter from "@Hooks/useStringRouter";
 import RootBox from "@Layouts/box/RootBox";
 import SearchPostSection from "@Models/search/SearchPostSection";
 
-const SearchPage: NextPage = () => {
-  const categoryName = useStringRouter("category");
+const SearchPage: NextPage<{ categoryName: string }> = ({
+  categoryName,
+}: {
+  categoryName: string;
+}) => {
   return (
     <div>
       <DefaultSeo {...searchSeo(categoryName)} />
@@ -17,6 +19,17 @@ const SearchPage: NextPage = () => {
       </RootBox>
     </div>
   );
+};
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { category } = context.query;
+  if (!category) return { props: {} };
+  if (Array.isArray(category)) return { props: {} };
+
+  return {
+    props: {
+      categoryName: category,
+    },
+  };
 };
 
 export default SearchPage;
