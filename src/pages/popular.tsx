@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 
 import { popularSeo } from "library/seo/popularSeo";
 import { DefaultSeo } from "next-seo";
@@ -8,8 +8,6 @@ import api from "@Api/index";
 import RootBox from "@Layouts/box/RootBox";
 import PopularPostSection from "@Models/popular/PopularPostSection";
 import { postQueryKeys } from "@Utility/queryKey";
-
-import { DateScope, dateScopeUnion } from "@Api/post/interface/dateScope";
 
 const PopularPage: NextPage = () => {
   return (
@@ -23,32 +21,13 @@ const PopularPage: NextPage = () => {
 };
 
 export default PopularPage;
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { dateScope } = context.query;
-  if (!dateScope)
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/popular/?dateScope=All",
-      },
-    };
-  if (Array.isArray(dateScope)) return { props: {} };
-
-  if (!(dateScope in dateScopeUnion)) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/popular/?dateScope=All",
-      },
-    };
-  }
-
+export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchInfiniteQuery(
-    postQueryKeys.postListInfinitePopularDateScope(dateScope as DateScope),
+    postQueryKeys.postListInfinitePopularDateScope("All"),
     () =>
       api.postService.getPosts({
-        dateScope: dateScope as DateScope,
+        dateScope: "All",
         sortScope: "likes",
         page: 0,
         maxContent: 10,
@@ -58,5 +37,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
     },
+    revalidate: 6000,
   };
 };
