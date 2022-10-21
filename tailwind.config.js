@@ -29,10 +29,7 @@ const disabledCss = {
 };
 
 module.exports = {
-  purge: {
-    enabled: true,
-    content: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
-  },
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "media", // or 'media' or 'class'
   theme: {
     screen: {
