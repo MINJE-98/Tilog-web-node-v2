@@ -2,14 +2,12 @@ import { GetServerSideProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 
 import { DefaultSeo } from "next-seo";
-import { dehydrate, QueryClient } from "react-query";
 
 import api from "@Api/index";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
 import PostDetail from "@Models/post";
 import { postDetailSeo } from "@SEO";
-import { postQueryKeys, userQueryKeys } from "@Utility/queryKey";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
@@ -51,16 +49,8 @@ export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
       };
     }
 
-    const queryClient = new QueryClient();
-    await queryClient.setQueryData(postQueryKeys.detailPostId(postId), post);
-    await queryClient.prefetchQuery(
-      userQueryKeys.userDetailUserName(post.user.username),
-      () => api.usersService.getUserProfile(post.user.username)
-    );
-
     return {
       props: {
-        dehydratedState: dehydrate(queryClient),
         post,
       },
     };
