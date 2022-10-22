@@ -1,6 +1,6 @@
 import { FallbackProps } from "react-error-boundary";
 
-import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
+import Button from "@Commons/atom/button";
 
 const ComponentLoadError = ({ error, resetErrorBoundary }: FallbackProps) => {
   return (
@@ -8,9 +8,14 @@ const ComponentLoadError = ({ error, resetErrorBoundary }: FallbackProps) => {
       <h4>{error.name}</h4>
       <p>{error.message}</p>
       <div className="mt-10 w-36">
-        <PrimaryButton type="button" onClick={resetErrorBoundary}>
+        <Button
+          size="small"
+          color="primary"
+          type="button"
+          onClick={resetErrorBoundary}
+        >
           다시 로드하기
-        </PrimaryButton>
+        </Button>
       </div>
     </div>
   );

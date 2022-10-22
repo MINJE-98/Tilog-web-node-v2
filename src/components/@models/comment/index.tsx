@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { AiOutlineComment } from "react-icons/ai";
 
-import LoginButton from "@Commons/atom/buttons/LoginButton";
+import LoginButton from "@Commons/molecules/buttons/LoginButton";
 import EmptyContentsCard from "@Commons/molecules/card/EmptyContentsCard";
 import CardTitle from "@Commons/molecules/title/CardTitle";
 import { INPUT } from "@Constants/button";

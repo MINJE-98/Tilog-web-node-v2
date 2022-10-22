@@ -1,14 +1,16 @@
-import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
+import Button from "@Commons/atom/button";
 import { SAVE } from "@Constants/button";
 
 const SettingsSubmit = () => {
   return (
-    <PrimaryButton
+    <Button
+      size="small"
+      color="primary"
       type="submit"
       className="dark:bg-neutral-900 w-full max-w-[150px]"
     >
       {SAVE}
-    </PrimaryButton>
+    </Button>
   );
 };
 

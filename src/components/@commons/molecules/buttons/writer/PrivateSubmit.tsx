@@ -1,6 +1,6 @@
 import { UseFormSetValue } from "react-hook-form";
 
-import SecondaryButton from "@Commons/atom/buttons/SecondaryButton";
+import Button from "@Commons/atom/button";
 import { PUBLISH_PRIVATE_POST } from "@Constants/button";
 import { WRITER_INPUT_TYPE } from "@Constants/input";
 
@@ -12,12 +12,14 @@ interface PrivateSubmitProps {
 
 const PrivateSubmit = ({ setValue }: PrivateSubmitProps) => {
   return (
-    <SecondaryButton
+    <Button
+      size="small"
+      color="secondary"
       type="submit"
       onClick={() => setValue(WRITER_INPUT_TYPE.IS_PRIVATE, true)}
     >
       {PUBLISH_PRIVATE_POST}
-    </SecondaryButton>
+    </Button>
   );
 };
 

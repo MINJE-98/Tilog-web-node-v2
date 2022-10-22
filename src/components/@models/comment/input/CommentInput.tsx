@@ -1,4 +1,4 @@
-import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
+import Button from "@Commons/atom/button";
 import { useAuth } from "@Contexts/auth/AuthContext";
 import CommentUserProfile from "@Models/comment/CommentUserProfile";
 import useSubmitComment from "@Models/comment/input/hooks/useSubmitComment";
@@ -36,13 +36,15 @@ const CommentInput = ({
             value={content}
           />
         </div>
-        <PrimaryButton
+        <Button
+          size="small"
+          color="primary"
           type="submit"
           onClick={handleSubmit}
           className="rounded-none"
         >
           {buttonText}
-        </PrimaryButton>
+        </Button>
       </div>
     </div>
   );

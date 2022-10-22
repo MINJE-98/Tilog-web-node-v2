@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import LoginButton from "@Commons/atom/buttons/LoginButton";
+import LoginButton from "@Commons/molecules/buttons/LoginButton";
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import { useAuth } from "@Contexts/auth/AuthContext";
 import useOutsideClickAndEscClickListener from "@Hooks/useOutsideClickAndEscClickListener";

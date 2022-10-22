@@ -1,6 +1,6 @@
 import { UseFormSetValue } from "react-hook-form";
 
-import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
+import Button from "@Commons/atom/button";
 import { PUBLISH_POST } from "@Constants/button";
 import { WRITER_INPUT_TYPE } from "@Constants/input";
 
@@ -12,12 +12,14 @@ interface PublicSubmitProps {
 
 const PublicSubmit = ({ setValue }: PublicSubmitProps) => {
   return (
-    <PrimaryButton
+    <Button
+      size="small"
+      color="primary"
       type="submit"
       onClick={() => setValue(WRITER_INPUT_TYPE.IS_PRIVATE, false)}
     >
       {PUBLISH_POST}
-    </PrimaryButton>
+    </Button>
   );
 };
 

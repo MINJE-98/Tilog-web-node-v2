@@ -1,5 +1,4 @@
-import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
-import SecondaryButton from "@Commons/atom/buttons/SecondaryButton";
+import Button from "@Commons/atom/button";
 import { CANCEL, EDIT } from "@Constants/button";
 import { COMMENT_PLACEHOLDER } from "@Constants/text/placeholder";
 import useSubmitUpdateComment from "@Models/comment/input/hooks/useSubmitUpdateComment";
@@ -27,20 +26,24 @@ const CommentUpdateInput = ({ comment, handleUpdate }: CommentInputProps) => {
         </div>
 
         <div className="flex">
-          <SecondaryButton
+          <Button
+            size="small"
+            color="secondary"
             type="button"
             onClick={handleUpdate}
             className="rounded-none"
           >
             {CANCEL}
-          </SecondaryButton>
-          <PrimaryButton
+          </Button>
+          <Button
+            size="small"
+            color="primary"
             type="submit"
             onClick={handleSubmit}
             className="rounded-none"
           >
             {EDIT}
-          </PrimaryButton>
+          </Button>
         </div>
       </div>
     </div>

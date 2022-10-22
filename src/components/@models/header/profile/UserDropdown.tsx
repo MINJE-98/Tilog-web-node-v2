@@ -1,5 +1,5 @@
-import LogoutButton from "@Commons/atom/buttons/LogoutButton";
 import LinkTo from "@Commons/atom/LinkTo";
+import LogoutButton from "@Commons/molecules/buttons/LogoutButton";
 import { USER_PROFILE_DROPDOWN } from "@Constants/dropdown";
 import { useAuth } from "@Contexts/auth/AuthContext";
 

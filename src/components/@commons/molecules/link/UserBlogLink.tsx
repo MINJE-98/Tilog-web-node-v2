@@ -1,4 +1,4 @@
-import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
+import Button from "@Commons/atom/button";
 import LinkTo from "@Commons/atom/LinkTo";
 import { VIEW_BLOG } from "@Constants/button";
 
@@ -11,7 +11,11 @@ interface UserBlogButtonProps {
 const UserBlogLink = ({ userName }: UserBlogButtonProps) => {
   return (
     <LinkTo href={`/blog/${userName}`} className="text-neutral-50">
-      <PrimaryButton type="button">{`${userName}${VIEW_BLOG}`}</PrimaryButton>
+      <Button
+        size="small"
+        color="primary"
+        type="button"
+      >{`${userName}${VIEW_BLOG}`}</Button>
     </LinkTo>
   );
 };

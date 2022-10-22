@@ -1,6 +1,6 @@
-import LoginButton from "@Commons/atom/buttons/LoginButton";
-import PrimaryButton from "@Commons/atom/buttons/PrimaryButton";
+import Button from "@Commons/atom/button";
 import LinkTo from "@Commons/atom/LinkTo";
+import LoginButton from "@Commons/molecules/buttons/LoginButton";
 import { WRITE } from "@Constants/button";
 import { HOME_INTRO, HOME_STATUS } from "@Constants/text";
 import { useAuth } from "@Contexts/auth/AuthContext";
@@ -31,11 +31,16 @@ const IntroThumbnail = () => {
               <p>{HOME_STATUS.USER}</p>
               <div className="mt-2">
                 <LinkTo href="/writer">
-                  <PrimaryButton type="submit" className="w-48">
+                  <Button
+                    color="primary"
+                    size="small"
+                    type="submit"
+                    className="w-48"
+                  >
                     <h3 className="text-lg font-semibold text-neutral-50">
                       {WRITE}
                     </h3>
-                  </PrimaryButton>
+                  </Button>
                 </LinkTo>
               </div>
             </>

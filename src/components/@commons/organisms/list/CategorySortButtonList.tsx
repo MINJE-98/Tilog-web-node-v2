@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import { useMediaQuery } from "react-responsive";
 
-import ArrowButton from "@Commons/atom/buttons/ArrowButton";
+import ArrowButton from "@Commons/molecules/buttons/ArrowButton";
 import CategoryButton from "@Commons/molecules/buttons/category/CategoryButton";
 import useHorizontalScroll from "@Commons/organisms/list/hooks/useHorizontalScroll";
 
