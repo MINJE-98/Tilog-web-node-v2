@@ -7,13 +7,14 @@ const ThumbnailImage = ({
 }: {
   thumbnailUrl: Posts["thumbNailURL"];
 }) => (
-  <div className="relative aspect-[2/1] w-full h-full">
-    <Image
-      placeholder="blur"
-      layout="fill"
-      alt="thumbnail"
-      src={thumbnailUrl}
-    />
-  </div>
+  <Image
+    placeholder="blur"
+    height={720}
+    width={1260}
+    alt="thumbnail"
+    src={thumbnailUrl}
+    blurDataURL={thumbnailUrl}
+    quality={60}
+  />
 );
 export default ThumbnailImage;

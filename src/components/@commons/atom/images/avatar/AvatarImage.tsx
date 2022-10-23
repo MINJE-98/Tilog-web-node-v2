@@ -3,21 +3,21 @@ import Image from "next/image";
 import { Users } from "@Api/interface/model";
 
 interface AvatarImageProps {
+  size: number;
   avatar: Users["proFileImageURL"];
 }
 
-const AvatarImage = ({ avatar }: AvatarImageProps) => {
+const AvatarImage = ({ size, avatar }: AvatarImageProps) => {
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-full">
-      <Image
-        placeholder="blur"
-        layout="fill"
-        alt="avatar"
-        src={avatar}
-        blurDataURL={avatar}
-        quality={5}
-      />
-    </div>
+    <Image
+      placeholder="blur"
+      width={size}
+      height={size}
+      alt="avatar"
+      src={avatar}
+      blurDataURL={avatar}
+      quality={10}
+    />
   );
 };
 export default AvatarImage;
