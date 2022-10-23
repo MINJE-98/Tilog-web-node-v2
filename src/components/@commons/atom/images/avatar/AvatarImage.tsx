@@ -11,6 +11,7 @@ const AvatarImage = ({ size, avatar }: AvatarImageProps) => {
   return (
     <Image
       placeholder="blur"
+      sizes={`${size.toString()}px`}
       width={size}
       height={size}
       alt="avatar"
