@@ -1,4 +1,3 @@
-import Paragraph from "@Commons/atom/paragraph";
 import {
   FieldError,
   FieldValues,
@@ -6,6 +5,8 @@ import {
   RegisterOptions,
   UseFormRegister,
 } from "react-hook-form";
+
+import Paragraph from "@Commons/atom/paragraph";
 
 interface UnderLineTextInputProps<InputType extends FieldValues> {
   register: UseFormRegister<InputType>;
