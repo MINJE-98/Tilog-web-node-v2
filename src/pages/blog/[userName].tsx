@@ -1,6 +1,7 @@
 import { GetServerSideProps, NextPage } from "next";
 
 import { DefaultSeo } from "next-seo";
+import { dehydrate, QueryClient } from "react-query";
 
 import api from "@Api";
 import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
@@ -9,6 +10,11 @@ import RootBox from "@Layouts/box/RootBox";
 import UserPostSection from "@Models/blog/UserPostSection";
 import UserStatsSection from "@Models/blog/UserStatsSection";
 import { userBlogDetailSeo } from "@SEO";
+import {
+  categoryQueryKeys,
+  postQueryKeys,
+  userQueryKeys,
+} from "@Utility/queryKey";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
 
@@ -54,8 +60,33 @@ export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
         notFound: true,
       };
     }
+
+    const queryClient = new QueryClient();
+    Promise.all([
+      await queryClient.setQueryData(
+        userQueryKeys.userDetailUserName(userInfo.name),
+        userInfo
+      ),
+      await queryClient.prefetchInfiniteQuery(
+        postQueryKeys.postListInfiniteUserCategoryName(userInfo.id, ""),
+        () =>
+          api.postService.getCategoryPosts({
+            dateScope: "All",
+            sortScope: "createdAt",
+            page: 0,
+            categoryName,
+            maxContent: 10,
+            userId: userInfo.id,
+          })
+      ),
+      await queryClient.prefetchQuery(categoryQueryKeys.categoryName(), () =>
+        api.categoryService.getCategories()
+      ),
+    ]);
+
     return {
       props: {
+        dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
         userInfo,
         categoryName,
       },

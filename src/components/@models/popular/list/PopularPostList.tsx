@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import PostCard from "@Commons/molecules/card/post/PostCard";
 import PostCardInfiniteList from "@Commons/organisms/list/PostCardInfiniteList";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
@@ -11,7 +10,6 @@ const PopularPostList = () => {
     page: 0,
     maxContent: 10,
   });
-  console.log(popularPostList);
   return (
     <PostCardInfiniteList CardComponent={PostCard} postList={popularPostList} />
   );
