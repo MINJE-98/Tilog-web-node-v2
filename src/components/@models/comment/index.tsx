@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { AiOutlineComment } from "react-icons/ai";
 
+import Paragraph from "@Commons/atom/paragraph";
 import LoginButton from "@Commons/molecules/buttons/LoginButton";
 import EmptyContentsCard from "@Commons/molecules/card/EmptyContentsCard";
 import CardTitle from "@Commons/molecules/title/CardTitle";
@@ -46,11 +47,11 @@ const Comment = ({ postId }: CommentProps) => {
           subTitle={
             !userInfo ? (
               <div className="mt-5 w-fit">
-                <p>로그인해서 댓글을 작성해보세요!</p>
+                <Paragraph>로그인해서 댓글을 작성해보세요!</Paragraph>
                 <LoginButton onClick={handleLogin} />
               </div>
             ) : (
-              <p>게시글에 댓글을 작성해보세요!</p>
+              <Paragraph>게시글에 댓글을 작성해보세요!</Paragraph>
             )
           }
         />

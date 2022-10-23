@@ -1,6 +1,8 @@
 import { VscCircleFilled } from "react-icons/vsc";
 
+import Heading from "@Commons/atom/heading";
 import LinkTo from "@Commons/atom/LinkTo";
+import Paragraph from "@Commons/atom/paragraph";
 import LikeCounter from "@Commons/molecules/counter/LikeCounter";
 import PostThumbnailImage from "@Commons/molecules/images/PostThumbnailImage";
 import CategoryLink from "@Commons/molecules/link/CategoryLink";
@@ -31,27 +33,27 @@ const PostCard = ({ post }: { post: GetPostsItem }) => {
           isPrivate={post.private === 1}
           dateAndViewCount={
             <div tw="flex items-center space-x-1">
-              <DateFnsFormatter tw="text-xs" date={post.createdAt} />
+              <DateFnsFormatter tw="md:text-xs" date={post.createdAt} />
               <VscCircleFilled tw="text-[6px] dark:text-neutral-500 text-neutral-400" />
-              <p tw="text-xs">
+              <Paragraph tw="md:text-xs">
                 {VIEW_COUNT} {post.view}
-              </p>
+              </Paragraph>
             </div>
           }
         />
 
         <div tw="mt-2 h-[95px]">
           <LinkTo href={`/post/${post.id}`}>
-            <h5 tw="font-bold line-clamp-2 text-neutral-800 dark:text-neutral-50">
+            <Heading level={3} tw="font-bold line-clamp-1">
               {post.title}
-            </h5>
-            <p tw="text-sm sm:line-clamp-2">
+            </Heading>
+            <Paragraph tw="line-clamp-2">
               {!post.subTitle ? "" : post.subTitle}
-            </p>
+            </Paragraph>
           </LinkTo>
         </div>
 
-        <div tw="flex items-center gap-x-2">
+        <div tw="flex items-center space-x-2">
           <CategoryLink categoryName={post.category.name} />
           {/* <CommentCounter count={10} /> */}
           <LikeCounter count={post.like} />

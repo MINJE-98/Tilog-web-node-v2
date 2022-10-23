@@ -1,3 +1,4 @@
+import Paragraph from "@Commons/atom/paragraph";
 import TopLanguageCard from "@Commons/molecules/card/github/TopLanguageCard";
 import { NO_EXIST_TOP_LANGUAGE } from "@Constants/text/noExistTopLanguage";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
@@ -9,8 +10,9 @@ import { Users } from "@Api/interface/model";
 const TopLanguageList = ({ userName }: { userName: Users["userName"] }) => {
   const { data } = useGetTopLanguages(userName);
 
-  if (!data) return <p>{NO_EXIST_TOP_LANGUAGE}</p>;
-  if (isArrayEmpty(data.data)) return <p>{NO_EXIST_TOP_LANGUAGE}</p>;
+  if (!data) return <Paragraph>{NO_EXIST_TOP_LANGUAGE}</Paragraph>;
+  if (isArrayEmpty(data.data))
+    return <Paragraph>{NO_EXIST_TOP_LANGUAGE}</Paragraph>;
   return (
     <div className="flex space-x-2">
       {data.data.map((language) => (

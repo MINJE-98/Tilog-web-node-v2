@@ -7,6 +7,7 @@ import CommentRender from "@Models/comment/render/CommentRender";
 import useGetChildComment from "@Queries/comments/useGetChildComment";
 
 import { GetCommentsItem } from "@til-log.lab/tilog-api";
+import Paragraph from "@Commons/atom/paragraph";
 
 interface RootCommentProps {
   comment: GetCommentsItem;
@@ -27,13 +28,13 @@ const RootComment = ({ comment }: RootCommentProps) => {
           <div className="text-right">
             <button onClick={() => setIsOpen(!isOpen)} type="button">
               {isOpen ? (
-                <p className="hover:text-neutral-500 dark:hover:text-neutral-400 text-neutral-800 dark:text-neutral-300">
+                <Paragraph tw="hover:text-neutral-500 dark:hover:text-neutral-400 text-neutral-800 dark:text-neutral-300">
                   {REPLY_STATE.CLOSE}
-                </p>
+                </Paragraph>
               ) : (
-                <p className="hover:text-neutral-800 dark:hover:text-neutral-300">
+                <Paragraph className="hover:text-neutral-800 dark:hover:text-neutral-300">
                   {REPLY_STATE.OPEN}
-                </p>
+                </Paragraph>
               )}
             </button>
           </div>

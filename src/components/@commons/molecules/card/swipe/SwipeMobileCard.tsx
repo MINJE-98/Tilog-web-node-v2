@@ -1,9 +1,10 @@
+import Heading from "@Commons/atom/heading";
+import Paragraph from "@Commons/atom/paragraph";
 import CategorySticker from "@Commons/molecules/CategorySticker";
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import { backgroundColor } from "@Utility/color";
 
 import { GetPostsItem } from "@til-log.lab/tilog-api";
-import Heading from "@Commons/atom/heading";
 
 const SwipeMobileCard = ({
   isActive,
@@ -31,9 +32,7 @@ const SwipeMobileCard = ({
             <Heading level={2} tw="line-clamp-1">
               {post.title}
             </Heading>
-            <p className="mt-1 text-sm font-normal md:text-base line-clamp-1">
-              {post.subTitle}
-            </p>
+            <Paragraph tw="mt-1 line-clamp-1">{post.subTitle}</Paragraph>
           </div>
           <UserAvatarImage avatar={post.user.avatar} size={5} />
         </div>

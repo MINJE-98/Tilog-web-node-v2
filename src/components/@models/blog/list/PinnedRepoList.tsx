@@ -1,3 +1,4 @@
+import Paragraph from "@Commons/atom/paragraph";
 import PinnedRepoCard from "@Commons/molecules/card/github/PinnedRepoCard";
 import { NO_EXIST_PINNED_REPO } from "@Constants/text/noExistPinnedRepo";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
@@ -9,8 +10,9 @@ import { Users } from "@Api/interface/model";
 const PinnedRepoList = ({ userName }: { userName: Users["userName"] }) => {
   const { data } = useGetPinnedRepo(userName);
 
-  if (!data) return <p>{NO_EXIST_PINNED_REPO}</p>;
-  if (isArrayEmpty(data.data)) return <p>{NO_EXIST_PINNED_REPO}</p>;
+  if (!data) return <Paragraph>{NO_EXIST_PINNED_REPO}</Paragraph>;
+  if (isArrayEmpty(data.data))
+    return <Paragraph>{NO_EXIST_PINNED_REPO}</Paragraph>;
   return (
     <div className="flex flex-col space-y-3">
       {data.data.map((repo) => (

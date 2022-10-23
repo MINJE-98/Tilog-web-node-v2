@@ -32,15 +32,13 @@ const PinnedRepo = ({ repo }: { repo: PinnedRepoResponse }) => {
           rel="noreferrer"
           target="_blank"
         >
-          <p className="text-xs hover:text-neutral-900 dark:hover:text-neutral-50">
+          <Paragraph tw="text-xs hover:text-neutral-900 dark:hover:text-neutral-50">
             Click to open repository
-          </p>
+          </Paragraph>
         </a>
-        <div className="space-x-1">
-          <GoStar className="inline text-neutral-700 dark:text-neutral-50" />
-          <p className="inline text-xs text-gray-700 dark:text-gray-100">
-            {repo.stargazers.totalCount}
-          </p>
+        <div tw="flex items-center space-x-1">
+          <GoStar tw="text-neutral-500" />
+          <Paragraph tw="text-xs">{repo.stargazers.totalCount}</Paragraph>
         </div>
       </div>
     </div>

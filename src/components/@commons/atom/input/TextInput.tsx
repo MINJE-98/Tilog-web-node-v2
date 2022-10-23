@@ -8,6 +8,8 @@ import {
   UseFormRegister,
 } from "react-hook-form";
 
+import Paragraph from "@Commons/atom/paragraph";
+
 import TailwindSize from "@Models/interface/fontSize";
 
 interface TextInputProps<InputType extends FieldValues>
@@ -34,9 +36,7 @@ const TextInput = <InputType extends FieldValues>({
         {...props}
       />
       {errorMessage && (
-        <p className="mt-3 text-sm font-medium text-rose-600 dark:text-rose-500">
-          {errorMessage}
-        </p>
+        <Paragraph tw="mt-3 text-Nestjs">{errorMessage}</Paragraph>
       )}
     </>
   );

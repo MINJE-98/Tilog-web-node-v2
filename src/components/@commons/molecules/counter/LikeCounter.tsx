@@ -1,4 +1,7 @@
 import { AiFillHeart } from "react-icons/ai";
+import tw from "twin.macro";
+
+import Paragraph from "@Commons/atom/paragraph";
 
 interface LikeCounterProps {
   count: number;
@@ -7,14 +10,11 @@ interface LikeCounterProps {
 
 const LikeCounter = ({ count, active = false }: LikeCounterProps) => {
   return (
-    <div className="space-x-1">
+    <div tw="flex items-center space-x-1">
       <AiFillHeart
-        className={`inline w-4 h-4 
-        ${active ? "text-rose-500" : "dark:text-neutral-500 text-neutral-400"}
-         text-xs 
-        `}
+        css={[tw`w-4 h-4`, active ? tw`text-Nestjs` : tw`text-neutral-500`]}
       />
-      <p className="inline text-xs">{count}</p>
+      <Paragraph tw="md:text-xs">{count}</Paragraph>
     </div>
   );
 };

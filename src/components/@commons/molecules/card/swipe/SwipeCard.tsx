@@ -21,7 +21,7 @@ const SwipeCard = ({
       } `}
     >
       {/** 최상위 부모와 자식 div */}
-      <p>{isActive}</p>
+      <Paragraph>{isActive}</Paragraph>
       <div className="md:absolute md:bottom-6 bg-neutral-50 dark:bg-neutral-800 w-full md:w-[400px]">
         {/** 자식과 자식 div */}
         <div className="relative py-5">

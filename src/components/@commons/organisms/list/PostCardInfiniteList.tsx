@@ -3,6 +3,7 @@ import React from "react";
 
 import { UseInfiniteQueryResult } from "react-query";
 
+import Paragraph from "@Commons/atom/paragraph";
 import EmptyContentsCard from "@Commons/molecules/card/EmptyContentsCard";
 import CardInfiniteLoading from "@Commons/molecules/loading/CardInfiniteLoading";
 import image from "@Public/asset/open-box.png";
@@ -36,7 +37,7 @@ const PostCardInfiniteList = ({
                   />
                 }
                 title="작성된 포스트가 없어요."
-                subTitle={<p>다른 카테고리로 검색해보세요!</p>}
+                subTitle={<Paragraph>다른 카테고리로 검색해보세요!</Paragraph>}
               />
             );
           return postPage.list.map((post) => (

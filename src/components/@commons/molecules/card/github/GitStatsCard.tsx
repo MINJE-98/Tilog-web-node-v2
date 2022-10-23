@@ -1,5 +1,7 @@
 import { IconType } from "react-icons";
 
+import Paragraph from "@Commons/atom/paragraph";
+
 interface GitStatsCardProps {
   Icon: IconType;
   count: number;
@@ -9,10 +11,10 @@ const GitStatsCard = ({ Icon, count, name }: GitStatsCardProps) => {
   return (
     <div>
       <Icon className="inline mb-1 mr-1 text-sm md:text-2xl dark:text-neutral-50" />
-      <p className="inline text-xs md:text-sm">
+      <Paragraph className="inline">
         <span className="mr-1 text-xs md:text-base">{count}</span>
         {name}
-      </p>
+      </Paragraph>
     </div>
   );
 };

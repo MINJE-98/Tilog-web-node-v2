@@ -1,3 +1,5 @@
+import Paragraph from "@Commons/atom/paragraph";
+
 import { GetCommentsItem } from "@til-log.lab/tilog-api";
 
 interface CommentContentsProps {
@@ -5,7 +7,8 @@ interface CommentContentsProps {
 }
 
 const CommentContents = ({ comment }: CommentContentsProps) => {
-  if (comment.content === null) return <p>삭제된 댓글입니다.</p>;
+  if (comment.content === null)
+    return <Paragraph>삭제된 댓글입니다.</Paragraph>;
   return <span>{comment.content}</span>;
 };
 

@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { AiFillPushpin } from "react-icons/ai";
 import { VscJson } from "react-icons/vsc";
 
+import Paragraph from "@Commons/atom/paragraph";
 import UserDetailProfile from "@Commons/molecules/profile/UserDetailProfile";
 import CardTitle from "@Commons/molecules/title/CardTitle";
 
@@ -52,11 +53,11 @@ const UserStatsSection = ({
       <section className="order-4">
         <CardTitle
           Icon={
-            <p>
+            <Paragraph>
               <VscJson />
-            </p>
+            </Paragraph>
           }
-          cardTitle={<p>Top Languages</p>}
+          cardTitle={<Paragraph>Top Languages</Paragraph>}
         />
         <TopLanguageList userName={userInfo.name} />
       </section>
@@ -64,11 +65,11 @@ const UserStatsSection = ({
       <section className="order-5">
         <CardTitle
           Icon={
-            <p>
+            <Paragraph>
               <AiFillPushpin />
-            </p>
+            </Paragraph>
           }
-          cardTitle={<p>Pinned Repositories</p>}
+          cardTitle={<Paragraph>Pinned Repositories</Paragraph>}
         />
         <PinnedRepoList userName={userInfo.name} />
       </section>

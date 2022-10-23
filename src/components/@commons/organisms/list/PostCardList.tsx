@@ -1,5 +1,6 @@
 import React from "react";
 
+import Paragraph from "@Commons/atom/paragraph";
 import { NO_EXIST_POSTS } from "@Constants/text/noExistPost";
 
 import { GetPostsItem, GetPostsResponseDto } from "@til-log.lab/tilog-api";
@@ -16,7 +17,7 @@ interface PostCardListProps {
 }
 
 const PostCardList = ({ CardComponent, postList }: PostCardListProps) => {
-  if (!postList) return <p>{NO_EXIST_POSTS}</p>;
+  if (!postList) return <Paragraph>{NO_EXIST_POSTS}</Paragraph>;
   return (
     <div className="grid gap-3 grid-row md:grid-cols-2">
       {postList.list.map((post, idex) => (

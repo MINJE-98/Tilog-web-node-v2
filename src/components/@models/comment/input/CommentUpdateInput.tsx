@@ -1,4 +1,5 @@
 import Button from "@Commons/atom/button";
+import Paragraph from "@Commons/atom/paragraph";
 import { CANCEL, EDIT } from "@Constants/button";
 import { COMMENT_PLACEHOLDER } from "@Constants/text/placeholder";
 import useSubmitUpdateComment from "@Models/comment/input/hooks/useSubmitUpdateComment";
@@ -16,7 +17,9 @@ const CommentUpdateInput = ({ comment, handleUpdate }: CommentInputProps) => {
     <div>
       <div className="p-5 bg-neutral-100 dark:bg-neutral-800">
         <div className="mt-5">
-          {errorMessage && <p className="text-rose-500">{errorMessage}</p>}
+          {errorMessage && (
+            <Paragraph tw="text-Nestjs">{errorMessage}</Paragraph>
+          )}
           <textarea
             className="w-full p-5"
             value={updateContent}

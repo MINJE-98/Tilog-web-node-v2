@@ -1,4 +1,5 @@
 import Button from "@Commons/atom/button";
+import Paragraph from "@Commons/atom/paragraph";
 import { useAuth } from "@Contexts/auth/AuthContext";
 import CommentUserProfile from "@Models/comment/CommentUserProfile";
 import useSubmitComment from "@Models/comment/input/hooks/useSubmitComment";
@@ -28,7 +29,9 @@ const CommentInput = ({
         <CommentUserProfile userName={userInfo.name} avatar={userInfo.avatar} />
 
         <div className="mt-5">
-          {errorMessage && <p className="text-rose-500">{errorMessage}</p>}
+          {errorMessage && (
+            <Paragraph tw="text-Nestjs">{errorMessage}</Paragraph>
+          )}
           <textarea
             className="w-full p-5"
             placeholder={placeholder}

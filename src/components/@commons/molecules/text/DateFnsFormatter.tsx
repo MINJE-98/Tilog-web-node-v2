@@ -1,5 +1,6 @@
 import { HTMLAttributes } from "react";
 
+import Paragraph from "@Commons/atom/paragraph";
 import changeDateToDateFnsFormat from "@DateFns/changeDateToDateFnsFormat";
 
 interface PublishDateProps extends HTMLAttributes<HTMLParagraphElement> {
@@ -8,7 +9,7 @@ interface PublishDateProps extends HTMLAttributes<HTMLParagraphElement> {
 
 const DateFnsFormatter = ({ date, ...props }: PublishDateProps) => {
   const dateFnsFormat = changeDateToDateFnsFormat(date);
-  return <p {...props}>{dateFnsFormat}</p>;
+  return <Paragraph {...props}>{dateFnsFormat}</Paragraph>;
 };
 
 export default DateFnsFormatter;

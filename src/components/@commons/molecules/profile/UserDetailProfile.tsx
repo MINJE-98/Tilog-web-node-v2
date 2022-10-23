@@ -1,4 +1,6 @@
+import Heading from "@Commons/atom/heading";
 import LinkTo from "@Commons/atom/LinkTo";
+import Paragraph from "@Commons/atom/paragraph";
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
 import useGetUserProfile from "@Queries/users/useGetUserProfile";
@@ -19,26 +21,26 @@ const UserDetailProfile = ({ userName }: UserDetailProfileProps) => {
 
         <div className="ml-5">
           <LinkTo href={`https://www.github.com/${data.name}`} target="_blank">
-            <p className="text-xs font-normal">@{data.name}</p>
+            <Paragraph>@{data.name}</Paragraph>
           </LinkTo>
 
           <LinkTo href={`mailto:${data.settings.EMAIL}`}>
-            <p className="text-xs">{data.settings.EMAIL}</p>
+            <Paragraph>{data.settings.EMAIL}</Paragraph>
           </LinkTo>
 
-          <h4 className="line-clamp-1">
+          <Heading level={2} className="line-clamp-1">
             {data.settings.DISPLAY_NAME
               ? data.settings.DISPLAY_NAME
               : data.name}
-          </h4>
+          </Heading>
 
-          <p className="text-sm line-clamp-1">{data.settings.POSITION}</p>
+          <Paragraph tw="line-clamp-1">{data.settings.POSITION}</Paragraph>
         </div>
       </div>
       <div className="p-5">
-        <span className="font-medium line-clamp-3">
+        <Paragraph tw=" text-neutral-900 font-medium line-clamp-3">
           {data.settings.INTRO_MSG}
-        </span>
+        </Paragraph>
       </div>
     </>
   );

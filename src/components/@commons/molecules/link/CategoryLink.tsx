@@ -1,6 +1,7 @@
 import React from "react";
 
 import LinkTo from "@Commons/atom/LinkTo";
+import Paragraph from "@Commons/atom/paragraph";
 
 import { Category } from "@Api/interface/model";
 
@@ -15,12 +16,12 @@ const CategoryLink = ({ categoryName }: CategoryLinkProps) => {
         pathname: "/search",
         query: { category: categoryName },
       }}
-      className={`underline decoration-${categoryName} text-xs font-semibold text-${categoryName}`}
+      tw="font-semibold underline mb-1"
     >
       #{" "}
-      <span className="text-xs text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-50">
+      <Paragraph tw="inline text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-50">
         {categoryName}
-      </span>
+      </Paragraph>
     </LinkTo>
   );
 };

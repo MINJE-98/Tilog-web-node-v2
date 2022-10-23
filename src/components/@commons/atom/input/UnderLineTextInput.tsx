@@ -1,3 +1,4 @@
+import Paragraph from "@Commons/atom/paragraph";
 import {
   FieldError,
   FieldValues,
@@ -26,11 +27,11 @@ const UnderLineTextInput = <InputType extends FieldValues>({
         className={`${className} ${
           !errorMessage
             ? "dark:focus:border-neutral-50 focus:border-neutral-800"
-            : "focus:border-red-500 dark:focus:border-rose-500"
+            : "focus:border-Nestjs dark:focus:border-text-Nestjs"
         } py-2.5 w-full mt-10 bg-transparent border-0 border-b-2 border-neutral-300 appearance-none dark:border-neutral-700 text-neutral-800 dark:text-neutral-50 focus:outline-none focus:ring-0`}
         {...register(inputType, rules)}
       />
-      <p className="mt-3 text-sm font-medium text-rose-500">{errorMessage}</p>
+      <Paragraph className="mt-3 text-text-Nestjs">{errorMessage}</Paragraph>
     </div>
   );
 };
