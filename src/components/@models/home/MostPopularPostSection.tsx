@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 
+import Heading from "@Commons/atom/heading";
 import FlameIcon from "@Commons/atom/icons/FlameIcon";
 import LinkTo from "@Commons/atom/LinkTo";
 import CardTitle from "@Commons/molecules/title/CardTitle";
@@ -18,7 +19,9 @@ const MostPopularPostSection = () => {
         Icon={<FlameIcon className="w-7 h-7" />}
         cardTitle={
           <LinkTo scroll={false} href="/popular">
-            <h6>TILog에서 가장 인기있는 포스트 {">"}</h6>
+            <Heading level={4} tw="font-semibold">
+              TILog에서 가장 인기있는 포스트 {">"}
+            </Heading>
           </LinkTo>
         }
       />

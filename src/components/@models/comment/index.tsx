@@ -16,6 +16,7 @@ import image from "@Public/asset/sleeping.png";
 import useGetParentComment from "@Queries/comments/useGetParentComment";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
+import Heading from "@Commons/atom/heading";
 
 interface CommentProps {
   postId: GetPostDetailResponseDto["id"];
@@ -29,11 +30,11 @@ const Comment = ({ postId }: CommentProps) => {
     <section className="mt-5">
       <CardTitle
         Icon={
-          <h6>
+          <Heading level={4}>
             <AiOutlineComment />
-          </h6>
+          </Heading>
         }
-        cardTitle={<h6>댓글</h6>}
+        cardTitle={<Heading level={4}>댓글</Heading>}
       />
       {commentList.data.list.map((comment) => {
         return <RootComment key={comment.id} comment={comment} />;

@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 
+import Heading from "@Commons/atom/heading";
+
 interface EmptyContentsCardProps {
   title: string;
   subTitle?: ReactNode;
@@ -15,7 +17,7 @@ const EmptyContentsCard = ({
     <div className="flex items-center justify-center py-5 space-x-10 lg:w-[600px] w-full">
       {Icon}
       <div className="text-center">
-        <h5>{title}</h5>
+        <Heading level={5}>{title}</Heading>
         {subTitle}
       </div>
     </div>
