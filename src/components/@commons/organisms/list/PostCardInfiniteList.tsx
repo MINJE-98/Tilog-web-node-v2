@@ -13,22 +13,16 @@ import { GetPostsItem, GetPostsResponseDto } from "@til-log.lab/tilog-api";
 interface PostCardInfiniteListProps {
   CardComponent: ({ post }: { post: GetPostsItem }) => JSX.Element;
   postList?: UseInfiniteQueryResult<GetPostsResponseDto>;
-  twoRow?: boolean;
 }
 
 const PostCardInfiniteList = ({
   CardComponent,
   postList,
-  twoRow = false,
 }: PostCardInfiniteListProps) => {
   if (!postList?.data) return null;
   return (
     <>
-      <div
-        className={`grid gap-3 grid-row justify-center ${
-          twoRow ? "md:grid-cols-2" : ""
-        }`}
-      >
+      <div tw="flex flex-wrap justify-center h-full gap-7">
         {postList.data.pages.map((postPage, idx) => {
           if (idx === 0 && isArrayEmpty(postPage.list))
             return (

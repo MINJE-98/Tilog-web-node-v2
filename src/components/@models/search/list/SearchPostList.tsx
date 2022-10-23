@@ -12,11 +12,7 @@ const SearchPostList = ({ categoryName }: { categoryName: string }) => {
     maxContent: 10,
   });
   return (
-    <PostCardInfiniteList
-      twoRow
-      CardComponent={PostCard}
-      postList={searchPostList}
-    />
+    <PostCardInfiniteList CardComponent={PostCard} postList={searchPostList} />
   );
 };
 

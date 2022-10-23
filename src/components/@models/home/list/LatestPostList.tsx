@@ -11,11 +11,7 @@ const LatestPostList = () => {
     maxContent: 6,
   });
   return (
-    <PostCardInfiniteList
-      twoRow
-      CardComponent={PostCard}
-      postList={latestPostList}
-    />
+    <PostCardInfiniteList CardComponent={PostCard} postList={latestPostList} />
   );
 };
 

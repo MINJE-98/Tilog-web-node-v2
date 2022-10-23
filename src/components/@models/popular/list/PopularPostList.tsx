@@ -13,11 +13,7 @@ const PopularPostList = () => {
   });
   console.log(popularPostList);
   return (
-    <PostCardInfiniteList
-      twoRow
-      CardComponent={PostCard}
-      postList={popularPostList}
-    />
+    <PostCardInfiniteList CardComponent={PostCard} postList={popularPostList} />
   );
 };
 
