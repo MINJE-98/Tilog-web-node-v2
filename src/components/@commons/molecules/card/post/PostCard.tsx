@@ -19,7 +19,7 @@ const PostCard = ({ post }: { post: GetPostsItem }) => {
             id={post.id}
             thumbnailUrl={post.thumbnailUrl}
             title={post.title}
-            sizes="300px"
+            sizes="400px"
             fontSize={80}
           />
         </LinkTo>
