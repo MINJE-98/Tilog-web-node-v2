@@ -10,7 +10,7 @@ const nextConfig = {
     TILOG_GITHUB_STATS_API: process.env.NEXT_PUBLIC_TILOG_GITHUB_STATS_API,
   },
   images: {
-    domains: ["avatars.githubusercontent.com"],
+    domains: ["avatars.githubusercontent.com", "og.tilog.link"],
   },
 };
 
