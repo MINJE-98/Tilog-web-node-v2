@@ -15,10 +15,7 @@ const UserDetailProfile = ({ userName }: UserDetailProfileProps) => {
   return (
     <>
       <div className="flex">
-        <UserAvatarImage
-          className="w-20 h-20 xl:w-32 xl:h-32"
-          avatar={data.avatar}
-        />
+        <UserAvatarImage size={160} avatar={data.avatar} />
 
         <div className="ml-5">
           <LinkTo href={`https://www.github.com/${data.name}`} target="_blank">

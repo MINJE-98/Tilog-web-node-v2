@@ -35,7 +35,7 @@ const SwipeCard = ({
             </p>
           </div>
           <div className="flex items-center justify-between mx-5 mt-5">
-            <UserAvatarImage avatar={post.user.avatar} className="w-7 h-7" />
+            <UserAvatarImage avatar={post.user.avatar} size={40} />
           </div>
         </div>
       </div>

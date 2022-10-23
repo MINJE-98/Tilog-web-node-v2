@@ -1,5 +1,7 @@
 import React from "react";
 
+import tw from "twin.macro";
+
 import AvatarImage from "@Commons/atom/images/avatar/AvatarImage";
 import EmptyAvatarImage from "@Commons/atom/images/avatar/EmptyAvatarImage";
 
@@ -7,15 +9,25 @@ import { GetUserProfileResponseDto } from "@til-log.lab/tilog-api";
 
 interface UserAvatarImageProps {
   avatar?: GetUserProfileResponseDto["avatar"];
-  className?: string;
+  size: number;
 }
 
-const UserAvatarImage = ({ avatar, className }: UserAvatarImageProps) => {
+const UserAvatarImage = ({ avatar, size }: UserAvatarImageProps) => {
   return (
     <div
-      className={`${className} ring-1 ring-neutral-200 dark:ring-neutral-600 rounded-full`}
+      css={[
+        tw`overflow-hidden rounded-full ring-1 ring-neutral-200 dark:ring-neutral-600`,
+        `
+        width: ${size}px;
+        height: ${size}px;
+        `,
+      ]}
     >
-      {!avatar ? <EmptyAvatarImage /> : <AvatarImage avatar={avatar} />}
+      {!avatar ? (
+        <EmptyAvatarImage />
+      ) : (
+        <AvatarImage size={size} avatar={avatar} />
+      )}
     </div>
   );
 };

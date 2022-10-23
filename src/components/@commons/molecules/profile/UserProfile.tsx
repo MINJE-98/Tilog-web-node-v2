@@ -21,7 +21,7 @@ const UserProfile = ({
 }: UserProfileProps) => {
   return (
     <div className="flex w-full space-x-3">
-      <UserAvatarImage className="w-10 h-10" avatar={avatar} />
+      <UserAvatarImage size={40} avatar={avatar} />
 
       <div>
         <LinkTo href={`/blog/${userName}`}>

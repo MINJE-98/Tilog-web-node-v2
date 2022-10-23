@@ -1,5 +1,6 @@
 import toast from "react-hot-toast";
 
+import ThumbnailImagePreview from "@Commons/atom/images/thumbnail/ThumbnailImagePreview";
 import OpacityOverlay from "@Commons/atom/OpacityOverlay";
 import PostThumbnailImage from "@Commons/molecules/images/PostThumbnailImage";
 import AddImageLabel from "@Commons/molecules/label/AddImageLabel";
@@ -37,12 +38,7 @@ const ImagePreView = () => {
             </div>
           </>
         )}
-        <PostThumbnailImage
-          fontSize="2xl"
-          title={title}
-          id="3729"
-          thumbnailUrl={preview}
-        />
+        <ThumbnailImagePreview title={title} />
       </div>
     );
   }

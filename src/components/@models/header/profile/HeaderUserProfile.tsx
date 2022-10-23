@@ -17,10 +17,7 @@ const HeaderUserProfile = () => {
   return (
     <div ref={dropDownRef}>
       <button type="button" onClick={handleOpen}>
-        <UserAvatarImage
-          className="w-12 h-12 md:w-14 md:h-14"
-          avatar={userInfo.avatar}
-        />
+        <UserAvatarImage size={60} avatar={userInfo.avatar} />
       </button>
 
       {isOpen && <UserDropdown userInfo={userInfo} />}

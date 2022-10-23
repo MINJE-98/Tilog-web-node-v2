@@ -34,10 +34,7 @@ const SwipeMobileCard = ({
               {post.subTitle}
             </p>
           </div>
-          <UserAvatarImage
-            avatar={post.user.avatar}
-            className="mt-5 ml-5 w-7 h-7"
-          />
+          <UserAvatarImage avatar={post.user.avatar} size={5} />
         </div>
       </div>
     </div>
