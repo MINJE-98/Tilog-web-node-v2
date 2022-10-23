@@ -19,6 +19,7 @@ const PostDetail = ({ post }: { post: GetPostDetailResponseDto }) => {
     <article className="relative w-full overflow-hidden">
       <PostHead post={data} />
       <PostThumbnailImage
+        sizes="1240px"
         fontSize={60}
         id={data.id}
         thumbnailUrl={data.thumbnailUrl}

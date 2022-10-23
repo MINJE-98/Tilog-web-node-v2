@@ -57,7 +57,12 @@ const ImagePreView = () => {
           </div>
         </>
       )}
-      <PostThumbnailImage title={title} id="0" thumbnailUrl={preview} />
+      <PostThumbnailImage
+        sizes="1240px"
+        title={title}
+        id="0"
+        thumbnailUrl={preview}
+      />
     </div>
   );
 };
