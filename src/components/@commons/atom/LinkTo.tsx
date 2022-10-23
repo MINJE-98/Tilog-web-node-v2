@@ -1,6 +1,8 @@
 import Link, { LinkProps } from "next/link";
 import { AnchorHTMLAttributes, PropsWithChildren } from "react";
 
+import Anchor from "@Commons/atom/anchor";
+
 type PropTypes = LinkProps &
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href">;
 
@@ -28,7 +30,7 @@ const LinkTo = ({
         locale,
       }}
     >
-      <a {...anchorProps}>{children}</a>
+      <Anchor {...anchorProps}>{children}</Anchor>
     </Link>
   );
 };
