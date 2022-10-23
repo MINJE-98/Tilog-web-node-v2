@@ -22,12 +22,6 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "import/prefer-default-export": "off",
-    "jsx-a11y/label-has-associated-control": "off",
-    "react/require-default-props": "off",
-    "@typescript-eslint/lines-between-class-members": "off",
-    "class-methods-use-this": "off",
-    "react/no-unused-prop-types": "off",
     "import/order": [
       "error",
       {
@@ -82,6 +76,14 @@
         }
       }
     ],
+    "import/no-extraneous-dependencies": ["off", { "ignore": ["twin.macro"] }],
+    "react/no-unknown-property": ["off", { "ignore": ["css", "tw"] }],
+    "import/prefer-default-export": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/require-default-props": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
+    "class-methods-use-this": "off",
+    "react/no-unused-prop-types": "off",
     "import/no-cycle": "off",
     "no-console": "error",
     "prettier/prettier": "warn",
