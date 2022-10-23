@@ -11,6 +11,7 @@ const ThumbnailImage = ({
     placeholder="blur"
     height={720}
     width={1260}
+    layout="responsive"
     alt="thumbnail"
     src={thumbnailUrl}
     blurDataURL={thumbnailUrl}
