@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import Paragraph from "@Commons/atom/paragraph";
 import { INPUT, REPLY_STATE } from "@Constants/button";
 import { REPLY_PLACEHOLDER } from "@Constants/text/placeholder";
 import CommentInput from "@Models/comment/input/CommentInput";
@@ -7,7 +8,6 @@ import CommentRender from "@Models/comment/render/CommentRender";
 import useGetChildComment from "@Queries/comments/useGetChildComment";
 
 import { GetCommentsItem } from "@til-log.lab/tilog-api";
-import Paragraph from "@Commons/atom/paragraph";
 
 interface RootCommentProps {
   comment: GetCommentsItem;

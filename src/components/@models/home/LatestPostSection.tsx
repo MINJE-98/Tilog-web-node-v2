@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
-import Heading from "@Commons/atom/heading";
 import NewIcon from "@Commons/atom/icons/NewIcon";
+import Paragraph from "@Commons/atom/paragraph";
 import CardTitle from "@Commons/molecules/title/CardTitle";
 
 const LatestPostList = dynamic(
@@ -17,9 +17,9 @@ const LatestPostSection = () => {
       <CardTitle
         Icon={<NewIcon />}
         cardTitle={
-          <Heading level={4} tw="font-semibold">
+          <Paragraph tw="md:text-xl font-semibold">
             TILog의 최신 포스트
-          </Heading>
+          </Paragraph>
         }
       />
       <LatestPostList />

@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { AiOutlineComment } from "react-icons/ai";
 
+import Heading from "@Commons/atom/heading";
 import Paragraph from "@Commons/atom/paragraph";
 import LoginButton from "@Commons/molecules/buttons/LoginButton";
 import EmptyContentsCard from "@Commons/molecules/card/EmptyContentsCard";
@@ -16,7 +17,6 @@ import image from "@Public/asset/sleeping.png";
 import useGetParentComment from "@Queries/comments/useGetParentComment";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
-import Heading from "@Commons/atom/heading";
 
 interface CommentProps {
   postId: GetPostDetailResponseDto["id"];

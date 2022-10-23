@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-import Heading from "@Commons/atom/heading";
+import Paragraph from "@Commons/atom/paragraph";
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 import CardTitle from "@Commons/molecules/title/CardTitle";
 
@@ -27,9 +27,7 @@ const SearchPostSection = ({
           </div>
         }
         cardTitle={
-          <Heading level={4} tw="font-semibold">
-            의 검색 결과
-          </Heading>
+          <Paragraph tw="md:text-xl font-semibold">의 검색 결과</Paragraph>
         }
       />
       <SearchPostList categoryName={category} />
