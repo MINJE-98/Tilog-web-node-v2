@@ -1,3 +1,5 @@
+import Heading from "@Commons/atom/heading";
+import Paragraph from "@Commons/atom/paragraph";
 import CategorySticker from "@Commons/molecules/CategorySticker";
 import PostUpdateLink from "@Commons/molecules/link/PostUpdateLink";
 import DateFnsFormatter from "@Commons/molecules/text/DateFnsFormatter";
@@ -22,8 +24,8 @@ const PostHead = ({ post }: PostHeadProps) => {
       )}
       <div className="flex flex-col items-center">
         <DateFnsFormatter date={post.createdAt} />
-        <h1>{post.title}</h1>
-        <h6>{post.subTitle}</h6>
+        <Heading level={1}>{post.title}</Heading>
+        <Paragraph tw="text-lg">{post.subTitle}</Paragraph>
         <div className="my-5 text-2xl">
           <CategorySticker categoryName={post.category.name} />
         </div>

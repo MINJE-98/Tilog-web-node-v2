@@ -3,6 +3,7 @@ import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import { backgroundColor } from "@Utility/color";
 
 import { GetPostsItem } from "@til-log.lab/tilog-api";
+import Heading from "@Commons/atom/heading";
 
 const SwipeMobileCard = ({
   isActive,
@@ -27,9 +28,9 @@ const SwipeMobileCard = ({
       <div className="w-full p-5">
         <div className="relative py-5">
           <div className="mx-5">
-            <h1 className="text-lg font-black md:text-xl line-clamp-1">
+            <Heading level={2} tw="line-clamp-1">
               {post.title}
-            </h1>
+            </Heading>
             <p className="mt-1 text-sm font-normal md:text-base line-clamp-1">
               {post.subTitle}
             </p>

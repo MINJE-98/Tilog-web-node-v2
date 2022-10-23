@@ -1,3 +1,5 @@
+import Heading from "@Commons/atom/heading";
+import Paragraph from "@Commons/atom/paragraph";
 import CategorySticker from "@Commons/molecules/CategorySticker";
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import { backgroundColor } from "@Utility/color";
@@ -27,12 +29,10 @@ const SwipeCard = ({
             <CategorySticker categoryName={post.category.name} />
           </div>
           <div className="mx-5">
-            <h1 className="text-lg font-black md:text-xl line-clamp-1">
+            <Heading level={3} tw="font-bold line-clamp-1">
               {post.title}
-            </h1>
-            <p className="mt-1 text-sm font-normal md:text-base line-clamp-1">
-              {post.subTitle}
-            </p>
+            </Heading>
+            <Paragraph tw="line-clamp-1">{post.subTitle}</Paragraph>
           </div>
           <div className="flex items-center justify-between mx-5 mt-5">
             <UserAvatarImage avatar={post.user.avatar} size={40} />

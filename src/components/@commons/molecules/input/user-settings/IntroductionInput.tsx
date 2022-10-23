@@ -1,6 +1,8 @@
 import { useFormContext } from "react-hook-form";
 
+import Heading from "@Commons/atom/heading";
 import UnderLineTextInput from "@Commons/atom/input/UnderLineTextInput";
+import Paragraph from "@Commons/atom/paragraph";
 import { SETTINGS_INPUT_TYPE, INTRO_MSG_RULES } from "@Constants/input";
 import { INTRO_MSG_LABEL } from "@Constants/text";
 
@@ -13,8 +15,8 @@ const IntroductionInput = () => {
   } = useFormContext<UserSettingTypes>();
   return (
     <div>
-      <h1>{INTRO_MSG_LABEL.TITLE}</h1>
-      <p>{INTRO_MSG_LABEL.DESC}</p>
+      <Heading level={1}>{INTRO_MSG_LABEL.TITLE}</Heading>
+      <Paragraph>{INTRO_MSG_LABEL.DESC}</Paragraph>
       <UnderLineTextInput
         register={register}
         inputType={SETTINGS_INPUT_TYPE.INTRO_MSG}

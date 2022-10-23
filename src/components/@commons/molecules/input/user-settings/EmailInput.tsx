@@ -1,6 +1,8 @@
 import { useFormContext } from "react-hook-form";
 
+import Heading from "@Commons/atom/heading";
 import UnderLineTextInput from "@Commons/atom/input/UnderLineTextInput";
+import Paragraph from "@Commons/atom/paragraph";
 import { SETTINGS_INPUT_TYPE, EMAIL_RULES } from "@Constants/input";
 import { EMAIL_LABEL } from "@Constants/text";
 
@@ -13,8 +15,8 @@ const EmailInput = () => {
   } = useFormContext<UserSettingTypes>();
   return (
     <div>
-      <h1>{EMAIL_LABEL.TITLE}</h1>
-      <p>{EMAIL_LABEL.DESC}</p>
+      <Heading level={1}>{EMAIL_LABEL.TITLE}</Heading>
+      <Paragraph>{EMAIL_LABEL.DESC}</Paragraph>
       <UnderLineTextInput
         register={register}
         inputType={SETTINGS_INPUT_TYPE.EMAIL}
