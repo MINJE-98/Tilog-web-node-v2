@@ -29,7 +29,7 @@ const SwipeCard = ({
             <CategorySticker categoryName={post.category.name} />
           </div>
           <div className="mx-5">
-            <Heading level={3} tw="font-bold line-clamp-1">
+            <Heading level={4} tw="font-bold line-clamp-1">
               {post.title}
             </Heading>
             <Paragraph tw="line-clamp-1">{post.subTitle}</Paragraph>

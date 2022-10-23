@@ -44,7 +44,7 @@ const PostCard = ({ post }: { post: GetPostsItem }) => {
 
         <div tw="mt-2 h-[95px]">
           <LinkTo href={`/post/${post.id}`}>
-            <Heading level={3} tw="font-bold line-clamp-1">
+            <Heading level={4} tw="font-bold line-clamp-1">
               {post.title}
             </Heading>
             <Paragraph tw="line-clamp-2">
