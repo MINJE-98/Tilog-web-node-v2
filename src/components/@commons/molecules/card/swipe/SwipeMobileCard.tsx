@@ -32,9 +32,13 @@ const SwipeMobileCard = ({
             <Heading level={2} tw="line-clamp-1">
               {post.title}
             </Heading>
-            <Paragraph tw="mt-1 line-clamp-1">{post.subTitle}</Paragraph>
+            <Paragraph fontSize="small" tw="mt-1 line-clamp-1">
+              {post.subTitle}
+            </Paragraph>
+            <div tw="pt-5">
+              <UserAvatarImage avatar={post.user.avatar} size={30} />
+            </div>
           </div>
-          <UserAvatarImage avatar={post.user.avatar} size={5} />
         </div>
       </div>
     </div>
