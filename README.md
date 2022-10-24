@@ -78,7 +78,6 @@ Tailwind를 사용하여 모든 페이지를 모바일에 대응하도록 컴포
 
 [![Home](https://static.tilog.link/home.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link)
 [![Popular](https://static.tilog.link/popular.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link%2Fpopular)
-[![Latest](https://static.tilog.link/latest.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link%2Flatest)
 [![search](https://static.tilog.link/search.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link%2Fsearch%3Fcategory%3DTypescript)
 
 # 프로젝트를 진행하면서 고민 했던 부분
