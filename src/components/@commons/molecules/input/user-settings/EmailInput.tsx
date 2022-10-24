@@ -16,7 +16,7 @@ const EmailInput = () => {
   return (
     <div>
       <Heading level={1}>{EMAIL_LABEL.TITLE}</Heading>
-      <Paragraph>{EMAIL_LABEL.DESC}</Paragraph>
+      <Paragraph fontSize="medium">{EMAIL_LABEL.DESC}</Paragraph>
       <UnderLineTextInput
         register={register}
         inputType={SETTINGS_INPUT_TYPE.EMAIL}

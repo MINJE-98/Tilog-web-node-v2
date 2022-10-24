@@ -32,7 +32,9 @@ const UnderLineTextInput = <InputType extends FieldValues>({
         } py-2.5 w-full mt-10 bg-transparent border-0 border-b-2 border-neutral-300 appearance-none dark:border-neutral-700 text-neutral-800 dark:text-neutral-50 focus:outline-none focus:ring-0`}
         {...register(inputType, rules)}
       />
-      <Paragraph className="mt-3 text-text-Nestjs">{errorMessage}</Paragraph>
+      <Paragraph fontSize="small" tw="mt-3 text-text-Nestjs">
+        {errorMessage}
+      </Paragraph>
     </div>
   );
 };

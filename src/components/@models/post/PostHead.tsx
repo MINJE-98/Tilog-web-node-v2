@@ -25,7 +25,7 @@ const PostHead = ({ post }: PostHeadProps) => {
       <div className="flex flex-col items-center">
         <DateFnsFormatter date={post.createdAt} />
         <Heading level={1}>{post.title}</Heading>
-        <Paragraph tw="text-lg">{post.subTitle}</Paragraph>
+        <Paragraph fontSize="large">{post.subTitle}</Paragraph>
         <div className="my-5 text-2xl">
           <CategorySticker categoryName={post.category.name} />
         </div>

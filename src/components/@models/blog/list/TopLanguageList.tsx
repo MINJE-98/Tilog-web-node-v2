@@ -10,9 +10,10 @@ import { Users } from "@Api/interface/model";
 const TopLanguageList = ({ userName }: { userName: Users["userName"] }) => {
   const { data } = useGetTopLanguages(userName);
 
-  if (!data) return <Paragraph>{NO_EXIST_TOP_LANGUAGE}</Paragraph>;
+  if (!data)
+    return <Paragraph fontSize="medium">{NO_EXIST_TOP_LANGUAGE}</Paragraph>;
   if (isArrayEmpty(data.data))
-    return <Paragraph>{NO_EXIST_TOP_LANGUAGE}</Paragraph>;
+    return <Paragraph fontSize="medium">{NO_EXIST_TOP_LANGUAGE}</Paragraph>;
   return (
     <div className="flex space-x-2">
       {data.data.map((language) => (

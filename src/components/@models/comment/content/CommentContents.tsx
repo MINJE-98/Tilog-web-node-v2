@@ -8,7 +8,7 @@ interface CommentContentsProps {
 
 const CommentContents = ({ comment }: CommentContentsProps) => {
   if (comment.content === null)
-    return <Paragraph>삭제된 댓글입니다.</Paragraph>;
+    return <Paragraph fontSize="medium">삭제된 댓글입니다.</Paragraph>;
   return <span>{comment.content}</span>;
 };
 

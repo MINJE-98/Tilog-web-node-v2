@@ -2,6 +2,7 @@ import { useRef } from "react";
 
 import { Controller } from "react-hook-form";
 
+import TextInput from "@Commons/atom/input";
 import Spinner from "@Commons/atom/Spinner";
 import { CATEGORY_PLACEHOLDER } from "@Constants/text";
 import useOutsideClickAndEscClickListener from "@Hooks/useOutsideClickAndEscClickListener";
@@ -22,11 +23,12 @@ const CategoryInput = () => {
           required: true,
         }}
         render={({ field }) => (
-          <input
+          <TextInput
+            type="default"
+            fontSize="medium"
             ref={field.ref}
             onFocus={handleOpen}
             onChange={handleChangeCategoryName}
-            className="w-full p-5 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-white"
             placeholder={CATEGORY_PLACEHOLDER}
           />
         )}

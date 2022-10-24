@@ -21,7 +21,6 @@ const SwipeCard = ({
       } `}
     >
       {/** 최상위 부모와 자식 div */}
-      <Paragraph>{isActive}</Paragraph>
       <div className="md:absolute md:bottom-6 bg-neutral-50 dark:bg-neutral-800 w-full md:w-[400px]">
         {/** 자식과 자식 div */}
         <div className="relative py-5">
@@ -32,7 +31,9 @@ const SwipeCard = ({
             <Heading level={4} tw="font-bold line-clamp-1">
               {post.title}
             </Heading>
-            <Paragraph tw="line-clamp-1">{post.subTitle}</Paragraph>
+            <Paragraph fontSize="small" tw="line-clamp-1">
+              {post.subTitle}
+            </Paragraph>
           </div>
           <div className="flex items-center justify-between mx-5 mt-5">
             <UserAvatarImage avatar={post.user.avatar} size={40} />

@@ -16,11 +16,7 @@ const LatestPostSection = () => {
     <section className="my-10">
       <CardTitle
         Icon={<NewIcon />}
-        cardTitle={
-          <Paragraph tw="md:text-xl font-semibold">
-            TILog의 최신 포스트
-          </Paragraph>
-        }
+        cardTitle={<Paragraph fontSize="large">TILog의 최신 포스트</Paragraph>}
       />
       <LatestPostList />
     </section>

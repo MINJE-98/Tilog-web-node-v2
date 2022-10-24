@@ -15,7 +15,7 @@ const PostDeleteButton = ({ postId }: PostUpdateLinkProps) => {
   };
   return (
     <button type="button" onClick={handleDelete}>
-      <Paragraph tw="text-sm text-neutral-400 hover:text-neutral-500 hover:underline">
+      <Paragraph fontSize="small" tw="hover:text-neutral-600 hover:underline">
         {DELETE}
       </Paragraph>
     </button>

@@ -16,9 +16,7 @@ const PopularPostSection = () => {
     <section>
       <CardTitle
         cardTitle={
-          <Paragraph tw="md:text-xl font-semibold">
-            TILog에서 가장 인기있는 포스트
-          </Paragraph>
+          <Paragraph fontSize="large">TILog에서 가장 인기있는 포스트</Paragraph>
         }
         Icon={<FlameIcon className="w-7 h-7" />}
       />

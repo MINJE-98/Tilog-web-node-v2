@@ -16,7 +16,7 @@ const IntroductionInput = () => {
   return (
     <div>
       <Heading level={1}>{INTRO_MSG_LABEL.TITLE}</Heading>
-      <Paragraph>{INTRO_MSG_LABEL.DESC}</Paragraph>
+      <Paragraph fontSize="medium">{INTRO_MSG_LABEL.DESC}</Paragraph>
       <UnderLineTextInput
         register={register}
         inputType={SETTINGS_INPUT_TYPE.INTRO_MSG}

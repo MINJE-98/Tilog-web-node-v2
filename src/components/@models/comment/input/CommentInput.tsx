@@ -30,7 +30,9 @@ const CommentInput = ({
 
         <div className="mt-5">
           {errorMessage && (
-            <Paragraph tw="text-Nestjs">{errorMessage}</Paragraph>
+            <Paragraph fontSize="small" tw="text-Nestjs">
+              {errorMessage}
+            </Paragraph>
           )}
           <textarea
             className="w-full p-5"

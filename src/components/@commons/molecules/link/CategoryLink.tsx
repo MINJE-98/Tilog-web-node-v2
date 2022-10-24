@@ -19,7 +19,10 @@ const CategoryLink = ({ categoryName }: CategoryLinkProps) => {
       tw="font-semibold underline mb-1"
     >
       #{" "}
-      <Paragraph tw="inline text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-50">
+      <Paragraph
+        fontSize="medium"
+        tw="inline text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-50"
+      >
         {categoryName}
       </Paragraph>
     </LinkTo>

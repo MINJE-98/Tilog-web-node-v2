@@ -16,7 +16,7 @@ const PositionInput = () => {
   return (
     <div>
       <Heading level={1}>{POSITION_LABEL.TITLE}</Heading>
-      <Paragraph>{POSITION_LABEL.DESC}</Paragraph>
+      <Paragraph fontSize="medium">{POSITION_LABEL.DESC}</Paragraph>
       <UnderLineTextInput
         register={register}
         inputType={SETTINGS_INPUT_TYPE.POSITION}

@@ -53,11 +53,11 @@ const UserStatsSection = ({
       <section className="order-4">
         <CardTitle
           Icon={
-            <Paragraph>
+            <Paragraph fontSize="medium">
               <VscJson />
             </Paragraph>
           }
-          cardTitle={<Paragraph>Top Languages</Paragraph>}
+          cardTitle={<Paragraph fontSize="medium">Top Languages</Paragraph>}
         />
         <TopLanguageList userName={userInfo.name} />
       </section>
@@ -65,11 +65,13 @@ const UserStatsSection = ({
       <section className="order-5">
         <CardTitle
           Icon={
-            <Paragraph>
+            <Paragraph fontSize="medium">
               <AiFillPushpin />
             </Paragraph>
           }
-          cardTitle={<Paragraph>Pinned Repositories</Paragraph>}
+          cardTitle={
+            <Paragraph fontSize="medium">Pinned Repositories</Paragraph>
+          }
         />
         <PinnedRepoList userName={userInfo.name} />
       </section>

@@ -16,7 +16,9 @@ const PinnedRepo = ({ repo }: { repo: PinnedRepoResponse }) => {
             {repo.name}
           </Heading>
         </section>
-        <Paragraph tw="py-1 text-sm px-7">{repo.description}</Paragraph>
+        <Paragraph fontSize="medium" tw="py-1 text-sm px-7">
+          {repo.description}
+        </Paragraph>
         <div className="text-xl">
           <RenderTechIcons categoryName={repo.primaryLanguage.name} />
         </div>
@@ -32,13 +34,16 @@ const PinnedRepo = ({ repo }: { repo: PinnedRepoResponse }) => {
           rel="noreferrer"
           target="_blank"
         >
-          <Paragraph tw="text-xs hover:text-neutral-900 dark:hover:text-neutral-50">
+          <Paragraph
+            fontSize="small"
+            tw="text-xs hover:text-neutral-900 dark:hover:text-neutral-50"
+          >
             Click to open repository
           </Paragraph>
         </a>
         <div tw="flex items-center space-x-1">
           <GoStar tw="text-neutral-500" />
-          <Paragraph tw="text-xs">{repo.stargazers.totalCount}</Paragraph>
+          <Paragraph fontSize="small">{repo.stargazers.totalCount}</Paragraph>
         </div>
       </div>
     </div>

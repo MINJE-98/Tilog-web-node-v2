@@ -26,9 +26,7 @@ const SearchPostSection = ({
             <RenderTechIcons categoryName={category} />
           </div>
         }
-        cardTitle={
-          <Paragraph tw="md:text-xl font-semibold">의 검색 결과</Paragraph>
-        }
+        cardTitle={<Paragraph fontSize="large">의 검색 결과</Paragraph>}
       />
       <SearchPostList categoryName={category} />
     </section>

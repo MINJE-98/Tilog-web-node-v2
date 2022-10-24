@@ -28,11 +28,17 @@ const RootComment = ({ comment }: RootCommentProps) => {
           <div className="text-right">
             <button onClick={() => setIsOpen(!isOpen)} type="button">
               {isOpen ? (
-                <Paragraph tw="hover:text-neutral-500 dark:hover:text-neutral-400 text-neutral-800 dark:text-neutral-300">
+                <Paragraph
+                  fontSize="medium"
+                  tw="hover:text-neutral-500 dark:hover:text-neutral-400 text-neutral-800 dark:text-neutral-300"
+                >
                   {REPLY_STATE.CLOSE}
                 </Paragraph>
               ) : (
-                <Paragraph className="hover:text-neutral-800 dark:hover:text-neutral-300">
+                <Paragraph
+                  fontSize="medium"
+                  className="hover:text-neutral-800 dark:hover:text-neutral-300"
+                >
                   {REPLY_STATE.OPEN}
                 </Paragraph>
               )}

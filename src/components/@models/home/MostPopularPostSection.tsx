@@ -19,7 +19,7 @@ const MostPopularPostSection = () => {
         Icon={<FlameIcon className="w-7 h-7" />}
         cardTitle={
           <LinkTo scroll={false} href="/popular">
-            <Paragraph tw="md:text-xl font-semibold">
+            <Paragraph fontSize="large">
               TILog에서 가장 인기있는 포스트 {">"}
             </Paragraph>
           </LinkTo>

@@ -10,9 +10,10 @@ import { Users } from "@Api/interface/model";
 const PinnedRepoList = ({ userName }: { userName: Users["userName"] }) => {
   const { data } = useGetPinnedRepo(userName);
 
-  if (!data) return <Paragraph>{NO_EXIST_PINNED_REPO}</Paragraph>;
+  if (!data)
+    return <Paragraph fontSize="medium">{NO_EXIST_PINNED_REPO}</Paragraph>;
   if (isArrayEmpty(data.data))
-    return <Paragraph>{NO_EXIST_PINNED_REPO}</Paragraph>;
+    return <Paragraph fontSize="medium">{NO_EXIST_PINNED_REPO}</Paragraph>;
   return (
     <div className="flex flex-col space-y-3">
       {data.data.map((repo) => (

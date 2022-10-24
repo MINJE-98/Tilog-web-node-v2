@@ -37,7 +37,11 @@ const PostCardInfiniteList = ({
                   />
                 }
                 title="작성된 포스트가 없어요."
-                subTitle={<Paragraph>다른 카테고리로 검색해보세요!</Paragraph>}
+                subTitle={
+                  <Paragraph fontSize="medium">
+                    다른 카테고리로 검색해보세요!
+                  </Paragraph>
+                }
               />
             );
           return postPage.list.map((post) => (

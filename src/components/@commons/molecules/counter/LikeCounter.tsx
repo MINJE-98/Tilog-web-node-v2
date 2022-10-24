@@ -14,7 +14,7 @@ const LikeCounter = ({ count, active = false }: LikeCounterProps) => {
       <AiFillHeart
         css={[tw`w-4 h-4`, active ? tw`text-Nestjs` : tw`text-neutral-500`]}
       />
-      <Paragraph tw="md:text-xs">{count}</Paragraph>
+      <Paragraph fontSize="small">{count}</Paragraph>
     </div>
   );
 };

@@ -36,7 +36,9 @@ const TextInput = <InputType extends FieldValues>({
         {...props}
       />
       {errorMessage && (
-        <Paragraph tw="mt-3 text-Nestjs">{errorMessage}</Paragraph>
+        <Paragraph fontSize="small" tw="mt-3 text-Nestjs">
+          {errorMessage}
+        </Paragraph>
       )}
     </>
   );

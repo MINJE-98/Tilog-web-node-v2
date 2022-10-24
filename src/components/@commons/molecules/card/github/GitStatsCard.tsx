@@ -9,9 +9,9 @@ interface GitStatsCardProps {
 }
 const GitStatsCard = ({ Icon, count, name }: GitStatsCardProps) => {
   return (
-    <div>
-      <Icon className="inline mb-1 mr-1 text-sm md:text-2xl dark:text-neutral-50" />
-      <Paragraph className="inline">
+    <div tw="flex items-center">
+      <Icon className="mb-1 mr-1 text-sm md:text-2xl dark:text-neutral-50" />
+      <Paragraph fontSize="medium">
         <span className="mr-1 text-xs md:text-base">{count}</span>
         {name}
       </Paragraph>
