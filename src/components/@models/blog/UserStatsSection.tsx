@@ -19,14 +19,14 @@ import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse"
 const PinnedRepoList = dynamic(
   () => import("@Models/blog/list/PinnedRepoList"),
   {
-    suspense: true,
+    ssr: false,
   }
 );
 
 const TopLanguageList = dynamic(
   () => import("@Models/blog/list/TopLanguageList"),
   {
-    suspense: true,
+    ssr: false,
   }
 );
 
