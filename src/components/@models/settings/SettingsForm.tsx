@@ -54,7 +54,7 @@ const SettingsForm = () => {
         desc={POSITION_LABEL.DESC}
         register={register}
         errors={errors}
-        inputType={SETTINGS_INPUT_TYPE.INTRO_MSG}
+        inputType={SETTINGS_INPUT_TYPE.POSITION}
         rules={POSITION_RULES}
       />
       <div className="text-right">
