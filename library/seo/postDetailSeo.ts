@@ -23,7 +23,7 @@ export const postDetailSeo = (
       images: [
         {
           url: !postDetail.thumbnailUrl
-            ? `https://og.tilog.link/${postDetail.title}.png?md=1&fontSize=100px&seed=${postDetail.id}`
+            ? `https://og.tilog.link/${postDetail.title}.png?md=1&fontSize=80px&seed=${postDetail.id}`
             : postDetail.thumbnailUrl,
           width: 285,
           height: 167,
