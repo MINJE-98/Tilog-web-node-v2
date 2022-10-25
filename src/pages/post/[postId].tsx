@@ -14,7 +14,7 @@ import { postQueryKeys, userQueryKeys } from "@Utility/queryKey";
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 
 const Comment = dynamic(() => import("@Models/comment"), {
-  ssr: false,
+  suspense: true,
 });
 
 interface PostDetailPageProps {

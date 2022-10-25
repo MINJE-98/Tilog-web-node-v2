@@ -12,7 +12,9 @@ const NotFoundPage: NextPage = () => {
           <header>
             <Heading level={1}>404</Heading>
           </header>
-          <Paragraph fontSize="medium">페이지를 찾을 수 없습니다.</Paragraph>
+          <Paragraph color="gray" fontSize="medium">
+            페이지를 찾을 수 없습니다.
+          </Paragraph>
         </article>
       </RootBox>
     </div>
