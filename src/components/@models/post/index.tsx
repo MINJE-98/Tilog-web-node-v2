@@ -11,7 +11,7 @@ import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
 const TiptapViewer = dynamic(
   () => import("@Commons/molecules/text-area/TiptapViewer"),
   {
-    suspense: true,
+    ssr: false,
   }
 );
 
