@@ -1,34 +1,65 @@
-import { FormProvider, useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 import SettingsSubmit from "@Commons/molecules/buttons/SettingsSubmit";
-import DisplayNameInput from "@Commons/molecules/input/user-settings/DisplayNameInput";
-import EmailInput from "@Commons/molecules/input/user-settings/EmailInput";
-import IntroductionInput from "@Commons/molecules/input/user-settings/IntroductionInput";
-import PositionInput from "@Commons/molecules/input/user-settings/PositionInput";
-import { useAuth } from "@Contexts/auth/AuthContext";
-import useHandleSubmit from "@Models/settings/hooks/useHandleSettingsSubmit";
-
-import UserSettingTypes from "@Api/users/interface/userSettingTypes";
+import UserSettingInput from "@Commons/molecules/input/user-settings";
+import {
+  DISPLAY_NAME_RULES,
+  EMAIL_RULES,
+  INTRO_MSG_RULES,
+  POSITION_RULES,
+  SETTINGS_INPUT_TYPE,
+} from "@Constants/input";
+import {
+  DISPLAY_NAME_LABEL,
+  EMAIL_LABEL,
+  INTRO_MSG_LABEL,
+  POSITION_LABEL,
+} from "@Constants/text";
 
 const SettingsForm = () => {
-  const onSubmit = useHandleSubmit();
-  const { userInfo } = useAuth();
-  const method = useForm<UserSettingTypes>({
-    defaultValues: userInfo ? userInfo.settings : {},
-  });
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   return (
-    <div className="w-full m-auto p-14 bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700">
-      <FormProvider {...method}>
-        <form onSubmit={method.handleSubmit(onSubmit)}>
-          <DisplayNameInput />
-          <EmailInput />
-          <IntroductionInput />
-          <PositionInput />
-          <div className="text-right">
-            <SettingsSubmit />
-          </div>
-        </form>
-      </FormProvider>
+    <div tw="max-w-[550px] m-auto p-14 bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700">
+      <UserSettingInput
+        title={DISPLAY_NAME_LABEL.TITLE}
+        desc={DISPLAY_NAME_LABEL.DESC}
+        register={register}
+        errors={errors}
+        inputType={SETTINGS_INPUT_TYPE.DISPLAY_NAME}
+        rules={DISPLAY_NAME_RULES}
+      />
+      <UserSettingInput
+        title={EMAIL_LABEL.TITLE}
+        desc={EMAIL_LABEL.DESC}
+        register={register}
+        errors={errors}
+        inputType={SETTINGS_INPUT_TYPE.EMAIL}
+        rules={EMAIL_RULES}
+      />
+      <UserSettingInput
+        title={INTRO_MSG_LABEL.TITLE}
+        desc={INTRO_MSG_LABEL.DESC}
+        register={register}
+        errors={errors}
+        inputType={SETTINGS_INPUT_TYPE.INTRO_MSG}
+        rules={INTRO_MSG_RULES}
+      />
+
+      <UserSettingInput
+        title={POSITION_LABEL.TITLE}
+        desc={POSITION_LABEL.DESC}
+        register={register}
+        errors={errors}
+        inputType={SETTINGS_INPUT_TYPE.INTRO_MSG}
+        rules={POSITION_RULES}
+      />
+      <div className="text-right">
+        <SettingsSubmit />
+      </div>
     </div>
   );
 };

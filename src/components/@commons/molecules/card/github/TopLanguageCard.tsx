@@ -1,3 +1,4 @@
+import Paragraph from "@Commons/atom/paragraph";
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 
 import TopLanguageResponse from "@Api/github/interface/topLanguageResponse";
@@ -8,7 +9,9 @@ const TopLanguage = ({ language }: { language: TopLanguageResponse }) => {
       <div className="text-2xl">
         <RenderTechIcons categoryName={language.name} />
       </div>
-      <span className="font-black">{language.percent}%</span>
+      <Paragraph color="black" fontSize="small">
+        {language.percent}%
+      </Paragraph>
     </div>
   );
 };

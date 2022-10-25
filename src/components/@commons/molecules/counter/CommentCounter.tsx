@@ -10,7 +10,9 @@ const CommentCounter = ({ count }: CommentCounterProps) => {
   return (
     <div tw="flex items-center space-x-1">
       <AiOutlineComment tw="w-4 h-4 text-neutral-500 " />
-      <Paragraph fontSize="small">{count}</Paragraph>
+      <Paragraph color="gray" fontSize="small">
+        {count}
+      </Paragraph>
     </div>
   );
 };

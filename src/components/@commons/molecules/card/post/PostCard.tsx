@@ -35,7 +35,7 @@ const PostCard = ({ post }: { post: GetPostsItem }) => {
             <div tw="flex items-center space-x-1">
               <DateFnsFormatter tw="md:text-xs" date={post.createdAt} />
               <VscCircleFilled tw="text-[6px] dark:text-neutral-500 text-neutral-400" />
-              <Paragraph fontSize="small">
+              <Paragraph color="gray" fontSize="small">
                 {VIEW_COUNT} {post.view}
               </Paragraph>
             </div>
@@ -47,7 +47,7 @@ const PostCard = ({ post }: { post: GetPostsItem }) => {
             <Heading level={4} tw="font-bold line-clamp-1">
               {post.title}
             </Heading>
-            <Paragraph fontSize="medium" tw="line-clamp-2">
+            <Paragraph color="gray" fontSize="medium" tw="line-clamp-2">
               {!post.subTitle ? "" : post.subTitle}
             </Paragraph>
           </LinkTo>

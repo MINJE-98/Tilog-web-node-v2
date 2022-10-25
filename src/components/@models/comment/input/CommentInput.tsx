@@ -30,7 +30,7 @@ const CommentInput = ({
 
         <div className="mt-5">
           {errorMessage && (
-            <Paragraph fontSize="small" tw="text-Nestjs">
+            <Paragraph color="gray" fontSize="small" tw="text-Nestjs">
               {errorMessage}
             </Paragraph>
           )}

@@ -48,13 +48,13 @@ const Comment = ({ postId }: CommentProps) => {
           subTitle={
             !userInfo ? (
               <div className="mt-5 w-fit">
-                <Paragraph fontSize="medium">
+                <Paragraph color="gray" fontSize="medium">
                   로그인해서 댓글을 작성해보세요!
                 </Paragraph>
                 <LoginButton onClick={handleLogin} />
               </div>
             ) : (
-              <Paragraph fontSize="medium">
+              <Paragraph color="gray" fontSize="medium">
                 게시글에 댓글을 작성해보세요!
               </Paragraph>
             )

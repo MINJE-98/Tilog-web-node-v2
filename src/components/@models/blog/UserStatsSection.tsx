@@ -19,14 +19,14 @@ import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse"
 const PinnedRepoList = dynamic(
   () => import("@Models/blog/list/PinnedRepoList"),
   {
-    ssr: false,
+    suspense: true,
   }
 );
 
 const TopLanguageList = dynamic(
   () => import("@Models/blog/list/TopLanguageList"),
   {
-    ssr: false,
+    suspense: true,
   }
 );
 
@@ -53,11 +53,15 @@ const UserStatsSection = ({
       <section className="order-4">
         <CardTitle
           Icon={
-            <Paragraph fontSize="medium">
+            <Paragraph color="gray" fontSize="large">
               <VscJson />
             </Paragraph>
           }
-          cardTitle={<Paragraph fontSize="medium">Top Languages</Paragraph>}
+          cardTitle={
+            <Paragraph color="gray" fontSize="large">
+              Top Languages
+            </Paragraph>
+          }
         />
         <TopLanguageList userName={userInfo.name} />
       </section>
@@ -65,12 +69,14 @@ const UserStatsSection = ({
       <section className="order-5">
         <CardTitle
           Icon={
-            <Paragraph fontSize="medium">
+            <Paragraph color="gray" fontSize="large">
               <AiFillPushpin />
             </Paragraph>
           }
           cardTitle={
-            <Paragraph fontSize="medium">Pinned Repositories</Paragraph>
+            <Paragraph color="gray" fontSize="large">
+              Pinned Repositories
+            </Paragraph>
           }
         />
         <PinnedRepoList userName={userInfo.name} />

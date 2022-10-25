@@ -8,8 +8,16 @@ interface CommentContentsProps {
 
 const CommentContents = ({ comment }: CommentContentsProps) => {
   if (comment.content === null)
-    return <Paragraph fontSize="medium">삭제된 댓글입니다.</Paragraph>;
-  return <span>{comment.content}</span>;
+    return (
+      <Paragraph color="gray" fontSize="medium">
+        삭제된 댓글입니다.
+      </Paragraph>
+    );
+  return (
+    <Paragraph color="black" fontSize="medium">
+      {comment.content}
+    </Paragraph>
+  );
 };
 
 export default CommentContents;

@@ -21,11 +21,15 @@ const UserDetailProfile = ({ userName }: UserDetailProfileProps) => {
 
         <div className="ml-5">
           <LinkTo href={`https://www.github.com/${data.name}`} target="_blank">
-            <Paragraph fontSize="medium">@{data.name}</Paragraph>
+            <Paragraph color="gray" fontSize="medium">
+              @{data.name}
+            </Paragraph>
           </LinkTo>
 
           <LinkTo href={`mailto:${data.settings.EMAIL}`}>
-            <Paragraph fontSize="medium">{data.settings.EMAIL}</Paragraph>
+            <Paragraph color="gray" fontSize="medium">
+              {data.settings.EMAIL}
+            </Paragraph>
           </LinkTo>
 
           <Heading level={2} className="line-clamp-1">
@@ -34,13 +38,13 @@ const UserDetailProfile = ({ userName }: UserDetailProfileProps) => {
               : data.name}
           </Heading>
 
-          <Paragraph fontSize="medium" tw="line-clamp-1">
+          <Paragraph color="black" fontSize="medium" tw="line-clamp-1">
             {data.settings.POSITION}
           </Paragraph>
         </div>
       </div>
       <div className="p-5">
-        <Paragraph fontSize="medium" tw="text-neutral-900 line-clamp-3">
+        <Paragraph color="black" fontSize="medium" tw="line-clamp-3">
           {data.settings.INTRO_MSG}
         </Paragraph>
       </div>

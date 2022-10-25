@@ -23,14 +23,18 @@ const IntroThumbnail = () => {
         <div tw="mt-10">
           {!userInfo ? (
             <>
-              <Paragraph fontSize="medium">{HOME_STATUS.GUEST}</Paragraph>
+              <Paragraph color="gray" fontSize="medium">
+                {HOME_STATUS.GUEST}
+              </Paragraph>
               <div tw="mt-5">
                 <LoginButton onClick={handleLogin} />
               </div>
             </>
           ) : (
             <>
-              <Paragraph fontSize="medium">{HOME_STATUS.USER}</Paragraph>
+              <Paragraph color="gray" fontSize="medium">
+                {HOME_STATUS.USER}
+              </Paragraph>
               <div tw="mt-2">
                 <LinkTo href="/writer">
                   <Button color="primary" size="small" type="submit" tw="w-48">

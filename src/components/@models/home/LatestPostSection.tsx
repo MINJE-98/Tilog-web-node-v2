@@ -7,7 +7,7 @@ import CardTitle from "@Commons/molecules/title/CardTitle";
 const LatestPostList = dynamic(
   () => import("@Models/home/list/LatestPostList"),
   {
-    suspense: true,
+    ssr: false,
   }
 );
 
@@ -16,7 +16,11 @@ const LatestPostSection = () => {
     <section className="my-10">
       <CardTitle
         Icon={<NewIcon />}
-        cardTitle={<Paragraph fontSize="large">TILog의 최신 포스트</Paragraph>}
+        cardTitle={
+          <Paragraph color="gray" fontSize="large">
+            TILog의 최신 포스트
+          </Paragraph>
+        }
       />
       <LatestPostList />
     </section>

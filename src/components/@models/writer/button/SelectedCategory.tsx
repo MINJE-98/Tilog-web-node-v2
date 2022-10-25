@@ -1,5 +1,6 @@
 import { useFormContext } from "react-hook-form";
 
+import Paragraph from "@Commons/atom/paragraph";
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 
 const SelectedCategory = () => {
@@ -14,9 +15,9 @@ const SelectedCategory = () => {
         <div className="flex items-center">
           <div className="flex items-center content-center text-2xl gap-x-3">
             <RenderTechIcons categoryName={getValues("category.name")} />
-            <span className="block font-medium">
+            <Paragraph color="black" fontSize="medium" tw="block">
               {getValues("category.name")}
-            </span>
+            </Paragraph>
           </div>
         </div>
       </button>

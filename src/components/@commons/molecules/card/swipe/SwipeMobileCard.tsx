@@ -32,7 +32,7 @@ const SwipeMobileCard = ({
             <Heading level={2} tw="line-clamp-1">
               {post.title}
             </Heading>
-            <Paragraph fontSize="small" tw="mt-1 line-clamp-1">
+            <Paragraph color="gray" fontSize="small" tw="mt-1 line-clamp-1">
               {post.subTitle}
             </Paragraph>
             <div tw="pt-5">

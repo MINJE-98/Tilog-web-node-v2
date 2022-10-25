@@ -7,10 +7,10 @@ interface PublishDateProps extends HTMLAttributes<HTMLParagraphElement> {
   date: string;
 }
 
-const DateFnsFormatter = ({ date, ...props }: PublishDateProps) => {
+const DateFnsFormatter = ({ date }: PublishDateProps) => {
   const dateFnsFormat = changeDateToDateFnsFormat(date);
   return (
-    <Paragraph fontSize="medium" {...props}>
+    <Paragraph color="gray" fontSize="medium">
       {dateFnsFormat}
     </Paragraph>
   );

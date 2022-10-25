@@ -18,7 +18,11 @@ interface PostCardListProps {
 
 const PostCardList = ({ CardComponent, postList }: PostCardListProps) => {
   if (!postList)
-    return <Paragraph fontSize="medium">{NO_EXIST_POSTS}</Paragraph>;
+    return (
+      <Paragraph color="black" fontSize="medium">
+        {NO_EXIST_POSTS}
+      </Paragraph>
+    );
   return (
     <div className="grid gap-3 grid-row md:grid-cols-2">
       {postList.list.map((post, idex) => (

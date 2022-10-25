@@ -1,5 +1,6 @@
 import Button from "@Commons/atom/button";
 import GithubIcon from "@Commons/atom/icons/GithubIcon";
+import Paragraph from "@Commons/atom/paragraph";
 import { GITHUB_LOGIN } from "@Constants/button";
 
 const LoginButton = ({ onClick }: { onClick: () => void }) => {
@@ -12,7 +13,9 @@ const LoginButton = ({ onClick }: { onClick: () => void }) => {
       onClick={onClick}
     >
       <GithubIcon className="inline fill-white" />
-      <span className="text-neutral-50">{GITHUB_LOGIN}</span>
+      <Paragraph color="black" fontSize="medium" tw="text-neutral-50">
+        {GITHUB_LOGIN}
+      </Paragraph>
     </Button>
   );
 };

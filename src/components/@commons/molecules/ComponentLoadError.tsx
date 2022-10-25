@@ -8,7 +8,9 @@ const ComponentLoadError = ({ error, resetErrorBoundary }: FallbackProps) => {
   return (
     <div className="flex flex-col items-center justify-center p-5 m-auto w-fit bg-neutral-100 dark:bg-neutral-800">
       <Heading level={4}>{error.name}</Heading>
-      <Paragraph fontSize="medium">{error.message}</Paragraph>
+      <Paragraph color="gray" fontSize="medium">
+        {error.message}
+      </Paragraph>
       <div className="mt-10 w-36">
         <Button
           size="small"

@@ -4,17 +4,21 @@ import TextInput from "@Commons/atom/input";
 import { SUBTITLE_RULES, WRITER_INPUT_TYPE } from "@Constants/input";
 import { WRITER_PLACEHOLDER } from "@Constants/text";
 
-import WriterFormTypes from "@Api/post/interface/writerFormTypes";
-
 const SubTitleInput = () => {
-  const { register } = useFormContext<WriterFormTypes>();
-
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
   return (
     <TextInput
       type="default"
-      {...register(WRITER_INPUT_TYPE.SUBTITLE, SUBTITLE_RULES)}
-      // errorMessage={errorMessage}
       fontSize="medium"
+      formObject={{
+        inputType: WRITER_INPUT_TYPE.SUBTITLE,
+        register,
+        rules: SUBTITLE_RULES,
+        errors,
+      }}
       placeholder={WRITER_PLACEHOLDER.SUBTITLE}
     />
   );

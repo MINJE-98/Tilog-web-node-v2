@@ -18,7 +18,7 @@ const CommentUpdateInput = ({ comment, handleUpdate }: CommentInputProps) => {
       <div className="p-5 bg-neutral-100 dark:bg-neutral-800">
         <div className="mt-5">
           {errorMessage && (
-            <Paragraph fontSize="small" tw="text-Nestjs">
+            <Paragraph color="gray" fontSize="small" tw="text-Nestjs">
               {errorMessage}
             </Paragraph>
           )}

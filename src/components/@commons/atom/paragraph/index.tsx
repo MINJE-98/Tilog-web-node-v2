@@ -4,9 +4,10 @@ import tw, { styled } from "twin.macro";
 
 interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
   fontSize: "large" | "medium" | "small";
+  color: "black" | "gray";
 }
 
-const TextInputSizeStyle = ({ fontSize }: ParagraphProps) => {
+const ParagraphSizeStyle = ({ fontSize }: ParagraphProps) => {
   switch (fontSize) {
     case "large":
       return tw`text-base font-semibold md:text-lg`;
@@ -18,9 +19,19 @@ const TextInputSizeStyle = ({ fontSize }: ParagraphProps) => {
       return "";
   }
 };
+const ParagraphColorStyle = ({ color }: ParagraphProps) => {
+  switch (color) {
+    case "black":
+      return tw`text-neutral-900 dark:text-neutral-50`;
+    case "gray":
+      return tw`text-neutral-500`;
+    default:
+      return "";
+  }
+};
 
 const Paragraph = styled.p`
-  ${tw`text-neutral-500`}
-  ${TextInputSizeStyle}
+  ${ParagraphColorStyle}
+  ${ParagraphSizeStyle}
 `;
 export default Paragraph;

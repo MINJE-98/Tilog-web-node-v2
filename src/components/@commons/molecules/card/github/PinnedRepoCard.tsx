@@ -16,7 +16,7 @@ const PinnedRepo = ({ repo }: { repo: PinnedRepoResponse }) => {
             {repo.name}
           </Heading>
         </section>
-        <Paragraph fontSize="medium" tw="py-1 text-sm px-7">
+        <Paragraph color="gray" fontSize="medium" tw="py-1 text-sm px-7">
           {repo.description}
         </Paragraph>
         <div className="text-xl">
@@ -35,6 +35,7 @@ const PinnedRepo = ({ repo }: { repo: PinnedRepoResponse }) => {
           target="_blank"
         >
           <Paragraph
+            color="gray"
             fontSize="small"
             tw="text-xs hover:text-neutral-900 dark:hover:text-neutral-50"
           >
@@ -43,7 +44,9 @@ const PinnedRepo = ({ repo }: { repo: PinnedRepoResponse }) => {
         </a>
         <div tw="flex items-center space-x-1">
           <GoStar tw="text-neutral-500" />
-          <Paragraph fontSize="small">{repo.stargazers.totalCount}</Paragraph>
+          <Paragraph color="gray" fontSize="small">
+            {repo.stargazers.totalCount}
+          </Paragraph>
         </div>
       </div>
     </div>

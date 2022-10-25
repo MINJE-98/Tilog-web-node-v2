@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 
 import LockIcon from "@Commons/atom/icons/LockIcon";
 import LinkTo from "@Commons/atom/LinkTo";
+import Paragraph from "@Commons/atom/paragraph";
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 
 import { GetPostsItem } from "@til-log.lab/tilog-api";
@@ -25,7 +26,9 @@ const UserProfile = ({
 
       <div>
         <LinkTo href={`/blog/${userName}`}>
-          <span className="text-sm font-semibold">{userName}</span>
+          <Paragraph color="black" fontSize="medium">
+            {userName}
+          </Paragraph>
         </LinkTo>
         {isPrivate && <LockIcon />}
         {dateAndViewCount}

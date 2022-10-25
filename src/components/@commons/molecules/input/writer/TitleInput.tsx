@@ -4,21 +4,22 @@ import TextInput from "@Commons/atom/input";
 import { TITLE_RULES, WRITER_INPUT_TYPE } from "@Constants/input";
 import { WRITER_PLACEHOLDER } from "@Constants/text";
 
-import WriterFormTypes from "@Api/post/interface/writerFormTypes";
-
 const TitleInput = () => {
   const {
     register,
     formState: { errors },
-  } = useFormContext<WriterFormTypes>();
-  const isError = !errors.title?.message;
+  } = useFormContext();
 
   return (
     <TextInput
       type="default"
-      isError={isError}
-      {...register(WRITER_INPUT_TYPE.TITLE, TITLE_RULES)}
-      fontSize="medium"
+      fontSize="large"
+      formObject={{
+        inputType: WRITER_INPUT_TYPE.TITLE,
+        register,
+        rules: TITLE_RULES,
+        errors,
+      }}
       placeholder={WRITER_PLACEHOLDER.TITLE}
     />
   );

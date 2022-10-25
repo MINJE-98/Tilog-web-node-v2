@@ -1,3 +1,6 @@
+import tw from "twin.macro";
+
+import Paragraph from "@Commons/atom/paragraph";
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 
 import { GetPostsCategoryItem } from "@til-log.lab/tilog-api";
@@ -21,15 +24,20 @@ const CategorySticker = ({
       <div className="text-xl">
         <RenderTechIcons categoryName={categoryName} />
       </div>
-      <span
-        className={`${
-          isSelected
-            ? "text-neutral-50 dark:text-neutral-800"
-            : "text-neutral-800 dark:text-neutral-50"
-        } mt-[2px] font-semibold`}
+      <Paragraph
+        color="black"
+        fontSize="medium"
+        css={[
+          tw`mt-[2px] font-semibold text-base`,
+          `${
+            isSelected
+              ? tw`text-neutral-50 dark:text-neutral-800`
+              : tw`text-neutral-800 dark:text-neutral-50`
+          }`,
+        ]}
       >
         {categoryName}
-      </span>
+      </Paragraph>
     </div>
   );
 };

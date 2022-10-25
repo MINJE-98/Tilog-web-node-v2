@@ -11,8 +11,14 @@ const GitStatsCard = ({ Icon, count, name }: GitStatsCardProps) => {
   return (
     <div tw="flex items-center">
       <Icon className="mb-1 mr-1 text-sm md:text-2xl dark:text-neutral-50" />
-      <Paragraph fontSize="medium">
-        <span className="mr-1 text-xs md:text-base">{count}</span>
+      <Paragraph color="gray" fontSize="medium">
+        <Paragraph
+          color="gray"
+          fontSize="medium"
+          tw="mr-1 text-xs md:text-base"
+        >
+          {count}
+        </Paragraph>
         {name}
       </Paragraph>
     </div>

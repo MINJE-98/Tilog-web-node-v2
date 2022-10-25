@@ -15,7 +15,11 @@ const PostDeleteButton = ({ postId }: PostUpdateLinkProps) => {
   };
   return (
     <button type="button" onClick={handleDelete}>
-      <Paragraph fontSize="small" tw="hover:text-neutral-600 hover:underline">
+      <Paragraph
+        color="gray"
+        fontSize="small"
+        tw="hover:text-neutral-600 hover:underline"
+      >
         {DELETE}
       </Paragraph>
     </button>

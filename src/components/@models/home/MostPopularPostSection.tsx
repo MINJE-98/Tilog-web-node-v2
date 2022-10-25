@@ -8,7 +8,7 @@ import CardTitle from "@Commons/molecules/title/CardTitle";
 const MostPopularSwiper = dynamic(
   () => import("@Models/home/list/MostPopularSwiper"),
   {
-    suspense: true,
+    ssr: false,
   }
 );
 
@@ -19,7 +19,7 @@ const MostPopularPostSection = () => {
         Icon={<FlameIcon className="w-7 h-7" />}
         cardTitle={
           <LinkTo scroll={false} href="/popular">
-            <Paragraph fontSize="large">
+            <Paragraph color="gray" fontSize="large">
               TILog에서 가장 인기있는 포스트 {">"}
             </Paragraph>
           </LinkTo>

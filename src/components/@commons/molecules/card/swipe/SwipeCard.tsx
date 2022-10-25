@@ -31,7 +31,7 @@ const SwipeCard = ({
             <Heading level={4} tw="font-bold line-clamp-1">
               {post.title}
             </Heading>
-            <Paragraph fontSize="small" tw="line-clamp-1">
+            <Paragraph color="gray" fontSize="small" tw="line-clamp-1">
               {post.subTitle}
             </Paragraph>
           </div>
