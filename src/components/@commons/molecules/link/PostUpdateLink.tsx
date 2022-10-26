@@ -1,4 +1,5 @@
 import LinkTo from "@Commons/atom/LinkTo";
+import Paragraph from "@Commons/atom/paragraph";
 import { EDIT } from "@Constants/button";
 
 import { GetPostDetailResponseDto } from "@til-log.lab/tilog-api";
@@ -14,9 +15,14 @@ const PostUpdateLink = ({ postId }: PostUpdateLinkProps) => {
         pathname: "/editor",
         query: { postId },
       }}
-      className="text-sm text-neutral-400 hover:text-neutral-500"
     >
-      {EDIT}
+      <Paragraph
+        fontSize="small"
+        color="gray"
+        tw="hover:text-neutral-600 hover:underline"
+      >
+        {EDIT}
+      </Paragraph>
     </LinkTo>
   );
 };
