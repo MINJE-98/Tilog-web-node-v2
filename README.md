@@ -73,12 +73,10 @@ Tailwind를 사용하여 모든 페이지를 모바일에 대응하도록 컴포
 [![search](https://static.tilog.link/search.png)](https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fwww.tilog.link%2Fsearch%3Fcategory%3DTypescript)
 
 # 프로젝트를 진행하면서 고민 했던 부분
+[OpenAPI Specification로 안전하게 백엔드에게 자원 요청하기](https://tilog.link/post/18)
 
-### [유저 인증](https://www.github.com/MINJE-98/login-template)
-<!-- ### SSR CSR? -->
-### [컴포넌트 구조 고민](https://www.tilog.link/post/19)
-<!-- ### 상태관리 툴 정하기 -->
-### [OpenAPI로 백엔드와 통신하기](https://www.tilog.link/post/18)
-<!-- ### Suspense, ErrorBoundary -->
-### [getInitialProps vs  getServerSideProps](https://www.tilog.link/post/16)
-<!-- ### Hydrate, Steaming이란? -->
+[컴포넌트 구조 생각해보기](https://tilog.link/editor?postId=19)
+
+[NextJS를 다루면서 그냥 지나쳤던 문제 되짚어보기](https://tilog.link/post/27)
+
+[우아하게 SSR하는 방법은 없을까?](https://tilog.link/post/65)
