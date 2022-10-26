@@ -52,13 +52,7 @@ Post별 각각의 OG-Image를 생성하여 반영합니다.
 ## 모바일 대응 UI
 Tailwind를 사용하여 모든 페이지를 모바일에 대응하도록 컴포넌트를 구현하였습니다.
 
-![화면 기록 2022-09-18 오후 5 05 48 mov](https://user-images.githubusercontent.com/56459078/190892452-82486924-1fab-4ae5-b55c-2369e4a469ad.gif)
-
-## 카테고리 기준 게시글 검색
-게시글의 # 테그가 붙은 카테고리를 입력하면 해당 카테고리의 글을 모아서 볼 수 있습니다.
-카테고리별 OG-Image를 생성하여 반영합니다.
-![image](https://user-images.githubusercontent.com/56459078/191526516-568dd8bd-6b53-43a8-8b5e-adadd6069f62.png)
-
+![화면 기록 2022-09-18 오후 5 05 48 mov](https://user-images.githubusercontent.com/56459078/190892452-82486924-1fab-4ae5-b55c-2369e4a469ad.
 
 ### 그밖의 기본 기능
 
