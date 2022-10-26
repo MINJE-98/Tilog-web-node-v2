@@ -24,6 +24,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { category } = context.query;
   if (!category) return { props: {} };
   if (Array.isArray(category)) return { props: {} };
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
 
   return {
     props: {
