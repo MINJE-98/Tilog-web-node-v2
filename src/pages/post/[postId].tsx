@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { DefaultSeo } from "next-seo";
 
 import api from "@Api/index";
+import withAuthServerSideProps from "@HOCS/withAuthGetServerSideProps";
 import RootBox from "@Layouts/box/RootBox";
 import PostDetail from "@Models/post";
 import { postDetailSeo } from "@SEO";
@@ -34,22 +35,22 @@ const PostDetailPage: NextPage<PostDetailPageProps> = ({
 };
 export default PostDetailPage;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { postId } = context.query;
-  if (!postId) return { props: {} };
-  if (Array.isArray(postId)) return { props: {} };
-  let post: GetPostDetailResponseDto;
-  try {
-    post = await api.postService.getPostDetail(postId);
-  } catch (error) {
-    return {
-      notFound: true,
-    };
+export const getServerSideProps: GetServerSideProps = withAuthServerSideProps(
+  async (context) => {
+    const { postId } = context.query;
+    if (!postId) return { props: {} };
+    if (Array.isArray(postId)) return { props: {} };
+    try {
+      const post = await api.postService.getPostDetail(postId);
+      return {
+        props: {
+          post,
+        },
+      };
+    } catch (error) {
+      return {
+        notFound: true,
+      };
+    }
   }
-
-  return {
-    props: {
-      post,
-    },
-  };
-};
+);
