@@ -25,12 +25,14 @@ const UserProfile = ({
       <UserAvatarImage size={40} avatar={avatar} />
 
       <div>
-        <LinkTo href={`/blog/${userName}`}>
-          <Paragraph color="black" fontSize="medium">
-            {userName}
-          </Paragraph>
-        </LinkTo>
-        {isPrivate && <LockIcon />}
+        <div tw="flex items-center">
+          <LinkTo href={`/blog/${userName}`}>
+            <Paragraph color="black" fontSize="medium">
+              {userName}
+            </Paragraph>
+          </LinkTo>
+          {isPrivate && <LockIcon />}
+        </div>
         {dateAndViewCount}
       </div>
     </div>
