@@ -9,7 +9,7 @@ import { Category } from "@Api/interface/model";
 const SearchPostList = dynamic(
   () => import("@Models/search/list/SearchPostList"),
   {
-    suspense: true,
+    ssr: false,
   }
 );
 

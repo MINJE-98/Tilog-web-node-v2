@@ -7,7 +7,7 @@ import CardTitle from "@Commons/molecules/title/CardTitle";
 const PopularPostList = dynamic(
   () => import("@Models/popular/list/PopularPostList"),
   {
-    suspense: true,
+    ssr: false,
   }
 );
 

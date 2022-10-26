@@ -4,7 +4,6 @@ import { AiFillPushpin } from "react-icons/ai";
 import { VscJson } from "react-icons/vsc";
 
 import Paragraph from "@Commons/atom/paragraph";
-import UserDetailProfile from "@Commons/molecules/profile/UserDetailProfile";
 import CardTitle from "@Commons/molecules/title/CardTitle";
 
 import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse";
@@ -15,18 +14,24 @@ import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse"
 //     ssr: false,
 //   }
 // );
+const UserDetailProfile = dynamic(
+  () => import("@Commons/molecules/profile/UserDetailProfile"),
+  {
+    ssr: false,
+  }
+);
 
 const PinnedRepoList = dynamic(
   () => import("@Models/blog/list/PinnedRepoList"),
   {
-    suspense: true,
+    ssr: false,
   }
 );
 
 const TopLanguageList = dynamic(
   () => import("@Models/blog/list/TopLanguageList"),
   {
-    suspense: true,
+    ssr: false,
   }
 );
 
@@ -38,7 +43,7 @@ const UserStatsSection = ({
   return (
     <div className="flex flex-col w-full space-y-10">
       <section className="order-1">
-        <UserDetailProfile userName={userInfo.name} />
+        <UserDetailProfile size={150} userName={userInfo.name} />
       </section>
 
       {/* <section className="order-3">

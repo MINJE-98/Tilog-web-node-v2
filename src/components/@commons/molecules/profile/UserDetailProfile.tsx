@@ -9,15 +9,16 @@ import GetUserProfileResponse from "@Api/users/interface/getUserProfileResponse"
 
 interface UserDetailProfileProps {
   userName: GetUserProfileResponse["name"];
+  size: number;
 }
 
-const UserDetailProfile = ({ userName }: UserDetailProfileProps) => {
+const UserDetailProfile = ({ userName, size }: UserDetailProfileProps) => {
   const { data } = useGetUserProfile(userName);
   if (!data) return null;
   return (
     <>
       <div className="flex">
-        <UserAvatarImage size={160} avatar={data.avatar} />
+        <UserAvatarImage size={size} avatar={data.avatar} />
 
         <div className="ml-5">
           <LinkTo href={`https://www.github.com/${data.name}`} target="_blank">

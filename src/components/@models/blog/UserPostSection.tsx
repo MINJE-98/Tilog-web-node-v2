@@ -3,10 +3,11 @@ import dynamic from "next/dynamic";
 import { Category, Users } from "@Api/interface/model";
 
 const BlogCategorySortButtonList = dynamic(
-  () => import("@Models/blog/list/BlogCategorySortButtonList")
+  () => import("@Models/blog/list/BlogCategorySortButtonList"),
+  { ssr: false }
 );
 const BlogPostList = dynamic(() => import("@Models/blog/list/BlogPostList"), {
-  suspense: true,
+  ssr: false,
 });
 
 interface UserPostSectionProps {

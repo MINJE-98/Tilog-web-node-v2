@@ -11,7 +11,7 @@ const PostAuthorDetail = ({ username }: PostAuthorDetailProps) => {
   return (
     <div tw="mt-20 rounded md:mt-0 bg-neutral-100 dark:bg-neutral-800">
       <div tw="w-full p-5">
-        <UserDetailProfile userName={username} />
+        <UserDetailProfile size={100} userName={username} />
         <UserBlogLink userName={username} />
       </div>
     </div>
