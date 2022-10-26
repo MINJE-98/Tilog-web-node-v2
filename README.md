@@ -22,6 +22,7 @@ TILog Service는 자신의 깃허브 정보를 바탕으로 자신이 사용하�
 <img src="https://img.shields.io/badge/Next-black?style=flat-square&logo=next.js&logoColor=white"/>
 <img src="https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=Tailwind%20CSS&logoColor=white"/>
 <img src="https://img.shields.io/badge/React%20Query-FF4154?style=flat-square&logo=React%20Query&logoColor=white"/>
+ <img src="https://img.shields.io/badge/Emotion-FF4154?style=flat-square&logoColor=white" />
 
 # 피그마
 
