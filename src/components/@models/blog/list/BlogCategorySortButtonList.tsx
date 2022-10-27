@@ -10,7 +10,7 @@ const BlogCategorySortButtonList = ({
 }: {
   category: Category["categoryName"];
 }) => {
-  const { data } = useGetCategories({});
+  const { data } = useGetCategories({ suspense: true, useErrorBoundary: true });
   if (!data) return null;
   if (isArrayEmpty(data.list)) return null;
   return <CategorySortButtonList category={category} categoryList={data} />;

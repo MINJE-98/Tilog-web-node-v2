@@ -10,7 +10,11 @@ interface UserGetCategoriesProps {
   suspense?: boolean;
   useErrorBoundary?: boolean;
 }
-const useGetCategories = ({ categoryName }: UserGetCategoriesProps) => {
+const useGetCategories = ({
+  categoryName,
+  suspense = false,
+  useErrorBoundary = false,
+}: UserGetCategoriesProps) => {
   return useQuery(
     categoryQueryKeys.categoryName(categoryName),
     () => api.categoryService.getCategories(categoryName),
@@ -19,8 +23,8 @@ const useGetCategories = ({ categoryName }: UserGetCategoriesProps) => {
       refetchOnWindowFocus: false,
       refetchInterval: false,
       retryOnMount: false,
-      suspense: true,
-      useErrorBoundary: true,
+      suspense,
+      useErrorBoundary,
     }
   );
 };
