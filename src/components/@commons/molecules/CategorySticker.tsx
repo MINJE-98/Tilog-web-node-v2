@@ -1,5 +1,3 @@
-import tw from "twin.macro";
-
 import Paragraph from "@Commons/atom/paragraph";
 import RenderTechIcons from "@Commons/molecules/tech-icons/RenderTechIcons";
 
