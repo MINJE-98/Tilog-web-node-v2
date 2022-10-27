@@ -24,20 +24,23 @@ const CategorySticker = ({
       <div className="text-xl">
         <RenderTechIcons categoryName={categoryName} />
       </div>
-      <Paragraph
-        color="black"
-        fontSize="medium"
-        css={[
-          tw`mt-[2px] font-semibold text-base`,
-          `${
-            isSelected
-              ? tw`text-neutral-50 dark:text-neutral-800`
-              : tw`text-neutral-800 dark:text-neutral-50`
-          }`,
-        ]}
-      >
-        {categoryName}
-      </Paragraph>
+      {isSelected ? (
+        <Paragraph
+          color="white"
+          fontSize="medium"
+          tw="mt-[2px] font-semibold text-base"
+        >
+          {categoryName}
+        </Paragraph>
+      ) : (
+        <Paragraph
+          color="black"
+          fontSize="medium"
+          tw="mt-[2px] font-semibold text-base"
+        >
+          {categoryName}
+        </Paragraph>
+      )}
     </div>
   );
 };
