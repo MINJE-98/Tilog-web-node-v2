@@ -1,4 +1,4 @@
-import Anchor from "@Commons/atom/anchor";
+import Paragraph from "@Commons/atom/paragraph";
 
 interface LogoutButtonProps {
   children: string;
@@ -8,7 +8,9 @@ interface LogoutButtonProps {
 const LogoutButton = ({ children, onClick }: LogoutButtonProps) => {
   return (
     <button tw="block px-4 py-2" type="button" onClick={onClick}>
-      <Anchor>{children}</Anchor>
+      <Paragraph color="black" fontSize="medium">
+        {children}
+      </Paragraph>
     </button>
   );
 };
