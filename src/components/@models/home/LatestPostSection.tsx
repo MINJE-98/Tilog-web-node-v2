@@ -17,7 +17,7 @@ const LatestPostSection = () => {
       <CardTitle
         Icon={<NewIcon />}
         cardTitle={
-          <Paragraph color="gray" fontSize="large">
+          <Paragraph color="black" fontSize="large">
             TILog의 최신 포스트
           </Paragraph>
         }

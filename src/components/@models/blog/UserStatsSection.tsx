@@ -74,12 +74,12 @@ const UserStatsSection = ({
       <section className="order-5">
         <CardTitle
           Icon={
-            <Paragraph color="gray" fontSize="large">
+            <Paragraph color="black" fontSize="large">
               <AiFillPushpin />
             </Paragraph>
           }
           cardTitle={
-            <Paragraph color="gray" fontSize="large">
+            <Paragraph color="black" fontSize="large">
               Pinned Repositories
             </Paragraph>
           }

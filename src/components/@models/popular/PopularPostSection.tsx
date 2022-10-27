@@ -16,7 +16,7 @@ const PopularPostSection = () => {
     <section>
       <CardTitle
         cardTitle={
-          <Paragraph color="gray" fontSize="large">
+          <Paragraph color="black" fontSize="large">
             TILog에서 가장 인기있는 포스트
           </Paragraph>
         }
