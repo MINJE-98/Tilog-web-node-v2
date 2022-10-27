@@ -33,7 +33,7 @@ const PostCard = ({ post }: { post: GetPostsItem }) => {
           isPrivate={post.private === 1}
           dateAndViewCount={
             <div tw="flex items-center space-x-1">
-              <DateFnsFormatter tw="md:text-xs" date={post.createdAt} />
+              <DateFnsFormatter date={post.createdAt} />
               <VscCircleFilled tw="text-[6px] dark:text-neutral-500 text-neutral-400" />
               <Paragraph color="gray" fontSize="small">
                 {VIEW_COUNT} {post.view}
