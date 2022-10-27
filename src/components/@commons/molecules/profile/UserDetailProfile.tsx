@@ -1,5 +1,5 @@
+import Anchor from "@Commons/atom/anchor";
 import Heading from "@Commons/atom/heading";
-import LinkTo from "@Commons/atom/LinkTo";
 import Paragraph from "@Commons/atom/paragraph";
 import UserAvatarImage from "@Commons/molecules/images/UserAvatarImage";
 import withSuspenseAndErrorBoundary from "@HOCS/withSuspenseAndErrorBoundary";
@@ -21,17 +21,17 @@ const UserDetailProfile = ({ userName, size }: UserDetailProfileProps) => {
         <UserAvatarImage size={size} avatar={data.avatar} />
 
         <div className="ml-5">
-          <LinkTo href={`https://www.github.com/${data.name}`} target="_blank">
-            <Paragraph color="gray" fontSize="medium">
+          <Anchor href={`https://www.github.com/${data.name}`} target="_blank">
+            <Paragraph color="gray" fontSize="small">
               @{data.name}
             </Paragraph>
-          </LinkTo>
+          </Anchor>
 
-          <LinkTo href={`mailto:${data.settings.EMAIL}`}>
-            <Paragraph color="gray" fontSize="medium">
+          <Anchor href={`mailto:${data.settings.EMAIL}`}>
+            <Paragraph color="gray" fontSize="small">
               {data.settings.EMAIL}
             </Paragraph>
-          </LinkTo>
+          </Anchor>
 
           <Heading level={2} className="line-clamp-1">
             {data.settings.DISPLAY_NAME
