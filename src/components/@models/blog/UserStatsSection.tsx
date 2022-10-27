@@ -58,12 +58,12 @@ const UserStatsSection = ({
       <section className="order-4">
         <CardTitle
           Icon={
-            <Paragraph color="gray" fontSize="large">
+            <Paragraph color="black" fontSize="large">
               <VscJson />
             </Paragraph>
           }
           cardTitle={
-            <Paragraph color="gray" fontSize="large">
+            <Paragraph color="black" fontSize="large">
               Top Languages
             </Paragraph>
           }
